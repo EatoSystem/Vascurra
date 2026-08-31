@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel/
+
+# test coverage
+coverage/
+
+# local artifacts
+.tmp/
+tmp/
