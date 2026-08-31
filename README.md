@@ -38,6 +38,36 @@ Start with [`docs/README.md`](docs/README.md). The most important implementation
 - [`docs/technical/architecture.md`](docs/technical/architecture.md)
 - [`docs/development/phase-1-implementation-plan.md`](docs/development/phase-1-implementation-plan.md)
 
+## Local development
+
+The Phase 1A public holding page is a Next.js App Router application at the
+repository root.
+
+```bash
+npm install     # install dependencies
+npm run dev     # start the dev server on http://localhost:3000
+```
+
+Checks, all of which must pass before a pull request:
+
+```bash
+npm run lint        # ESLint (next/core-web-vitals + next/typescript)
+npm run typecheck   # tsc --noEmit, strict mode
+npm test            # Vitest — includes the public-copy claims guardrail
+npm run build       # production build
+```
+
+`npm test` runs `content/home.test.ts`, which fails the build if prohibited
+healthcare-claim language from [`AGENTS.md`](AGENTS.md) §3 appears in public
+copy. If it fails, fix the copy — do not extend the allowlist without a
+product decision.
+
+Requires Node 20.9+. No environment variables, database or external services
+are needed: the site is fully static and collects no data.
+
+See [`docs/development/phase-1a-holding-page.md`](docs/development/phase-1a-holding-page.md)
+for what Phase 1A contains and where the deliberate placeholders are.
+
 ## Development approach
 
 Recommended workflow:
