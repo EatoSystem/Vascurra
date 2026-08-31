@@ -127,3 +127,20 @@ page.
 
 **Implications:** All other stages follow the specified order in
 `docs/brand/motion-guidelines.md`.
+
+### 2026-08-31 — Vercel framework preset pinned in `vercel.json`
+
+**Decision:** Commit `vercel.json` declaring `framework: "nextjs"`.
+
+**Why:** The Vercel project predates the application, so it had no framework to
+detect and defaulted to a static preset expecting a `public/` output directory.
+Deploys failed with "No Output Directory named public found" despite a
+successful `next build`.
+
+**Alternatives considered:** Creating an empty `public/` directory — rejected,
+because it would produce a deploy that succeeds while serving nothing.
+Dashboard-only configuration — rejected as the sole fix, because it is
+invisible to the repository and lost if the project is recreated.
+
+**Implications:** Build configuration now lives in version control. A dashboard
+Output Directory override, if one is set, must still be cleared manually.

@@ -144,6 +144,25 @@ Verified in Chromium with axe-core: **0 violations** at 375px and 1280px.
 - No horizontal scrolling at 320–1440px, or at 200% zoom.
 - Anchor targets clear the sticky header via `scroll-padding-top`.
 
+## Deployment
+
+`vercel.json` declares `framework: "nextjs"`. This is required, not decorative:
+the Vercel project was created while this repository contained documentation
+only, so it had no application to detect and defaulted to a static-site preset
+looking for a `public/` output directory. That made the first deploy fail with
+*"No Output Directory named \"public\" found after the Build completed"* even
+though `next build` had succeeded.
+
+Next.js does not produce a `public/` directory — `public/` is an *input* folder
+for static assets, and the build output goes to `.next/`, which Vercel consumes
+through its Build Output API. Creating an empty `public/` would turn a broken
+build into a worse one: a deploy that "succeeds" and serves nothing.
+
+If a deploy still fails after this, the project's dashboard settings carry an
+explicit override that `vercel.json` does not clear. In Vercel → Project
+Settings → Build & Deployment, set Framework Preset to **Next.js** and clear
+any Output Directory override so it falls back to the framework default.
+
 ## Known limitations
 
 1. The brand mark is a labelled placeholder — the page will look unfinished at
