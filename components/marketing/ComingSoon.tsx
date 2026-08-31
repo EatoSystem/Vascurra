@@ -1,55 +1,65 @@
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { BrandReveal } from "@/components/motion/BrandReveal";
+import { BrainMark } from "@/components/brand/BrainMark";
+import { BrainField } from "@/components/motion/BrainField";
+import { BloomField } from "@/components/motion/BloomField";
+import { Reveal } from "@/components/motion/Reveal";
 import { comingSoon, hero } from "@/content/home";
 import { sectionIds } from "@/content/site";
 
 /**
- * Phase 1A collects nothing.
+ * The closing frame. The brain returns centred in a deeper bloom as the page's
+ * vascular light converges back into it.
  *
- * The email capture described in the Phase 1A brief (field, button, consent
- * line) is deliberately omitted: no email service is configured, and building
- * a form that appears to subscribe someone while storing nothing would be
- * dishonest. See docs/development/phase-1a-holding-page.md for the agreed
- * integration point when this is picked up.
+ * Phase 1A collects nothing: the email capture described in the brief is
+ * deliberately omitted because no email service is configured, and a form that
+ * appears to subscribe someone while storing nothing would be dishonest. The
+ * call to action is therefore in-page, not a link to a service that does not
+ * exist. See docs/development/phase-1a-holding-page.md for the integration
+ * point when this is picked up.
+ *
+ * There is deliberately no call-to-action button here: "Follow the journey" in
+ * the header and hero anchors to this section, so a button in this section
+ * could only link to itself. The label reappears once there is somewhere for it
+ * to go.
  */
 export function ComingSoon() {
   return (
     <section
       id={sectionIds.comingSoon}
       aria-labelledby="coming-soon-heading"
-      className="relative overflow-hidden border-t border-hairline py-24 sm:py-32"
+      className="relative flex min-h-[88svh] items-center overflow-hidden py-28 sm:py-32"
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_110%,color-mix(in_srgb,var(--color-cyan-400)_14%,transparent),transparent_68%)]"
+      <BloomField
+        tone="dual"
+        intensity={28}
+        className="inset-x-[-25%] top-[-5%] h-[115%]"
       />
 
       <Container>
-        <div className="grid items-center gap-14 lg:grid-cols-[1fr_0.8fr] lg:gap-20">
-          <div>
+        <div className="flex flex-col items-center text-center">
+          <div className="relative flex items-center justify-center">
+            <BrainField className="absolute inset-[-30%] h-[160%] w-[160%]" />
+            <BrainMark slot="closing" alt="" className="relative" />
+          </div>
+
+          <Reveal delay={80} className="mt-14 flex flex-col items-center">
             <Badge>{hero.badge}</Badge>
 
-            <h2
-              id="coming-soon-heading"
-              className="mt-8 text-[2.5rem] leading-[1.08] font-semibold sm:text-5xl lg:text-6xl"
-            >
+            <h2 id="coming-soon-heading" className="type-display mt-8 max-w-4xl">
               <span className="text-gradient">{comingSoon.heading}</span>
             </h2>
 
+            <p className="type-lead mt-7 max-w-2xl font-medium text-navy">
+              {comingSoon.statement}
+            </p>
+
             {comingSoon.body.map((paragraph) => (
-              <p key={paragraph} className="mt-6 max-w-2xl text-lg text-navy-700">
+              <p key={paragraph} className="mt-6 max-w-2xl text-ink-body">
                 {paragraph}
               </p>
             ))}
-          </div>
-
-          <div className="order-first lg:order-last">
-            <BrandReveal
-              size="compact"
-              className="mx-auto aspect-square w-full max-w-md"
-            />
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

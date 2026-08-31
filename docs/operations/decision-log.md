@@ -144,3 +144,83 @@ invisible to the repository and lost if the project is recreated.
 
 **Implications:** Build configuration now lives in version control. A dashboard
 Output Directory override, if one is set, must still be cleared manually.
+
+---
+
+## Phase 1A visual redesign
+
+### 2026-08-31 — First visual draft rejected; page rebuilt around the brand mark
+
+**Decision:** Keep the engineering, accessibility work, approved copy and claims
+guardrail from the first Phase 1A build, and redesign the visual experience.
+
+**Why:** The first draft was structurally competent but read as a generic SaaS
+holding page: every concept was a white rounded rectangle, all seven sections
+shared the same vertical rhythm, colour was applied as pale tint rather than as
+light, and the brand mark occupied roughly 12% of the hero with the vascular
+field hidden behind it.
+
+**Implications:** `Card` and `Section` were removed as default wrappers, the four
+perspectives became a radial system around the mark, and the five principles
+became a journey along a flowing spine. Content is now connected by vascular
+lines rather than separated by boxes.
+
+### 2026-08-31 — Brand palette is split into an energy tier and an ink tier
+
+**Decision:** Use the `high-resolution-web-asset-pack-specification.md` §12 tokens
+exactly as written for decorative light (bloom, glow, ribbons, particles, nodes),
+and a hue-preserving darkened set for all text including the display gradient.
+
+**Why:** Measured against the soft-white canvas, the spec's cyan (`#43D6FF`,
+1.64:1) and mint (`#2ECC9A`, 1.97:1) fail even the 3:1 large-text floor when used
+as text. §12 states the tokens are production starting points that may be tuned,
+§17 requires accessibility, and `brand-guidelines.md` says never sacrifice
+readability for glow.
+
+**Alternatives considered:** Using the tokens literally for gradient headings —
+rejected as inaccessible. Abandoning the gradient — rejected as off-brand.
+
+**Implications:** The page reads luminous because the energy tier carries the
+light, while every text node passes AA. `--color-ink-teal` was subsequently
+darkened again (`#007F8D` -> `#00707C`) after measurement showed 4.45:1 on the
+footer's deeper ground. Tokens are verified against the grounds they sit on.
+
+### 2026-08-31 — Hero engineered for the pending high-resolution master
+
+**Decision:** Build the hero for 600-800 CSS px of brain artwork and show a
+clearly labelled temporary placeholder at those dimensions, rather than scaling
+the composition down to suit the committed 141x144 derivative.
+
+**Why:** Spec §2 and §20 forbid using a low-resolution derivative at hero scale;
+§15 requires 42-50vw on desktop, which would need a 4-8x upscale of the current
+file. §21 directs that a missing asset should not weaken the visual
+architecture.
+
+**Implications:** The swap is confined to `BRAIN_MASTERS_AVAILABLE` in
+`components/brand/brain-assets.ts` and causes no layout shift. The approved
+derivative is used at 36px in the header and 28px in the footer, which is
+downscaling at DPR 2 rather than upscaling.
+
+### 2026-08-31 — Scroll reveals are gated on `(scripting: enabled)`
+
+**Decision:** Wrap the `[data-reveal]` rules in `@media (scripting: enabled)`.
+
+**Why:** Those rules start content at `opacity: 0`. Applied unconditionally, a
+JavaScript failure or a browser with JS disabled would render a blank page. This
+was caught during verification when a full-page capture showed every scroll-
+revealed section invisible.
+
+**Implications:** Without scripting the reveal simply never applies and all
+content shows immediately, which is the correct failure mode. No content on the
+page is reachable only through motion.
+
+### 2026-08-31 — Coming Soon carries no call-to-action button
+
+**Decision:** Omit the `Follow the journey` button from the closing section.
+
+**Why:** With email capture deferred, "Follow the journey" in the header and hero
+anchors *to* the Coming Soon section, so a button inside that section could only
+link to itself.
+
+**Implications:** The label returns to the closing section once there is a
+destination — an email capture or a channel to follow.

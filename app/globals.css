@@ -1,98 +1,114 @@
 @import "tailwindcss";
 
-/* ---------------------------------------------------------------------------
+/* ===========================================================================
    Vascurra design tokens
-   Source of truth: docs/brand/brand-guidelines.md
 
-   Contrast policy: every colour used for text — including every stop of the
-   display gradient — is verified at >= 4.5:1 against --color-canvas, which is
-   stricter than the 3:1 WCAG threshold for large text. Lighter values exist
-   only for decorative, non-informational layers.
-   --------------------------------------------------------------------------- */
+   Source of truth:
+     docs/brand/high-resolution-web-asset-pack-specification.md §12, §13
+     docs/brand/brand-guidelines.md
+
+   THE PALETTE IS SPLIT BY ROLE.
+
+   Spec §12 recommends the display gradient mint -> teal -> cyan -> deep blue.
+   Measured as *text* against the soft-white canvas, two of those four stops
+   fail even the 3:1 large-text floor (cyan 1.64:1, mint 1.97:1). §12 states the
+   tokens are "production starting points and may be tuned", §17 requires
+   accessibility, and brand-guidelines.md says never sacrifice readability for
+   glow. So:
+
+     ENERGY tier  - the spec values, exactly as written. Decorative only:
+                    bloom, glow, ribbons, particles, node fills, brain halo.
+                    No contrast constraint applies to any of it.
+
+     INK tier     - hue-preserving darkenings of the same colours, every one
+                    >= 4.5:1 on the canvas where large display text needs 3:1.
+                    All text, including the display gradient.
+
+   Luminosity comes from the energy tier. Legibility comes from the ink tier.
+   Body copy is always solid navy.
+   =========================================================================== */
 
 @theme {
-  /* Canvas and surfaces */
-  --color-canvas: #f6f9fc;
-  --color-canvas-deep: #eef4f9;
+  /* --- Ground ---------------------------------------------------------- */
+  --color-canvas: #f7fbfd;        /* spec: --vascurra-soft-white */
+  --color-canvas-deep: #eef6fa;
   --color-surface: #ffffff;
-  --color-hairline: #d9e5ef;
-  --color-hairline-strong: #bed0e0;
+  --color-hairline: #d7e6ef;
+  --color-hairline-strong: #b9d2e1;
 
-  /* Navy — body copy and authority (16.6:1 / 11.0:1 / 8.0:1 on canvas) */
-  --color-navy-900: #071a2f;
-  --color-navy-800: #0c2540;
-  --color-navy-700: #1b3a5c;
-  --color-navy-600: #2e4f73;
+  /* --- Ink tier: text only --------------------------------------------- */
+  --color-navy: #0b2b4a;          /* spec: --vascurra-navy, 13.83:1 */
+  --color-navy-soft: #234a6e;
+  --color-ink-body: #1c3f60;
+  --color-ink-muted: #3a5f80;
+  --color-ink-mint: #1a8362;      /* 4.53:1 */
+  --color-ink-teal: #00707c;      /* 5.59:1 on canvas, 5.45:1 on the footer ground */
+  --color-ink-cyan: #007da0;      /* 4.53:1 */
+  --color-ink-blue: #0a4f8f;      /* spec: --vascurra-deep-blue, 7.98:1 */
 
-  /* Accent family — text-safe weights (>= 4.5:1 on canvas) */
-  --color-mint-700: #067a5b;
-  --color-teal-700: #0a6b75;
-  --color-cyan-700: #0b6e96;
-  --color-blue-800: #10346b;
+  /* --- Energy tier: decorative only ------------------------------------ */
+  --color-energy-teal: #0097a7;   /* spec: --vascurra-teal */
+  --color-energy-cyan: #43d6ff;   /* spec: --vascurra-cyan */
+  --color-energy-mint: #2ecc9a;   /* spec: --vascurra-mint */
+  --color-energy-blue: #0a4f8f;
 
-  /* Accent family — decorative weights, never used for text */
-  --color-mint-400: #34d3a0;
-  --color-teal-400: #2bb8c6;
-  --color-cyan-400: #38bdf0;
-
-  /* Typography */
+  /* --- Type ------------------------------------------------------------- */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  /* Motion timing — see docs/brand/motion-guidelines.md */
+  /* --- Motion ----------------------------------------------------------- */
   --ease-organic: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* ---------------------------------------------------------------------------
+/* ===========================================================================
    Base
-   --------------------------------------------------------------------------- */
+   =========================================================================== */
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Anchor targets clear the sticky header. */
     scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: var(--color-canvas);
-    color: var(--color-navy-700);
+    color: var(--color-ink-body);
     font-family: var(--font-sans);
-    /* Generous base size for readers who may experience cognitive change. */
     font-size: 1.125rem;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* The luminous field is composed of absolutely positioned bloom layers
+       that intentionally bleed past section edges. */
+    overflow-x: hidden;
   }
 
   @media (min-width: 768px) {
     body {
-      font-size: 1.1875rem;
+      font-size: 1.25rem;
     }
   }
 
   h1,
   h2,
   h3 {
-    color: var(--color-navy-900);
+    color: var(--color-navy);
     text-wrap: balance;
-    line-height: 1.12;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
   }
 
   p {
     text-wrap: pretty;
   }
 
-  /* Visible, high-contrast focus on every interactive element. */
   :focus-visible {
-    outline: 3px solid var(--color-cyan-700);
+    outline: 3px solid var(--color-ink-cyan);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  /* Only remove the default ring where :focus-visible is supported. */
   @supports selector(:focus-visible) {
     :focus:not(:focus-visible) {
       outline: none;
@@ -100,35 +116,33 @@
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-teal-400) 30%, transparent);
-    color: var(--color-navy-900);
+    background-color: color-mix(in srgb, var(--color-energy-cyan) 28%, transparent);
+    color: var(--color-navy);
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Display gradient
-   mint -> teal -> cyan -> deep blue, per brand-guidelines.md.
-   Solid navy is painted first so the text is legible if background-clip fails,
-   in forced-colors mode, or when the gradient cannot render.
-   --------------------------------------------------------------------------- */
+/* ===========================================================================
+   Display gradient — ink tier only
+   Solid navy is painted first so the text stays legible if background-clip
+   fails, in forced-colors mode, or before the gradient resolves.
+   =========================================================================== */
 
 .text-gradient {
-  color: var(--color-navy-900);
+  color: var(--color-navy);
 }
 
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .text-gradient {
     background-image: linear-gradient(
-      100deg,
-      var(--color-mint-700) 0%,
-      var(--color-teal-700) 34%,
-      var(--color-cyan-700) 64%,
-      var(--color-blue-800) 100%
+      104deg,
+      var(--color-ink-mint) 0%,
+      var(--color-ink-teal) 32%,
+      var(--color-ink-cyan) 60%,
+      var(--color-ink-blue) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    /* Keeps descenders from being clipped by the text box. */
     padding-bottom: 0.08em;
   }
 }
@@ -141,112 +155,105 @@
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Signature brand reveal
-   Pure CSS/SVG choreography — no JavaScript, no animation library.
-   Stage order follows docs/brand/motion-guidelines.md (Gather, Connect, Grow,
-   Form, Ignite, Reveal) across roughly 4.5s.
+/* ===========================================================================
+   Editorial type scale
+   Wide jumps so hierarchy is unmistakable. Hero and the philosophy moment sit
+   at the top of the scale; connective sections step well down.
+   =========================================================================== */
 
-   The hero heading is deliberately NOT held back to the end of the sequence:
-   delaying the largest text by four seconds would regress LCP and read as a
-   broken page. It resolves early while the mark sequence continues behind it.
-   --------------------------------------------------------------------------- */
+.type-display {
+  font-size: clamp(2.375rem, 5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.038em;
+}
+
+.type-display-xl {
+  font-size: clamp(2.75rem, 7vw, 6.25rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.042em;
+}
+
+.type-section {
+  font-size: clamp(1.875rem, 3.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+}
+
+.type-lead {
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  line-height: 1.55;
+}
+
+/* ===========================================================================
+   Signature reveal — pure CSS/SVG, no animation library, no JavaScript.
+
+   Stage order follows spec §10 and docs/brand/motion-guidelines.md across
+   roughly 5s: particles gather, branches emerge, ribbons flow, the approved
+   brain resolves, nodes illuminate, a pulse travels, the mark settles.
+
+   Hero copy is deliberately NOT held to the end of that sequence: §14 forbids
+   the hero blocking LCP, and delaying the largest text by five seconds would
+   regress it badly. Copy resolves at 0.15-0.8s while the mark sequence runs.
+   =========================================================================== */
 
 @keyframes v-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(0.75rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(1rem); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes v-gather {
-  from {
-    opacity: 0;
-    transform: translate3d(var(--v-dx, 0), var(--v-dy, 0), 0) scale(0.6);
-  }
-  to {
-    opacity: var(--v-opacity, 0.75);
-    transform: translate3d(0, 0, 0) scale(1);
-  }
+  from { opacity: 0; transform: translate3d(var(--v-dx, 0), var(--v-dy, 0), 0) scale(0.55); }
+  to   { opacity: var(--v-opacity, 0.7); transform: translate3d(0, 0, 0) scale(1); }
 }
 
 /* Paths carry pathLength="1", so the draw is exact regardless of geometry. */
 @keyframes v-draw {
-  from {
-    stroke-dashoffset: 1;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
+  from { stroke-dashoffset: 1; opacity: 0; }
+  18%  { opacity: 1; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
 }
 
 @keyframes v-ribbon {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
-  to {
-    opacity: var(--v-opacity, 0.5);
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: var(--v-opacity, 0.5); transform: scale(1); }
 }
 
 @keyframes v-resolve {
-  from {
-    opacity: 0;
-    filter: blur(10px);
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: scale(1);
-  }
+  from { opacity: 0; filter: blur(14px); transform: scale(0.965); }
+  to   { opacity: 1; filter: blur(0); transform: scale(1); }
 }
 
 @keyframes v-ignite {
-  from {
-    opacity: 0;
-    r: var(--v-r-min, 2);
-  }
-  60% {
-    opacity: 1;
-    r: var(--v-r-max, 4);
-  }
-  to {
-    opacity: 0.85;
-    r: var(--v-r-min, 2);
-  }
+  from { opacity: 0; r: var(--v-r-min, 2); }
+  62%  { opacity: 1; r: var(--v-r-max, 4); }
+  to   { opacity: 0.85; r: var(--v-r-min, 2); }
 }
 
-/* Ambient loop — a slow breath, never a spin. */
+@keyframes v-bloom-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: var(--v-opacity, 1); transform: scale(1); }
+}
+
+/* Ambient loop — spec §10: breathing scale of 1-2% maximum, no rotation. */
 @keyframes v-breathe {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.9;
-  }
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.015); }
 }
 
-@keyframes v-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -0.5%, 0);
-  }
+@keyframes v-node-glow {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.95; }
+}
+
+/* A soft pulse travelling the network, once the branches exist. */
+@keyframes v-pulse-travel {
+  from { stroke-dashoffset: 1; opacity: 0; }
+  12%  { opacity: 0.85; }
+  88%  { opacity: 0.85; }
+  to   { stroke-dashoffset: -1; opacity: 0; }
 }
 
 .v-anim {
@@ -256,10 +263,60 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Reduced motion
-   Everything resolves instantly to its finished state. Nothing is lost, and
-   because this is CSS-only there is no flash of an unanimated frame first.
+   Scroll-revealed connectors.
+   The shared <Reveal> client component adds data-revealed="true" when the
+   element enters the viewport. Without JavaScript, or under reduced motion,
+   content is simply already visible — nothing is gated behind motion (§17).
    --------------------------------------------------------------------------- */
+
+/* Gated on (scripting: enabled) deliberately. These rules start content at
+   opacity 0, so if they applied without JavaScript the page would be blank.
+   A browser with JS disabled — or one too old to support the media feature —
+   simply never applies them and shows everything immediately, which is the
+   correct failure mode. Nothing on this page is reachable only via motion. */
+@media (scripting: enabled) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity 0.85s var(--ease-organic),
+      transform 0.85s var(--ease-organic);
+    transition-delay: var(--v-delay, 0ms);
+  }
+
+  [data-reveal][data-revealed="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal-draw] {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.6s var(--ease-organic);
+    transition-delay: var(--v-delay, 0ms);
+  }
+
+  [data-reveal-draw][data-revealed="true"] {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Belt and braces: if the observer never runs for any reason, content is
+   still shown rather than left hidden. */
+@media (scripting: none), (scripting: initial-only) {
+  [data-reveal],
+  [data-reveal-draw] {
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ===========================================================================
+   Reduced motion — spec §14
+   Skip the reveal, show the final state immediately, no parallax, no repeated
+   pulse, all content preserved. CSS-only, so there is no unanimated flash.
+   =========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -273,6 +330,7 @@
     animation-iteration-count: 1 !important;
     animation-delay: 0ms !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
   }
 
   .v-anim,
@@ -280,6 +338,15 @@
     opacity: var(--v-opacity, 1) !important;
     transform: none !important;
     filter: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-reveal-draw] {
     stroke-dashoffset: 0 !important;
   }
 }

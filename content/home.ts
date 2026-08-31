@@ -23,10 +23,20 @@ export const hero = {
 } as const;
 
 export const projectIntro = {
-  heading: "A different way to think about cognitive support.",
+  heading: "Cognition doesn't change in isolation.",
+  /** Rendered as luminous nodes strung along a connecting vascular line. */
+  dimensions: [
+    "Health",
+    "Memory",
+    "Movement",
+    "Routine",
+    "Confidence",
+    "Family",
+  ],
+  connective: "They are connected over time.",
   body: "Cognitive change affects far more than memory. It can affect routines, confidence, independence, relationships and the ability to make sense of health information over time.",
   question:
-    "How can AI support what a person can still do — rather than simply measuring what has been lost?",
+    "What if AI could help us understand that changing picture — while supporting the person at its centre?",
   closing:
     "Vascurra is being developed around the idea that technology should support independence, preserve identity and help people, families and clinicians understand meaningful change over time.",
 } as const;
@@ -34,6 +44,7 @@ export const projectIntro = {
 export type Perspective = {
   readonly id: string;
   readonly name: string;
+  readonly branch: string;
   readonly summary: string;
   readonly body: string;
 };
@@ -44,24 +55,28 @@ export const perspectives = {
     {
       id: "personal",
       name: "Personal",
+      branch: "Everyday support",
       summary: "Support for everyday life.",
       body: "A future voice-first experience exploring routines, orientation, memory scaffolding, understanding and preparation — designed around the individual.",
     },
     {
       id: "family",
       name: "Family",
+      branch: "Connected understanding",
       summary: "Support without surveillance.",
       body: "Helping families understand meaningful change, coordinate appropriately and remain connected while respecting the person's choices.",
     },
     {
       id: "clinical",
       name: "Clinical",
+      branch: "Better context",
       summary: "Better context for better conversations.",
       body: "Exploring how longitudinal information could become concise, source-linked context for clinical conversations.",
     },
     {
       id: "research",
       name: "Research",
+      branch: "Responsible discovery",
       summary: "Learning responsibly.",
       body: "A future evidence and research layer designed around consent, governance and scientific integrity.",
     },
@@ -73,6 +88,7 @@ export const philosophy = {
   headingLines: ["Don't replace capability.", "Support it."],
   /** Shown as an ordered list so the progression is carried by markup, not by arrows alone. */
   steps: ["Recall", "Hint", "Guide", "Answer"],
+  principle: "Start with what the person can do. Add support only when it helps.",
   body: "Vascurra's proposed approach starts with the least assistance necessary and progressively offers more support when it is wanted.",
 } as const;
 
@@ -113,8 +129,31 @@ export const principles = {
   ] satisfies readonly Principle[],
 } as const;
 
+export type TrustTheme = {
+  readonly id: string;
+  readonly name: string;
+  readonly body: string;
+};
+
 export const projectStatus = {
-  heading: "Built carefully from the beginning.",
+  heading: "Ambitious in vision. Careful in development.",
+  themes: [
+    {
+      id: "human-judgement",
+      name: "Human judgement remains central",
+      body: "AI can organise and explain. People and clinicians make the decisions that matter.",
+    },
+    {
+      id: "privacy",
+      name: "Privacy designed from the beginning",
+      body: "How information is used should be understandable and controllable by the people it belongs to.",
+    },
+    {
+      id: "evidence",
+      name: "Evidence before clinical claims",
+      body: "Product ambition must not outrun what has actually been shown.",
+    },
+  ] satisfies readonly TrustTheme[],
   lead: "Vascurra is currently a project in development.",
   boundaries:
     "It is not currently a diagnostic tool, treatment system or medical device. It does not diagnose vascular dementia, predict stroke, recommend medication changes or provide emergency medical care.",
@@ -124,6 +163,7 @@ export const projectStatus = {
 
 export const comingSoon = {
   heading: "Vascurra is just beginning.",
+  statement: "A new approach to vascular cognitive health is taking shape.",
   body: [
     "We are developing the first foundations of Vascurra and exploring how AI can responsibly support people living with vascular cognitive change.",
     "Over the months ahead we will share more about the product, science, design and research helping shape it.",

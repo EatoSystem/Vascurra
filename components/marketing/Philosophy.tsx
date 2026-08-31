@@ -1,67 +1,109 @@
 import { Container } from "@/components/ui/Container";
+import { BloomField } from "@/components/motion/BloomField";
+import { Reveal } from "@/components/motion/Reveal";
 import { philosophy } from "@/content/home";
 import { sectionIds } from "@/content/site";
 
 /**
- * The signature brand moment. Held on the light canvas rather than inverted to
- * a dark panel, per docs/brand/brand-guidelines.md — the impact comes from
- * scale, space and a restrained aurora, not from contrast reversal.
+ * The signature brand moment and the largest type on the page.
+ *
+ * Held on the light canvas rather than inverted to a dark panel, per
+ * brand-guidelines.md — the impact comes from scale, space and a deep aurora,
+ * not from contrast reversal or cyberpunk styling (§13).
+ *
+ * The progression is an ordered list, so the sequence is carried by markup.
+ * The connecting light-line and the arrows are decorative.
  */
 export function Philosophy() {
   return (
     <section
       id={sectionIds.approach}
       aria-labelledby="philosophy-heading"
-      className="relative overflow-hidden py-24 sm:py-32 lg:py-44"
+      className="relative flex min-h-[88svh] items-center overflow-hidden py-28 sm:py-36"
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,color-mix(in_srgb,var(--color-mint-400)_16%,transparent),transparent_68%),radial-gradient(ellipse_60%_50%_at_85%_20%,color-mix(in_srgb,var(--color-cyan-400)_14%,transparent),transparent_65%)]"
+      <BloomField
+        tone="dual"
+        intensity={26}
+        className="inset-x-[-25%] top-[-10%] h-[120%]"
       />
 
       <Container>
-        <h2
-          id="philosophy-heading"
-          className="text-[2.75rem] leading-[1.05] font-semibold sm:text-6xl lg:text-7xl"
-        >
-          <span className="block">{philosophy.headingLines[0]}</span>
-          <span className="text-gradient block">{philosophy.headingLines[1]}</span>
-        </h2>
+        <Reveal>
+          <h2 id="philosophy-heading" className="type-display-xl max-w-5xl">
+            <span className="block text-navy">{philosophy.headingLines[0]}</span>
+            <span className="text-gradient block">
+              {philosophy.headingLines[1]}
+            </span>
+          </h2>
+        </Reveal>
 
-        {/* Ordered list: the progression is carried by markup and by the step
-            numbers, never by the arrow glyphs or colour alone. */}
-        <ol className="mt-14 flex flex-col gap-4 sm:mt-16 sm:flex-row sm:flex-wrap sm:items-center sm:gap-0">
-          {philosophy.steps.map((step, index) => (
-            <li
-              key={step}
-              className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-0"
+        <Reveal delay={140}>
+          <div className="relative mt-16 sm:mt-20">
+            {/* Continuous light-line threading the four stages. */}
+            <svg
+              viewBox="0 0 1200 40"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              focusable="false"
+              className="absolute inset-x-0 top-1/2 hidden h-10 w-full -translate-y-1/2 sm:block"
             >
-              <span className="inline-flex min-h-14 items-center gap-3 rounded-full border border-hairline bg-surface/80 px-6 py-3 backdrop-blur-sm">
-                <span
-                  aria-hidden="true"
-                  className="size-2.5 rounded-full bg-gradient-to-br from-mint-400 to-cyan-400"
-                />
-                <span className="text-lg font-semibold text-navy-900 sm:text-xl">
-                  {step}
-                </span>
-              </span>
+              <defs>
+                <linearGradient id="ph-line" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="var(--color-energy-mint)" stopOpacity="0.15" />
+                  <stop offset="35%" stopColor="var(--color-energy-teal)" />
+                  <stop offset="72%" stopColor="var(--color-energy-cyan)" />
+                  <stop offset="100%" stopColor="var(--color-energy-cyan)" stopOpacity="0.2" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M20 20 H 1180"
+                fill="none"
+                stroke="url(#ph-line)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+                pathLength={1}
+                data-reveal-draw=""
+              />
+            </svg>
 
-              {index < philosophy.steps.length - 1 ? (
-                <span
-                  aria-hidden="true"
-                  className="pl-7 text-2xl leading-none text-navy-600 sm:px-4 sm:pl-4"
+            <ol className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              {philosophy.steps.map((step, index) => (
+                <li
+                  key={step}
+                  className="flex items-center gap-4 sm:flex-col sm:gap-0"
+                  style={{ ["--v-delay" as string]: `${180 + index * 100}ms` }}
                 >
-                  <span className="hidden sm:inline">&rarr;</span>
-                  <span className="sm:hidden">&darr;</span>
-                </span>
-              ) : null}
-            </li>
-          ))}
-        </ol>
+                  <span className="inline-flex min-h-14 items-center gap-3.5 rounded-full border border-hairline bg-surface/85 px-7 py-3.5 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_14px_36px_-20px_rgba(11,43,74,0.35)] backdrop-blur-sm">
+                    <span
+                      aria-hidden="true"
+                      className="size-2.5 rounded-full bg-[radial-gradient(circle,var(--color-energy-mint),var(--color-energy-cyan))]"
+                    />
+                    <span className="text-lg font-semibold text-navy sm:text-xl">
+                      {step}
+                    </span>
+                  </span>
 
-        <p className="mt-14 max-w-2xl text-lg text-navy-700 sm:text-xl">
-          {philosophy.body}
-        </p>
+                  {index < philosophy.steps.length - 1 ? (
+                    <span
+                      aria-hidden="true"
+                      className="text-2xl leading-none text-ink-muted sm:hidden"
+                    >
+                      &darr;
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <p className="type-lead mt-16 max-w-2xl font-medium text-navy">
+            {philosophy.principle}
+          </p>
+          <p className="mt-6 max-w-2xl text-ink-body">{philosophy.body}</p>
+        </Reveal>
       </Container>
     </section>
   );

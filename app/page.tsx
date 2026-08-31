@@ -2,7 +2,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/marketing/Hero";
 import { ProjectIntro } from "@/components/marketing/ProjectIntro";
-import { Perspectives } from "@/components/marketing/Perspectives";
+import { Architecture } from "@/components/marketing/Architecture";
 import { Philosophy } from "@/components/marketing/Philosophy";
 import { Principles } from "@/components/marketing/Principles";
 import { ProjectStatus } from "@/components/marketing/ProjectStatus";
@@ -16,7 +16,7 @@ export default function HomePage() {
       <main id="main">
         <Hero />
         <ProjectIntro />
-        <Perspectives />
+        <Architecture />
         <Philosophy />
         <Principles />
         <ProjectStatus />

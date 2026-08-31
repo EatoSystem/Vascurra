@@ -65,6 +65,18 @@ product decision.
 Requires Node 20.9+. No environment variables, database or external services
 are needed: the site is fully static and collects no data.
 
+### Brand assets
+
+Approved assets live in `public/brand/` and are governed by
+[`docs/brand/high-resolution-web-asset-pack-specification.md`](docs/brand/high-resolution-web-asset-pack-specification.md).
+Do not redraw, trace or substitute the Vascurra brain mark.
+
+The high-resolution masters are still pending, so the hero, architecture and
+closing sections render a clearly labelled placeholder at the mark's final
+dimensions. To ship the real artwork, add the files listed in §22 of that
+specification to `public/brand/brain/` and set `BRAIN_MASTERS_AVAILABLE = true`
+in `components/brand/brain-assets.ts` — no layout changes are needed.
+
 See [`docs/development/phase-1a-holding-page.md`](docs/development/phase-1a-holding-page.md)
 for what Phase 1A contains and where the deliberate placeholders are.
 
