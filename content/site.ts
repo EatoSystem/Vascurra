@@ -33,8 +33,16 @@ export const navLinks = [
 ] as const;
 
 /**
- * Phase 1A has no email service configured and collects nothing, so the
- * "Follow the journey" call to action resolves to the Coming Soon section
- * rather than a form or a page that does not exist.
+ * Destination for every "Follow the journey" call to action.
+ *
+ * Phase 1A has no email service configured and no other route, so this resolves
+ * to the Coming Soon section rather than to a form or a page that does not
+ * exist. Change this single constant to a real URL or mailto the moment there
+ * is somewhere to send people; every call to action picks it up.
+ *
+ * Known limitation while it points in-page: the button inside the Coming Soon
+ * section itself anchors to its own section and is therefore a no-op. The
+ * header and hero calls to action, which scroll the reader here, work as
+ * intended.
  */
 export const followHref = `#${sectionIds.comingSoon}`;

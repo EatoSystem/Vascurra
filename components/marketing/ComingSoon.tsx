@@ -1,64 +1,73 @@
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { BrainMark } from "@/components/brand/BrainMark";
-import { BrainField } from "@/components/motion/BrainField";
+import { CtaLink } from "@/components/ui/CtaLink";
+import { BrainStage } from "@/components/motion/BrainStage";
 import { BloomField } from "@/components/motion/BloomField";
 import { Reveal } from "@/components/motion/Reveal";
 import { comingSoon, hero } from "@/content/home";
-import { sectionIds } from "@/content/site";
+import { sectionIds, followHref } from "@/content/site";
 
 /**
- * The closing frame. The brain returns centred in a deeper bloom as the page's
- * vascular light converges back into it.
+ * The closing frame — the second and final deep-navy chamber.
  *
- * Phase 1A collects nothing: the email capture described in the brief is
+ * The approved brain returns large and luminous with the full ambient system
+ * against navy, where the brand's light genuinely registers. The preceding
+ * light section resolves into the dark through a soft gradient rather than
+ * butting against it, so the transition reads as the closing scene of a brand
+ * film rather than a section boundary.
+ *
+ * Phase 1A collects nothing: the email capture from the original brief is
  * deliberately omitted because no email service is configured, and a form that
  * appears to subscribe someone while storing nothing would be dishonest. The
- * call to action is therefore in-page, not a link to a service that does not
- * exist. See docs/development/phase-1a-holding-page.md for the integration
- * point when this is picked up.
- *
- * There is deliberately no call-to-action button here: "Follow the journey" in
- * the header and hero anchors to this section, so a button in this section
- * could only link to itself. The label reappears once there is somewhere for it
- * to go.
+ * call to action is therefore in-page. See
+ * docs/development/phase-1a-holding-page.md for the integration point.
  */
 export function ComingSoon() {
   return (
     <section
       id={sectionIds.comingSoon}
       aria-labelledby="coming-soon-heading"
-      className="relative flex min-h-[88svh] items-center overflow-hidden py-28 sm:py-32"
+      className="relative isolate flex min-h-[94svh] items-center overflow-hidden bg-deep py-28 sm:py-32"
     >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-canvas/45 to-transparent"
+      />
       <BloomField
-        tone="dual"
-        intensity={28}
-        className="inset-x-[-25%] top-[-5%] h-[115%]"
+        tone="deep"
+        intensity={34}
+        className="inset-x-[-25%] top-[-10%] h-[125%]"
       />
 
       <Container>
         <div className="flex flex-col items-center text-center">
-          <div className="relative flex items-center justify-center">
-            <BrainField className="absolute inset-[-30%] h-[160%] w-[160%]" />
-            <BrainMark slot="closing" alt="" className="relative" />
-          </div>
+          <BrainStage slot="closing" tone="deep" />
 
-          <Reveal delay={80} className="mt-14 flex flex-col items-center">
-            <Badge>{hero.badge}</Badge>
+          <Reveal delay={80} className="mt-16 flex flex-col items-center">
+            <Badge tone="deep">{hero.badge}</Badge>
 
-            <h2 id="coming-soon-heading" className="type-display mt-8 max-w-4xl">
-              <span className="text-gradient">{comingSoon.heading}</span>
+            <h2 id="coming-soon-heading" className="type-display mt-9 max-w-4xl">
+              <span className="text-gradient-lum">{comingSoon.heading}</span>
             </h2>
 
-            <p className="type-lead mt-7 max-w-2xl font-medium text-navy">
+            <p className="type-lead mt-7 max-w-2xl font-medium text-on-deep">
               {comingSoon.statement}
             </p>
 
             {comingSoon.body.map((paragraph) => (
-              <p key={paragraph} className="mt-6 max-w-2xl text-ink-body">
+              <p
+                key={paragraph}
+                className="mt-6 max-w-2xl text-on-deep-muted"
+              >
                 {paragraph}
               </p>
             ))}
+
+            <div className="mt-12">
+              <CtaLink href={followHref} variant="onDeep">
+                {hero.secondaryCta}
+              </CtaLink>
+            </div>
           </Reveal>
         </div>
       </Container>

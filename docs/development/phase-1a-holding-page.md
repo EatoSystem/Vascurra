@@ -11,11 +11,15 @@ Sections, in order: header · cinematic hero · editorial problem/opportunity ·
 connected architecture · signature philosophy · principles journey · safety and
 project status · cinematic closing frame · footer.
 
-The first visual draft was rejected for reading as a generic SaaS holding page.
-This is the redesign: the brand mark is the signature visual, concepts are
-connected by vascular lines rather than boxed in cards, and the type scale
-carries a real hierarchy. The engineering, accessibility work, approved copy and
-claims guardrail from the first pass were retained.
+Two visual drafts were rejected before this one. The first read as a generic SaaS
+holding page; the second was structurally better but still a thin-line wireframe
+on white, with a placeholder where the brand mark belongs.
+
+This third pass rebuilds the page around the approved animated brain and gives it
+real depth: the page stays predominantly luminous soft-white but resolves twice
+into full-bleed deep navy, at the philosophy section and the closing frame. The
+engineering, accessibility work, approved copy and claims guardrail from the
+earlier passes were retained throughout.
 
 The product concept preview (Personal / Family / Clinical mockups) is
 deliberately omitted from this pass by product decision.
@@ -96,6 +100,28 @@ readability for glow. So:
 The luminosity comes from the energy tier; the legibility comes from the ink
 tier. Body copy is always solid navy.
 
+### Two deep-navy chambers
+
+The page rhythm is light -> light -> light -> **navy philosophy** -> light ->
+light -> **navy closing**, and the footer continues the closing chamber rather
+than snapping back to light. There are no other dark panels.
+
+This is not only for contrast. On the navy ground `#08203A`, the specification's
+own §12 tokens invert into comfortable passes:
+
+| Token | on `#08203A` |
+| --- | ---: |
+| soft white `#F2F8FC` | 15.34 |
+| cyan `#43D6FF` | 9.63 |
+| mint `#2ECC9A` | 8.00 |
+| teal `#0097A7` | 4.68 |
+
+So the two dark sections are the only place the brand's true luminous palette can
+be used at full saturation exactly as specified — `.text-gradient-lum` runs the
+literal mint -> teal -> cyan gradient there, where the light sections must use
+the darkened ink tier. Measured on the rendered page, those navy display
+headings score 8.00 / 4.68 / 9.63 / 11.42 against a 3:1 requirement.
+
 `--color-ink-teal` was darkened from `#007F8D` to `#00707C` after measurement:
 the original was 4.56:1 on the plain canvas but **4.45:1** on the footer's
 slightly deeper ground, which axe correctly flagged. Tokens are now verified
@@ -144,33 +170,43 @@ at rest.
 
 Nothing in the animation depicts detection, prediction or measurement of disease.
 
-## Brand mark status — the main placeholder
+## Brand mark status — BLOCKING
 
-**The high-resolution brain masters have not been delivered yet.**
+**The approved high-resolution brain assets are not in the repository.**
 
-The committed derivative `/brand/vascurra-brain.webp` is **141x144**. Spec §2 and
-§20 forbid using a low-resolution derivative at hero scale, and §15 calls for
-600-800 CSS px on desktop — a 4-8x upscale that would render visibly soft.
+The hero, the architecture centre and the closing frame are all built around the
+approved mark at its real dimensions, and every size, position, reveal stage and
+ambient layer is already in place for it. The artwork itself is missing, so those
+three slots currently render an empty reserved area.
 
-Following the §21 handoff rule, the intended layout is preserved at its real
-dimensions and the large brain slots render a clearly labelled temporary
-placeholder. No replacement mark has been authored.
+Expected at these exact paths (spec §22):
+
+```text
+public/brand/brain/vascurra-brain-hero-2048.webp   <- primary Phase 1A hero asset
+public/brand/brain/vascurra-brain-master-2048.png
+public/brand/brain/vascurra-brain-medium-1024.webp
+public/brand/brain/vascurra-brain-header-512.webp
+```
+
+**To ship:** add those files and set `BRAIN_MASTERS_AVAILABLE = true` in
+`components/brand/brain-assets.ts`. Nothing else changes — the sizing contract
+(§15), the `sizes` attribute (§14), the reveal choreography and the surrounding
+light field are all built for the final asset, so there is no layout shift and
+no CLS.
+
+What was deliberately **not** done, per spec §2, §3 and §20: the 141×144
+derivative was not upscaled to fill the hero, no substitute or redrawn mark was
+authored, no auto-traced SVG "master" was produced, no 4096 master was fabricated
+by upscaling, and no placeholder binary was committed under any of the filenames
+above.
 
 Where the approved derivative **is** used today: the header mark at 36px and the
 footer mark at 28px. From a 141px source that is downscaling at DPR 2, never the
-upscaling the spec prohibits.
+upscaling the specification prohibits.
 
-**To ship the real artwork:** drop the §22 files into `public/brand/brain/` and
-set `BRAIN_MASTERS_AVAILABLE = true` in `components/brand/brain-assets.ts`.
-Nothing else changes — the sizing contract (§15), the `sizes` attribute (§14),
-the reveal choreography and the surrounding light field are all already built
-for the final asset, so there is no layout shift and no CLS.
-
-Per §3, no placeholder binaries have been committed under the spec's filenames.
-
-Also still pending on delivery: `apple-touch-icon.png` at 180px (the committed
-one is 63x64) and `vascurra-og-1200x630.jpg` (the committed one is 360x189, so
-the interim Open Graph image is still generated by `next/og` from brand tokens).
+Also still outstanding: `apple-touch-icon.png` at 180px (the committed file is
+63×64) and `vascurra-og-1200x630.jpg` (the committed file is 360×189), so the
+Open Graph image is still generated by `next/og` from brand tokens.
 
 ## Email capture status
 
@@ -250,16 +286,18 @@ any Output Directory override so it falls back to the framework default.
 
 ## Known limitations
 
-1. The brain is a labelled placeholder at hero, architecture and closing scale —
-   the page will look unfinished at those three points until the masters arrive.
-   This is the agreed state, not an oversight, and the composition around it is
-   final.
+1. **The approved brain artwork is missing** at hero, architecture and closing
+   scale, so those three slots render empty. See "Brand mark status" above. This
+   is the one outstanding blocker; everything around it is finished.
 2. `apple-touch-icon.png` is 63x64 against the 180px the spec requires.
 3. The Open Graph image is generated from brand tokens (wordmark and tagline, no
    mark) pending `vascurra-og-1200x630.jpg`.
-4. Email capture is absent, so the Coming Soon section is informational only and
-   carries no call-to-action button — "Follow the journey" in the header and hero
-   anchors *to* that section, so a button inside it could only link to itself.
+4. Email capture is absent by product decision. The closing frame does carry a
+   `Follow the journey` button, but `followHref` in `content/site.ts` still
+   points at the Coming Soon section, so that particular button anchors to its
+   own section and is a no-op. The header and hero calls to action, which scroll
+   the reader there, work as intended. Changing that one constant to a real URL
+   or mailto fixes all three at once.
 5. No `/privacy` or `/contact` route; the footer links were omitted rather than
    pointed at pages that do not exist.
 6. Lighthouse was not run — no Chrome UI in the build environment. The page is

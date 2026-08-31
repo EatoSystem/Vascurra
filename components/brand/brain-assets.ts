@@ -5,39 +5,36 @@
  *
  * Source of truth: docs/brand/high-resolution-web-asset-pack-specification.md
  *
- * The approved high-resolution brain masters have not been delivered yet. The
- * only committed derivative, `/brand/vascurra-brain.webp`, is 141x144 — spec §2
- * and §20 both forbid using a low-resolution derivative at hero scale, and §4
- * requires large usage to reference a real production asset.
+ * `vascurra-brain-hero-2048.webp` is the primary Phase 1A hero asset. Flip
+ * BRAIN_MASTERS_AVAILABLE to true once the four files below are committed;
+ * every size, position and animation is already built for them, so the swap
+ * causes no layout shift and no CLS.
  *
- * So, per the §21 handoff rule:
- *   - the intended layout is preserved at its real dimensions;
- *   - large brain slots render a clearly labelled temporary placeholder;
- *   - no replacement mark is authored;
- *   - engineering continues around the expected dimensions.
+ * Until then the hero renders a minimal reserved area. That is a missing-file
+ * state, not a design choice — see docs/development/phase-1a-holding-page.md.
  *
- * TO SHIP THE REAL ASSETS: drop the §22 files into `public/brand/brain/` and
- * flip `BRAIN_MASTERS_AVAILABLE` to true. Nothing else changes — the sizing
- * contract, the reveal choreography and the surrounding light field are all
- * already built for the final artwork, so there is no layout shift.
- *
- * No placeholder binaries are committed under the spec's filenames (§3).
+ * Never: a substitute mark, a redrawn or traced brain, an auto-traced SVG
+ * "master", a fabricated 4096 upscale, or a placeholder binary committed under
+ * one of these filenames (spec §3, §20).
  */
 
 export const BRAIN_MASTERS_AVAILABLE = false;
 
 /** Responsive derivatives from spec §6, all from the same approved master. */
 export const brainSources = {
+  /** 2048x2048 transparent WebP — the Phase 1A hero asset. */
   hero: "/brand/brain/vascurra-brain-hero-2048.webp",
-  large: "/brand/brain/vascurra-brain-large-1600.webp",
   medium: "/brand/brain/vascurra-brain-medium-1024.webp",
   header: "/brand/brain/vascurra-brain-header-512.webp",
 } as const;
 
+/** Intrinsic dimensions of the approved square artwork. */
+export const brainIntrinsic = { width: 2048, height: 2048 } as const;
+
 /**
- * The committed low-resolution derivative. Native size 141x144, so it stays
- * genuinely crisp only up to about 70 CSS px at DPR 2. Used exclusively for
- * the header and footer marks — this is downscaling, never upscaling.
+ * The committed low-resolution derivative. Native 141x144, so it is genuinely
+ * crisp only to about 70 CSS px at DPR 2. Used exclusively for the header and
+ * footer marks — downscaling, never the upscaling spec §2 and §20 prohibit.
  */
 export const smallBrain = {
   src: "/brand/vascurra-brain.webp",
@@ -46,23 +43,25 @@ export const smallBrain = {
 } as const;
 
 /**
- * Display sizing from spec §15. The placeholder occupies exactly these
- * dimensions so the composition is final before the artwork arrives.
+ * Display sizing from spec §15.
+ *   desktop hero   42-50vw, max 760-840px, min ~520px
+ *   tablet         46-60vw, max ~620px
+ *   mobile         78-92vw, max ~460px, positioned intentionally
  */
 export const brainSizing = {
   hero: {
     className:
-      "w-[86vw] max-w-[460px] sm:w-[60vw] sm:max-w-[620px] lg:w-[46vw] lg:max-w-[800px] lg:min-w-[520px]",
-    sizes: "(max-width: 640px) 86vw, (max-width: 1024px) 60vw, 46vw",
+      "w-[88vw] max-w-[460px] sm:w-[60vw] sm:max-w-[620px] lg:w-[46vw] lg:max-w-[800px] lg:min-w-[520px]",
+    sizes: "(max-width: 640px) 88vw, (max-width: 1024px) 60vw, 46vw",
   },
   feature: {
-    className: "w-[58vw] max-w-[280px] lg:w-[17vw] lg:max-w-[270px]",
-    sizes: "(max-width: 1024px) 58vw, 17vw",
+    className: "w-[56vw] max-w-[260px] lg:w-[17vw] lg:max-w-[260px]",
+    sizes: "(max-width: 1024px) 56vw, 17vw",
   },
   closing: {
     className:
-      "w-[78vw] max-w-[420px] sm:max-w-[500px] lg:w-[34vw] lg:max-w-[600px]",
-    sizes: "(max-width: 640px) 78vw, (max-width: 1024px) 60vw, 34vw",
+      "w-[80vw] max-w-[420px] sm:w-[58vw] sm:max-w-[520px] lg:w-[36vw] lg:max-w-[640px]",
+    sizes: "(max-width: 640px) 80vw, (max-width: 1024px) 58vw, 36vw",
   },
 } as const;
 

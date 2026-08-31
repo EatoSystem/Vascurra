@@ -28,12 +28,12 @@ export function Principles() {
   return (
     <section
       aria-labelledby="principles-heading"
-      className="relative overflow-hidden py-24 sm:py-28 lg:py-32"
+      className="relative overflow-hidden py-24 sm:py-28 lg:py-36"
     >
       <BloomField
         tone="teal"
-        intensity={14}
-        className="inset-x-[-14%] top-[4%] h-[80%]"
+        intensity={24}
+        className="inset-x-[-16%] top-[2%] h-[84%]"
       />
 
       <Container>
@@ -81,7 +81,7 @@ export function Principles() {
             className="absolute top-3 bottom-6 left-[9px] w-px bg-gradient-to-b from-transparent via-[var(--color-energy-teal)] to-transparent opacity-45 lg:hidden"
           />
 
-          <ol className="relative flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-x-28 lg:gap-y-10">
+          <ol className="relative flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-x-28 lg:gap-y-16">
             {principles.items.map((item, i) => {
               const onLeft = i % 2 === 0;
               const row = rowStart[i] ?? "";
@@ -99,20 +99,28 @@ export function Principles() {
                   {/* Sits on the spine: the inner edge of each column. */}
                   <span
                     aria-hidden="true"
-                    className={`absolute top-1.5 flex size-5 items-center justify-center rounded-full bg-canvas max-lg:left-0 lg:top-2.5 ${
+                    className={`absolute top-1.5 flex size-6 items-center justify-center rounded-full bg-canvas max-lg:left-0 lg:top-2.5 ${
                       onLeft ? "lg:right-[-3.9rem]" : "lg:left-[-3.9rem]"
                     }`}
                   >
-                    <span className="size-3 rounded-full bg-[radial-gradient(circle,var(--color-energy-mint),var(--color-energy-teal))]" />
+                    <span className="absolute inset-[-7px] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--color-energy-mint)_45%,transparent),transparent_70%)] blur-[3px]" />
+                    <span className="relative size-3.5 rounded-full bg-[radial-gradient(circle_at_35%_30%,var(--color-energy-mint),var(--color-energy-teal))]" />
                   </span>
 
-                  <span className="text-sm font-semibold tracking-[0.18em] text-ink-teal uppercase">
+                  <span
+                    aria-hidden="true"
+                    className={`ghost-numeral pointer-events-none absolute -top-8 select-none lg:-top-10 ${
+                      onLeft ? "right-0 max-lg:left-8 max-lg:right-auto" : "left-0 max-lg:left-8"
+                    }`}
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-3 text-2xl font-semibold sm:text-3xl">
+                  <h3 className="relative text-[1.75rem] font-semibold sm:text-4xl">
                     {item.name}
                   </h3>
-                  <p className="mt-3 max-w-md text-ink-body">{item.body}</p>
+                  <p className="relative mt-4 max-w-md text-lg text-ink-body">
+                    {item.body}
+                  </p>
                 </Reveal>
               );
             })}

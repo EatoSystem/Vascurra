@@ -1,39 +1,48 @@
 import { Container } from "@/components/ui/Container";
-import { BrainMark } from "@/components/brand/BrainMark";
+import { Panel } from "@/components/ui/Panel";
+import { BrainStage } from "@/components/motion/BrainStage";
 import { BloomField } from "@/components/motion/BloomField";
 import { Reveal } from "@/components/motion/Reveal";
 import { perspectives } from "@/content/home";
 
 /**
- * One vision, four connected perspectives — as one integrated system rather
- * than a grid of separate cards.
+ * One vision, four connected perspectives — as one integrated system.
  *
- * Desktop places the brain at the centre with four branches radiating to the
- * quadrants, connectors drawing in on scroll. Mobile is deliberately
- * redesigned, not a stacked desktop: a vertical vascular spine with nodes
- * branching off it.
+ * The pillars are dimensional luminous panels, each carrying a ghost numeral
+ * and its own vascular motif, arranged around the brain. The previous pass
+ * rendered them as a dot, a stub line and three lines of copy, which read as
+ * thin labels rather than product pillars.
  *
- * The connectors are decorative; the content is a real <ul> in reading order,
- * so nothing is conveyed by the graphic alone.
+ * Desktop places the mark at the centre with the four panels in the quadrants;
+ * mobile is a vertical spine with the panels branching off it. The connectors
+ * are decorative — the content is a real <ul> in reading order.
  */
 
 const quadrant = [
-  { align: "lg:text-right lg:items-end", order: "lg:col-start-1 lg:row-start-1" },
-  { align: "lg:text-left lg:items-start", order: "lg:col-start-3 lg:row-start-1" },
-  { align: "lg:text-right lg:items-end", order: "lg:col-start-1 lg:row-start-2" },
-  { align: "lg:text-left lg:items-start", order: "lg:col-start-3 lg:row-start-2" },
+  "lg:col-start-1 lg:row-start-1",
+  "lg:col-start-3 lg:row-start-1",
+  "lg:col-start-1 lg:row-start-2",
+  "lg:col-start-3 lg:row-start-2",
 ] as const;
+
+/** A small vascular motif per pillar, drawn from the mark's own language. */
+const motifs = [
+  "M4 30 C 26 30, 34 12, 56 12 M56 12 C 70 12, 76 20, 88 20",
+  "M4 20 C 24 20, 30 32, 50 32 C 66 32, 72 16, 90 16",
+  "M4 12 C 22 12, 32 30, 52 30 C 68 30, 74 20, 90 20",
+  "M4 26 C 20 26, 28 14, 46 14 C 64 14, 70 28, 90 28",
+];
 
 export function Architecture() {
   return (
     <section
       aria-labelledby="architecture-heading"
-      className="relative overflow-hidden py-24 sm:py-28 lg:py-32"
+      className="relative overflow-hidden py-24 sm:py-28 lg:py-36"
     >
       <BloomField
         tone="dual"
-        intensity={16}
-        className="inset-x-[-16%] top-[10%] h-[80%]"
+        intensity={28}
+        className="inset-x-[-18%] top-[6%] h-[86%]"
       />
 
       <Container>
@@ -47,42 +56,35 @@ export function Architecture() {
         </Reveal>
 
         <div className="relative mt-16 lg:mt-20">
-          {/* Desktop connectors — decorative, drawn on scroll. */}
+          {/* Desktop connectors. Coordinates measured against the rendered
+              grid; they stay in the empty corridor between the mark and the
+              panels at every desktop width. */}
           <Reveal className="pointer-events-none absolute inset-0 hidden lg:block">
             <svg
-              viewBox="0 0 1000 560"
+              viewBox="0 0 1000 620"
               preserveAspectRatio="none"
               aria-hidden="true"
               focusable="false"
               className="h-full w-full"
             >
               <defs>
-                {/* User-space radial, centred on the mark, so all four
-                    branches read as energy leaving the brain and fading
-                    outward regardless of their individual direction. */}
                 <radialGradient
                   id="arch-line"
                   gradientUnits="userSpaceOnUse"
                   cx="500"
-                  cy="280"
-                  r="300"
+                  cy="310"
+                  r="320"
                 >
                   <stop offset="0%" stopColor="var(--color-energy-teal)" stopOpacity="0.95" />
-                  <stop offset="55%" stopColor="var(--color-energy-teal)" stopOpacity="0.7" />
-                  <stop offset="100%" stopColor="var(--color-energy-cyan)" stopOpacity="0.12" />
+                  <stop offset="55%" stopColor="var(--color-energy-teal)" stopOpacity="0.66" />
+                  <stop offset="100%" stopColor="var(--color-energy-cyan)" stopOpacity="0.1" />
                 </radialGradient>
               </defs>
-              {/* Coordinates measured against the rendered grid rather than
-                  guessed: the brain sits at (500,280) with a radius of about
-                  (101-126, 118-147) across desktop widths, and the perspective
-                  nodes sit at x 323-347 / 653-677. Every path stays inside
-                  x 358-642, which is the empty corridor between the mark and
-                  the copy at every width, so no connector crosses text. */}
               {[
-                "M436 156 C 416 116, 388 74, 360 38",
-                "M564 156 C 584 116, 612 74, 640 38",
-                "M436 404 C 416 444, 388 486, 360 522",
-                "M564 404 C 584 444, 612 486, 640 522",
+                "M438 196 C 418 156, 392 118, 366 84",
+                "M562 196 C 582 156, 608 118, 634 84",
+                "M438 424 C 418 464, 392 502, 366 536",
+                "M562 424 C 582 464, 608 502, 634 536",
               ].map((d, i) => (
                 <path
                   key={d}
@@ -103,35 +105,63 @@ export function Architecture() {
           {/* Mobile spine — decorative. */}
           <div
             aria-hidden="true"
-            className="absolute top-2 bottom-10 left-[7px] w-px bg-gradient-to-b from-transparent via-[var(--color-energy-teal)] to-transparent opacity-45 lg:hidden"
+            className="absolute top-4 bottom-10 left-[11px] w-px bg-gradient-to-b from-transparent via-[var(--color-energy-teal)] to-transparent opacity-50 lg:hidden"
           />
 
-          <ul className="relative grid gap-12 lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-x-12 lg:gap-y-28">
+          <ul className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center lg:gap-x-14 lg:gap-y-16">
             {perspectives.items.map((item, i) => (
               <Reveal
                 as="li"
                 key={item.id}
                 delay={120 + i * 70}
-                className={`relative flex flex-col pl-9 lg:pl-0 ${quadrant[i]?.order ?? ""} ${quadrant[i]?.align ?? ""}`}
+                className={`relative pl-8 lg:pl-0 ${quadrant[i] ?? ""}`}
               >
                 <span
                   aria-hidden="true"
-                  className="absolute top-2 left-0 size-3.5 rounded-full bg-[radial-gradient(circle,var(--color-energy-mint),var(--color-energy-teal))] ring-4 ring-canvas lg:static lg:mb-4 lg:ring-0"
+                  className="absolute top-9 left-0 size-3.5 rounded-full bg-[radial-gradient(circle,var(--color-energy-mint),var(--color-energy-teal))] ring-4 ring-canvas lg:hidden"
                 />
-                <h3 className="text-2xl font-semibold sm:text-3xl">{item.name}</h3>
-                <p className="mt-2 text-lg font-medium text-ink-teal">
-                  {item.branch}
-                </p>
-                <p className="mt-4 max-w-sm text-base text-ink-body lg:max-w-xs">
-                  {item.body}
-                </p>
+                <Panel>
+                  <span
+                    aria-hidden="true"
+                    className="ghost-numeral pointer-events-none absolute -top-3 -right-2 select-none"
+                  >
+                    {i + 1}
+                  </span>
+
+                  <svg
+                    viewBox="0 0 94 44"
+                    aria-hidden="true"
+                    focusable="false"
+                    className="mb-6 h-6 w-24"
+                  >
+                    <path
+                      d={motifs[i]}
+                      fill="none"
+                      stroke="url(#arch-line)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      style={{ stroke: "var(--color-energy-teal)" }}
+                    />
+                    <circle cx="88" cy={i % 2 === 0 ? 20 : 16} r="3.5" fill="var(--color-energy-mint)" />
+                  </svg>
+
+                  <h3 className="relative text-2xl font-semibold sm:text-[1.75rem]">
+                    {item.name}
+                  </h3>
+                  <p className="relative mt-2 text-lg font-medium text-ink-teal">
+                    {item.branch}
+                  </p>
+                  <p className="relative mt-5 text-base text-ink-body">
+                    {item.body}
+                  </p>
+                </Panel>
               </Reveal>
             ))}
 
-            {/* Centre of the system. Ordered last in the DOM so the four
-                perspectives stay in reading order for assistive technology. */}
+            {/* Centre of the system. Last in the DOM so the four perspectives
+                stay in reading order for assistive technology. */}
             <li className="order-first flex justify-center lg:order-none lg:col-start-2 lg:row-span-2 lg:row-start-1">
-              <BrainMark slot="feature" alt="" />
+              <BrainStage slot="feature" />
             </li>
           </ul>
         </div>

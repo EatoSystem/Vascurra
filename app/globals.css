@@ -46,11 +46,26 @@
   --color-ink-cyan: #007da0;      /* 4.53:1 */
   --color-ink-blue: #0a4f8f;      /* spec: --vascurra-deep-blue, 7.98:1 */
 
-  /* --- Energy tier: decorative only ------------------------------------ */
+  /* --- Energy tier: decorative on light, TEXT-SAFE on navy -------------- */
   --color-energy-teal: #0097a7;   /* spec: --vascurra-teal */
   --color-energy-cyan: #43d6ff;   /* spec: --vascurra-cyan */
   --color-energy-mint: #2ecc9a;   /* spec: --vascurra-mint */
   --color-energy-blue: #0a4f8f;
+
+  /* --- Navy ground: the two dark editorial moments ----------------------
+     Philosophy and the closing frame only. The page rhythm is
+     light -> light -> light -> NAVY -> light -> light -> NAVY.
+
+     On this ground the spec's own tokens invert into comfortable passes,
+     measured against #08203a:
+       soft white 15.78 | cyan 9.63 | mint 8.00 | teal 4.68
+     So the dark sections are the one place the brand's true palette can be
+     used at full saturation exactly as specified, with no compromise. */
+  --color-deep: #08203a;
+  --color-deep-raised: #0d2b48;
+  --color-deep-hairline: #1c3f60;
+  --color-on-deep: #f2f8fc;       /* 15.4:1 on --color-deep */
+  --color-on-deep-muted: #b6cddf; /* 9.0:1  on --color-deep */
 
   /* --- Type ------------------------------------------------------------- */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
@@ -147,8 +162,33 @@
   }
 }
 
+/* On the navy grounds the spec's own tokens are text-safe (cyan 9.63:1,
+   mint 8.00:1, teal 4.68:1 on #08203a), so the display gradient runs at full
+   saturation there rather than in the darkened ink tier the light sections
+   require. Soft white is painted first as the fallback. */
+.text-gradient-lum {
+  color: var(--color-on-deep);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-gradient-lum {
+    background-image: linear-gradient(
+      104deg,
+      var(--color-energy-mint) 0%,
+      var(--color-energy-teal) 30%,
+      var(--color-energy-cyan) 62%,
+      #8fe3ff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 0.08em;
+  }
+}
+
 @media (forced-colors: active) {
-  .text-gradient {
+  .text-gradient,
+  .text-gradient-lum {
     background-image: none;
     color: CanvasText;
     -webkit-text-fill-color: CanvasText;
@@ -162,21 +202,21 @@
    =========================================================================== */
 
 .type-display {
-  font-size: clamp(2.375rem, 5vw, 4.5rem);
+  font-size: clamp(2.5rem, 5.4vw, 5rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.038em;
 }
 
 .type-display-xl {
-  font-size: clamp(2.75rem, 7vw, 6.25rem);
+  font-size: clamp(3rem, 7.6vw, 7rem);
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.042em;
 }
 
 .type-section {
-  font-size: clamp(1.875rem, 3.6vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.032em;
@@ -299,16 +339,31 @@
   [data-reveal-draw][data-revealed="true"] {
     stroke-dashoffset: 0;
   }
+
+  [data-reveal-bar] {
+    transform: translateY(-50%) scaleX(0);
+    transition: transform 1.4s var(--ease-organic);
+    transition-delay: var(--v-delay, 0ms);
+  }
+
+  [data-reveal] [data-revealed="true"][data-reveal-bar],
+  [data-reveal][data-revealed="true"] [data-reveal-bar] {
+    transform: translateY(-50%) scaleX(1);
+  }
 }
 
 /* Belt and braces: if the observer never runs for any reason, content is
    still shown rather than left hidden. */
 @media (scripting: none), (scripting: initial-only) {
   [data-reveal],
-  [data-reveal-draw] {
+  [data-reveal-draw],
+  [data-reveal-bar] {
     opacity: 1;
-    transform: none;
     stroke-dashoffset: 0;
+  }
+
+  [data-reveal-bar] {
+    transform: translateY(-50%) scaleX(1);
   }
 }
 
@@ -348,5 +403,133 @@
 
   [data-reveal-draw] {
     stroke-dashoffset: 0 !important;
+  }
+
+  [data-reveal-bar] {
+    transform: translateY(-50%) scaleX(1) !important;
+  }
+}
+
+/* ===========================================================================
+   Depth and surface
+   Dimensional translucent surfaces used SELECTIVELY — for the four pillars and
+   the three trust themes — never as a default wrapper. Spec §13: soft outer
+   bloom, gentle edge highlight, faint sheen, layered transparency. No heavy
+   glassmorphism, no strong drop shadows.
+   =========================================================================== */
+
+.surface {
+  position: relative;
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #ffffff 82%, transparent),
+      color-mix(in srgb, #ffffff 58%, transparent)
+    );
+  border: 1px solid var(--color-hairline);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 1px 2px rgba(11, 43, 74, 0.04),
+    0 24px 56px -32px rgba(11, 43, 74, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.surface-deep {
+  position: relative;
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-deep-raised) 92%, transparent),
+      color-mix(in srgb, var(--color-deep) 88%, transparent)
+    );
+  border: 1px solid var(--color-deep-hairline);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 30px 70px -40px rgba(0, 0, 0, 0.7);
+}
+
+/* Oversized numeral used as a graphic element rather than as read content.
+   Always paired with aria-hidden — the real order comes from <ol>. */
+.ghost-numeral {
+  font-size: clamp(4.5rem, 11vw, 9rem);
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  background-image: linear-gradient(
+    170deg,
+    color-mix(in srgb, var(--color-energy-mint) 34%, transparent),
+    color-mix(in srgb, var(--color-energy-cyan) 12%, transparent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+}
+
+.ghost-numeral-deep {
+  background-image: linear-gradient(
+    170deg,
+    color-mix(in srgb, var(--color-energy-mint) 42%, transparent),
+    color-mix(in srgb, var(--color-energy-cyan) 14%, transparent)
+  );
+}
+
+/* ===========================================================================
+   Ambient system — spec §10 and motion-guidelines.
+   Cycles are deliberately co-prime-ish so no two peak together: the brain
+   should read as energy moving through a living system, not an object
+   floating around the page. Amplitude stays at or under 1.5% scale.
+   =========================================================================== */
+
+@keyframes v-breathe-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.9;  transform: scale(1.012); }
+}
+
+@keyframes v-halo-vary {
+  0%, 100% { opacity: 0.42; }
+  45%      { opacity: 0.72; }
+}
+
+@keyframes v-shimmer {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 0.62; }
+}
+
+@keyframes v-drift-slow {
+  0%   { transform: translate3d(0, 0, 0); }
+  33%  { transform: translate3d(0.5%, -0.7%, 0); }
+  66%  { transform: translate3d(-0.4%, 0.5%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* A light travelling along a vascular path, then a long dark interval. */
+@keyframes v-travel {
+  0%   { stroke-dashoffset: 1; opacity: 0; }
+  4%   { opacity: 0.85; }
+  26%  { opacity: 0.85; }
+  32%  { stroke-dashoffset: -1; opacity: 0; }
+  100% { stroke-dashoffset: -1; opacity: 0; }
+}
+
+.v-ambient {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  transform-origin: center;
+}
+
+/* ===========================================================================
+   Reduced motion, second pass — spec §14
+   The ambient layers stop entirely; only a static glow remains.
+   =========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .v-ambient {
+    animation: none !important;
+    opacity: var(--v-rest-opacity, 0.5) !important;
+    transform: none !important;
   }
 }

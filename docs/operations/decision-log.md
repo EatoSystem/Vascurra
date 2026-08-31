@@ -224,3 +224,58 @@ link to itself.
 
 **Implications:** The label returns to the closing section once there is a
 destination — an email capture or a channel to follow.
+
+---
+
+## Phase 1A third-pass redesign
+
+### 2026-08-31 — Two deep-navy chambers introduced
+
+**Decision:** The page stays predominantly luminous soft-white but resolves twice
+into full-bleed deep navy `#08203A` — the philosophy section and the closing
+frame — with the footer continuing the closing chamber. No other dark panels.
+
+**Why:** Two drafts read as thin-line wireframes because the value range was
+compressed into the top tenth of the tonal scale; nothing was dark enough for
+light to register against. Additionally, on navy the specification's own §12
+tokens become text-safe (cyan 9.63:1, mint 8.00:1, teal 4.68:1), so these are the
+only sections where the brand's true luminous palette can be used at full
+saturation exactly as specified.
+
+**Alternatives considered:** Staying entirely light and building depth only from
+bloom and surfaces — rejected as insufficient. Making the whole page dark —
+rejected: `brand-guidelines.md` prefers a light canvas and Vascurra is not a
+dark-theme brand.
+
+**Implications:** A new class of contrast surface (light text on dark) is now
+verified on every rendered pass. `.text-gradient-lum` carries the saturated
+gradient on navy; `.text-gradient` keeps the darkened ink tier on light.
+
+### 2026-08-31 — Hero built for the approved asset, which is still missing
+
+**Decision:** Build the hero, architecture centre and closing frame around the
+approved brain at full specified scale, and render an empty reserved area until
+the artwork is committed.
+
+**Why:** The approved high-resolution files have not been added to the
+repository. Spec §2 and §20 forbid upscaling the 141×144 derivative to hero
+scale; §3 forbids committing a stand-in binary under a spec filename; §20 forbids
+authoring a substitute mark. §21 directs that a missing asset must not weaken the
+visual architecture.
+
+**Implications:** This is the single outstanding blocker on Phase 1A. Adding the
+four files and flipping `BRAIN_MASTERS_AVAILABLE` completes it with no layout
+change.
+
+### 2026-08-31 — Pathway connectors use CSS gradients, not SVG strokes
+
+**Decision:** The philosophy pathway is a CSS gradient bar revealed by `scaleX`
+rather than an SVG stroke revealed by `stroke-dashoffset`.
+
+**Why:** On a long straight path, `stroke-dasharray: 1` with `pathLength="1"`
+computed to a literal `1px` dash over a 1140px path and rendered invisibly. The
+dash technique is retained where it works — the curved connectors in the
+architecture and principles sections.
+
+**Implications:** One extra reveal primitive, `[data-reveal-bar]`, alongside
+`[data-reveal]` and `[data-reveal-draw]`, all gated on `(scripting: enabled)`.

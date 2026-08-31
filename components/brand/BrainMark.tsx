@@ -1,19 +1,20 @@
 import Image from "next/image";
 import {
   BRAIN_MASTERS_AVAILABLE,
+  brainIntrinsic,
   brainSizing,
   brainSources,
   type BrainSlot,
 } from "./brain-assets";
 
 /**
- * The approved Vascurra brain mark at feature scale.
+ * The approved Vascurra brain mark at feature scale — the settled final state
+ * of the hero reveal.
  *
- * Renders the real artwork once the high-resolution masters land, and a clearly
- * labelled temporary placeholder until then. Both occupy identical space, so
- * the swap causes no layout shift and no CLS.
- *
- * Never renders a substitute mark, a redrawn brain or a traced vector (§20).
+ * The artwork is rendered untouched: no recolouring, no filters over it, no
+ * decomposition of its internal ribbon geometry. All the reveal and ambient
+ * effects live in sibling layers behind, around and above it (spec §20,
+ * assets.md "Motion use").
  */
 export function BrainMark({
   slot,
@@ -28,41 +29,31 @@ export function BrainMark({
 }) {
   const sizing = brainSizing[slot];
 
-  if (BRAIN_MASTERS_AVAILABLE) {
+  if (!BRAIN_MASTERS_AVAILABLE) {
+    // Missing-file state. The approved masters are not in the repository yet;
+    // spec §20 forbids upscaling the 141px derivative to fill this space and
+    // §3 forbids committing a stand-in binary under the expected filename.
     return (
-      <div className={`relative aspect-square ${sizing.className} ${className}`}>
-        <Image
-          src={brainSources.hero}
-          alt={alt}
-          fill
-          sizes={sizing.sizes}
-          priority={priority}
-          quality={92}
-          className="object-contain"
-        />
-      </div>
+      <div
+        aria-hidden="true"
+        className={`relative aspect-square ${sizing.className} ${className}`}
+        data-brain-pending=""
+      />
     );
   }
 
   return (
-    <div
-      className={`relative grid aspect-square place-items-center ${sizing.className} ${className}`}
-    >
-      {/* Soft field standing in for the mark's own luminosity. Decorative. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-[10%] rounded-full bg-canvas/75 bg-[radial-gradient(circle_at_38%_32%,color-mix(in_srgb,var(--color-energy-mint)_30%,transparent),transparent_60%),radial-gradient(circle_at_68%_66%,color-mix(in_srgb,var(--color-energy-cyan)_28%,transparent),transparent_58%)] backdrop-blur-sm"
+    <div className={`relative aspect-square ${sizing.className} ${className}`}>
+      <Image
+        src={brainSources.hero}
+        alt={alt}
+        width={brainIntrinsic.width}
+        height={brainIntrinsic.height}
+        sizes={sizing.sizes}
+        priority={priority}
+        quality={92}
+        className="h-full w-full object-contain"
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-[14%] rounded-full ring-1 ring-hairline/70"
-      />
-      <p className="relative max-w-[62%] text-center text-[0.6875rem] leading-relaxed font-semibold tracking-[0.14em] text-ink-muted uppercase sm:text-xs">
-        Vascurra brain
-        <span className="mt-1 block font-medium tracking-[0.08em] normal-case">
-          high-resolution master pending
-        </span>
-      </p>
     </div>
   );
 }
