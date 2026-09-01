@@ -2,7 +2,7 @@
   "name": "vascurra",
   "version": "0.1.0",
   "private": true,
-  "description": "Vascurra — AI for vascular cognitive health. Phase 1A public holding page.",
+  "description": "Vascurra — Intelligence for vascular cognitive health. Public information website.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

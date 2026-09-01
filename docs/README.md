@@ -15,6 +15,8 @@ This directory is the source of truth for product, clinical, brand, technical, b
 - `brand/brand-guidelines.md`
 - `brand/content-voice.md`
 - `brand/motion-guidelines.md`
+- `design/vascurra-web-design-system.md` — implemented web tokens and components.
+- `design/homepage-visual-spec.md` — implemented homepage architecture.
 
 ## Clinical and governance
 

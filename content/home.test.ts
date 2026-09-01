@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import * as home from "./home";
 import * as siteContent from "./site";
+import * as earlyAccessContent from "./early-access";
+import * as privacyContent from "./privacy";
 
 /**
  * Executable claims guardrail.
@@ -44,7 +46,7 @@ const NEGATIONS: readonly string[] = [
 function collectStrings(value: unknown, path: string): Array<[string, string]> {
   if (typeof value === "string") return [[path, value]];
   if (Array.isArray(value)) {
-    return value.flatMap((item, i) => collectStrings(item, `${path}[${i}]`));
+    return value.flatMap((item, i) => collectStrings(item, path + "." + String(i)));
   }
   if (value && typeof value === "object") {
     return Object.entries(value).flatMap(([key, item]) =>
@@ -57,16 +59,16 @@ function collectStrings(value: unknown, path: string): Array<[string, string]> {
 const allStrings = [
   ...collectStrings(home, "home"),
   ...collectStrings(siteContent, "site"),
+  ...collectStrings(earlyAccessContent, "earlyAccess"),
+  ...collectStrings(privacyContent, "privacy"),
 ];
 
 describe("public copy claims guardrail", () => {
   it("collects the site's copy", () => {
-    expect(allStrings.length).toBeGreaterThan(25);
+    expect(allStrings.length).toBeGreaterThan(40);
   });
 
-  const auditable = allStrings.filter(
-    ([, text]) => !NEGATIONS.includes(text),
-  );
+  const auditable = allStrings.filter(([, text]) => !NEGATIONS.includes(text));
 
   for (const [label, pattern] of PROHIBITED) {
     it(`contains no ${label}`, () => {
