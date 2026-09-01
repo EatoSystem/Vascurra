@@ -36,6 +36,7 @@ function HoldingPage() {
   return (
     <>
       <span id="top" />
+      <SiteHeader markOnly />
       <main id="main">
         <HomeHero showCtas={false} />
         <HoldingUnlockForm />
