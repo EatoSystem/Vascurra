@@ -1,8 +1,8 @@
 # Vascurra Brand Assets
 
-Canonical production mark expected here:
+Canonical production mark:
 
-- `brain-icon.png` — the exact Vascurra brain/tree icon supplied and approved by the founder.
+- `brain-icon.webp` — the exact Vascurra brain/tree icon supplied and approved by the founder.
 
 This asset must not be regenerated, redrawn, approximated or replaced by an anatomical-brain illustration.
 
