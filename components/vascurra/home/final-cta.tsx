@@ -3,9 +3,9 @@ import { BrainStage } from "@/components/motion/BrainStage";
 import { Reveal } from "@/components/motion/Reveal";
 import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { comingSoon, hero } from "@/content/home";
+import { earlyAccessHref, sectionIds } from "@/content/site";
 
 const closingAccent = "just beginning.";
-import { earlyAccessHref, sectionIds } from "@/content/site";
 
 export function FinalCta() {
   return (
