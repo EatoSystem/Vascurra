@@ -6,10 +6,10 @@ This document and the referenced assets are the design source of truth for the p
 The existing deployed homepage is **not** the visual source of truth. Cursor should implement the approved design rather than inventing a new one.
 
 ### Primary visual target
-`/public/vascurra/reference/homepage-master-target.png`
+`/public/vascurra/reference/homepage-master-target.webp`
 
 ### Canonical brand mark
-`/public/vascurra/brand/brain-icon.png`
+`/public/vascurra/brand/brain-icon.webp`
 
 Do not redraw, regenerate or reinterpret the brain mark.
 
@@ -25,26 +25,27 @@ Do not redraw, regenerate or reinterpret the brain mark.
 ## Reference map
 
 ### 01 Hero
-Primary: `homepage-master-target.png`
-Brand mark: `brain-icon.png`
+Primary: `homepage-master-target.webp`
+Brand mark: `brain-icon.webp`
+Brand system: `brand-system-reference.webp`
 
 ### 02 Living better / whole-person system
-Primary: `homepage-master-target.png`
+Primary: `homepage-master-target.webp`
 Direction: person at centre; Health, History, Movement, Sleep, Routine, Confidence, Family, Daily life.
 Do not use the brain mark here.
 
 ### 03 One platform. Multiple perspectives.
-Primary: `one-platform-reference.png`
-Supporting: `people-reference.png`, `families-reference.png`, `clinicians-reference.png`, `research-reference.png`
+Primary: `one-platform-reference.webp`
+Supporting: `families-reference.webp`, `clinicians-reference.webp`, `research-reference.webp`
 
 The section must feel like one connected product ecosystem: phone + tablet + clinical desktop/laptop + research display. Do not substitute four tiny cards or identical devices.
 
 ### 04 Understand. Track. Support.
-Primary: `understand-track-support-reference.png`
+Primary: `understand-track-support-reference.webp`
 Use three substantial visual modules rather than small icons.
 
 ### 05 Privacy by design. Security by default.
-Primary: `privacy-reference.png`
+Primary: `privacy-reference.webp`
 Do not reproduce illustrative compliance/certification claims unless actually verified. Use the visual treatment, layout, hierarchy and security architecture concept only.
 
 ### 06 Don't replace capability. Support it.
@@ -54,7 +55,7 @@ Use a deep Vascurra teal background with a large adaptive-support pathway: Recal
 Three substantial illustrated panels: Human judgement remains central; Privacy designed from the beginning; Evidence before clinical claims.
 
 ### 08 Final CTA
-Primary: `homepage-master-target.png`
+Primary: `homepage-master-target.webp`
 Use the canonical brain mark prominently. The final section should be generous and hero-like, not compressed.
 
 ## Visual rules
