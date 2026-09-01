@@ -1,21 +1,17 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { BrainGlyph } from "@/components/brand/BrainGlyph";
 import { site } from "@/content/site";
 import { footer } from "@/content/home";
-import { earlyAccessHref, privacyHref } from "@/content/site";
+import { earlyAccessHref, privacyHref, navLinks } from "@/content/site";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-deep-hairline bg-deep">
       <Container className="py-16 sm:py-20">
-        <div className="flex flex-col justify-between gap-10 sm:flex-row sm:items-end">
+        <div className="flex flex-col justify-between gap-10 lg:flex-row">
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2.5">
-              <BrainGlyph size={40} />
-              <Wordmark className="text-2xl !text-on-deep" />
-            </div>
+            <Wordmark className="text-2xl !text-on-deep" />
             <p className="text-on-deep-muted">{site.tagline}</p>
             <a
               href={site.url}
@@ -24,19 +20,18 @@ export function SiteFooter() {
               {site.displayUrl}
             </a>
           </div>
-          <nav aria-label="Footer">
-            <ul className="flex flex-col gap-3 text-on-deep sm:items-end">
-              <li>
-                <Link href={earlyAccessHref} className="hover:text-[var(--color-energy-cyan)]">
-                  {footer.earlyAccess}
-                </Link>
-              </li>
-              <li>
-                <Link href={privacyHref} className="hover:text-[var(--color-energy-cyan)]">
-                  {footer.privacy}
-                </Link>
-              </li>
-            </ul>
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-12 gap-y-3 text-on-deep sm:grid-cols-3">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="hover:text-[var(--color-energy-cyan)]">
+                {link.label}
+              </a>
+            ))}
+            <Link href={earlyAccessHref} className="hover:text-[var(--color-energy-cyan)]">
+              {footer.earlyAccess}
+            </Link>
+            <Link href={privacyHref} className="hover:text-[var(--color-energy-cyan)]">
+              {footer.privacy}
+            </Link>
           </nav>
         </div>
 

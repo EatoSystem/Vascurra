@@ -1,61 +1,58 @@
 import { Reveal } from "@/components/motion/Reveal";
-import { BrainStage } from "@/components/motion/BrainStage";
 import { SectionShell } from "@/components/vascurra/ui/section-shell";
 import { DeviceFrame } from "@/components/vascurra/ui/device-frame";
-import { PeopleScreen } from "@/components/vascurra/ui/product-screens";
+import {
+  PeopleScreen,
+  FamilyScreen,
+  ClinicianScreen,
+  ResearchScreen,
+} from "@/components/vascurra/ui/product-screens";
 import { perspectives } from "@/content/home";
+
+const screens = [PeopleScreen, FamilyScreen, ClinicianScreen, ResearchScreen] as const;
 
 export function FourPerspectives() {
   return (
-    <SectionShell labelledBy="perspectives-heading" bloom="dual" flow="mist">
-      <Reveal>
-        <h2 id="perspectives-heading" className="type-section max-w-3xl">
-          <span className="block">{perspectives.heading}</span>
-          <span className="text-gradient">{perspectives.headingLine}</span>
-        </h2>
-        <p className="mt-6 max-w-xl text-lg font-medium text-ink-teal">
-          {perspectives.subhead}
-        </p>
-      </Reveal>
-
-      <div className="mt-14 grid items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-        <ul className="flex gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-2 lg:gap-8 lg:overflow-visible">
-          {perspectives.items.map((item, i) => (
-            <Reveal
-              as="li"
-              key={item.id}
-              delay={80 + i * 60}
-              className="min-w-[16rem] shrink-0 lg:min-w-0"
-            >
-              <a
-                href={item.href}
-                className="block rounded-[1.5rem] py-1 focus-visible:outline-none"
-              >
-                <p className="text-sm font-semibold tracking-[0.16em] text-ink-teal uppercase">
-                  {item.summary}
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold">{item.name}</h3>
-                <p className="mt-3 text-base text-ink-body">{item.body}</p>
-              </a>
-            </Reveal>
-          ))}
-        </ul>
-
-        <Reveal delay={80} className="relative flex items-center justify-center">
-          <div className="absolute -z-10">
-            <BrainStage slot="feature" />
-          </div>
-          <DeviceFrame
-            variant="phone"
-            label={`${perspectives.items[0]?.name} ${perspectives.note}`}
-            className="relative translate-x-2 sm:translate-x-6"
+    <SectionShell labelledBy="perspectives-heading" bloom="dual">
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end">
+        <Reveal>
+          <h2 id="perspectives-heading" className="type-section max-w-xl">
+            <span className="block">{perspectives.heading}</span>
+            <span className="text-ink-teal">{perspectives.headingLine}</span>
+          </h2>
+          <a
+            href={`#${perspectives.items[0]?.id ?? "people"}`}
+            className="mt-6 inline-flex min-h-11 items-center text-base font-semibold text-ink-teal underline-offset-4 hover:underline"
           >
-            <PeopleScreen />
-          </DeviceFrame>
+            {perspectives.cta}
+          </a>
+          <p className="mt-8 max-w-md text-base text-ink-muted">{perspectives.note}</p>
         </Reveal>
-      </div>
 
-      <p className="mt-14 max-w-2xl text-base text-ink-muted">{perspectives.note}</p>
+        <ul className="flex gap-4 overflow-x-auto pb-4 lg:grid lg:grid-cols-4 lg:gap-4 lg:overflow-visible">
+          {perspectives.items.map((item, i) => {
+            const Screen = screens[i] ?? PeopleScreen;
+            return (
+              <Reveal
+                as="li"
+                key={item.id}
+                delay={70 + i * 50}
+                className="min-w-[180px] shrink-0 lg:min-w-0"
+              >
+                <div id={item.id}>
+                  <h3 className="mb-3 text-sm font-semibold tracking-[0.16em] text-ink-teal uppercase">
+                    {item.name}
+                  </h3>
+                  <DeviceFrame variant="compact" label={item.name}>
+                    <Screen />
+                  </DeviceFrame>
+                  <p className="mt-3 text-sm text-ink-body">{item.summary}</p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </ul>
+      </div>
     </SectionShell>
   );
 }

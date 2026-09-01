@@ -2,11 +2,7 @@ import Image from "next/image";
 import { smallBrain } from "./brain-assets";
 
 /**
- * The approved brain mark at small scale, for the header and footer.
- *
- * Uses the committed 141x144 derivative, which stays genuinely crisp up to
- * about 70 CSS px at DPR 2. Sizes here are 28-36px, so the browser is always
- * downscaling — never the upscaling that spec §2 and §20 prohibit.
+ * The Vascurra brain at navigation scale, from the canonical header WebP.
  */
 export function BrainGlyph({
   size = 36,

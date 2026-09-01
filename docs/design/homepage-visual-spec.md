@@ -1,35 +1,26 @@
 # Homepage visual spec (implemented)
 
-The public homepage is a presentation rebuild of the Phase 1A holding page. Functionality added in this pass: `/early-access` (validated form) and `/privacy`. No health data is collected.
+The homepage follows the attached visual mockup as the layout source of truth, rebuilt in HTML/CSS rather than as a flattened image.
 
 ## Sequence
 
-1. **Hero** — Vascurra, “Intelligence for vascular cognitive health.”, independence/identity, audience line, Request Access + Discover Vascurra, large brain composition.
-2. **Human context** — “Living better with vascular cognitive change.”
-3. **Connected system** — “Cognition doesn’t change in isolation.” Eight life factors.
-4. **The idea** — person-centred framing question.
-5. **Four perspectives** — People, Families, Clinicians, Research, with a conceptual device.
-6. **People** — Understand / Track / Support + phone UI (conceptual).
-7. **Families** — check-ins, coordination, shared understanding + tablet UI.
-8. **Clinicians** — trusted intelligence; visit-context UI; no diagnostic outputs.
-9. **Research** — longitudinal / structured / consented framing + laptop UI.
-10. **Understand · Track · Support** — one system, three connected capabilities.
-11. **Trust** — privacy, architecture, human control, responsible development. No certification badges.
-12. **Philosophy** — “Don’t replace capability. Support it.” Recall → Hint → Guide → Answer on deep teal.
-13. **Principles** — human-first journey along a vascular spine.
-14. **Development** — ambitious in vision, careful in development, plus safety boundaries.
-15. **Final CTA** — “Vascurra is just beginning.” Request Access. Brain returns on deep teal.
+1. **Hero** — Serif headline “Intelligence for vascular cognitive **health.**”, independence/identity, Request Access + Discover Vascurra, canonical brain (nav/hero/CTA only).
+2. **Living better** — Centered editorial intro and a four-node journey (Monitor, Inform, Support, Thrive) with line icons — not the brain.
+3. **One platform. Multiple perspectives.** — Four compact device UIs (People, Families, Clinicians, Research). Conceptual, no scores.
+4. **Understand. Track. Support.** — Three rows with vascular-flow marks.
+5. **Privacy by design. Security by default.** — Four line-icon principles. No certification badges.
+6. **Don’t replace capability. Support it.** — Full-bleed deep teal, four circular icons.
+7. **Ambitious in vision. Careful in development.** — Three illustration-style flow marks plus safety boundaries.
+8. **Final CTA** — Full-viewport deep teal, large brain, Request Access.
+
+The brain mark appears only in the header, hero, and closing CTA.
 
 ## Navigation
 
 Why Vascurra · For People · For Families · For Clinicians · Research · Request Access.
 
-No dead links. Science/About pages are not in the nav because those routes are not built.
+Science/About are omitted because those routes are not built. Footer has no brain mark.
 
 ## Copy rules
 
-All homepage and form strings live in `content/`. Claims tests walk that copy. Mockups are labelled “Conceptual preview” and use fictional, non-diagnostic examples.
-
-## Request Access
-
-`/early-access` validates name, email, role and consent on the server. If `EARLY_ACCESS_WEBHOOK_URL` is set, the payload is posted there. If it is not set, the form reports that registration is not connected and does not pretend to store the details.
+All public strings live in `content/`. Claims tests walk that copy. Device UIs are labelled conceptual and avoid 0–100 scores.

@@ -18,9 +18,9 @@ export const brainSources = {
 export const brainIntrinsic = { width: 1024, height: 1024 } as const;
 
 export const smallBrain = {
-  src: "/brand/vascurra-brain.webp",
-  width: 141,
-  height: 144,
+  src: "/vascurra/brain/vascurra-brain-header.webp",
+  width: 256,
+  height: 256,
 } as const;
 
 export const brainSizing = {
@@ -35,8 +35,8 @@ export const brainSizing = {
   },
   closing: {
     className:
-      "w-[78vw] max-w-[380px] sm:w-[52vw] sm:max-w-[460px] lg:w-[32vw] lg:max-w-[560px]",
-    sizes: "(max-width: 640px) 78vw, (max-width: 1024px) 52vw, 32vw",
+      "w-[82vw] max-w-[480px] sm:w-[56vw] sm:max-w-[560px] lg:w-[40vw] lg:max-w-[680px]",
+    sizes: "(max-width: 640px) 82vw, (max-width: 1024px) 56vw, 40vw",
   },
 } as const;
 

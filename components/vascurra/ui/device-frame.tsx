@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
 
-type Variant = "phone" | "tablet" | "laptop";
+type Variant = "phone" | "compact" | "tablet" | "laptop";
 
 const shells: Record<Variant, string> = {
   phone:
     "w-[220px] rounded-[2.2rem] border border-hairline-strong bg-[#1a3d48] p-[8px] shadow-[0_30px_60px_-28px_rgba(8,61,74,0.45)] sm:w-[240px]",
+  compact:
+    "w-[168px] rounded-[1.8rem] border border-hairline-strong bg-[#1a3d48] p-[7px] shadow-[0_24px_50px_-24px_rgba(8,61,74,0.4)] sm:w-[176px]",
   tablet:
     "w-[280px] rounded-[1.6rem] border border-hairline-strong bg-[#1a3d48] p-[10px] shadow-[0_30px_60px_-28px_rgba(8,61,74,0.4)] sm:w-[320px]",
   laptop:
@@ -27,7 +29,7 @@ export function DeviceFrame({
   return (
     <figure className={`relative ${className}`} aria-hidden={decorative || undefined}>
       <div className={shells[variant]}>
-        {variant === "phone" ? (
+        {variant === "phone" || variant === "compact" ? (
           <div
             aria-hidden="true"
             className="mx-auto mb-2 h-4 w-20 rounded-full bg-black/35"
@@ -37,6 +39,8 @@ export function DeviceFrame({
           className={`overflow-hidden bg-white ${
             variant === "phone"
               ? "min-h-[390px] rounded-[1.7rem]"
+              : variant === "compact"
+                ? "min-h-[300px] rounded-[1.4rem]"
               : variant === "tablet"
                 ? "min-h-[360px] rounded-[1.1rem]"
                 : "min-h-[280px] rounded-[0.7rem]"

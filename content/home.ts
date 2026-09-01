@@ -13,8 +13,8 @@
  */
 
 export const hero = {
-  eyebrow: "Vascurra",
-  heading: "Intelligence for vascular cognitive health.",
+  headingLead: "Intelligence for vascular cognitive",
+  headingAccent: "health.",
   statementLead: "Support independence.",
   statementTrail: "Preserve identity.",
   audience: "For people, families, clinicians, and research.",
@@ -25,8 +25,16 @@ export const hero = {
 
 export const humanContext = {
   heading: "Living better with vascular cognitive change.",
-  lead: "Cognition does not sit apart from a life.",
-  body: "It lives inside routines, relationships, movement, rest, confidence and the stories a person wants to keep telling. Vascurra is being designed around that wider picture — calmly, carefully, and with the person at the centre.",
+  body: "Cognition lives inside routines, relationships, rest, confidence and the stories a person wants to keep telling. Vascurra is being designed around that wider picture — calmly, and with the person at the centre.",
+} as const;
+
+export const journey = {
+  items: [
+    { name: "Monitor", body: "Understand trends." },
+    { name: "Inform", body: "Share context." },
+    { name: "Support", body: "Live fully." },
+    { name: "Thrive", body: "Stay independent." },
+  ],
 } as const;
 
 export const connectedSystem = {
@@ -61,7 +69,7 @@ export type Perspective = {
 export const perspectives = {
   heading: "One platform.",
   headingLine: "Multiple perspectives.",
-  subhead: "For people, families, clinicians, and research.",
+  cta: "Explore all perspectives",
   items: [
     {
       id: "people",
@@ -134,19 +142,18 @@ export const research = {
 
 export const triad = {
   heading: "Understand. Track. Support.",
-  body: "Three capabilities of one system — not three separate products.",
   items: [
     {
       name: "Understand",
-      body: "Bring health, history and daily life into a picture a person can recognise.",
+      body: "See the full picture of health, history and daily life.",
     },
     {
       name: "Track",
-      body: "Keep a longitudinal record of what is reported, observed and reviewed.",
+      body: "Follow change over time through check-ins and notes you choose to keep.",
     },
     {
       name: "Support",
-      body: "Offer the least assistance necessary, then more only when it helps.",
+      body: "Take the next step with clarity — starting with what the person can still do.",
     },
   ],
 } as const;
@@ -154,7 +161,7 @@ export const triad = {
 export const trust = {
   heading: "Privacy by design.",
   headingLine: "Security by default.",
-  subhead: "Trust in every layer.",
+  cta: "Our approach",
   principles: [
     {
       id: "privacy",
@@ -181,9 +188,14 @@ export const trust = {
 
 export const philosophy = {
   headingLines: ["Don’t replace capability.", "Support it."],
-  steps: ["Recall", "Hint", "Guide", "Answer"],
+  steps: [
+    { name: "Trust", body: "Begin with the person." },
+    { name: "Insight", body: "Organise useful context." },
+    { name: "Enable", body: "Offer help when asked." },
+    { name: "Journey", body: "Stay alongside over time." },
+  ],
   principle: "Start with what the person can do. Add support only when it helps.",
-  body: "Vascurra’s proposed approach starts with the least assistance necessary and progressively offers more support when it is wanted.",
+  body: "Vascurra’s proposed approach starts with the least assistance necessary and progressively offers more support when it is wanted. Recall, hint, guide, then answer — never the other way around.",
 } as const;
 
 export type Principle = {
