@@ -1,9 +1,9 @@
 /**
- * Text wordmark, set in the site serif rather than traced from a raster lockup.
+ * Text wordmark in the site sans-serif.
  */
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <span className={`font-serif font-semibold tracking-[-0.03em] text-navy ${className}`}>
+    <span className={`font-semibold tracking-[-0.04em] text-navy ${className}`}>
       Vascurra
     </span>
   );

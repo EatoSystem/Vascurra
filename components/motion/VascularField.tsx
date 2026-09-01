@@ -77,14 +77,20 @@ const travelPaths = [0, 3, 5, 7];
 
 export function VascularField({
   tone = "light",
+  intensity = "full",
   className = "",
 }: {
   tone?: "light" | "deep";
+  intensity?: "full" | "quiet";
   className?: string;
 }) {
-  const uid = tone;
-  const branchOpacity = tone === "deep" ? 0.85 : 0.95;
-  const ribbonOpacity = tone === "deep" ? "0.5" : "0.6";
+  const uid = `${tone}-${intensity}`;
+  const quiet = intensity === "quiet";
+  const visibleBranches = quiet ? branches.slice(0, 6) : branches;
+  const visibleNodes = quiet ? nodes.slice(0, 5) : nodes;
+  const visibleParticles = quiet ? particles.slice(0, 6) : particles;
+  const branchOpacity = quiet ? 0.45 : tone === "deep" ? 0.85 : 0.95;
+  const ribbonOpacity = quiet ? "0.28" : tone === "deep" ? "0.5" : "0.6";
 
   return (
     <svg
@@ -128,25 +134,29 @@ export function VascularField({
           d="M30 610 C 220 494, 366 700, 528 552 S 800 366, 972 448"
           fill="none"
           stroke={`url(#vf-ribbon-${uid})`}
-          strokeWidth="34"
+          strokeWidth={quiet ? 18 : 34}
           strokeLinecap="round"
         />
-        <path
-          d="M40 396 C 236 512, 380 286, 548 404 S 806 594, 962 512"
-          fill="none"
-          stroke={`url(#vf-ribbon-${uid})`}
-          strokeWidth="22"
-          strokeLinecap="round"
-          opacity="0.78"
-        />
-        <path
-          d="M74 690 C 262 646, 434 780, 622 700 S 862 588, 950 646"
-          fill="none"
-          stroke={`url(#vf-ribbon-${uid})`}
-          strokeWidth="13"
-          strokeLinecap="round"
-          opacity="0.6"
-        />
+        {quiet ? null : (
+          <>
+            <path
+              d="M40 396 C 236 512, 380 286, 548 404 S 806 594, 962 512"
+              fill="none"
+              stroke={`url(#vf-ribbon-${uid})`}
+              strokeWidth="22"
+              strokeLinecap="round"
+              opacity="0.78"
+            />
+            <path
+              d="M74 690 C 262 646, 434 780, 622 700 S 862 588, 950 646"
+              fill="none"
+              stroke={`url(#vf-ribbon-${uid})`}
+              strokeWidth="13"
+              strokeLinecap="round"
+              opacity="0.6"
+            />
+          </>
+        )}
       </g>
 
       {/* Stage 2 — vascular branches draw outward from the centre. */}
@@ -157,7 +167,7 @@ export function VascularField({
         strokeLinecap="round"
         opacity={branchOpacity}
       >
-        {branches.map((d, i) => (
+        {visibleBranches.map((d, i) => (
           <path
             key={d}
             d={d}
@@ -181,7 +191,7 @@ export function VascularField({
         strokeWidth="3.4"
         strokeLinecap="round"
       >
-        {branches.slice(0, 8).map((d, i) => (
+        {(quiet ? visibleBranches.slice(0, 2) : branches.slice(0, 8)).map((d, i) => (
           <path
             key={`pulse-${d}`}
             d={d}
@@ -196,7 +206,7 @@ export function VascularField({
             }}
           />
         ))}
-        {travelPaths.map((idx, i) => (
+        {(quiet ? [] : travelPaths).map((idx, i) => (
           <path
             key={`travel-${idx}`}
             d={branches[idx]}
@@ -224,7 +234,7 @@ export function VascularField({
           ["--v-rest-opacity" as string]: "1",
         }}
       >
-        {particles.map((p, i) => (
+        {visibleParticles.map((p, i) => (
           <circle
             key={`${p.cx}-${p.cy}`}
             cx={p.cx}
@@ -245,7 +255,7 @@ export function VascularField({
 
       {/* Stage 5 — nodes illuminate, then hold staggered 4-8s glow cycles. */}
       <g fill={`url(#vf-node-${uid})`}>
-        {nodes.map((n, i) => (
+        {visibleNodes.map((n, i) => (
           <circle
             key={`${n.cx}-${n.cy}`}
             cx={n.cx}

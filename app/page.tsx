@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { HomeHero } from "@/components/vascurra/home/hero";
 import { HumanContext } from "@/components/vascurra/home/human-context";
+import { ConnectedSystem } from "@/components/vascurra/home/connected-system";
 import { FourPerspectives } from "@/components/vascurra/home/four-perspectives";
 import { UnderstandTrackSupport } from "@/components/vascurra/home/understand-track-support";
 import { Trust } from "@/components/vascurra/home/trust";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <main id="main">
         <HomeHero />
         <HumanContext />
+        <ConnectedSystem />
         <FourPerspectives />
         <UnderstandTrackSupport />
         <Trust />

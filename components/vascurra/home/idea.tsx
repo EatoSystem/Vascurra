@@ -4,11 +4,11 @@ import { idea } from "@/content/home";
 
 export function Idea() {
   return (
-    <SectionShell labelledBy="idea-heading" pad="tight" bloom="cyan" flow="band">
+    <SectionShell labelledBy="idea-heading" pad="tight">
       <Reveal>
         <h2
           id="idea-heading"
-          className="text-gradient mx-auto max-w-4xl text-center text-[clamp(1.75rem,4vw,3.15rem)] leading-[1.16] font-semibold"
+          className="mx-auto max-w-4xl text-center text-[clamp(1.75rem,4vw,3.15rem)] leading-[1.16] font-semibold text-navy"
         >
           {idea.heading}
         </h2>

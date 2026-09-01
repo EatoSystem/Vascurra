@@ -13,7 +13,8 @@
  */
 
 export const hero = {
-  headingLead: "Intelligence for vascular cognitive",
+  headingLead: "Intelligence for",
+  headingMid: "vascular cognitive",
   headingAccent: "health.",
   statementLead: "Support independence.",
   statementTrail: "Preserve identity.",
@@ -69,6 +70,8 @@ export type Perspective = {
 export const perspectives = {
   heading: "One platform.",
   headingLine: "Multiple perspectives.",
+  subheading:
+    "One connected system, shaped for people, families, clinicians, and research.",
   cta: "Explore all perspectives",
   items: [
     {
@@ -142,6 +145,7 @@ export const research = {
 
 export const triad = {
   heading: "Understand. Track. Support.",
+  subheading: "Three connected capabilities. One continuous flow.",
   items: [
     {
       name: "Understand",
@@ -165,7 +169,7 @@ export const trust = {
   principles: [
     {
       id: "privacy",
-      name: "Privacy by design",
+      name: "Privacy first",
       body: "Collect only what is needed. Keep health information out of Phase 1. Make control understandable.",
     },
     {
@@ -189,10 +193,10 @@ export const trust = {
 export const philosophy = {
   headingLines: ["Don’t replace capability.", "Support it."],
   steps: [
-    { name: "Trust", body: "Begin with the person." },
-    { name: "Insight", body: "Organise useful context." },
-    { name: "Enable", body: "Offer help when asked." },
-    { name: "Journey", body: "Stay alongside over time." },
+    { name: "Recall", body: "Begin with what the person can still do." },
+    { name: "Hint", body: "Offer a cue only when it helps." },
+    { name: "Guide", body: "Support the next step, not the whole task." },
+    { name: "Answer", body: "Fill in the rest only when asked." },
   ],
   principle: "Start with what the person can do. Add support only when it helps.",
   body: "Vascurra’s proposed approach starts with the least assistance necessary and progressively offers more support when it is wanted. Recall, hint, guide, then answer — never the other way around.",

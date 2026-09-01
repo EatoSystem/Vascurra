@@ -26,7 +26,7 @@ export const smallBrain = {
 export const brainSizing = {
   hero: {
     className:
-      "w-[86vw] max-w-[460px] sm:w-[58vw] sm:max-w-[560px] lg:w-[46vw] lg:max-w-[720px] lg:min-w-[420px]",
+      "w-[78vw] max-w-[420px] sm:w-[52vw] sm:max-w-[520px] lg:w-[42vw] lg:max-w-[640px] lg:min-w-[380px]",
     sizes: "(max-width: 640px) 86vw, (max-width: 1024px) 58vw, 46vw",
   },
   feature: {
@@ -35,7 +35,7 @@ export const brainSizing = {
   },
   closing: {
     className:
-      "w-[82vw] max-w-[480px] sm:w-[56vw] sm:max-w-[560px] lg:w-[40vw] lg:max-w-[680px]",
+      "w-[78vw] max-w-[440px] sm:w-[52vw] sm:max-w-[540px] lg:w-[38vw] lg:max-w-[620px]",
     sizes: "(max-width: 640px) 82vw, (max-width: 1024px) 56vw, 40vw",
   },
 } as const;

@@ -11,8 +11,6 @@ export function Families() {
     <SectionShell
       id={sectionIds.families}
       labelledBy="families-heading"
-      tone="mist"
-      bloom="cyan"
     >
       <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
         <Reveal delay={80} className="order-last flex justify-center lg:order-first lg:justify-start">

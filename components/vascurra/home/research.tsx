@@ -8,7 +8,7 @@ import { sectionIds } from "@/content/site";
 
 export function Research() {
   return (
-    <SectionShell id={sectionIds.research} labelledBy="research-heading" bloom="cyan">
+    <SectionShell id={sectionIds.research} labelledBy="research-heading">
       <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
         <Reveal delay={80} className="order-last flex justify-center lg:order-first">
           <DeviceFrame variant="laptop" label={research.heading}>

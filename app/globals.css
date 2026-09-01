@@ -43,14 +43,14 @@
   --vascurra-radius: 1.75rem;
   --vascurra-content: 40rem;
   --vascurra-section: 80rem;
-  --vascurra-space-section: clamp(5.5rem, 10vw, 9.5rem);
+  --vascurra-space-section: clamp(7.5rem, 12vw, 11.25rem);
   --vascurra-motion: 850ms;
 }
 
 @theme {
   /* --- Ground ---------------------------------------------------------- */
-  --color-canvas: #f7fbfd;        /* spec: --vascurra-soft-white */
-  --color-canvas-deep: #eef6fa;
+  --color-canvas: #ffffff;
+  --color-canvas-deep: #ffffff;
   --color-mist: #e6f7f6;
   --color-surface: #ffffff;
   --color-hairline: #d4e8ea;
@@ -105,15 +105,13 @@
   }
 
   body {
-    background-color: var(--color-canvas);
+    background-color: #ffffff;
     color: var(--color-ink-body);
     font-family: var(--font-sans);
     font-size: 1.125rem;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* The luminous field is composed of absolutely positioned bloom layers
-       that intentionally bleed past section edges. */
     overflow-x: hidden;
   }
 
@@ -134,9 +132,9 @@
 
   h1,
   h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 
   p {
@@ -227,27 +225,27 @@
    =========================================================================== */
 
 .type-display {
-  font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5.4vw, 5rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 5.2vw, 4.75rem);
   font-weight: 600;
   line-height: 1.08;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.035em;
 }
 
 .type-display-xl {
-  font-family: var(--font-serif);
-  font-size: clamp(3rem, 7.6vw, 7rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2.75rem, 6.4vw, 5.75rem);
   font-weight: 600;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.038em;
 }
 
 .type-section {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
   font-weight: 600;
   line-height: 1.12;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.03em;
 }
 
 .type-lead {

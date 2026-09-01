@@ -8,7 +8,7 @@ import { sectionIds } from "@/content/site";
 
 export function Clinicians() {
   return (
-    <SectionShell id={sectionIds.clinicians} labelledBy="clinicians-heading" bloom="teal">
+    <SectionShell id={sectionIds.clinicians} labelledBy="clinicians-heading">
       <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <div>
           <Reveal>

@@ -6,19 +6,27 @@ import { earlyAccessHref, homeDiscoverHref } from "@/content/site";
 
 export function HomeHero() {
   return (
-    <section aria-labelledby="hero-heading" className="relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28">
-      <VascularFlow variant="mist" />
-      <div className="relative z-10 mx-auto grid min-h-[78svh] max-w-[80rem] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:px-12">
+    <section
+      aria-labelledby="hero-heading"
+      className="relative overflow-hidden bg-white pt-12 pb-24 lg:pt-20 lg:pb-32"
+    >
+      <div className="pointer-events-none absolute inset-y-[12%] right-[-4%] hidden w-[52%] lg:block">
+        <VascularFlow variant="quiet" className="top-1/2 h-[70%] -translate-y-1/2" />
+      </div>
+      <div className="relative z-10 mx-auto grid max-w-[80rem] items-center gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-8 lg:px-12">
         <div className="max-w-[38rem]">
           <h1 id="hero-heading" className="type-display">
-            {hero.headingLead}{" "}
-            <span className="text-ink-teal">{hero.headingAccent}</span>
+            <span className="block">{hero.headingLead}</span>
+            <span className="block">{hero.headingMid}</span>
+            <span className="block text-ink-teal">{hero.headingAccent}</span>
           </h1>
-          <p className="mt-8 text-[clamp(1.4rem,2.3vw,1.95rem)] leading-[1.25] font-medium text-navy">
+          <p className="mt-8 text-[clamp(1.35rem,2.1vw,1.85rem)] leading-[1.35] font-medium text-navy">
             {hero.statementLead} {hero.statementTrail}
           </p>
           <p className="mt-5 text-lg text-ink-teal">{hero.audience}</p>
-          <p className="mt-8 max-w-lg text-ink-body">{hero.body}</p>
+          <p className="mt-8 max-w-lg text-[1.125rem] leading-[1.7] text-ink-body md:text-[1.25rem]">
+            {hero.body}
+          </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <CtaLink href={earlyAccessHref}>{hero.primaryCta}</CtaLink>
             <CtaLink href={homeDiscoverHref} variant="secondary">
@@ -26,8 +34,8 @@ export function HomeHero() {
             </CtaLink>
           </div>
         </div>
-        <div className="order-first flex justify-center lg:order-last lg:justify-end">
-          <BrainStage slot="hero" priority />
+        <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10">
+          <BrainStage slot="hero" field="quiet" priority />
         </div>
       </div>
     </section>
