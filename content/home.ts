@@ -26,7 +26,7 @@ export const hero = {
 
 export const humanContext = {
   heading: "Living better with vascular cognitive change.",
-  body: "Cognition lives inside routines, relationships, rest, confidence and the stories a person wants to keep telling. Vascurra is being designed around that wider picture — calmly, and with the person at the centre.",
+  supporting: "Cognition doesn’t change in isolation.",
 } as const;
 
 export const journey = {
@@ -78,29 +78,29 @@ export const perspectives = {
       id: "people",
       name: "People",
       href: "#people",
-      summary: "Everyday support.",
-      body: "A future personal experience exploring routines, orientation, memory scaffolding and preparation — designed around the individual.",
+      summary: "Understand · Track · Support",
+      body: "A proposed personal experience.",
     },
     {
       id: "families",
       name: "Families",
       href: "#families",
-      summary: "Connected understanding.",
-      body: "Helping families stay organised and informed while respecting the person’s choices — support without surveillance.",
+      summary: "Coordinate · Understand · Support",
+      body: "A proposed family hub.",
     },
     {
       id: "clinicians",
       name: "Clinicians",
       href: "#clinicians",
-      summary: "Clearer context.",
-      body: "Exploring how longitudinal information could become concise, source-linked context for clinical conversations.",
+      summary: "Context · Trends · Decisions",
+      body: "A proposed clinical context view.",
     },
     {
       id: "research",
       name: "Research",
       href: "#research",
-      summary: "Responsible learning.",
-      body: "A future evidence and research layer designed around consent, governance and scientific integrity.",
+      summary: "Observe · Analyse · Learn",
+      body: "A proposed research layer.",
     },
   ] satisfies readonly Perspective[],
   note: "Vascurra is currently in development. These experiences describe the product direction, not live medical functionality.",
@@ -149,22 +149,24 @@ export const triad = {
   items: [
     {
       name: "Understand",
-      body: "See the full picture of health, history and daily life.",
+      body: "Signals from daily life, brought into one picture.",
     },
     {
       name: "Track",
-      body: "Follow change over time through check-ins and notes you choose to keep.",
+      body: "Change over time, marked by the moments a person chooses to keep.",
     },
     {
       name: "Support",
-      body: "Take the next step with clarity — starting with what the person can still do.",
+      body: "Help that grows only as far as it is wanted.",
     },
   ],
+  supportStages: ["Independent", "Recall", "Hint", "Guide", "Help"],
 } as const;
 
 export const trust = {
   heading: "Privacy by design.",
   headingLine: "Security by default.",
+  architecture: ["Person", "Control", "Consent", "Access", "Security"],
   cta: "Our approach",
   principles: [
     {

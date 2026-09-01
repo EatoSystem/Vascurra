@@ -1,39 +1,38 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionShell } from "@/components/vascurra/ui/section-shell";
-import { LineIcon } from "@/components/vascurra/ui/line-icon";
+import { PrivacyArchitecture } from "@/components/vascurra/illustrations/privacy-architecture";
 import { trust } from "@/content/home";
 import { sectionIds } from "@/content/site";
-
-const icons = ["privacy", "lock", "person", "document"] as const;
 
 export function Trust() {
   return (
     <SectionShell labelledBy="trust-heading">
-      <div className="grid gap-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
-        <Reveal>
-          <h2 id="trust-heading" className="type-section max-w-md">
-            <span className="block">{trust.heading}</span>
-            <span className="text-ink-teal">{trust.headingLine}</span>
-          </h2>
-          <a
-            href={`#${sectionIds.approach}`}
-            className="mt-8 inline-flex min-h-11 items-center font-semibold text-ink-teal underline-offset-4 hover:underline"
-          >
-            {trust.cta}
-          </a>
-        </Reveal>
-        <ul className="grid gap-12 sm:grid-cols-2">
-          {trust.principles.map((item, i) => (
-            <Reveal as="li" key={item.id} delay={70 + i * 50} className="max-w-sm">
-              <span className="mb-4 inline-flex text-ink-teal">
-                <LineIcon name={icons[i] ?? "privacy"} />
-              </span>
-              <h3 className="text-xl font-semibold text-navy">{item.name}</h3>
-              <p className="mt-3 text-[1.0625rem] leading-[1.65] text-ink-body">{item.body}</p>
-            </Reveal>
-          ))}
-        </ul>
-      </div>
+      <Reveal>
+        <h2 id="trust-heading" className="type-section mx-auto max-w-4xl text-center">
+          <span className="block">{trust.heading}</span>
+          <span className="text-ink-teal">{trust.headingLine}</span>
+        </h2>
+      </Reveal>
+      <Reveal delay={80}>
+        <div className="mt-10 sm:mt-14">
+          <PrivacyArchitecture />
+        </div>
+      </Reveal>
+      <ul className="mx-auto mt-12 grid max-w-4xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {trust.principles.map((item) => (
+          <li key={item.id} className="text-center">
+            <h3 className="text-lg font-semibold text-navy">{item.name}</h3>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-10 text-center">
+        <a
+          href={`#${sectionIds.approach}`}
+          className="inline-flex min-h-11 items-center font-semibold text-ink-teal underline-offset-4 hover:underline"
+        >
+          {trust.cta}
+        </a>
+      </p>
     </SectionShell>
   );
 }

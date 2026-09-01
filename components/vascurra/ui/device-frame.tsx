@@ -4,15 +4,15 @@ type Variant = "phone" | "compact" | "tablet" | "laptop" | "desktop";
 
 const shells: Record<Variant, string> = {
   phone:
-    "w-[220px] rounded-[2.2rem] border border-hairline-strong bg-[#16343d] p-[9px] shadow-[0_28px_56px_-30px_rgba(8,61,74,0.42)] sm:w-[248px]",
+    "w-[260px] rounded-[2.4rem] border border-hairline-strong bg-[#16343d] p-[10px] shadow-[0_32px_70px_-30px_rgba(8,61,74,0.5)] sm:w-[280px] lg:w-[300px]",
   compact:
     "w-[176px] rounded-[1.8rem] border border-hairline-strong bg-[#16343d] p-[7px] shadow-[0_22px_48px_-26px_rgba(8,61,74,0.38)] sm:w-[188px]",
   tablet:
-    "w-[min(100%,340px)] rounded-[1.5rem] border border-hairline-strong bg-[#16343d] p-[10px] shadow-[0_28px_56px_-30px_rgba(8,61,74,0.4)] sm:w-[360px]",
+    "w-[min(100%,400px)] rounded-[1.7rem] border border-hairline-strong bg-[#16343d] p-[12px] shadow-[0_32px_70px_-30px_rgba(8,61,74,0.46)] lg:w-[440px]",
   laptop:
-    "w-[min(100%,560px)] rounded-[1rem] border border-hairline-strong bg-[#122c34] p-[11px] pb-0 shadow-[0_32px_64px_-32px_rgba(8,61,74,0.48)]",
+    "w-[min(100%,640px)] rounded-[1.05rem] border border-hairline-strong bg-[#122c34] p-[12px] pb-0 shadow-[0_36px_76px_-32px_rgba(8,61,74,0.5)]",
   desktop:
-    "w-full rounded-[0.9rem] border border-hairline-strong bg-[#122c34] p-[10px] shadow-[0_32px_64px_-34px_rgba(8,61,74,0.48)]",
+    "w-full rounded-[1rem] border border-hairline-strong bg-[#122c34] p-[12px] shadow-[0_36px_80px_-34px_rgba(8,61,74,0.52)]",
 };
 
 export function DeviceFrame({
@@ -30,14 +30,14 @@ export function DeviceFrame({
 }) {
   const screenRadius =
     variant === "phone"
-      ? "min-h-[420px] rounded-[1.7rem]"
+      ? "min-h-[520px] rounded-[1.85rem]"
       : variant === "compact"
         ? "min-h-[320px] rounded-[1.35rem]"
         : variant === "tablet"
-          ? "min-h-[400px] rounded-[1.05rem]"
+          ? "min-h-[500px] rounded-[1.15rem]"
           : variant === "desktop"
-            ? "min-h-[320px] rounded-[0.55rem]"
-            : "min-h-[300px] rounded-[0.55rem]";
+            ? "min-h-[420px] rounded-[0.6rem]"
+            : "min-h-[360px] rounded-[0.55rem]";
 
   return (
     <figure className={`relative ${className}`} aria-hidden={decorative || undefined}>
@@ -52,14 +52,14 @@ export function DeviceFrame({
         {variant === "phone" || variant === "compact" ? (
           <div
             aria-hidden="true"
-            className="mx-auto mb-2 h-4 w-20 rounded-full bg-black/35"
+            className="mx-auto mb-2.5 h-4 w-24 rounded-full bg-black/35"
           />
         ) : null}
         <div className={`overflow-hidden bg-white ${screenRadius}`}>{children}</div>
         {variant === "laptop" ? (
           <div
             aria-hidden="true"
-            className="mx-auto mt-2 h-3 w-[112%] -translate-x-[5%] rounded-b-[1rem] bg-[#0c242b]"
+            className="mx-auto mt-2 h-3.5 w-[114%] -translate-x-[6%] rounded-b-[1.1rem] bg-[#0c242b]"
           />
         ) : null}
       </div>
