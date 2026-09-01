@@ -22,8 +22,8 @@ const screens = {
 const devices = {
   people: "phone",
   families: "tablet",
-  clinicians: "desktop",
-  research: "laptop",
+  clinicians: "laptop",
+  research: "desktop",
 } as const;
 
 type PerspectiveId = keyof typeof screens;
@@ -98,32 +98,32 @@ export function FourPerspectives() {
         })}
       </div>
 
-      <div className="relative mx-auto mt-16 hidden h-[40rem] w-full max-w-[76rem] xl:h-[44rem] lg:block">
-        <div className="absolute top-6 right-0 z-10 w-[66%] xl:w-[68%]">
-          <DeviceFrame variant="desktop" label="Clinicians" decorative>
-            <ClinicianScreen />
-          </DeviceFrame>
-        </div>
-        <div className="absolute right-[3%] bottom-2 z-20 w-[48%]">
-          <DeviceFrame variant="laptop" label="Research" decorative>
-            <ResearchScreen />
-          </DeviceFrame>
-        </div>
-        <div className="absolute bottom-6 left-[20%] z-30">
-          <DeviceFrame variant="tablet" label="Families" decorative>
-            <FamilyScreen />
-          </DeviceFrame>
-        </div>
-        <div className="absolute top-10 left-0 z-40">
+      <div className="relative mx-auto mt-16 hidden max-w-[80rem] items-end justify-center pb-16 lg:flex">
+        <div className="relative z-30 shrink-0">
           <DeviceFrame variant="phone" label="People" decorative>
             <PeopleScreen />
           </DeviceFrame>
         </div>
+        <div className="relative z-20 -ml-6 mb-10 shrink-0">
+          <DeviceFrame variant="tablet" label="Families" decorative>
+            <FamilyScreen />
+          </DeviceFrame>
+        </div>
+        <div className="relative z-10 min-w-[34rem] flex-1">
+          <DeviceFrame variant="laptop" label="Clinicians" decorative>
+            <ClinicianScreen />
+          </DeviceFrame>
+          <div className="absolute -right-6 -bottom-4 z-20 w-[20.5rem] xl:-right-10 xl:w-[22rem]">
+            <DeviceFrame variant="desktop" label="Research" decorative>
+              <ResearchScreen />
+            </DeviceFrame>
+          </div>
+        </div>
       </div>
 
-      <ul className="mx-auto mt-14 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {perspectives.items.map((item) => (
-          <li key={item.id} id={item.id} className="text-center lg:text-left">
+          <li key={item.id} id={item.id} className="text-center">
             <h3 className="text-lg font-semibold text-navy">{item.name}</h3>
             <p className="mt-2 text-base text-ink-teal">{item.summary}</p>
           </li>

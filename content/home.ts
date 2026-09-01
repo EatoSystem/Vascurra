@@ -71,7 +71,7 @@ export const perspectives = {
   heading: "One platform.",
   headingLine: "Multiple perspectives.",
   subheading:
-    "One connected system, shaped for people, families, clinicians, and research.",
+    "One connected system, shaped for people, families, clinicians and research.",
   cta: "Explore all perspectives",
   items: [
     {
