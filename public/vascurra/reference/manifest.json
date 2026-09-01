@@ -1,0 +1,15 @@
+{
+  "negativeReference": "00-before-do-not-copy.png",
+  "brandAnchor": "01-brand-anchor.png",
+  "references": [
+    {"file": "02-homepage-hero-style-target.png", "section": "homepage-hero"},
+    {"file": "03-people-target.png", "section": "people"},
+    {"file": "04-families-target.png", "section": "families"},
+    {"file": "05-clinicians-target.png", "section": "clinicians"},
+    {"file": "06-research-target.png", "section": "research"},
+    {"file": "07-understand-track-support-target.png", "section": "understand-track-support"},
+    {"file": "08-trust-privacy-target.png", "section": "trust-privacy"},
+    {"file": "09-four-perspectives-target.png", "section": "four-perspectives"},
+    {"file": "10-launch-cta-target.png", "section": "launch-cta"}
+  ]
+}
