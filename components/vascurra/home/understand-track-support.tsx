@@ -14,7 +14,20 @@ export function UnderstandTrackSupport() {
     <SectionShell labelledBy="triad-heading">
       <Reveal>
         <h2 id="triad-heading" className="type-section max-w-4xl">
-          {triad.heading}
+          {triad.heading.split(/(?<=\. )/).map((part, i) => (
+            <span
+              key={part}
+              className={
+                i === 0
+                  ? "text-word-teal"
+                  : i === 1
+                    ? "text-word-cyan"
+                    : "text-word-green"
+              }
+            >
+              {part}
+            </span>
+          ))}
         </h2>
         <p className="type-lead mt-5 max-w-2xl text-ink-body">{triad.subheading}</p>
       </Reveal>

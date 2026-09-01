@@ -45,6 +45,29 @@
   --vascurra-section: 80rem;
   --vascurra-space-section: clamp(7.5rem, 12vw, 11.25rem);
   --vascurra-motion: 850ms;
+
+  /* Brand mark gradient — deep teal → cyan → living green.
+     Use via .text-mark / .text-mark-lum / .rule-mark, not as raw values. */
+  --vascurra-grad-deep: #087486;
+  --vascurra-grad-cyan: #13b8c6;
+  --vascurra-grad-green: #50c98a;
+  --vascurra-text-gradient: linear-gradient(
+    100deg,
+    var(--vascurra-grad-deep) 0%,
+    var(--vascurra-grad-cyan) 48%,
+    var(--vascurra-grad-green) 100%
+  );
+  --vascurra-text-gradient-lum: linear-gradient(
+    100deg,
+    var(--vascurra-grad-cyan) 0%,
+    var(--vascurra-grad-green) 100%
+  );
+  --vascurra-rule-gradient: linear-gradient(
+    90deg,
+    var(--vascurra-grad-green) 0%,
+    var(--vascurra-grad-cyan) 50%,
+    var(--vascurra-grad-deep) 100%
+  );
 }
 
 @theme {
@@ -215,6 +238,77 @@
     background-image: none;
     color: CanvasText;
     -webkit-text-fill-color: CanvasText;
+  }
+}
+
+/* Brand-mark text gradient — deep teal → cyan → living green.
+   Accent only. Solid ink is painted first as the WCAG fallback. */
+.text-mark {
+  color: var(--vascurra-grad-deep);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-mark {
+    background-image: var(--vascurra-text-gradient);
+    background-color: var(--vascurra-grad-deep);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+}
+
+/* Cyan → living green on deep teal grounds. Soft white fallback. */
+.text-mark-lum {
+  color: var(--color-on-deep);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-mark-lum {
+    background-image: var(--vascurra-text-gradient-lum);
+    background-color: var(--color-on-deep);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+}
+
+/* Logo-derived hairline: green → cyan → teal. Use under selected majors only. */
+.rule-mark {
+  background-color: var(--vascurra-grad-deep);
+  background-image: var(--vascurra-rule-gradient);
+}
+
+/* Understand / Track / Support — three solid hues, one headline.
+   Ink-tier colours so the progression stays WCAG-readable on white. */
+.text-word-teal {
+  color: var(--vascurra-deep-teal);
+}
+
+.text-word-cyan {
+  color: var(--color-ink-cyan);
+}
+
+.text-word-green {
+  color: var(--color-ink-mint);
+}
+
+@media (forced-colors: active) {
+  .text-mark,
+  .text-mark-lum {
+    background-image: none;
+    color: CanvasText;
+    -webkit-text-fill-color: CanvasText;
+  }
+
+  .rule-mark {
+    background-image: none;
+    background-color: CanvasText;
   }
 }
 

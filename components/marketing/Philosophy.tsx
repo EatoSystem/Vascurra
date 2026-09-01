@@ -17,9 +17,7 @@ export function Philosophy() {
         <Reveal>
           <h2 id="philosophy-heading" className="type-display-xl max-w-4xl">
             <span className="block text-on-deep">{philosophy.headingLines[0]}</span>
-            <span className="block text-[var(--color-energy-cyan)]">
-              {philosophy.headingLines[1]}
-            </span>
+            <span className="text-mark-lum block">{philosophy.headingLines[1]}</span>
           </h2>
           <p className="mt-8 max-w-xl text-[1.125rem] leading-[1.7] text-on-deep-muted">
             {philosophy.principle}

@@ -36,9 +36,9 @@ export function FourPerspectives() {
     <SectionShell labelledBy="perspectives-heading">
       <Reveal>
         <div className="mx-auto max-w-3xl text-center">
-          <h2 id="perspectives-heading" className="type-display">
+          <h2 id="perspectives-heading" className="type-display text-[var(--vascurra-deep-teal)]">
             <span className="block">{perspectives.heading}</span>
-            <span className="text-ink-teal">{perspectives.headingLine}</span>
+            <span className="text-mark">{perspectives.headingLine}</span>
           </h2>
           <p className="type-lead mt-6 text-ink-body">{perspectives.subheading}</p>
         </div>

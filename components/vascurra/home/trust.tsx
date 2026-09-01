@@ -9,8 +9,8 @@ export function Trust() {
     <SectionShell labelledBy="trust-heading">
       <Reveal>
         <h2 id="trust-heading" className="type-section mx-auto max-w-4xl text-center">
-          <span className="block">{trust.heading}</span>
-          <span className="text-ink-teal">{trust.headingLine}</span>
+          <span className="block text-[var(--vascurra-deep-teal)]">{trust.heading}</span>
+          <span className="text-[var(--vascurra-teal)]">{trust.headingLine}</span>
         </h2>
       </Reveal>
       <Reveal delay={80}>

@@ -15,10 +15,12 @@ export function HomeHero() {
       </div>
       <div className="relative z-10 mx-auto grid max-w-[80rem] items-center gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-8 lg:px-12">
         <div className="max-w-[38rem]">
-          <h1 id="hero-heading" className="type-display">
+          <h1 id="hero-heading" className="type-display text-[var(--vascurra-ink)]">
             <span className="block">{hero.headingLead}</span>
-            <span className="block">{hero.headingMid}</span>
-            <span className="block text-ink-teal">{hero.headingAccent}</span>
+            <span className="text-mark block">
+              <span className="block">{hero.headingMid}</span>
+              <span className="block">{hero.headingAccent}</span>
+            </span>
           </h1>
           <p className="mt-8 text-[clamp(1.35rem,2.1vw,1.85rem)] leading-[1.35] font-medium text-navy">
             {hero.statementLead} {hero.statementTrail}

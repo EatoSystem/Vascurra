@@ -3,6 +3,8 @@ import { BrainStage } from "@/components/motion/BrainStage";
 import { Reveal } from "@/components/motion/Reveal";
 import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { comingSoon, hero } from "@/content/home";
+
+const closingAccent = "just beginning.";
 import { earlyAccessHref, sectionIds } from "@/content/site";
 
 export function FinalCta() {
@@ -16,7 +18,14 @@ export function FinalCta() {
       <div className="relative z-10 mx-auto grid w-full max-w-[80rem] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:px-12">
         <Reveal>
           <h2 id="closing-heading" className="type-display-xl max-w-xl text-on-deep">
-            {comingSoon.heading}
+            {comingSoon.heading.endsWith(closingAccent) ? (
+              <>
+                {comingSoon.heading.slice(0, -closingAccent.length)}
+                <span className="text-mark-lum">{closingAccent}</span>
+              </>
+            ) : (
+              comingSoon.heading
+            )}
           </h2>
           <p className="type-lead mt-8 max-w-lg font-medium text-on-deep">
             {comingSoon.statement}

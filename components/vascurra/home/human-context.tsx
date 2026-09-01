@@ -5,6 +5,7 @@ import { humanContext } from "@/content/home";
 import { sectionIds } from "@/content/site";
 
 const principleIcons = ["privacy", "support", "thrive"] as const;
+const humanContextAccent = "vascular cognitive change.";
 
 export function HumanContext() {
   return (
@@ -18,14 +19,21 @@ export function HumanContext() {
           <div className="max-w-[38.75rem]">
             <h2
               id="human-context-heading"
-              className="max-w-[620px] text-left font-semibold tracking-[-0.035em] text-navy max-[899px]:text-[clamp(2.375rem,11vw,3.25rem)] min-[900px]:text-[clamp(3rem,5vw,4.5rem)]"
+              className="max-w-[620px] text-left font-semibold tracking-[-0.035em] text-[var(--vascurra-deep-teal)] max-[899px]:text-[clamp(2.375rem,11vw,3.25rem)] min-[900px]:text-[clamp(3rem,5vw,4.5rem)]"
               style={{ lineHeight: 1.02 }}
             >
-              {humanContext.heading}
+              {humanContext.heading.endsWith(humanContextAccent) ? (
+                <>
+                  {humanContext.heading.slice(0, -humanContextAccent.length)}
+                  <span className="text-mark">{humanContextAccent}</span>
+                </>
+              ) : (
+                humanContext.heading
+              )}
             </h2>
             <span
               aria-hidden="true"
-              className="mt-6 block h-px w-16 bg-ink-teal"
+              className="rule-mark mt-6 block h-px w-16"
             />
             <p className="mt-6 font-medium text-ink-teal max-[899px]:text-[clamp(1.25rem,3.5vw,1.5rem)] min-[900px]:text-[clamp(1.375rem,2vw,1.875rem)]">
               {humanContext.supporting}
