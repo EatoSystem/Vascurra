@@ -3,17 +3,19 @@
 ## Status
 **APPROVED / LOCKED DESIGN**
 
-Implement this section only from the approved asset and this specification. Do not reinterpret the visual concept.
+Implement this section only from the approved assets and this specification. Do not reinterpret the visual concept.
 
 ## Purpose
 Introduce the whole-person model immediately after the hero. The message is that cognition does not exist in isolation: health, history, movement, sleep, routine, confidence, family and daily life form a connected picture around the person.
 
 The visual centre of this section is **people, not the Vascurra brain mark**.
 
-## Production asset
-`/public/vascurra/homepage/02-life-system/life-system-graphic.svg`
+## Approved production assets
+- `/public/vascurra/homepage/02-life-system/section-reference.webp` — full approved desktop section for visual QA only.
+- `/public/vascurra/homepage/02-life-system/life-system-graphic.webp` — production desktop artwork.
+- `/public/vascurra/homepage/02-life-system/life-system-graphic-mobile.webp` — production mobile artwork.
 
-The graphic shows a man and a woman together at the centre of eight connected influences:
+The approved visual uses **both a man and a woman** at the centre of eight connected influences:
 - Health
 - History
 - Movement
@@ -23,7 +25,7 @@ The graphic shows a man and a woman together at the centre of eight connected in
 - Family
 - Daily life
 
-Do not redraw this artwork. Do not replace it with a generic radial SVG diagram or silhouette icon.
+Do not redraw this artwork. Do not replace it with a generic radial SVG, black avatar, single-person portrait or the Vascurra brain mark.
 
 ## Background
 Pure white: `#FFFFFF`.
@@ -41,18 +43,14 @@ Use a generous two-column editorial layout.
 - Columns: approximately `42% / 58%`
 - Column gap: `clamp(48px, 6vw, 96px)`
 - Vertically centre the text block against the graphic
-- Graphic should be visually large, approximately `620–720px` wide on a 1440px viewport where space allows
+- Graphic should be visually large, approximately `620–760px` wide on a 1440px viewport where space allows
 
 The section must feel substantial, calm and premium. Do not compress it into a small centred diagram with excessive empty space around it.
 
-## Copy
+## Approved copy
 
 ### Heading
-Living better with  
-vascular cognitive  
-change.
-
-The line breaks may adapt responsively, but preserve the strong editorial scale.
+Living better with vascular cognitive change.
 
 ### Supporting line
 **Cognition doesn’t change in isolation.**
@@ -96,18 +94,19 @@ Principle labels:
 - dark teal
 
 ## Graphic treatment
-Render the approved production graphic as an image asset.
+Render the approved production artwork as an image asset.
 
 Recommended desktop treatment:
-- width: `min(100%, 720px)`
+- source: `/vascurra/homepage/02-life-system/life-system-graphic.webp`
+- width: `min(100%, 760px)`
 - height: auto
 - object-fit: contain
 - align to the right-hand visual column
 - no card container
 - no border
-- no drop-shadow added around the entire graphic
+- no generic shadow around the entire graphic
 
-The artwork already contains the visual hierarchy and connected-system language.
+The artwork already contains the connected-system visual hierarchy.
 
 ## Mobile / tablet
 At widths below approximately `900px`, stack into one column.
@@ -115,30 +114,32 @@ At widths below approximately `900px`, stack into one column.
 Recommended order:
 1. Heading
 2. Supporting line + body copy
-3. Life-system graphic
+3. Mobile life-system graphic
 4. Three supporting principles
 
 Mobile rules:
+- use `/vascurra/homepage/02-life-system/life-system-graphic-mobile.webp`
 - section padding approximately `72–96px 20–24px`
 - heading `clamp(38px, 11vw, 52px)`
 - centre the graphic horizontally
 - graphic width approximately `min(100%, 620px)`
-- principles may be a 3-column compact row on tablet and a vertical/2+1 layout on narrow phones
-- do not reduce the artwork until labels become unreadable; if needed allow it to use nearly full viewport width
+- principles may be a compact row on tablet and a vertical/2+1 layout on narrow phones
+- do not reduce the artwork until labels become unreadable
 
 ## Accessibility
-Use meaningful image alt text on the rendered `<img>` / Image component:
+Use meaningful image alt text:
 
 `A man and woman at the centre of connected influences: health, history, movement, sleep, routine, confidence, family and daily life.`
 
-Maintain semantic heading order. Do not bake the section's primary heading/body copy into an image.
+Maintain semantic heading order. Do not bake the section's primary heading/body copy into the production image.
 
 ## What Cursor must NOT do
 - Do not modify Section 01 / Hero.
 - Do not modify Sections 03 onward.
 - Do not redesign the approved artwork.
 - Do not generate a new radial diagram.
-- Do not replace the people with a generic black silhouette.
+- Do not replace the people with a generic black silhouette/avatar.
+- Do not replace the two-person visual with a single person.
 - Do not add the Vascurra brain icon.
 - Do not add decorative background waves.
 - Do not use pale green/off-white section backgrounds.
@@ -149,11 +150,11 @@ Maintain semantic heading order. Do not bake the section's primary heading/body 
 At desktop width, this section is accepted only if:
 1. It uses pure white as the dominant background.
 2. The heading is large and editorial, not small/centred SaaS typography.
-3. The man/woman life-system graphic is a major visual occupying roughly half the section.
+3. The approved man/woman life-system artwork is a major visual occupying roughly half the section.
 4. The text and graphic read as one balanced composition.
 5. There is generous but controlled whitespace; the section does not look empty.
 6. No Vascurra brain mark appears in the section.
-7. The section visually resembles the approved Vascurra mockup rather than the previous minimal radial-diagram implementation.
+7. The section visually resembles `/public/vascurra/homepage/02-life-system/section-reference.webp` rather than the previous minimal radial-diagram implementation.
 
 ## QA workflow
 After implementation, capture this section at:
@@ -161,4 +162,4 @@ After implementation, capture this section at:
 - 768px tablet
 - 390/430px mobile
 
-Compare against this specification before making changes elsewhere on the homepage.
+Compare the desktop capture side-by-side against `section-reference.webp`. Correct scale, alignment, typography, section height and whitespace before making changes elsewhere on the homepage.
