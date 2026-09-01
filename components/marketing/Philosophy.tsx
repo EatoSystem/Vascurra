@@ -30,11 +30,11 @@ export function Philosophy() {
           rather than butting against it. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-canvas/45 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-canvas/30 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-canvas/35 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-canvas/20 to-transparent"
       />
       <BloomField
         tone="deep"

@@ -39,7 +39,7 @@ export function People() {
             </DeviceFrame>
             <div
               aria-hidden="true"
-              className="absolute top-16 -left-16 hidden w-[200px] opacity-50 sm:block"
+              className="absolute top-16 -left-16 hidden w-[200px] opacity-50 lg:block"
             >
             <DeviceFrame variant="phone" label="" decorative>
                 <PeopleScreen />
