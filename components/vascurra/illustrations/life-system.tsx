@@ -68,10 +68,18 @@ export function LifeSystemGraphic() {
       {factors.map((name, i) => {
         const angle = i * 45;
         const node = polar(angle, ORBIT);
+        const next = polar(((i + 1) % 8) * 45, ORBIT);
         const label = polar(angle, 318);
         const inner = polar(angle, 92);
         return (
           <g key={name}>
+            <path
+              d={`M ${node.x} ${node.y} Q ${CX} ${CY} ${next.x} ${next.y}`}
+              fill="none"
+              stroke={`url(#ls-ring-${uid})`}
+              strokeWidth="0.6"
+              opacity="0.22"
+            />
             <path
               d={`M ${inner.x} ${inner.y} Q ${polar(angle, 160).x} ${polar(angle, 160).y} ${node.x} ${node.y}`}
               fill="none"

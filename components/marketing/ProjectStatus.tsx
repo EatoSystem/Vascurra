@@ -23,7 +23,7 @@ export function ProjectStatus() {
           return (
             <Reveal as="li" key={theme.id} delay={80 + i * 60}>
               <article className="flex h-full flex-col">
-                <div className="mb-8 overflow-hidden rounded-[1.75rem] border border-hairline bg-white px-2 pt-4">
+                <div className="mb-8 min-h-[15rem] overflow-hidden">
                   <Graphic />
                 </div>
                 <h3 className="text-[1.45rem] leading-snug font-semibold text-navy">

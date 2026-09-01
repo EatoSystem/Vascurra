@@ -29,7 +29,7 @@ const devices = {
 type PerspectiveId = keyof typeof screens;
 
 export function FourPerspectives() {
-  const [active, setActive] = useState<PerspectiveId>("clinicians");
+  const [active, setActive] = useState<PerspectiveId>("people");
   const ActiveScreen = screens[active];
 
   return (

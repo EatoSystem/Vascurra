@@ -12,7 +12,7 @@ export function CapabilityProgression() {
 
   return (
     <svg
-      viewBox="0 0 900 220"
+      viewBox="0 0 900 260"
       role="img"
       aria-label="Recall, then hint, then guide, then answer"
       className="h-auto w-full"
@@ -38,22 +38,22 @@ export function CapabilityProgression() {
         const lit = 0.35 + i * 0.2;
         return (
           <g key={stepItem.name}>
-            <circle cx={x} cy="88" r={18 + i * 3} fill="var(--color-energy-cyan)" opacity={lit * 0.22} />
+            <circle cx={x} cy="88" r={26 + i * 4} fill="var(--color-energy-cyan)" opacity={lit * 0.22} />
             <circle
               cx={x}
               cy="88"
-              r="11"
+              r="14"
               fill="#0c4d5c"
               stroke="var(--color-energy-mint)"
-              strokeWidth="2"
+              strokeWidth="2.4"
               opacity={0.55 + i * 0.15}
             />
             <text
               x={x}
-              y="148"
+              y="168"
               textAnchor="middle"
               fill="#f2fbfa"
-              fontSize="28"
+              fontSize="34"
               fontWeight="650"
               fontFamily="var(--font-sans)"
             >

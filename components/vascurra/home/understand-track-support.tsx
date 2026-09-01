@@ -29,7 +29,7 @@ export function UnderstandTrackSupport() {
                   reverse ? "lg:[&>div:first-child]:order-last" : ""
                 }`}
               >
-                <div className="min-h-[18rem] rounded-[2rem] border border-hairline bg-white px-3 py-6 sm:min-h-[22rem] sm:px-6 sm:py-8 lg:px-8">
+                <div className="min-h-[20rem] sm:min-h-[24rem] lg:min-h-[26rem]">
                   <Graphic />
                 </div>
                 <div>
