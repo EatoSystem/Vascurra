@@ -27,6 +27,17 @@ export const hero = {
 export const humanContext = {
   heading: "Living better with vascular cognitive change.",
   supporting: "Cognition doesn’t change in isolation.",
+  body1:
+    "It lives within your routines, relationships, rest, confidence, movement, health and the stories you want to keep telling.",
+  body2:
+    "Vascurra is designed around that wider picture — so you can move forward with clarity, support and calm, with you at the centre.",
+  principles: [
+    "Whole-person understanding",
+    "Personalised support",
+    "Stronger today, better tomorrow",
+  ],
+  graphicAlt:
+    "A man and woman at the centre of connected influences: health, history, movement, sleep, routine, confidence, family and daily life.",
 } as const;
 
 export const journey = {
