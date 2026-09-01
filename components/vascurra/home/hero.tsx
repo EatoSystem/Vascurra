@@ -4,7 +4,7 @@ import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { hero } from "@/content/home";
 import { earlyAccessHref, homeDiscoverHref } from "@/content/site";
 
-export function HomeHero() {
+export function HomeHero({ showCtas = true }: { showCtas?: boolean }) {
   return (
     <section
       aria-labelledby="hero-heading"
@@ -29,12 +29,14 @@ export function HomeHero() {
           <p className="mt-8 max-w-lg text-[1.125rem] leading-[1.7] text-ink-body md:text-[1.25rem]">
             {hero.body}
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <CtaLink href={earlyAccessHref}>{hero.primaryCta}</CtaLink>
-            <CtaLink href={homeDiscoverHref} variant="secondary">
-              {hero.secondaryCta}
-            </CtaLink>
-          </div>
+          {showCtas ? (
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <CtaLink href={earlyAccessHref}>{hero.primaryCta}</CtaLink>
+              <CtaLink href={homeDiscoverHref} variant="secondary">
+                {hero.secondaryCta}
+              </CtaLink>
+            </div>
+          ) : null}
         </div>
         <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10">
           <BrainStage slot="hero" field="quiet" priority />
