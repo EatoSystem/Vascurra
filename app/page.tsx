@@ -39,8 +39,8 @@ function HoldingPage() {
       <SiteHeader markOnly />
       <main id="main">
         <HomeHero showCtas={false} />
-        <HoldingUnlockForm />
       </main>
+      <HoldingUnlockForm />
     </>
   );
 }

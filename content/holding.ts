@@ -1,5 +1,6 @@
 export const holding = {
   title: "Private preview",
+  login: "Login",
   passwordLabel: "Password",
   submit: "Continue",
   submitting: "Checking…",
