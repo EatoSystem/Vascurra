@@ -15,7 +15,7 @@ export function HomeHero({ showCtas = true }: { showCtas?: boolean }) {
       </div>
       <div className="relative z-10 mx-auto grid max-w-[80rem] items-center gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-8 lg:px-12">
         <div className="max-w-[38rem]">
-          <h1 id="hero-heading" className="type-display text-[var(--vascurra-ink)]">
+          <h1 id="hero-heading" className="type-display overflow-visible text-[var(--vascurra-ink)]">
             <span className="block">{hero.headingLead}</span>
             <span className="block">
               <span className="text-mark-hero inline-block whitespace-nowrap">
