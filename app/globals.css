@@ -57,6 +57,16 @@
     var(--vascurra-grad-cyan) 48%,
     var(--vascurra-grad-green) 100%
   );
+  /* Hero phrase: cyan → aqua → living green, left to right. */
+  --vascurra-grad-hero-cyan: #0aa3bc;
+  --vascurra-grad-hero-aqua: #2ecfc4;
+  --vascurra-grad-hero-green: #49c768;
+  --vascurra-text-gradient-hero: linear-gradient(
+    90deg,
+    var(--vascurra-grad-hero-cyan) 0%,
+    var(--vascurra-grad-hero-aqua) 42%,
+    var(--vascurra-grad-hero-green) 100%
+  );
   --vascurra-text-gradient-lum: linear-gradient(
     100deg,
     var(--vascurra-grad-cyan) 0%,
@@ -260,6 +270,43 @@
   }
 }
 
+/* Hero “vascular cognitive health.” — one LTR sweep, not cloned per line. */
+.text-mark-hero {
+  color: var(--vascurra-grad-hero-cyan);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-mark-hero {
+    background-image: var(--vascurra-text-gradient-hero);
+    background-color: var(--vascurra-grad-hero-cyan);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    line-height: 1.2;
+    padding-bottom: 0.16em;
+  }
+}
+
+.text-mark-hero-end {
+  color: var(--vascurra-grad-hero-green);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-mark-hero-end {
+    background-image: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--vascurra-grad-hero-aqua) 35%, var(--vascurra-grad-hero-green)) 0%,
+      var(--vascurra-grad-hero-green) 100%
+    );
+    background-color: var(--vascurra-grad-hero-green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
 /* Cyan → living green on deep teal grounds. Soft white fallback. */
 .text-mark-lum {
   color: var(--color-on-deep);
@@ -300,6 +347,8 @@
 
 @media (forced-colors: active) {
   .text-mark,
+  .text-mark-hero,
+  .text-mark-hero-end,
   .text-mark-lum {
     background-image: none;
     color: CanvasText;

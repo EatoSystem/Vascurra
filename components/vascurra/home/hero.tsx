@@ -4,7 +4,7 @@ import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { hero } from "@/content/home";
 import { earlyAccessHref, homeDiscoverHref } from "@/content/site";
 
-export function HomeHero() {
+export function HomeHero({ showCtas = true }: { showCtas?: boolean }) {
   return (
     <section
       aria-labelledby="hero-heading"
@@ -15,11 +15,13 @@ export function HomeHero() {
       </div>
       <div className="relative z-10 mx-auto grid max-w-[80rem] items-center gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-8 lg:px-12">
         <div className="max-w-[38rem]">
-          <h1 id="hero-heading" className="type-display text-[var(--vascurra-ink)]">
+          <h1 id="hero-heading" className="type-display overflow-visible text-[var(--vascurra-ink)]">
             <span className="block">{hero.headingLead}</span>
-            <span className="text-mark block">
-              <span className="block">{hero.headingMid}</span>
-              <span className="block">{hero.headingAccent}</span>
+            <span className="block">
+              <span className="text-mark-hero inline-block whitespace-nowrap">
+                {hero.headingMid}
+              </span>
+              <span className="text-mark-hero-end block">{hero.headingAccent}</span>
             </span>
           </h1>
           <p className="mt-8 text-[clamp(1.35rem,2.1vw,1.85rem)] leading-[1.35] font-medium text-navy">
@@ -29,14 +31,16 @@ export function HomeHero() {
           <p className="mt-8 max-w-lg text-[1.125rem] leading-[1.7] text-ink-body md:text-[1.25rem]">
             {hero.body}
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <CtaLink href={earlyAccessHref}>{hero.primaryCta}</CtaLink>
-            <CtaLink href={homeDiscoverHref} variant="secondary">
-              {hero.secondaryCta}
-            </CtaLink>
-          </div>
+          {showCtas ? (
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <CtaLink href={earlyAccessHref}>{hero.primaryCta}</CtaLink>
+              <CtaLink href={homeDiscoverHref} variant="secondary">
+                {hero.secondaryCta}
+              </CtaLink>
+            </div>
+          ) : null}
         </div>
-        <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10">
+        <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10 lg:translate-x-8 xl:translate-x-14">
           <BrainStage slot="hero" field="quiet" priority />
         </div>
       </div>

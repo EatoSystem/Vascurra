@@ -3,6 +3,7 @@ import * as home from "./home";
 import * as siteContent from "./site";
 import * as earlyAccessContent from "./early-access";
 import * as privacyContent from "./privacy";
+import * as holdingContent from "./holding";
 
 /**
  * Executable claims guardrail.
@@ -61,6 +62,7 @@ const allStrings = [
   ...collectStrings(siteContent, "site"),
   ...collectStrings(earlyAccessContent, "earlyAccess"),
   ...collectStrings(privacyContent, "privacy"),
+  ...collectStrings(holdingContent, "holding"),
 ];
 
 describe("public copy claims guardrail", () => {
