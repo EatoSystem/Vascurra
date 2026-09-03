@@ -40,7 +40,7 @@ export function HomeHero({ showCtas = true }: { showCtas?: boolean }) {
             </div>
           ) : null}
         </div>
-        <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10">
+        <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10 lg:translate-x-[-1.75rem] xl:translate-x-[-2.5rem]">
           <BrainStage slot="hero" field="quiet" priority />
         </div>
       </div>
