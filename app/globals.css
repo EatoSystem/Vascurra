@@ -286,6 +286,25 @@
   }
 }
 
+.text-mark-hero-end {
+  color: var(--vascurra-grad-hero-green);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-mark-hero-end {
+    background-image: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--vascurra-grad-hero-aqua) 35%, var(--vascurra-grad-hero-green)) 0%,
+      var(--vascurra-grad-hero-green) 100%
+    );
+    background-color: var(--vascurra-grad-hero-green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
 /* Cyan → living green on deep teal grounds. Soft white fallback. */
 .text-mark-lum {
   color: var(--color-on-deep);
@@ -327,6 +346,7 @@
 @media (forced-colors: active) {
   .text-mark,
   .text-mark-hero,
+  .text-mark-hero-end,
   .text-mark-lum {
     background-image: none;
     color: CanvasText;

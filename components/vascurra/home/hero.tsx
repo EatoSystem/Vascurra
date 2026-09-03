@@ -17,8 +17,11 @@ export function HomeHero({ showCtas = true }: { showCtas?: boolean }) {
         <div className="max-w-[38rem]">
           <h1 id="hero-heading" className="type-display text-[var(--vascurra-ink)]">
             <span className="block">{hero.headingLead}</span>
-            <span className="text-mark-hero">
-              {hero.headingMid} {hero.headingAccent}
+            <span className="block">
+              <span className="text-mark-hero inline-block whitespace-nowrap">
+                {hero.headingMid}
+              </span>
+              <span className="text-mark-hero-end block">{hero.headingAccent}</span>
             </span>
           </h1>
           <p className="mt-8 text-[clamp(1.35rem,2.1vw,1.85rem)] leading-[1.35] font-medium text-navy">
