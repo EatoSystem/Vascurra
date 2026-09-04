@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
-import { SectionShell } from "@/components/vascurra/ui/section-shell";
+import { HomeMidShell } from "@/components/vascurra/ui/home-mid-shell";
 import { DeviceFrame } from "@/components/vascurra/ui/device-frame";
 import {
   PeopleScreen,
@@ -26,6 +26,13 @@ const devices = {
   research: "desktop",
 } as const;
 
+const slots = {
+  people: "s06-people",
+  families: "s06-family",
+  clinicians: "s06-clinician",
+  research: "s06-research",
+} as const;
+
 type PerspectiveId = keyof typeof screens;
 
 export function FourPerspectives() {
@@ -33,15 +40,15 @@ export function FourPerspectives() {
   const ActiveScreen = screens[active];
 
   return (
-    <SectionShell labelledBy="perspectives-heading">
+    <HomeMidShell labelledBy="perspectives-heading">
       <Reveal>
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 id="perspectives-heading" className="type-display text-[var(--vascurra-deep-teal)]">
-            <span className="block">{perspectives.heading}</span>
-            <span className="text-mark">{perspectives.headingLine}</span>
-          </h2>
-          <p className="type-lead mt-6 text-ink-body">{perspectives.subheading}</p>
-        </div>
+        <h2 id="perspectives-heading" className="home-mid-heading max-w-4xl text-[var(--vascurra-deep-teal)]">
+          <span className="block">{perspectives.heading}</span>
+          <span className="text-mark">{perspectives.headingLine}</span>
+        </h2>
+        <p className="mt-6 max-w-2xl text-[1.25rem] leading-[1.55] text-ink-body">
+          {perspectives.subheading}
+        </p>
       </Reveal>
 
       <div className="mt-12 lg:hidden">
@@ -62,7 +69,7 @@ export function FourPerspectives() {
                 aria-controls={`perspective-panel-${item.id}`}
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(item.id as PerspectiveId)}
-                className={`min-h-11 shrink-0 rounded-full px-4 text-sm font-semibold ${
+                className={`min-h-12 shrink-0 rounded-full px-4 text-base font-semibold ${
                   selected
                     ? "bg-deep text-on-deep"
                     : "border border-hairline text-ink-body"
@@ -85,53 +92,72 @@ export function FourPerspectives() {
               className="mt-8"
             >
               {selected ? (
-                <DeviceFrame
-                  variant={devices[item.id as PerspectiveId]}
-                  label={item.name}
-                  className="mx-auto"
-                >
-                  <ActiveScreen />
-                </DeviceFrame>
+                <div data-asset-slot={slots[item.id as PerspectiveId]}>
+                  <DeviceFrame
+                    variant={devices[item.id as PerspectiveId]}
+                    size="stage"
+                    label={item.name}
+                    className="mx-auto"
+                  >
+                    <ActiveScreen />
+                  </DeviceFrame>
+                </div>
               ) : null}
+              <h3 className="mt-8 text-[1.65rem] font-semibold text-[var(--vascurra-deep-teal)]">
+                {item.headline}
+              </h3>
+              <p className="home-mid-body mt-3 text-ink-body">{item.body}</p>
             </div>
           );
         })}
       </div>
 
-      <div className="relative mx-auto mt-16 hidden max-w-[80rem] items-end justify-center pb-16 lg:flex">
-        <div className="relative z-30 shrink-0">
-          <DeviceFrame variant="phone" label="People" decorative>
+      {/* SECTION 06 ART SLOT — connected product ecosystem */}
+      <div className="relative mx-auto mt-16 hidden min-h-[36rem] items-end justify-center pb-10 lg:flex">
+        <div data-asset-slot="s06-people" className="relative z-30 shrink-0">
+          <DeviceFrame variant="phone" size="stage" label="People" decorative>
             <PeopleScreen />
           </DeviceFrame>
         </div>
-        <div className="relative z-20 -ml-6 mb-10 shrink-0">
-          <DeviceFrame variant="tablet" label="Families" decorative>
+        <div data-asset-slot="s06-family" className="relative z-20 -ml-4 mb-8 shrink-0">
+          <DeviceFrame variant="tablet" size="stage" label="Families" decorative>
             <FamilyScreen />
           </DeviceFrame>
         </div>
-        <div className="relative z-10 min-w-[34rem] flex-1">
-          <DeviceFrame variant="laptop" label="Clinicians" decorative>
+        <div data-asset-slot="s06-clinician" className="relative z-10 min-w-[38rem] flex-1">
+          <DeviceFrame variant="laptop" size="stage" label="Clinicians" decorative>
             <ClinicianScreen />
           </DeviceFrame>
-          <div className="absolute -right-6 -bottom-4 z-20 w-[20.5rem] xl:-right-10 xl:w-[22rem]">
-            <DeviceFrame variant="desktop" label="Research" decorative>
+          <div
+            data-asset-slot="s06-research"
+            className="absolute -right-4 -bottom-6 z-20 w-[22rem] xl:-right-8 xl:w-[26rem]"
+          >
+            <DeviceFrame variant="desktop" size="stage" label="Research" decorative>
               <ResearchScreen />
             </DeviceFrame>
           </div>
         </div>
       </div>
 
-      <ul className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {perspectives.items.map((item) => (
-          <li key={item.id} id={item.id} className="text-center">
-            <h3 className="text-lg font-semibold text-navy">{item.name}</h3>
-            <p className="mt-2 text-base text-ink-teal">{item.summary}</p>
+      <ul className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-14">
+        {perspectives.items.map((item, i) => (
+          <li
+            key={item.id}
+            id={item.id}
+            className={i === 2 ? "lg:col-span-7" : i === 3 ? "lg:col-span-5" : "lg:col-span-6"}
+          >
+            <p className="text-[0.9375rem] font-semibold tracking-[0.16em] text-ink-teal uppercase">
+              {item.name}
+            </p>
+            <h3 className="mt-2 text-[clamp(1.5rem,2.1vw,2rem)] font-semibold text-[var(--vascurra-deep-teal)]">
+              {item.headline}
+            </h3>
+            <p className="home-mid-body mt-4 max-w-xl text-ink-body">{item.body}</p>
+            <p className="mt-3 text-[1.0625rem] text-ink-teal">{item.summary}</p>
           </li>
         ))}
       </ul>
-      <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-ink-muted">
-        {perspectives.note}
-      </p>
-    </SectionShell>
+      <p className="home-mid-body mt-12 max-w-2xl text-ink-muted">{perspectives.note}</p>
+    </HomeMidShell>
   );
 }

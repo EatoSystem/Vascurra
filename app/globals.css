@@ -412,6 +412,32 @@
   padding-block: clamp(3.5rem, 6vw, 5.5rem);
 }
 
+/* Homepage mid sections 03–07 only. Do not apply to hero, Section 02 or closing. */
+.home-mid-kicker {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-teal);
+}
+
+.home-mid-heading {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 4.6vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.home-mid-body {
+  font-size: clamp(1.125rem, 1.3vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.home-mid[data-tone="deep"] .home-mid-kicker {
+  color: color-mix(in srgb, var(--color-energy-cyan) 80%, white);
+}
+
 /* ===========================================================================
    Signature reveal — pure CSS/SVG, no animation library, no JavaScript.
 

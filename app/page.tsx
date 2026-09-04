@@ -20,11 +20,11 @@ function FullHomePage() {
       <main id="main">
         <HomeHero />
         <HumanContext />
-        <FourPerspectives />
         <UnderstandTrackSupport />
-        <Trust />
         <Philosophy />
         <ProjectStatus />
+        <FourPerspectives />
+        <Trust />
         <FinalCta />
       </main>
       <SiteFooter />

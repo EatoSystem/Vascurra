@@ -40,6 +40,7 @@ const PROHIBITED: ReadonlyArray<readonly [string, RegExp]> = [
 /** Sentences permitted to contain prohibited words because they negate them. */
 const NEGATIONS: readonly string[] = [
   home.projectStatus.boundaries,
+  home.projectStatus.note,
   home.footer.disclaimer,
   home.perspectives.note,
 ];
