@@ -8,33 +8,36 @@ import { sectionIds } from "@/content/site";
 export function FourPerspectives() {
   return (
     <HomeMidShell labelledBy="perspectives-heading">
-      <Reveal>
-        <p className="home-mid-kicker">{perspectives.eyebrow}</p>
-        <h2
-          id="perspectives-heading"
-          className="home-mid-heading mt-4 max-w-4xl text-[var(--vascurra-deep-teal)]"
-        >
-          <span className="block">{perspectives.heading}</span>
-          <span className="text-mark">{perspectives.headingLine}</span>
-        </h2>
-        <p className="mt-6 max-w-2xl text-[1.25rem] leading-[1.55] text-ink-body">
-          {perspectives.subheading}
-        </p>
-        <div className="mt-8">
-          <CtaLink href={`#${sectionIds.people}`}>{perspectives.cta} →</CtaLink>
-        </div>
-      </Reveal>
+      <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)] lg:gap-10">
+        <Reveal>
+          <p className="home-mid-kicker">{perspectives.eyebrow}</p>
+          <h2
+            id="perspectives-heading"
+            className="home-mid-heading mt-4 max-w-xl text-[var(--vascurra-deep-teal)]"
+          >
+            <span className="block">{perspectives.heading}</span>
+            <span className="text-mark">{perspectives.headingLine}</span>
+          </h2>
+          <p className="mt-6 max-w-md text-[1.25rem] leading-[1.55] text-ink-body">
+            {perspectives.subheading}
+          </p>
+          <div className="mt-8">
+            <CtaLink href={`#${sectionIds.people}`}>{perspectives.cta} →</CtaLink>
+          </div>
+        </Reveal>
 
-      <div className="mt-14 w-full overflow-x-auto overscroll-x-contain pb-2">
-        <HomeMidArt
-          slot="s06-perspectives-ecosystem"
-          src="/vascurra/homepage-v2/final-art/06-multiple-perspectives-art.webp"
-          alt="Conceptual personal, family, clinician and research views on connected devices."
-          width={850}
-          height={220}
-          maxWidthClass="max-w-none min-w-[40rem] lg:min-w-0"
-          sizes="(min-width: 1280px) 1280px, 100vw"
-        />
+        <div className="w-full overflow-x-auto overscroll-x-contain pb-2">
+          <HomeMidArt
+            slot="s06-perspectives-ecosystem"
+            src="/vascurra/homepage-v2/final-art/06-multiple-perspectives-art.webp"
+            alt="Conceptual personal, family, clinician and research views on connected devices."
+            width={850}
+            height={220}
+            maxWidthClass="max-w-[1100px] min-w-[40rem] lg:min-w-0"
+            className="mx-auto"
+            sizes="(min-width: 1024px) 1100px, 100vw"
+          />
+        </div>
       </div>
 
       <ul className="mt-16 grid gap-10 sm:grid-cols-2 xl:grid-cols-4 xl:gap-8">

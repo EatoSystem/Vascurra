@@ -368,7 +368,7 @@
    =========================================================================== */
 
 .type-display {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(2.5rem, 5.2vw, 4.75rem);
   font-weight: 600;
   line-height: 1.08;
@@ -376,7 +376,7 @@
 }
 
 .type-display-xl {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(2.75rem, 6.4vw, 5.75rem);
   font-weight: 600;
   line-height: 1.05;
@@ -422,7 +422,7 @@
 }
 
 .home-mid-heading {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(2.5rem, 4.6vw, 4.75rem);
   font-weight: 600;
   line-height: 1.08;
