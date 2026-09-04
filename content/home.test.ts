@@ -41,6 +41,7 @@ const PROHIBITED: ReadonlyArray<readonly [string, RegExp]> = [
 const NEGATIONS: readonly string[] = [
   home.projectStatus.boundaries,
   home.projectStatus.note,
+  home.projectStatus.responsible.body,
   home.footer.disclaimer,
   home.perspectives.note,
 ];

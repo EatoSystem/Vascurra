@@ -438,6 +438,10 @@
   color: color-mix(in srgb, var(--color-energy-cyan) 80%, white);
 }
 
+.home-mid[data-tone="deep"] {
+  background-color: #062832;
+}
+
 /* ===========================================================================
    Signature reveal — pure CSS/SVG, no animation library, no JavaScript.
 
