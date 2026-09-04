@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { BrainStage } from "@/components/motion/BrainStage";
 import { Reveal } from "@/components/motion/Reveal";
 import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { comingSoon, hero } from "@/content/home";
@@ -12,7 +12,7 @@ export function FinalCta() {
     <section
       id={sectionIds.closing}
       aria-labelledby="closing-heading"
-      className="relative isolate flex min-h-[38rem] items-center overflow-hidden bg-deep py-24 sm:min-h-[42rem] sm:py-28 lg:min-h-[46rem] lg:py-32"
+      className="relative isolate overflow-hidden bg-deep py-24 sm:py-28 lg:py-32"
     >
       <VascularFlow variant="single" className="right-0 left-auto top-1/2 h-[70%] w-[58%] -translate-y-1/2" />
       <div className="relative z-10 mx-auto grid w-full max-w-[80rem] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:px-12">
@@ -39,9 +39,16 @@ export function FinalCta() {
             </CtaLink>
           </div>
         </Reveal>
-        <div className="flex justify-center lg:w-[42%] lg:min-w-[38%] lg:justify-end lg:justify-self-end">
-          <BrainStage slot="closing" tone="deep" field="none" />
-        </div>
+        <Reveal delay={80} className="flex justify-center lg:justify-end">
+          <Image
+            src="/vascurra/homepage-v2/final-art/08-brain-mark.png"
+            alt="Vascurra brain mark formed of flowing vascular and neural lines."
+            width={1672}
+            height={941}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="h-auto w-full max-w-[40rem] object-contain"
+          />
+        </Reveal>
       </div>
     </section>
   );

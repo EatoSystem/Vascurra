@@ -8,15 +8,18 @@ import { privacyHref } from "@/content/site";
 export function Trust() {
   return (
     <HomeMidShell labelledBy="trust-heading">
-      <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-12">
+      <Reveal>
+        <p className="home-mid-kicker">{trust.eyebrow}</p>
+        <h2 id="trust-heading" className="home-mid-heading mt-4 max-w-4xl">
+          <span className="block text-[var(--vascurra-deep-teal)]">{trust.heading}</span>
+          <span className="text-mark">{trust.headingLine}</span>
+        </h2>
+        <p className="home-mid-body mt-6 max-w-2xl text-ink-body">{trust.intro}</p>
+      </Reveal>
+
+      <div className="mt-12 grid items-center gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-12">
         <Reveal>
-          <p className="home-mid-kicker">{trust.eyebrow}</p>
-          <h2 id="trust-heading" className="home-mid-heading mt-4">
-            <span className="block text-[var(--vascurra-deep-teal)]">{trust.heading}</span>
-            <span className="text-mark">{trust.headingLine}</span>
-          </h2>
-          <p className="home-mid-body mt-6 max-w-md text-ink-body">{trust.intro}</p>
-          <ul className="mt-10 space-y-6">
+          <ul className="space-y-6">
             {trust.principles.map((item) => (
               <li key={item.id}>
                 <h3 className="text-[1.25rem] font-semibold text-[var(--vascurra-deep-teal)]">
@@ -34,13 +37,12 @@ export function Trust() {
         <Reveal delay={70}>
           <HomeMidArt
             slot="s07-control-system"
-            src="/vascurra/homepage-v2/final-art/07-privacy-control-art.webp"
-            alt="A person at the centre of consent, privacy, access, sharing and research."
-            width={715}
-            height={205}
-            maxWidthClass="max-w-[920px]"
-            className="mx-auto lg:mx-0 lg:justify-self-end"
-            sizes="(min-width: 1024px) 65vw, 100vw"
+            src="/vascurra/homepage-v2/final-art/07-privacy-control.png"
+            alt="A person at the centre of privacy, control, access, respect and security."
+            width={1672}
+            height={941}
+            maxWidthClass="max-w-none"
+            sizes="(min-width: 1024px) 60vw, 100vw"
           />
         </Reveal>
       </div>
