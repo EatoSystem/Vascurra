@@ -8,34 +8,31 @@ import { sectionIds } from "@/content/site";
 export function ProjectStatus() {
   return (
     <HomeMidShell labelledBy="status-heading">
-      <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:gap-14">
-        <Reveal>
-          <p className="home-mid-kicker">{projectStatus.eyebrow}</p>
-          <h2 id="status-heading" className="home-mid-heading mt-4 max-w-xl">
-            <span className="block text-[var(--vascurra-deep-teal)]">
-              {projectStatus.headingLead}
-            </span>
-            <span className="text-mark">{projectStatus.headingAccent}</span>
-          </h2>
-          <p className="home-mid-body mt-6 max-w-md text-ink-body">{projectStatus.intro}</p>
-          <div className="mt-8">
-            <CtaLink href={`#${sectionIds.approach}`}>{projectStatus.cta} →</CtaLink>
-          </div>
-        </Reveal>
+      <Reveal>
+        <p className="home-mid-kicker">{projectStatus.eyebrow}</p>
+        <h2 id="status-heading" className="home-mid-heading mt-4 max-w-4xl">
+          <span className="block text-[var(--vascurra-deep-teal)]">
+            {projectStatus.headingLead}
+          </span>
+          <span className="text-mark">{projectStatus.headingAccent}</span>
+        </h2>
+        <p className="home-mid-body mt-6 max-w-3xl text-ink-body">{projectStatus.intro}</p>
+        <div className="mt-8">
+          <CtaLink href={`#${sectionIds.approach}`}>{projectStatus.cta} →</CtaLink>
+        </div>
+      </Reveal>
 
-        <Reveal delay={80}>
-          <HomeMidArt
-            slot="s05-responsible-development"
-            src="/vascurra/homepage-v2/final-art/05-responsible-development-art.webp"
-            alt="Three sculptural stages for human judgement, privacy and evidence."
-            width={780}
-            height={215}
-            maxWidthClass="max-w-[900px]"
-            className="justify-self-end"
-            sizes="(min-width: 1024px) 900px, 100vw"
-          />
-        </Reveal>
-      </div>
+      <Reveal delay={80}>
+        <HomeMidArt
+          slot="s05-responsible-development"
+          src="/vascurra/homepage-hd/05-ambitious-in-vision-careful-in-development.png"
+          alt="Three stages of responsible development: human judgement, privacy, and evidence before claims."
+          width={1672}
+          height={941}
+          maxWidthClass="mt-14 w-full max-w-none"
+          sizes="(min-width: 1280px) 1280px, 100vw"
+        />
+      </Reveal>
 
       <ol className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
         {projectStatus.themes.map((theme, i) => (

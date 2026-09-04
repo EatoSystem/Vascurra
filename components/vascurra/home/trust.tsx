@@ -8,8 +8,8 @@ import { privacyHref } from "@/content/site";
 export function Trust() {
   return (
     <HomeMidShell labelledBy="trust-heading">
-      <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-12">
-        <Reveal>
+      <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
+        <Reveal className="lg:col-span-5">
           <p className="home-mid-kicker">{trust.eyebrow}</p>
           <h2 id="trust-heading" className="home-mid-heading mt-4">
             <span className="block text-[var(--vascurra-deep-teal)]">{trust.heading}</span>
@@ -31,16 +31,15 @@ export function Trust() {
           </div>
         </Reveal>
 
-        <Reveal delay={70}>
+        <Reveal delay={70} className="lg:col-span-7">
           <HomeMidArt
             slot="s07-control-system"
-            src="/vascurra/homepage-v2/final-art/07-privacy-control-art.webp"
-            alt="A person at the centre of consent, privacy, access, sharing and research."
-            width={715}
-            height={205}
-            maxWidthClass="max-w-[920px]"
-            className="mx-auto lg:mx-0 lg:justify-self-end"
-            sizes="(min-width: 1024px) 65vw, 100vw"
+            src="/vascurra/homepage-hd/07-privacy-by-design-security-by-default.png"
+            alt="A person at the centre of privacy, consent, access, sharing and research."
+            width={1672}
+            height={941}
+            maxWidthClass="max-w-none"
+            sizes="(min-width: 1024px) 58vw, 100vw"
           />
         </Reveal>
       </div>

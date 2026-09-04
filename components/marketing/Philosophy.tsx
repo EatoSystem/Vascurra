@@ -8,36 +8,35 @@ import { sectionIds } from "@/content/site";
 export function Philosophy() {
   return (
     <HomeMidShell id={sectionIds.approach} labelledBy="philosophy-heading" tone="deep">
-      <div className="relative grid items-center gap-10 lg:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)] lg:gap-8">
-        <Reveal>
-          <p className="home-mid-kicker">{philosophy.eyebrow}</p>
-          <h2 id="philosophy-heading" className="home-mid-heading mt-5 max-w-xl">
-            <span className="block text-on-deep">{philosophy.headingLines[0]}</span>
-            <span className="text-mark-lum block">{philosophy.headingLines[1]}</span>
-          </h2>
-          <p className="home-mid-body mt-7 max-w-md text-on-deep">{philosophy.body}</p>
-          <div className="mt-8">
-            <CtaLink href={`#${sectionIds.people}`} variant="onDeep">
-              {philosophy.cta} →
-            </CtaLink>
-          </div>
-        </Reveal>
+      <Reveal>
+        <p className="home-mid-kicker">{philosophy.eyebrow}</p>
+        <h2 id="philosophy-heading" className="home-mid-heading mx-auto mt-5 max-w-4xl text-center">
+          <span className="block text-on-deep">{philosophy.headingLines[0]}</span>
+          <span className="text-mark-lum">{philosophy.headingLines[1]}</span>
+        </h2>
+        <p className="home-mid-body mx-auto mt-7 max-w-2xl text-center text-on-deep">
+          {philosophy.body}
+        </p>
+        <div className="mt-8 flex justify-center">
+          <CtaLink href={`#${sectionIds.people}`} variant="onDeep">
+            {philosophy.cta} →
+          </CtaLink>
+        </div>
+      </Reveal>
 
-        <Reveal delay={80}>
-          <HomeMidArt
-            slot="s04-support-journey"
-            src="/vascurra/homepage-v2/final-art/04-support-capability-art.webp"
-            alt="A path from recall to hint, guide and answer, growing brighter toward the horizon."
-            width={875}
-            height={240}
-            maxWidthClass="max-w-none"
-            className="lg:min-h-[18rem]"
-            sizes="(min-width: 1024px) 70vw, 100vw"
-          />
-        </Reveal>
-      </div>
+      <Reveal delay={80}>
+        <HomeMidArt
+          slot="s04-support-journey"
+          src="/vascurra/homepage-hd/04-dont-replace-capability-support-it.png"
+          alt="Support growing from recall to hint, guide and answer along a single path."
+          width={1672}
+          height={941}
+          maxWidthClass="mt-14 w-full max-w-none"
+          sizes="(min-width: 1280px) 1280px, 100vw"
+        />
+      </Reveal>
 
-      <ol className="relative mt-10 grid gap-6 sm:grid-cols-2 lg:hidden">
+      <ol className="relative mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {philosophy.steps.map((step) => (
           <li key={step.name}>
             <p className="text-[1.15rem] font-semibold text-on-deep">{step.name}</p>
