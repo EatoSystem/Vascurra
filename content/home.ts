@@ -74,47 +74,57 @@ export type Perspective = {
   readonly id: string;
   readonly name: string;
   readonly href: string;
+  readonly headline: string;
   readonly summary: string;
   readonly body: string;
+  readonly capabilities: readonly string[];
 };
 
 export const perspectives = {
+  eyebrow: "One system. Many perspectives.",
   heading: "One platform.",
   headingLine: "Multiple perspectives.",
-  subheading:
-    "One connected system, shaped for people, families, clinicians and research.",
-  cta: "Explore all perspectives",
+  subheading: "One story, seen differently by the people who need it.",
+  cta: "Explore the platform",
   items: [
     {
       id: "people",
-      name: "People",
+      name: "Personal",
       href: "#people",
-      summary: "Understand · Track · Support",
-      body: "A proposed personal experience.",
+      headline: "A calmer view of today.",
+      summary: "Routines, check-ins, orientation and preparation.",
+      body: "Routines, check-ins, orientation and preparation.",
+      capabilities: ["Routines", "Check-ins", "Orientation", "Preparation"],
     },
     {
       id: "families",
-      name: "Families",
+      name: "Family",
       href: "#families",
-      summary: "Coordinate · Understand · Support",
-      body: "A proposed family hub.",
+      headline: "Useful context, without surveillance.",
+      summary: "Shared understanding while respecting independence.",
+      body: "Shared understanding while respecting independence.",
+      capabilities: ["Shared updates", "Care circle", "Organisation", "Preparation"],
     },
     {
       id: "clinicians",
-      name: "Clinicians",
+      name: "Clinician",
       href: "#clinicians",
-      summary: "Context · Trends · Decisions",
-      body: "A proposed clinical context view.",
+      headline: "Relevant history, without the noise.",
+      summary: "Clearer context for better-prepared conversations.",
+      body: "Clearer context for better-prepared conversations.",
+      capabilities: ["Timeline", "Sources", "Reported change", "Consultation context"],
     },
     {
       id: "research",
       name: "Research",
       href: "#research",
-      summary: "Observe · Analyse · Learn",
-      body: "A proposed research layer.",
+      headline: "Longitudinal learning, with consent.",
+      summary: "Responsible patterns over time.",
+      body: "Responsible patterns over time.",
+      capabilities: ["Longitudinal patterns", "Provenance", "Consent", "De-identified analysis"],
     },
   ] satisfies readonly Perspective[],
-  note: "Vascurra is currently in development. These experiences describe the product direction, not live medical functionality.",
+  note: "Vascurra is currently in development. These views describe product direction, not live clinical functionality.",
 } as const;
 
 export const people = {
@@ -155,64 +165,103 @@ export const research = {
 } as const;
 
 export const triad = {
+  eyebrow: "How Vascurra helps",
   heading: "Understand. Track. Support.",
-  subheading: "Three connected capabilities. One continuous flow.",
+  headingWords: ["Understand.", "Track.", "Support."] as const,
+  subheading:
+    "Make sense of today. See change over time. Get the right support when it helps.",
+  intro:
+    "Vascular cognitive change is rarely one thing. Vascurra is being designed to bring the wider picture together, follow meaningful change over time, and offer support that adapts to the person.",
+  cta: "Learn more",
   items: [
     {
       name: "Understand",
-      body: "Signals from daily life, brought into one picture.",
+      body: "Health, routines, sleep, movement, confidence, family and daily life — understood together.",
+      phrase: "Bring the whole picture into view.",
+      slot: "s03-understand",
     },
     {
       name: "Track",
-      body: "Change over time, marked by the moments a person chooses to keep.",
+      body: "Build a clearer picture over time without turning life into constant measurement.",
+      phrase: "Notice what changes — and what stays steady.",
+      slot: "s03-track",
     },
     {
       name: "Support",
-      body: "Help that grows only as far as it is wanted.",
+      body: "Start with what the person can already do. Add support only when it is useful.",
+      phrase: "Add help gradually, without taking over.",
+      slot: "s03-support",
     },
   ],
+  closing: "Clarity without overwhelm. Support without dependence.",
+  closingLine: "Clarity without overwhelm. Support without dependence.",
   supportStages: ["Independent", "Recall", "Hint", "Guide", "Help"],
 } as const;
 
 export const trust = {
+  eyebrow: "Trust by design",
   heading: "Privacy by design.",
   headingLine: "Security by default.",
-  architecture: ["Person", "Control", "Consent", "Access", "Security"],
-  cta: "Our approach",
+  intro:
+    "Your information should never become harder to understand than your health.",
+  architecture: ["Privacy", "Consent", "Access", "Sharing", "Research"],
+  lockup: ["Your information.", "Your relationships.", "Your choice."],
+  cta: "See how it works",
   principles: [
     {
       id: "privacy",
-      name: "Privacy first",
-      body: "Collect only what is needed. Keep health information out of Phase 1. Make control understandable.",
+      name: "See what is shared.",
+      body: "Know what information is being used.",
     },
     {
-      id: "architecture",
-      name: "Secure architecture",
-      body: "Simple, auditable systems now; stronger controls before any special-category data is ever held.",
+      id: "consent",
+      name: "Know who can see it.",
+      body: "Access should always be understandable.",
     },
     {
       id: "control",
-      name: "Human control",
-      body: "People should see who can access their information, and be able to change that.",
+      name: "Change your mind.",
+      body: "Consent and permissions should be easy to revisit.",
     },
     {
-      id: "responsible",
-      name: "Responsible development",
-      body: "Evidence before clinical claims. Human judgement remains central.",
+      id: "architecture",
+      name: "Keep research separate.",
+      body: "Participation should be explicit and governed.",
     },
   ],
 } as const;
 
 export const philosophy = {
+  eyebrow: "Built around human capability",
   headingLines: ["Don’t replace capability.", "Support it."],
+  body: "The best support does not take over. It starts with what a person can still do — then adds only what helps.",
+  cta: "See the approach",
   steps: [
-    { name: "Recall", body: "Begin with what the person can still do." },
-    { name: "Hint", body: "Offer a cue only when it helps." },
-    { name: "Guide", body: "Support the next step, not the whole task." },
-    { name: "Answer", body: "Fill in the rest only when asked." },
+    {
+      name: "Recall",
+      body: "Start with what you know.",
+      phrase: "Start with what you know.",
+    },
+    {
+      name: "Hint",
+      body: "A gentle cue.",
+      phrase: "A gentle cue.",
+    },
+    {
+      name: "Guide",
+      body: "A little more structure.",
+      phrase: "A little more structure.",
+    },
+    {
+      name: "Answer",
+      body: "Clear support when needed.",
+      phrase: "Clear support when needed.",
+    },
   ],
+  closing:
+    "Support should grow only when needed — and step back when it isn’t.",
+  lockup: ["Support that adapts.", "Independence that lasts."],
   principle: "Start with what the person can do. Add support only when it helps.",
-  body: "Vascurra’s proposed approach starts with the least assistance necessary and progressively offers more support when it is wanted. Recall, hint, guide, then answer — never the other way around.",
 } as const;
 
 export type Principle = {
@@ -256,28 +305,48 @@ export type TrustTheme = {
   readonly id: string;
   readonly name: string;
   readonly body: string;
+  readonly label: string;
+  readonly slot: string;
 };
 
 export const projectStatus = {
+  eyebrow: "How we are building",
   heading: "Ambitious in vision. Careful in development.",
+  headingLead: "Ambitious in vision.",
+  headingAccent: "Careful in development.",
+  intro:
+    "Vascurra is being built deliberately — with human judgement first, privacy from the start and evidence before claims.",
+  cta: "Our approach",
   themes: [
     {
       id: "human-judgement",
-      name: "Human judgement remains central",
-      body: "Intelligence can organise and explain. People and clinicians make the decisions that matter.",
+      name: "Human judgement first.",
+      body: "Technology can inform. People still decide.",
+      label: "Human judgement first.",
+      slot: "s05-human",
     },
     {
       id: "privacy",
-      name: "Privacy designed from the beginning",
-      body: "How information is used should be understandable and controllable by the people it belongs to.",
+      name: "Privacy from the start.",
+      body: "Control and consent are part of the product, not additions later.",
+      label: "Privacy from the start.",
+      slot: "s05-privacy",
     },
     {
       id: "evidence",
-      name: "Evidence before clinical claims",
-      body: "Product ambition must not outrun what has actually been shown.",
+      name: "Evidence before claims.",
+      body: "Possibility can move quickly. Clinical claims must earn their place.",
+      label: "Evidence before claims.",
+      slot: "s05-evidence",
     },
   ] satisfies readonly TrustTheme[],
-  lead: "Vascurra is currently a project in development.",
+  responsible: {
+    name: "Responsible development.",
+    body: "Vascurra is currently in development. Concepts shown describe product direction, not live medical functionality.",
+    label: "Capability with responsibility.",
+  },
+  lead: "Vascurra is currently in development.",
+  note: "Vascurra is currently in development. Concepts shown describe product direction, not live medical functionality.",
   boundaries:
     "It is not currently a diagnostic tool, treatment system or medical device. It does not diagnose vascular dementia, predict stroke, recommend medication changes or provide emergency medical care.",
   closing:
@@ -293,8 +362,8 @@ export const comingSoon = {
 export const mockups = {
   concept: "Conceptual preview",
   people: {
-    title: "Today",
-    checkIn: "Morning check-in",
+    title: "Good morning",
+    checkIn: "Morning routine",
     checkInState: "Completed",
     trend: "This week",
     trendNote: "Routines held steadily",

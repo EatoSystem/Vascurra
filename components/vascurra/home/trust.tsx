@@ -1,38 +1,53 @@
 import { Reveal } from "@/components/motion/Reveal";
-import { SectionShell } from "@/components/vascurra/ui/section-shell";
-import { PrivacyArchitecture } from "@/components/vascurra/illustrations/privacy-architecture";
+import { CtaLink } from "@/components/ui/CtaLink";
+import { HomeMidClose, HomeMidShell } from "@/components/vascurra/ui/home-mid-shell";
+import { HomeMidArt } from "@/components/vascurra/home/mid-art";
 import { trust } from "@/content/home";
-import { sectionIds } from "@/content/site";
+import { privacyHref } from "@/content/site";
 
 export function Trust() {
   return (
-    <SectionShell labelledBy="trust-heading">
+    <HomeMidShell labelledBy="trust-heading">
       <Reveal>
-        <h2 id="trust-heading" className="type-section mx-auto max-w-4xl text-center">
+        <p className="home-mid-kicker">{trust.eyebrow}</p>
+        <h2 id="trust-heading" className="home-mid-heading mt-4 max-w-4xl">
           <span className="block text-[var(--vascurra-deep-teal)]">{trust.heading}</span>
-          <span className="text-[var(--vascurra-teal)]">{trust.headingLine}</span>
+          <span className="text-mark">{trust.headingLine}</span>
         </h2>
+        <p className="home-mid-body mt-6 max-w-2xl text-ink-body">{trust.intro}</p>
       </Reveal>
-      <Reveal delay={80}>
-        <div className="mt-10 sm:mt-14">
-          <PrivacyArchitecture />
-        </div>
-      </Reveal>
-      <ul className="mx-auto mt-12 grid max-w-4xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {trust.principles.map((item) => (
-          <li key={item.id} className="text-center">
-            <h3 className="text-lg font-semibold text-navy">{item.name}</h3>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-10 text-center">
-        <a
-          href={`#${sectionIds.approach}`}
-          className="inline-flex min-h-11 items-center font-semibold text-ink-teal underline-offset-4 hover:underline"
-        >
-          {trust.cta}
-        </a>
-      </p>
-    </SectionShell>
+
+      <div className="mt-12 grid items-center gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-12">
+        <Reveal>
+          <ul className="space-y-6">
+            {trust.principles.map((item) => (
+              <li key={item.id}>
+                <h3 className="text-[1.25rem] font-semibold text-[var(--vascurra-deep-teal)]">
+                  {item.name}
+                </h3>
+                <p className="mt-1 text-[1.125rem] leading-relaxed text-ink-body">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8">
+            <CtaLink href={privacyHref}>{trust.cta} →</CtaLink>
+          </div>
+        </Reveal>
+
+        <Reveal delay={70}>
+          <HomeMidArt
+            slot="s07-control-system"
+            src="/vascurra/homepage-v2/final-art/07-privacy-control.png"
+            alt="A person at the centre of privacy, control, access, respect and security."
+            width={1672}
+            height={941}
+            maxWidthClass="max-w-none"
+            sizes="(min-width: 1024px) 60vw, 100vw"
+          />
+        </Reveal>
+      </div>
+
+      <HomeMidClose>{trust.lockup.join(" ")}</HomeMidClose>
+    </HomeMidShell>
   );
 }

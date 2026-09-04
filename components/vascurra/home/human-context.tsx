@@ -64,20 +64,12 @@ export function HumanContext() {
         <Reveal delay={80}>
           <div className="flex justify-center min-[900px]:justify-end">
             <Image
-              src="/vascurra/homepage/02-life-system/life-system-graphic.webp"
+              src="/vascurra/homepage/02-life-system/living-better-couple.png"
               alt={humanContext.graphicAlt}
-              width={935}
-              height={885}
-              sizes="(max-width: 899px) 0px, min(58vw, 760px)"
-              className="hidden h-auto w-full max-w-[760px] object-contain min-[900px]:block"
-            />
-            <Image
-              src="/vascurra/homepage/02-life-system/life-system-graphic-mobile.webp"
-              alt={humanContext.graphicAlt}
-              width={815}
-              height={845}
-              sizes="(max-width: 899px) min(100vw, 620px), 0px"
-              className="h-auto w-full max-w-[620px] object-contain min-[900px]:hidden"
+              width={1672}
+              height={941}
+              sizes="(max-width: 899px) min(100vw, 620px), min(58vw, 760px)"
+              className="h-auto w-full max-w-[760px] object-contain"
             />
           </div>
         </Reveal>
