@@ -1,23 +1,14 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { HomeMidClose, HomeMidShell } from "@/components/vascurra/ui/home-mid-shell";
-import { ArtSlot, DuneField, SupportJourneyStage } from "@/components/vascurra/home/mid-art";
+import { HomeMidArt } from "@/components/vascurra/home/mid-art";
 import { philosophy } from "@/content/home";
 import { sectionIds } from "@/content/site";
 
 export function Philosophy() {
   return (
-    <HomeMidShell
-      id={sectionIds.approach}
-      labelledBy="philosophy-heading"
-      tone="deep"
-      className="overflow-hidden"
-    >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <DuneField />
-      </div>
-
-      <div className="relative grid items-end gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.24fr)] lg:gap-10">
+    <HomeMidShell id={sectionIds.approach} labelledBy="philosophy-heading" tone="deep">
+      <div className="relative grid items-center gap-10 lg:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)] lg:gap-8">
         <Reveal>
           <p className="home-mid-kicker">{philosophy.eyebrow}</p>
           <h2 id="philosophy-heading" className="home-mid-heading mt-5 max-w-xl">
@@ -33,31 +24,16 @@ export function Philosophy() {
         </Reveal>
 
         <Reveal delay={80}>
-          <ArtSlot
+          <HomeMidArt
             slot="s04-support-journey"
-            label="Support journey from recall to answer"
-            className="min-h-[16rem] w-full overflow-visible lg:min-h-[22rem]"
-          >
-            <SupportJourneyStage />
-            <ol className="pointer-events-none absolute inset-0 hidden lg:block">
-              {philosophy.steps.map((step, i) => {
-                const left = ["6%", "28%", "52%", "78%"][i];
-                const top = ["62%", "48%", "42%", "18%"][i];
-                return (
-                  <li
-                    key={step.name}
-                    className="absolute max-w-[10.5rem]"
-                    style={{ left, top }}
-                  >
-                    <p className="text-[1.05rem] font-semibold text-on-deep">{step.name}</p>
-                    <p className="mt-1 text-[0.95rem] leading-snug text-on-deep-muted">
-                      {step.body}
-                    </p>
-                  </li>
-                );
-              })}
-            </ol>
-          </ArtSlot>
+            src="/vascurra/homepage-v2/final-art/04-support-capability-art.webp"
+            alt="A path from recall to hint, guide and answer, growing brighter toward the horizon."
+            width={875}
+            height={240}
+            maxWidthClass="max-w-none"
+            className="lg:min-h-[18rem]"
+            sizes="(min-width: 1024px) 70vw, 100vw"
+          />
         </Reveal>
       </div>
 

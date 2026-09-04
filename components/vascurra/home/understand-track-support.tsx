@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { HomeMidClose, HomeMidShell } from "@/components/vascurra/ui/home-mid-shell";
-import { ArtSlot, UnderstandFlowStage } from "@/components/vascurra/home/mid-art";
+import { HomeMidArt } from "@/components/vascurra/home/mid-art";
 import { triad } from "@/content/home";
 import { sectionIds } from "@/content/site";
 
@@ -10,7 +10,7 @@ const wordClass = ["text-word-teal", "text-word-cyan", "text-word-green"] as con
 export function UnderstandTrackSupport() {
   return (
     <HomeMidShell labelledBy="triad-heading">
-      <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.18fr)] lg:gap-16">
+      <div className="grid min-h-[min(100%,42rem)] items-center gap-10 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)] lg:gap-12">
         <Reveal>
           <p className="home-mid-kicker">{triad.eyebrow}</p>
           <h2 id="triad-heading" className="home-mid-heading mt-4 max-w-xl">
@@ -32,13 +32,15 @@ export function UnderstandTrackSupport() {
         </Reveal>
 
         <Reveal delay={80}>
-          <ArtSlot
+          <HomeMidArt
             slot="s03-understand-track-support"
-            label="Connected composition from complexity to a person at the centre"
-            className="min-h-[16rem] w-full lg:min-h-[20rem]"
-          >
-            <UnderstandFlowStage />
-          </ArtSlot>
+            src="/vascurra/homepage-v2/final-art/03-understand-track-support-art.webp"
+            alt="Health, sleep, movement, routine, family, confidence, daily life and history coming together around a person."
+            width={850}
+            height={270}
+            maxWidthClass="max-w-[1050px]"
+            className="justify-self-end"
+          />
         </Reveal>
       </div>
 
