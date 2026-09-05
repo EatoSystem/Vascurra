@@ -326,6 +326,14 @@ architecture and principles sections.
 
 **Why:** Later branches committed and integrated web-ready derivatives, but no verified 3000–4096px original master was added.
 
+### 2026-09-05 — Public foundation hardening boundaries
+
+**Decision:** Keep `/privacy` public while the unfinished marketing pages are gated. Enable the marketing gate only when `HOLDING_PAGE_PASSWORD` is configured, and use that server-only value to verify credentials and sign an eight-hour access token. Keep `/early-access` out of the sitemap and mark it no-index while it remains preview-only.
+
+**Why:** People must be able to read privacy information before providing information. A fixed cookie and repository fallback password offered misleading security, while indexing a gated registration route was incoherent.
+
+**Implications:** The gate remains lightweight marketing access control, not authentication and not protection for personal or health information. Reliable distributed form rate limiting still requires an approved shared service; the current low-volume form instead uses bounded payloads, a honeypot, strict validation and a timed webhook request.
+
 ### 2026-09-05 — Public attribution remains separate from internal documentation
 
 **Decision:** Internal repository documents may retain appropriate project-leadership attribution. Current public website copy intentionally names no individual and must not expose the founding family's private medical story.

@@ -18,7 +18,7 @@ export function HomeHero({ showCtas = true }: { showCtas?: boolean }) {
           <h1 id="hero-heading" className="type-display overflow-visible text-[var(--vascurra-ink)]">
             <span className="block">{hero.headingLead}</span>
             <span className="block">
-              <span className="text-mark-hero inline-block whitespace-nowrap">
+              <span className="text-mark-hero inline sm:inline-block sm:whitespace-nowrap">
                 {hero.headingMid}
               </span>
               <span className="text-mark-hero-end block">{hero.headingAccent}</span>

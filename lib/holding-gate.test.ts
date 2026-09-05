@@ -1,32 +1,51 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import {
-  HOLDING_COOKIE_VALUE,
+  createHoldingToken,
+  isHoldingGateEnabled,
   isHoldingPublicPath,
   isHoldingUnlocked,
   passwordsMatch,
 } from "./holding-gate";
 
+const ORIGINAL_PASSWORD = process.env.HOLDING_PAGE_PASSWORD;
+
 describe("holding preview gate", () => {
-  it("accepts the configured preview password", () => {
-    expect(passwordsMatch("Monkstown")).toBe(true);
+  beforeEach(() => {
+    process.env.HOLDING_PAGE_PASSWORD = "configured-test-credential";
   });
 
-  it("rejects the wrong password", () => {
-    expect(passwordsMatch("monkstown")).toBe(false);
-    expect(passwordsMatch("")).toBe(false);
-    expect(passwordsMatch("Monkstown ")).toBe(false);
+  afterEach(() => {
+    if (ORIGINAL_PASSWORD === undefined) delete process.env.HOLDING_PAGE_PASSWORD;
+    else process.env.HOLDING_PAGE_PASSWORD = ORIGINAL_PASSWORD;
   });
 
-  it("only treats the signed-in cookie value as unlocked", () => {
-    expect(isHoldingUnlocked(HOLDING_COOKIE_VALUE)).toBe(true);
-    expect(isHoldingUnlocked("nope")).toBe(false);
-    expect(isHoldingUnlocked(undefined)).toBe(false);
+  it("accepts only the configured server credential", async () => {
+    await expect(passwordsMatch("configured-test-credential")).resolves.toBe(true);
+    await expect(passwordsMatch("wrong")).resolves.toBe(false);
+    expect(isHoldingGateEnabled()).toBe(true);
   });
 
-  it("keeps the holding page and crawler files public", () => {
+  it("has no repository fallback credential", async () => {
+    delete process.env.HOLDING_PAGE_PASSWORD;
+    expect(isHoldingGateEnabled()).toBe(false);
+    await expect(passwordsMatch("legacy-fallback-not-configured")).resolves.toBe(false);
+    await expect(createHoldingToken()).resolves.toBeNull();
+    await expect(isHoldingUnlocked(undefined)).resolves.toBe(true);
+  });
+
+  it("accepts a signed token and rejects tampering or expiry", async () => {
+    const now = Date.UTC(2026, 8, 5);
+    const token = await createHoldingToken(now);
+    expect(token).toBeTruthy();
+    await expect(isHoldingUnlocked(token ?? undefined, now + 1_000)).resolves.toBe(true);
+    await expect(isHoldingUnlocked(`${token}x`, now + 1_000)).resolves.toBe(false);
+    await expect(isHoldingUnlocked(token ?? undefined, now + 8 * 60 * 60 * 1000)).resolves.toBe(false);
+  });
+
+  it("keeps privacy and crawler files public", () => {
     expect(isHoldingPublicPath("/")).toBe(true);
     expect(isHoldingPublicPath("/robots.txt")).toBe(true);
-    expect(isHoldingPublicPath("/privacy")).toBe(false);
+    expect(isHoldingPublicPath("/privacy")).toBe(true);
     expect(isHoldingPublicPath("/early-access")).toBe(false);
   });
 });

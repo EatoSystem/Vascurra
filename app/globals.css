@@ -48,9 +48,9 @@
 
   /* Brand mark gradient — deep teal → cyan → living green.
      Use via .text-mark / .text-mark-lum / .rule-mark, not as raw values. */
-  --vascurra-grad-deep: #087486;
-  --vascurra-grad-cyan: #13b8c6;
-  --vascurra-grad-green: #50c98a;
+  --vascurra-grad-deep: #075f70;
+  --vascurra-grad-cyan: #00758a;
+  --vascurra-grad-green: #23783d;
   --vascurra-text-gradient: linear-gradient(
     100deg,
     var(--vascurra-grad-deep) 0%,
@@ -58,9 +58,9 @@
     var(--vascurra-grad-green) 100%
   );
   /* Hero phrase: cyan → aqua → living green, left to right. */
-  --vascurra-grad-hero-cyan: #0aa3bc;
-  --vascurra-grad-hero-aqua: #2ecfc4;
-  --vascurra-grad-hero-green: #49c768;
+  --vascurra-grad-hero-cyan: #006f86;
+  --vascurra-grad-hero-aqua: #08766f;
+  --vascurra-grad-hero-green: #23783d;
   --vascurra-text-gradient-hero: linear-gradient(
     90deg,
     var(--vascurra-grad-hero-cyan) 0%,

@@ -40,8 +40,8 @@ export function BrainStage({
         className="v-stage-mark v-anim relative"
         style={{
           animationName: "v-resolve",
-          animationDuration: "1.5s",
-          animationDelay: "0.4s",
+          animationDuration: "900ms",
+          animationDelay: "100ms",
         }}
       >
         <BrainMark slot={slot} priority={priority} alt="" />

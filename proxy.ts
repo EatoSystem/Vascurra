@@ -1,13 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import {
   HOLDING_COOKIE,
-  HOLDING_COOKIE_VALUE,
   isHoldingPublicPath,
-} from "@/lib/holding-public";
+  isHoldingUnlocked,
+} from "@/lib/holding-gate";
 
-export function proxy(request: NextRequest) {
-  const unlocked =
-    request.cookies.get(HOLDING_COOKIE)?.value === HOLDING_COOKIE_VALUE;
+export async function proxy(request: NextRequest) {
+  const unlocked = await isHoldingUnlocked(request.cookies.get(HOLDING_COOKIE)?.value);
   if (unlocked || isHoldingPublicPath(request.nextUrl.pathname)) {
     return NextResponse.next();
   }

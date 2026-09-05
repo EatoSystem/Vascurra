@@ -51,7 +51,7 @@ Optional server-only environment variables:
 
 | Variable | Purpose |
 | --- | --- |
-| `HOLDING_PAGE_PASSWORD` | Overrides the local/default marketing-preview password. The gate is not an account system. |
+| `HOLDING_PAGE_PASSWORD` | Enables the marketing-preview gate and signs its eight-hour access cookie. With no value, the public site is unlocked. There is no repository fallback password. The gate is not an account system and must never protect personal or health information. |
 | `EARLY_ACCESS_WEBHOOK_URL` | Receives validated name, email, role and communication-consent data from the early-access server action. Without it, the form returns an unavailable state and stores nothing. |
 
 Do not commit `.env` files or secrets. No database is required for the current public application.

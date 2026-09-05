@@ -3,6 +3,8 @@
 import { earlyAccess } from "@/content/early-access";
 import {
   isRole,
+  isAllowedWebhookUrl,
+  isEarlyAccessPayloadAcceptable,
   parseEarlyAccess,
   validateEarlyAccess,
   type EarlyAccessResult,
@@ -14,7 +16,11 @@ export async function submitEarlyAccess(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
+  if (!isEarlyAccessPayloadAcceptable(formData)) {
+    return { ok: false, code: "invalid", fields: { name: earlyAccess.errorGeneric } };
+  }
   const input = parseEarlyAccess(formData);
+  if (input.website) return { ok: true };
   const fields = validateEarlyAccess(input);
   if (Object.keys(fields).length > 0) {
     return { ok: false, code: "invalid", fields };
@@ -24,7 +30,7 @@ export async function submitEarlyAccess(
   }
 
   const webhook = process.env.EARLY_ACCESS_WEBHOOK_URL;
-  if (!webhook) {
+  if (!webhook || !isAllowedWebhookUrl(webhook)) {
     return { ok: false, code: "unavailable" };
   }
 
@@ -32,6 +38,7 @@ export async function submitEarlyAccess(
     const response = await fetch(webhook, {
       method: "POST",
       headers: { "content-type": "application/json" },
+      signal: AbortSignal.timeout(5_000),
       body: JSON.stringify({
         source: "vascurra-early-access",
         name: input.name,
