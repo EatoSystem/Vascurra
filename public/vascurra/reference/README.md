@@ -1,28 +1,23 @@
 # Vascurra Visual Reference Pack
 
-These files are the canonical visual references for the Vascurra public website rebuild.
+These committed files are the available visual references for the Vascurra public website. Historical source boards used numbered PNG names; the repository contains the web-optimised files listed below.
 
 ## Critical rule
 
-`00-before-do-not-copy.png` is a **negative reference** only. It shows the current homepage that is being visually replaced. Do not copy its visual language, spacing, illustration style, or section treatment.
-
-Files `01`–`10` are the **positive design references**. The implemented website should clearly feel like the same brand family.
+Do not infer approved public copy, product functionality or evidence from a reference image. The implemented website should remain recognisably within the approved brand family.
 
 ## Reference map
 
 | File | Role | What to take from it |
 | --- | --- | --- |
-| `00-before-do-not-copy.png` | Negative reference | Existing homepage / functionality context only; do not imitate visually. |
-| `01-brand-anchor.png` | Brand source of truth | Brain mark, wordmark, palette, white-space philosophy, typography feel, iconography, soft aqua surfaces. |
-| `02-homepage-hero-style-target.png` | Homepage / hero direction | Premium white healthcare-tech composition, hero proportions, dashboard/device presentation, teal–cyan–green balance. |
-| `03-people-target.png` | People section | Three-device mobile composition, Understand / Track / Support language, friendly personal-product treatment. |
-| `04-families-target.png` | Families section | Family Hub composition, warm supportive UI, care coordination and check-in presentation. |
-| `05-clinicians-target.png` | Clinicians section | More precise clinical hierarchy, dashboard composition, restrained data display, professional credibility. |
-| `06-research-target.png` | Research section | Research dashboard, longitudinal data language, scientific context, analytical but still Vascurra-branded. |
-| `07-understand-track-support-target.png` | Product model | Three-part capability story, cards/data visualisation style, clear connected system. |
-| `08-trust-privacy-target.png` | Trust / privacy | Security visual language, shield/lock iconography, spacious trust section composition. |
-| `09-four-perspectives-target.png` | Platform overview | People + Families + Clinicians + Research shown as four views of one platform. |
-| `10-launch-cta-target.png` | Launch / CTA direction | Introductory brand composition, CTA styling, final-page brand confidence and product/brand balance. |
+| `brand-system-reference.webp` | Brand system | Brain mark, palette, typography feel and soft aqua surfaces. |
+| `homepage-master-target.webp` | Homepage | Overall composition, spacing and section rhythm. |
+| `understand-track-support-reference.webp` | Product model | Understand / Track / Support composition. |
+| `families-reference.webp` | Family | Supportive family-product treatment. |
+| `clinicians-reference.webp` | Clinician | Clinical hierarchy and restrained data display. |
+| `research-reference.webp` | Research | Longitudinal and scientific context. |
+| `one-platform-reference.webp` | Platform | Personal, Family, Clinician and Research as connected perspectives. |
+| `privacy-reference.webp` | Trust | Privacy and control visual language. |
 
 ## Implementation guidance
 
@@ -49,10 +44,9 @@ Do not build the homepage from giant screenshots.
 
 When references conflict, use this priority:
 
-1. `01-brand-anchor.png` for core brand identity.
-2. The section-specific target (`03`–`09`) for section layout and UI treatment.
-3. `02-homepage-hero-style-target.png` for overall homepage polish and spacing.
-4. `10-launch-cta-target.png` for launch / CTA tone.
+1. `brand-system-reference.webp` for core identity.
+2. The relevant section reference for section layout and UI treatment.
+3. `homepage-master-target.webp` for overall polish and spacing.
 
 ## Important content caveat
 

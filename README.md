@@ -1,103 +1,104 @@
 # Vascurra
 
-**AI for vascular cognitive health.**
+**Intelligence for vascular cognitive health.**
 
-Vascurra is a proposed human-centered support platform for people, families, clinicians and research. Phase 1 of this repository is the public website and product foundation, not a clinical product deployment.
+Vascurra is a proposed human-centred support, research and intelligence platform focused initially on vascular cognitive change. This repository currently contains the public website foundation and product, clinical, design and governance documentation. It does not contain a deployed clinical product.
 
-## Current phase
+## What exists today
 
-**Phase 1 — Public foundation website**
+- A Next.js public-site application with a holding page and private marketing preview.
+- An unlocked conceptual homepage for people, families, clinicians and research.
+- Public-site privacy and early-access routes behind the preview gate.
+- A server-side early-access action that can forward minimum registration details to a configured webhook.
+- Brand assets, design references and typed public copy.
+- Automated claim guardrails and application tests.
 
-The immediate goal is to launch a beautiful, accessible and medically cautious public website that explains:
+The preview gate is a marketing-release control. It is not authentication and must never protect personal or health information.
 
-- why vascular cognitive health matters;
-- the Vascurra vision;
-- the Personal, Family, Clinical and Research product architecture;
-- the founding principles of independence, identity, consent and safety;
-- the science and evidence approach;
-- the Ireland/EU-first privacy and regulatory approach;
-- how individuals, families, clinicians and researchers can register interest.
+## What does not exist
 
-Phase 1 does **not** include patient accounts, health-data storage, diagnostic functionality, treatment recommendations, proprietary clinical scores, medical-device functionality, passive monitoring, trial enrolment or autonomous clinical decision support.
+There are no patient or family accounts, health records, clinical dashboards backed by real data, medication or measurement tracking, production health database, diagnostic workflow, treatment recommendations, clinical scoring, Veya implementation or live clinical AI.
 
-## Product principle
+See [`docs/development/phase-naming.md`](docs/development/phase-naming.md) for the distinction between the Public Platform and future Product Platform phases.
 
-> **Support independence. Preserve identity.**
+## Technical stack
 
-Vascurra should help people use what they still have, provide useful context to families and clinicians, and never unnecessarily replace human judgement or agency.
+- Next.js App Router
+- React
+- strict TypeScript
+- Tailwind CSS
+- Vitest
+- ESLint with the Next.js Core Web Vitals and TypeScript configurations
+- Vercel-compatible deployment configuration
 
-## Repository documentation
+The application uses server components by default, with client components limited to forms, mobile navigation and scroll-reveal behavior.
 
-Start with [`docs/README.md`](docs/README.md). The most important implementation documents are:
+## Local setup
 
-- [`AGENTS.md`](AGENTS.md) — mandatory instructions for coding agents.
-- [`docs/product/product-vision.md`](docs/product/product-vision.md)
+Requirements:
+
+- Node.js 20.9 or later
+- npm and the committed `package-lock.json`
+
+```bash
+npm ci
+npm run dev
+```
+
+The development server is normally available at `http://localhost:3000`.
+
+Optional server-only environment variables:
+
+| Variable | Purpose |
+| --- | --- |
+| `HOLDING_PAGE_PASSWORD` | Overrides the local/default marketing-preview password. The gate is not an account system. |
+| `EARLY_ACCESS_WEBHOOK_URL` | Receives validated name, email, role and communication-consent data from the early-access server action. Without it, the form returns an unavailable state and stores nothing. |
+
+Do not commit `.env` files or secrets. No database is required for the current public application.
+
+## Validation
+
+Run before requesting review:
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
+
+`npm test` includes a public-copy claims guardrail. Do not weaken its restrictions or expand its allowlist merely to obtain a pass.
+
+## Public-site architecture
+
+- `/` — public holding page; complete conceptual homepage after preview unlock.
+- `/early-access` — minimum-data registration form, available within the preview.
+- `/privacy` — current public-site privacy information, available within the preview.
+- `/robots.txt`, `/sitemap.xml`, `/opengraph-image` — metadata endpoints.
+
+Public copy lives primarily in `content/`. Application routes live in `app/`; reusable components live in `components/`; approved runtime and reference assets live in `public/vascurra/` and `public/brand/`.
+
+## Repository workflow
+
+`main` is intended to be the canonical stable application source. Substantive changes use feature branches, automated validation, pull requests and Vercel Preview where useful. Merge and production deployment require explicit human approval.
+
+Codex, Cursor, Claude Code and future tools may contribute. No agent is inherently authoritative; approved documentation, Git history, tests, review evidence and human decisions are authoritative. See [`AGENTS.md`](AGENTS.md) and [`docs/development/development-workflow.md`](docs/development/development-workflow.md).
+
+## Health, claims and privacy boundaries
+
+Vascurra must not present unsupported diagnosis, prediction, treatment, efficacy, validation or regulatory claims. Do not invent studies, statistics, partnerships, testimonials, scores or certifications.
+
+This public repository must not contain personal health information, production credentials, private medical material or identifiable participant data. Use clearly fictional examples. Authentication, consent, Personal/Family/Clinician/Research/Administration permissions and health-data governance must be designed and approved before any real health information is collected.
+
+## Documentation
+
+Start with [`docs/README.md`](docs/README.md). Important implementation sources include:
+
 - [`docs/product/phase-1-website-spec.md`](docs/product/phase-1-website-spec.md)
 - [`docs/clinical/intended-purpose-and-claims.md`](docs/clinical/intended-purpose-and-claims.md)
+- [`docs/clinical/clinical-safety.md`](docs/clinical/clinical-safety.md)
 - [`docs/brand/brand-guidelines.md`](docs/brand/brand-guidelines.md)
 - [`docs/technical/architecture.md`](docs/technical/architecture.md)
-- [`docs/development/phase-1-implementation-plan.md`](docs/development/phase-1-implementation-plan.md)
+- [`docs/operations/decision-log.md`](docs/operations/decision-log.md)
 
-## Local development
-
-The Phase 1A public holding page is a Next.js App Router application at the
-repository root.
-
-```bash
-npm install     # install dependencies
-npm run dev     # start the dev server on http://localhost:3000
-```
-
-Checks, all of which must pass before a pull request:
-
-```bash
-npm run lint        # ESLint (next/core-web-vitals + next/typescript)
-npm run typecheck   # tsc --noEmit, strict mode
-npm test            # Vitest — includes the public-copy claims guardrail
-npm run build       # production build
-```
-
-`npm test` runs `content/home.test.ts`, which fails the build if prohibited
-healthcare-claim language from [`AGENTS.md`](AGENTS.md) §3 appears in public
-copy. If it fails, fix the copy — do not extend the allowlist without a
-product decision.
-
-Requires Node 20.9+. No environment variables, database or external services
-are needed: the site is fully static and collects no data.
-
-### Brand assets
-
-Approved assets live in `public/brand/` and are governed by
-[`docs/brand/high-resolution-web-asset-pack-specification.md`](docs/brand/high-resolution-web-asset-pack-specification.md).
-Do not redraw, trace or substitute the Vascurra brain mark.
-
-The high-resolution masters are still pending, so the hero, architecture and
-closing sections render a clearly labelled placeholder at the mark's final
-dimensions. To ship the real artwork, add the files listed in §22 of that
-specification to `public/brand/brain/` and set `BRAIN_MASTERS_AVAILABLE = true`
-in `components/brand/brain-assets.ts` — no layout changes are needed.
-
-See [`docs/development/phase-1a-holding-page.md`](docs/development/phase-1a-holding-page.md)
-for what Phase 1A contains and where the deliberate placeholders are.
-
-## Development approach
-
-Recommended workflow:
-
-1. **Claude Code** — primary implementation and iteration.
-2. **Vercel Preview** — visual and responsive review.
-3. **Codex** — independent architecture, safety, accessibility and code-quality review.
-4. **Claude Code** — implement only approved fixes.
-5. **Cursor** — local inspection and small controlled edits.
-
-No AI coding agent may invent healthcare claims, clinical scores, certifications, research partners, testimonials, statistics or regulatory status.
-
-## Development lead
-
-**Dr. Joe Curry** — retired GP, clinical co-designer and founding user.
-
-The project should use his clinical expertise while protecting his privacy. No personal health information belongs in this public repository.
-
-## Status
-
-Private development concepts may be referenced in `/docs`, but public-facing copy must follow the claims guardrails in this repository.
+Internal repository documentation may identify project leadership or participants when appropriate and consented. The current public website intentionally does not name individuals or publish the founding family's private medical story. Internal attribution is not approval for public attribution.

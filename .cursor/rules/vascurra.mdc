@@ -5,7 +5,7 @@ alwaysApply: true
 
 Read `AGENTS.md` before suggesting or applying changes.
 
-Vascurra Phase 1 is a public information website only. Do not invent clinical claims, health scores, certifications, evidence, partnerships, testimonials or diagnostic functionality.
+The current Public Platform is informational only. Do not invent clinical claims, health scores, certifications, evidence, partnerships, testimonials or diagnostic functionality.
 
 Use the documentation under `/docs` as the source of truth. If a request conflicts with `docs/clinical/intended-purpose-and-claims.md`, surface the conflict before editing.
 

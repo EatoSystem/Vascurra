@@ -1,5 +1,7 @@
 # Vascurra Repository Documentation Bundle
 
+> Historical manifest for the initial documentation bundle. The repository now also contains the Next.js application, runtime assets, current governance documents and CI. Use Git rather than this file as the complete file inventory.
+
 Generated files: 35
 
 - `.cursor/rules/vascurra.mdc`

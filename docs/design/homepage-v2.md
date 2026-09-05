@@ -54,7 +54,7 @@ Do not add stock photography to Sections 03–07.
 These are strict visual-composition references, not flattened sections to publish as screenshots.
 
 Build headings, copy, controls and layout in real HTML/CSS/React.
-Final custom Vascurra artwork can replace the visual placeholders later.
+The implementation now uses committed section artwork under `public/vascurra/homepage-v2/final-art/`. Earlier placeholder compositions remain historical design references.
 
 ---
 

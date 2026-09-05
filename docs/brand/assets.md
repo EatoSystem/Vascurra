@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved Phase 1A website asset guidance.
+Approved Public Platform asset guidance. “Phase 1A” in historical records maps to Public Platform Phase P0.
 
 ## Canonical public paths
 
@@ -11,6 +11,8 @@ Approved Phase 1A website asset guidance.
 - `/brand/vascurra-og.jpg`
 - `/brand/apple-touch-icon.png`
 - `/brand/favicon.ico`
+
+The current homepage also uses approved web derivatives under `/vascurra/brain/` and section artwork under `/vascurra/homepage*/`. These are production web assets, not original high-resolution masters.
 
 ## Logo integrity
 
@@ -22,7 +24,7 @@ The icon combines the brain form, vascular/neural branching, flowing ribbon stru
 
 ## Motion use
 
-The Phase 1A hero may animate toward the approved final mark using:
+The public hero may animate toward the approved final mark using:
 
 1. particles gathering;
 2. vascular branches growing;
@@ -40,8 +42,8 @@ Until a production vector wordmark is explicitly approved, use the supplied lock
 
 ## Social metadata
 
-Use `/brand/vascurra-og.jpg` for the initial Phase 1A Open Graph/social preview unless a newer approved asset replaces it.
+The application currently generates its Open Graph image in `app/opengraph-image.tsx`. `/brand/vascurra-og.jpg` remains an approved historical derivative unless a future decision restores it to runtime use.
 
 ## Asset quality
 
-The committed files are web-optimised derivatives intended to unblock Phase 1A implementation. Preserve the original high-resolution brand masters outside the application build and replace derivatives only with approved higher-resolution exports when required.
+The committed files are web-optimised derivatives used by the Public Platform. A verified original 3000–4096px master is not committed. Do not describe a derivative as the original master, and replace derivatives only with approved exports when required.

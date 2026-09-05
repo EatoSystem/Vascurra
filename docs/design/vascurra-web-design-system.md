@@ -23,7 +23,7 @@ Decorative energy (bloom, nodes, ribbons) uses the brand-pack energy tier:
 - cyan `#43D6FF`
 - mint `#2ECC9A`
 
-Text never uses energy cyan or mint on the light canvas. Ink-tier text colours (`--color-ink-*`) keep contrast at or above 4.5:1.
+Ink-tier text colours (`--color-ink-*`) were designed for readable text on the light canvas. Later mark-gradient classes use additional colours and require the separate contrast hardening scheduled for Public Platform Phase 0C.
 
 Dark sections use `--color-deep` (`#083D4A`) with `--color-on-deep` copy.
 

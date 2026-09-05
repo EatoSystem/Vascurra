@@ -1,5 +1,7 @@
 # Claude Code — Phase 1A Asset Handoff
 
+> **Historical tool-specific handoff.** The current agent-neutral workflow is defined in `docs/development/development-workflow.md`, and “Phase 1A” now maps to Public Platform Phase P0. Preserve this document as implementation history.
+
 The approved Vascurra identity assets are now available in `public/brand/`.
 
 Use the existing mark. Do not author an original replacement SVG or alternative vascular/brain logo.

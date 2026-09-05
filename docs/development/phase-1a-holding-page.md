@@ -1,5 +1,7 @@
 # Phase 1A — Public Holding Page
 
+> **Historical implementation record.** “Phase 1A” now maps to Public Platform Phase P0. Statements below about missing artwork, placeholders and deferred email capture describe earlier repository states and are superseded by the current implementation and the decisions recorded in `docs/operations/decision-log.md`.
+
 ## What was built
 
 A single premium holding page for `www.vascurra.com` introducing Vascurra as a

@@ -279,3 +279,57 @@ architecture and principles sections.
 
 **Implications:** One extra reveal primitive, `[data-reveal-bar]`, alongside
 `[data-reveal]` and `[data-reveal-draw]`, all gated on `(scripting: enabled)`.
+
+---
+
+## 2026-09-05 repository foundation decisions
+
+### 2026-09-05 — Canonical application baseline
+
+**Decision:** Use commit `3820b680a8dba963a83bdb144b68094cfd655647` as the canonicalization baseline and preserve the documentation history from `main` with a normal Git merge.
+
+**Why:** It is the most complete application candidate, includes the earlier holding-page and visual work, passes the full validation suite and has a successful Vercel Preview. At the time of review, Vercel's latest recorded Production deployment was its direct parent, `50228e3`.
+
+**Implications:** The canonicalization branch contains both histories. Moving the result to `main` still requires pull-request review and explicit approval; this decision does not deploy or alter production.
+
+### 2026-09-05 — Agent-neutral development workflow
+
+**Decision:** No coding agent is the permanent primary builder or inherently authoritative. Codex, Cursor, Claude Code and future tools use the same feature-branch, validation, pull-request and approval workflow.
+
+**Why:** Authority should come from approved documentation, Git history, tests, review evidence and explicit human decisions.
+
+**Supersedes:** The role assignment in the earlier development workflow that named Claude Code as primary builder and Codex mainly as reviewer. Tool-specific documents remain as historical records.
+
+### 2026-09-05 — Separate Public Platform and Product Platform phases
+
+**Decision:** Use Public Platform P0/P1 for the holding page and public website. Reserve Product Platform phases 0–9 for engineering/governance, Patient 0, Personal, secure longitudinal foundations, Veya, Family, Clinician, Intelligence, Lab and Research.
+
+**Why:** Earlier documents used “Phase 0,” “Phase 1” and “Phase 1A” for different kinds of work.
+
+**Implications:** Historical “Phase 1A” maps to Public Platform P0. Historical public-website “Phase 1” maps to Public Platform P1. Historical records are retained with status notices rather than rewritten.
+
+### 2026-09-05 — Early-access capture implemented after deferral
+
+**Decision:** Recognise the existing minimum-data early-access form and server-side webhook action as the current implementation. It remains unavailable when `EARLY_ACCESS_WEBHOOK_URL` is not configured.
+
+**Supersedes:** The 2026-08-31 Phase 1A decision to ship no email capture.
+
+**Why:** Later application work introduced the form, validation, consent field, privacy route and webhook boundary.
+
+**Implications:** Enabling collection requires an approved processor configuration, public privacy information and the separate form/privacy hardening planned for Public Platform Phase 0C. No webhook or environment setting is changed by this decision.
+
+### 2026-09-05 — Current brand derivatives are available
+
+**Decision:** Treat the committed files under `public/vascurra/brain/`, `public/vascurra/homepage/` and `public/vascurra/homepage-v2/final-art/` as current web derivatives. Continue to record the original high-resolution master as unavailable in this repository.
+
+**Supersedes:** Earlier implementation-state statements that the brain artwork and section artwork were wholly missing and the live composition still used placeholders.
+
+**Why:** Later branches committed and integrated web-ready derivatives, but no verified 3000–4096px original master was added.
+
+### 2026-09-05 — Public attribution remains separate from internal documentation
+
+**Decision:** Internal repository documents may retain appropriate project-leadership attribution. Current public website copy intentionally names no individual and must not expose the founding family's private medical story.
+
+**Why:** Internal attribution is useful project context but is not consent or approval for public publication.
+
+**Implications:** Any future public attribution requires an explicit content decision and privacy review.
