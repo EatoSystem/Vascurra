@@ -15,6 +15,8 @@ This directory is the source of truth for product, clinical, brand, technical, b
 - `brand/brand-guidelines.md`
 - `brand/content-voice.md`
 - `brand/motion-guidelines.md`
+- `design/vascurra-web-design-system.md` — implemented web tokens and components.
+- `design/homepage-visual-spec.md` — implemented homepage architecture.
 
 ## Clinical and governance
 
@@ -47,6 +49,7 @@ This directory is the source of truth for product, clinical, brand, technical, b
 ## Development and operations
 
 - `development/development-workflow.md`
+- `development/phase-naming.md` — current Public Platform and Product Platform phase hierarchy.
 - `development/phase-1-implementation-plan.md`
 - `development/acceptance-criteria.md`
 - `operations/roadmap.md`
@@ -56,3 +59,5 @@ This directory is the source of truth for product, clinical, brand, technical, b
 ## Important status
 
 These documents are product-development materials. They are not medical advice, legal advice, regulatory determinations or claims of compliance. Formal clinical, privacy and regulatory decisions require qualified external review before deployment.
+
+Historical documents may retain earlier phase names and tool-specific handoff language. The current authoritative workflow is `development/development-workflow.md`; supersessions are recorded in `operations/decision-log.md`.

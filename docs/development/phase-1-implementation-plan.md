@@ -1,5 +1,7 @@
 # Phase 1 Implementation Plan
 
+> **Current phase name:** Public Platform Phase P1. This plan does not authorize Product Platform Phase 1 or health-data functionality.
+
 ## Stage 0 — Repository foundation
 
 - add documentation;

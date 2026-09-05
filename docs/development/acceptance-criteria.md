@@ -1,5 +1,7 @@
 # Phase 1 Acceptance Criteria
 
+> **Current phase name:** Public Platform Phase P1. These criteria apply to the public website.
+
 ## Functional
 
 - all required routes render;

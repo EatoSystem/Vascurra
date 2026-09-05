@@ -1,5 +1,7 @@
 # Roadmap
 
+> **Historical product roadmap.** For current phase terminology, see `docs/development/phase-naming.md`. The numbered phases below predate the separation of Public Platform and Product Platform work.
+
 ## Phase 0 — Co-design
 **0–4 weeks**
 

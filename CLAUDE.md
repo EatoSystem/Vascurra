@@ -1,11 +1,11 @@
 # CLAUDE.md
 
-Claude Code should treat `AGENTS.md` as mandatory and this file as workflow-specific guidance.
+Claude Code should treat `AGENTS.md` as mandatory and this file as historical tool-specific guidance. The authoritative agent-neutral workflow is `docs/development/development-workflow.md`.
 
 ## Default behaviour
 
 - Inspect before editing.
-- Do not implement beyond Phase 1 public-site scope.
+- Do not implement beyond the explicitly approved Public Platform scope.
 - Preserve existing brand system and component architecture.
 - Prefer small, reviewable changes.
 - Never invent medical evidence or claims.
@@ -24,6 +24,6 @@ Return a short plan containing:
 
 For large visual changes, implement on a dedicated branch and rely on Vercel Preview for approval.
 
-## Phase 1 source of truth
+## Public Platform source of truth
 
 See `docs/product/phase-1-website-spec.md`.

@@ -1,149 +1,115 @@
-# AGENTS.md — Mandatory Instructions for AI Coding Agents
+# AGENTS.md — Vascurra Development Rules
 
-This file applies to Claude Code, Codex, Cursor agents and any other automated coding system working in the Vascurra repository.
+This file applies to Codex, Cursor, Claude Code and every other automated coding system working in this repository.
 
-## 1. Read before changing code
+## 1. Establish context before changing code
 
-Before implementing a feature, read:
+Before implementation:
 
-1. `docs/product/phase-1-website-spec.md`
-2. `docs/clinical/intended-purpose-and-claims.md`
-3. `docs/clinical/clinical-safety.md`
-4. `docs/brand/brand-guidelines.md`
-5. `docs/technical/architecture.md`
-6. `docs/development/development-workflow.md`
+1. Inspect the repository root, current branch, HEAD, remote and working tree.
+2. Confirm that the working branch descends from the approved canonical application source.
+3. Read:
+   - `docs/product/phase-1-website-spec.md`
+   - `docs/clinical/intended-purpose-and-claims.md`
+   - `docs/clinical/clinical-safety.md`
+   - `docs/brand/brand-guidelines.md`
+   - `docs/technical/architecture.md`
+   - `docs/development/development-workflow.md`
+4. Read any approved design specification and decision-log entry relevant to the requested area.
+5. Inspect the current implementation before proposing changes.
+6. State the task scope, files likely to change, validation plan and any health, privacy, claim or production implications.
 
-If documentation conflicts, stop and surface the conflict. Do not silently choose a version.
+If source-of-truth documents conflict, surface the conflict before performing work that depends on choosing between them. Do not overwrite or discard unrelated work.
 
-## 2. Phase 1 scope is intentionally narrow
+## 2. Respect the current product phase
 
-Phase 1 is a **public information and early-access website**.
+The public website and the future Vascurra health platform are separate scopes. Do not implement the following without explicit approved scope:
 
-Do not implement without explicit approval:
-
-- authentication;
-- patient/family accounts;
+- authentication or user accounts;
+- patient, family, clinician, research or administration portals;
 - health-record storage;
-- medication logging;
-- glucose tracking;
-- clinician dashboards backed by real patient data;
-- medical-device functionality;
-- clinical scoring;
-- passive surveillance;
-- AI diagnosis;
-- treatment recommendations;
-- medication recommendations or changes;
-- trial matching/enrolment;
-- AI-generated emergency triage beyond static educational signposting;
-- production OpenAI health workflows;
+- medication, blood-pressure, glucose, symptom or cognition tracking;
+- clinician dashboards backed by real participant data;
+- passive surveillance, clinical scoring or medical-device functionality;
+- diagnosis, prediction, treatment or medication recommendations;
+- trial matching or enrolment;
+- generative emergency triage;
+- production clinical AI workflows;
 - production databases containing special-category health data.
 
-## 3. Claims guardrail — non-negotiable
+Do not infer authorization for future-product functionality from conceptual copy, designs, diagrams or roadmap documents.
 
-Never write or imply that Vascurra:
+## 3. Preserve dignity and agency
 
-- diagnoses vascular dementia or any condition;
-- predicts dementia or stroke;
-- prevents stroke;
-- slows dementia;
-- improves clinical outcomes;
-- detects disease before symptoms appear;
-- has a validated “brain health score”;
-- is clinically validated unless a source-of-truth document explicitly says so;
-- is MDR compliant, CE marked, HIPAA compliant, SOC 2 certified, ISO certified, or otherwise certified unless the repository contains verified evidence and explicit approval.
+- Avoid fear-based, alarming or patronising UX.
+- Do not trivialise health through points, streaks, badges or coercive gamification.
+- Do not assume cognitive change removes a person's capacity or control.
+- Do not assume family relationships grant access to personal information.
+- Do not design constant measurement as the default.
+- Make assistance configurable and add it only when useful.
+- Keep important decisions with people and appropriately qualified professionals.
 
-Avoid fabricated metrics such as `82/100`, “risk age”, “vascular age”, “low risk”, or invented trial statistics.
+## 4. Claims and evidence are non-negotiable
 
-## 4. No invented evidence
+Never write, display or imply that Vascurra diagnoses disease; predicts dementia, decline or stroke; prevents stroke or dementia; slows disease; improves cognition, survival or clinical outcomes; detects disease before symptoms; provides treatment; recommends medication changes; has a validated health or risk score; is clinically validated; is a medical device; or holds regulatory or compliance certification without verified evidence and explicit approval.
 
-Never invent:
+Do not invent research, statistics, scores, probabilities, testimonials, partnerships, logos, certifications, regulatory classifications, names, contact details or participant stories.
 
-- research papers;
-- clinical trials;
-- institutional partnerships;
-- clinician names;
-- patient testimonials;
-- market statistics;
-- logos of hospitals/universities;
-- compliance badges;
-- regulatory classifications.
+Use `[SOURCE REQUIRED]` in internal drafts when a claim requires evidence, or omit the claim from public content. Review body copy, headings, calls to action, metadata, social images, alt text, charts, diagrams, interface mockups and raster artwork. Reference images are design guidance, not approved evidence or public copy. Clearly label conceptual functionality and fictional examples. Preserve provenance for every research claim.
 
-If content requires evidence that is not in the repository, use a clearly marked placeholder such as `[SOURCE REQUIRED]` or omit the claim.
+## 5. Clinical safety boundaries
 
-## 5. Visual design
+Future functionality must distinguish reported information, measured data, verified clinical records, deterministic calculations, AI-generated interpretation and clinician confirmation.
 
-Use the Vascurra visual language:
+A language model must never be the authoritative record, permissions system, medication source of truth, emergency protocol or diagnostic authority. Emergency signposting must use deterministic, clinically reviewed protocols. High-impact outputs require an appropriate human-review path. Do not imply that planned safeguards already exist in production.
 
-- white/soft-white canvas;
-- luminous teal, cyan and mint accents;
-- deep navy for high-legibility body text;
-- restrained futuristic glow, not neon overload;
-- flowing vascular/neural forms;
-- generous whitespace;
-- premium health-tech aesthetic;
-- calm motion;
-- clear accessibility contrast.
+## 6. Privacy and health data
 
-Do not allow decorative graphics to reduce readability.
+The repository is public. Never commit personal health information, identifiable participant information, private medical material, personal transcripts, secrets, `.env` files, production data or identifiable test fixtures. Use clearly fictional test data.
 
-## 6. Accessibility
+Before collecting real health information, the approved architecture must define controller and processor roles, lawful basis, collection purpose, identity, recovery, Personal/Family/Clinician/Research/Administration permissions, consent history and revocation, supported decision-making, provenance, retention, correction, export, deletion, audit, backup, vendor, research and incident-response boundaries.
 
-Target WCAG 2.2 AA where practical.
+Minimise sensitive logging and analytics. Never use production health data for model training without an approved legal, ethical and governance basis. The marketing preview gate is not authentication and must never protect personal or health information.
 
-- Semantic HTML first.
-- Keyboard navigation.
-- Visible focus states.
-- Reduced-motion support.
-- Descriptive alt text.
-- Accessible forms and validation.
-- Do not encode meaning by colour alone.
-- Minimum comfortable touch targets.
+## 7. Design system and accessibility
 
-## 7. Privacy
+Preserve the Vascurra design language: white or soft-white canvas, deep navy text, teal/cyan/mint accents, restrained glow, flowing vascular and neural forms, generous whitespace, calm motion and high legibility.
 
-The repository is public. Never commit:
+Use the approved brain mark and documented derivatives. Do not redraw, reinterpret, randomly recolour, distort or tightly crop it. Reuse existing components and tokens before introducing new patterns. Do not publish whole webpage sections as flattened screenshots. Keep meaningful content in accessible HTML where practical.
 
-- personal health information;
-- real patient data;
-- passwords;
-- API keys;
-- `.env` files;
-- production credentials;
-- private clinical letters or scans;
-- identifiable test data.
+Target WCAG 2.2 AA where practical: semantic structure, logical headings, keyboard access, visible focus, comfortable targets, text reflow, readable contrast, accessible forms, descriptive alternatives, forced colours and reduced motion. Do not encode meaning by colour alone or rely on hover or animation for required information. Content must remain available if JavaScript, hydration or animation fails. Inspect affected interfaces at narrow mobile, standard mobile, tablet and desktop sizes.
 
-Use fictional examples that are clearly fictional.
+## 8. Engineering and AI architecture
 
-## 8. Architecture
+Follow the approved architecture: Next.js App Router, strict TypeScript, server components by default, client components only where interaction requires them, typed content where appropriate and explicit server boundaries.
 
-Prefer simple, auditable solutions.
+Prefer simple, auditable implementations. Avoid unnecessary dependencies, unrelated refactors, premature abstraction, duplicate components, provider-specific AI logic in core domain models, or adding a database before its requirement is approved.
 
-- Next.js App Router + TypeScript.
-- Server components by default.
-- Client components only when interaction requires them.
-- Content should live in typed content/config files where appropriate.
-- Keep forms and analytics separate from future health-data architecture.
-- No premature database.
-- No provider-specific AI dependency in core domain models.
+Future model calls must pass through a Vascurra-owned boundary responsible for task routing, prompt and policy versions, tool permissions, structured validation, provenance, provider traceability, safety checks, fallbacks and evaluation. Do not add AI merely to make the public website appear AI-powered.
 
-## 9. Change discipline
+## 9. Git and production workflow
 
-Before coding:
+Fetch when current remote state matters, inspect the working tree, and branch from the approved canonical source. Use `codex/<name>` for Codex branches unless another convention is approved.
 
-- state scope;
-- inspect current implementation;
-- list files to change;
-- identify safety/claim implications.
+For substantive work: use a feature branch, keep commits focused, open a pull request, run automated validation, use Vercel Preview for visual review where applicable, and merge only after explicit approval.
 
-After coding:
+Never overwrite unrelated changes, rewrite shared history, force-push, delete branches, merge, deploy, promote a deployment, change Vercel settings or domains, change production environment variables, alter production databases or data, rotate credentials, or broaden production access without explicit approval. A successful preview deployment is not production approval.
 
-- run lint;
-- run tests;
-- run build;
-- inspect responsive layouts;
-- report any warnings or failures;
-- do not merge unless explicitly asked.
+## 10. Validation and documentation
 
-## 10. Decision rule
+Run the checks applicable to the change:
 
-When in doubt, choose the safer and more reversible implementation and ask for a product decision rather than expanding scope.
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
+
+For UI changes, inspect affected routes, responsive layouts, narrow-screen reflow, keyboard operation, reduced motion, assets, and browser/server errors. For public content, review healthcare claims, conceptual labels, metadata and visual artwork.
+
+Never claim a check passed unless it ran successfully. Report warnings, failures and untested areas. Do not weaken tests or claims allowlists merely to obtain a pass.
+
+Update documentation when a decision alters product scope, intended purpose, architecture, privacy, consent, clinical safety, regulatory intent, research governance or production workflow. Keep Public Platform phases distinct from Product Platform phases, and mark superseded decisions rather than rewriting history.
+
+When completing work, report what changed, why, affected files, validation, safety implications and material limitations. Do not merge, push or deploy unless explicitly authorized.

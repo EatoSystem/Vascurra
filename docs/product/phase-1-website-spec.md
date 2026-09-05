@@ -1,5 +1,7 @@
 # Phase 1 Website Specification
 
+> **Current phase name:** Public Platform Phase P1. Historical references to “Phase 1” in this document mean the public website, not Product Platform Phase 1 (Patient 0 prototype).
+
 ## Objective
 
 Launch the public foundation of Vascurra at `vascurra.com`.
