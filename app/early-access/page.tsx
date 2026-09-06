@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: `${earlyAccess.title} — ${site.name}`,
   description: earlyAccess.body,
   alternates: { canonical: "/early-access" },
+  robots: { index: false, follow: false },
 };
 
 export default function EarlyAccessPage() {

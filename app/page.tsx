@@ -47,7 +47,7 @@ function HoldingPage() {
 
 export default async function HomePage() {
   const jar = await cookies();
-  if (isHoldingUnlocked(jar.get(HOLDING_COOKIE)?.value)) {
+  if (await isHoldingUnlocked(jar.get(HOLDING_COOKIE)?.value)) {
     return <FullHomePage />;
   }
   return <HoldingPage />;

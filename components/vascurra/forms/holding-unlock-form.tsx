@@ -15,10 +15,10 @@ export function HoldingUnlockForm() {
   const showForm = open || (state !== null && !state.ok);
 
   useEffect(() => {
-    if (showForm) {
-      passwordRef.current?.focus();
-    }
-  }, [showForm]);
+    if (!showForm) return;
+    const frame = requestAnimationFrame(() => passwordRef.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [showForm, state]);
 
   return (
     <footer className="border-t border-hairline/60 bg-white">
@@ -43,6 +43,9 @@ export function HoldingUnlockForm() {
               type="password"
               autoComplete="current-password"
               required
+              maxLength={256}
+              aria-invalid={state && !state.ok ? true : undefined}
+              aria-describedby={state && !state.ok ? "holding-unlock-error" : undefined}
               className="mt-2 min-h-12 w-full rounded-2xl border border-hairline-strong bg-white px-4 text-base text-navy"
             />
             {state && !state.ok ? (

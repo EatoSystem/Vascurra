@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import {
   HOLDING_COOKIE,
   HOLDING_COOKIE_MAX_AGE,
-  HOLDING_COOKIE_VALUE,
+  createHoldingToken,
   passwordsMatch,
 } from "@/lib/holding-gate";
 
@@ -16,12 +16,15 @@ export async function unlockHolding(
   formData: FormData,
 ): Promise<HoldingUnlockState> {
   const password = String(formData.get("password") ?? "");
-  if (!passwordsMatch(password)) {
+  if (!(await passwordsMatch(password))) {
     return { ok: false };
   }
 
+  const token = await createHoldingToken();
+  if (!token) return { ok: false };
+
   const jar = await cookies();
-  jar.set(HOLDING_COOKIE, HOLDING_COOKIE_VALUE, {
+  jar.set(HOLDING_COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",

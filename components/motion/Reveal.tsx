@@ -9,8 +9,8 @@ import { useEffect, useRef, type ReactNode } from "react";
  * Deliberately tiny and shared: it sets one data attribute and disconnects.
  * All the actual motion lives in CSS (`[data-reveal]`, `[data-reveal-draw]`).
  *
- * Nothing is gated behind it — without JavaScript the `<noscript>` rule and the
- * reduced-motion block both leave content fully visible, so no information is
+ * Nothing is gated behind it — the CSS applies hiding only when scripting is
+ * enabled, and reduced motion leaves content fully visible, so no information is
  * only reachable through animation (§17).
  */
 export function Reveal({
