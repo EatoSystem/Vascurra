@@ -24,6 +24,39 @@ Founder / Product Architecture
 
 `main` is the canonical stable application source. Substantive changes belong on feature branches. A successful build or preview is evidence for review, not authorization to merge or deploy.
 
+## Public Platform V2 release gate
+
+Until explicit human approval is given to launch Vascurra Public Platform V2,
+the environments have distinct roles:
+
+```text
+Production
+  → holding page
+
+main
+  → canonical codebase
+
+V2 feature branch
+  → pull request
+  → automated validation
+  → Vercel Preview
+  → design, product, claims and safety review
+  → approved merge when appropriate
+
+Production
+  → remains on the holding page
+```
+
+Only an explicit instruction to launch the public V2 site authorizes removal of
+the Production holding page. A completed feature, passing CI, merged pull
+request, successful Vercel Preview, successful Production build, agent
+recommendation or completed V2 homepage does not constitute launch approval.
+
+V2 code may be built and merged into `main` while the Production release gate
+remains active. The existing marketing holding-page architecture and its
+Production-only configuration are the release control; it is not authentication
+and must not protect personal or health information.
+
 ## Implementation cycle
 
 1. Read `AGENTS.md` and relevant source-of-truth documents.

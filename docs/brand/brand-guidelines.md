@@ -14,6 +14,24 @@ Vascurra should feel sophisticated, human, trustworthy and quietly futuristic. I
 
 **Support independence. Preserve identity.**
 
+## Canonical Brand Reference 01
+
+The current Vascurra hero is **Canonical Brand Reference 01** for Public
+Platform V2. It defines:
+
+- deep navy primary typography;
+- a cyan → teal → green headline gradient;
+- a white-dominant canvas and generous whitespace;
+- the approved Vascurra brain artwork;
+- subtle vascular and neural line work;
+- restrained luminous nodes and glow;
+- calm, premium motion;
+- minimal interface chrome;
+- a human-centred presentation.
+
+Future sections should feel derived from this visual system. Do not reinterpret
+or substantially redesign the hero without a separate approved design decision.
+
 ## Logo
 
 The Vascurra brain icon combines:
@@ -100,6 +118,28 @@ Requirements:
 - no ultra-light body weights;
 - generous mobile sizing;
 - avoid text embedded inside raster images for final production.
+
+### Maximum three font sizes per section
+
+Every content section may render no more than three distinct font sizes at any
+individual responsive breakpoint. Two sizes are preferred when they are enough.
+The rule applies independently at each breakpoint; responsive size changes are
+allowed.
+
+The preferred hierarchy is:
+
+1. **Primary** — major section headline.
+2. **Secondary** — lead statement or important proposition.
+3. **Tertiary** — body text, eyebrows, labels, captions, links, buttons,
+   metadata and supporting interface text.
+
+Do not add a fourth size merely to create hierarchy. Use weight, colour,
+gradient, uppercase treatment, tracking, spacing, opacity and positioning
+instead. Eyebrows and buttons normally use the tertiary size. If a section
+appears to need four or more sizes, simplify it.
+
+The Vascurra wordmark or logo and text incorporated into approved illustrative
+artwork are excluded from this count.
 
 ## Design review question
 
