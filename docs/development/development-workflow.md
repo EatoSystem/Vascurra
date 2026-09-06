@@ -58,11 +58,12 @@ Production-only configuration are the release control; it is not authentication
 and must not protect personal or health information.
 
 Throughout V2 development, the Production holding experience is the established
-minimal composition already implemented in `app/page.tsx`: the mark-only header,
-the current canonical hero without its calls to action, and the login control in
-the footer at the bottom of the page. Do not replace it with a new holding-page
-design or expose additional V2 sections without a separately approved release
-decision.
+minimal composition implemented by `app/page.tsx` and the dedicated
+`HoldingHero`: the mark-only header, the recovered pre-V2 hero without calls to
+action, and the login control in the footer at the bottom of the page. The
+holding hero must remain separate from the evolving V2 `HomeHero`. Do not
+replace it or expose additional V2 sections without a separately approved
+release decision.
 
 ## Implementation cycle
 

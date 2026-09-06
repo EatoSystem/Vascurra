@@ -361,10 +361,12 @@ Vercel Previews. Approved work may merge into `main` while the Production-only
 holding configuration remains active. Removing that Production release gate
 requires explicit V2 launch approval.
 
-The approved holding composition is the existing mark-only header and canonical
-hero, with hero calls to action hidden and the login control placed in the footer
-at the bottom of the page. This composition remains in Production throughout V2
-development unless a separate decision explicitly approves a replacement.
+The approved holding composition is the existing mark-only header and recovered
+pre-V2 hero, with no hero calls to action and the login control placed in the
+footer at the bottom of the page. Its dedicated component remains separate from
+the V2 homepage hero so V2 development cannot change the public holding page.
+This composition remains in Production throughout V2 development unless a
+separate decision explicitly approves a replacement.
 
 ### 2026-09-06 — Current hero is Canonical Brand Reference 01
 
