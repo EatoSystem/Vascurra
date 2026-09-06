@@ -3,7 +3,7 @@ import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { hero } from "@/content/home";
 
 /**
- * Fixed Production holding hero, recovered from the pre-V2 holding experience.
+ * Fixed Production holding hero matching the approved live holding experience.
  * Keep this separate from HomeHero so public V2 development cannot change it.
  */
 export function HoldingHero() {
@@ -17,20 +17,27 @@ export function HoldingHero() {
       </div>
       <div className="relative z-10 mx-auto grid max-w-[80rem] items-center gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-8 lg:px-12">
         <div className="max-w-[38rem]">
-          <h1 id="holding-hero-heading" className="type-display text-[var(--vascurra-ink)]">
+          <h1
+            id="holding-hero-heading"
+            className="type-display overflow-visible text-[var(--vascurra-ink)]"
+          >
             <span className="block">{hero.headingLead}</span>
-            <span className="text-mark block">
-              <span className="block">{hero.headingMid}</span>
-              <span className="block">{hero.headingAccent}</span>
+            <span className="block">
+              <span className="text-mark-hero inline sm:inline-block sm:whitespace-nowrap">
+                {hero.headingMid}
+              </span>
+              <span className="text-mark-hero-end block">{hero.headingAccent}</span>
             </span>
           </h1>
           <p className="mt-8 text-[clamp(1.35rem,2.1vw,1.85rem)] leading-[1.35] font-medium text-navy">
             {hero.statementLead} {hero.statementTrail}
           </p>
           <p className="mt-5 text-lg text-ink-teal">{hero.audience}</p>
-          <p className="mt-8 max-w-lg text-lg leading-[1.7] text-ink-body">{hero.body}</p>
+          <p className="mt-8 max-w-lg text-[1.125rem] leading-[1.7] text-ink-body md:text-[1.25rem]">
+            {hero.body}
+          </p>
         </div>
-        <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10">
+        <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10 lg:translate-x-8 xl:translate-x-14">
           <BrainStage slot="hero" field="quiet" priority />
         </div>
       </div>
