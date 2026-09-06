@@ -10,7 +10,6 @@ import { Philosophy } from "@/components/marketing/Philosophy";
 import { ProjectStatus } from "@/components/marketing/ProjectStatus";
 import { FinalCta } from "@/components/vascurra/home/final-cta";
 import { HoldingUnlockForm } from "@/components/vascurra/forms/holding-unlock-form";
-import { HoldingHero } from "@/components/vascurra/holding/holding-hero";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
 
 function FullHomePage() {
@@ -39,7 +38,7 @@ function HoldingPage() {
       <span id="top" />
       <SiteHeader markOnly />
       <main id="main">
-        <HoldingHero />
+        <HomeHero showCtas={false} />
       </main>
       <HoldingUnlockForm />
     </>
