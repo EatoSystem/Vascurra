@@ -341,3 +341,57 @@ architecture and principles sections.
 **Why:** Internal attribution is useful project context but is not consent or approval for public publication.
 
 **Implications:** Any future public attribution requires an explicit content decision and privacy review.
+
+---
+
+## 2026-09-06 Public Platform V2 release decisions
+
+### 2026-09-06 — Production remains behind the holding-page release gate
+
+**Decision:** Keep Production on the existing Vascurra holding page until an
+explicit human instruction launches Public Platform V2. Completion, CI, builds,
+Previews, merges and agent recommendations are review evidence rather than launch
+approval.
+
+**Why:** The canonical codebase must be able to advance through reviewed V2 work
+without automatically exposing unfinished public content.
+
+**Implications:** V2 work proceeds through feature branches, pull requests and
+Vercel Previews. Production and all Preview branches render the holding page by
+default through separately scoped secret values; authorized Preview review may
+unlock the full build. Approved work may merge into `main` while the Production
+holding configuration remains active. Removing that Production release gate
+requires explicit V2 launch approval.
+
+The approved holding composition is the existing mark-only header and canonical
+hero, with hero calls to action hidden and the login control placed in the footer
+at the bottom of the page. This composition remains in Production throughout V2
+development unless a separate decision explicitly approves a replacement.
+
+### 2026-09-06 — Current hero is Canonical Brand Reference 01
+
+**Decision:** Use the current Vascurra hero as the visual source of truth for
+Public Platform V2 and derive future sections from its typography, gradient,
+white space, brain artwork, vascular forms, light and motion.
+
+**Why:** The hero is the strongest established expression of the Vascurra brand
+and provides a coherent alternative to unrelated section-by-section styles.
+
+**Implications:** V2 may extend the hero's visual grammar but must not reinterpret
+the hero without a separate approved decision.
+
+### 2026-09-06 — V2 sections use at most three font sizes
+
+**Decision:** At each responsive breakpoint, every individual content section
+may render an absolute maximum of three distinct computed font sizes: primary,
+secondary and tertiary. Two are preferred where sufficient. This constraint may
+not be weakened, bypassed or reinterpreted during implementation.
+
+**Why:** Hierarchy should come from disciplined type, weight, colour and spacing
+rather than accumulating small variations that reduce clarity.
+
+**Implications:** Eyebrows, buttons, diagram labels, labels, captions, links,
+metadata and supporting interface text normally share the tertiary size.
+Diagram headings reuse secondary or tertiary. Wordmarks, logos and text within
+approved illustrative artwork are excluded. Sections that appear to require a
+fourth size must be simplified.
