@@ -380,13 +380,16 @@ the hero without a separate approved decision.
 
 ### 2026-09-06 — V2 sections use at most three font sizes
 
-**Decision:** At each responsive breakpoint, a content section may render no
-more than three distinct font sizes: primary, secondary and tertiary. Two are
-preferred where sufficient.
+**Decision:** At each responsive breakpoint, every individual content section
+may render an absolute maximum of three distinct computed font sizes: primary,
+secondary and tertiary. Two are preferred where sufficient. This constraint may
+not be weakened, bypassed or reinterpreted during implementation.
 
 **Why:** Hierarchy should come from disciplined type, weight, colour and spacing
 rather than accumulating small variations that reduce clarity.
 
-**Implications:** Eyebrows, buttons, labels, captions, links, metadata and
-supporting interface text normally share the tertiary size. Wordmarks, logos and
-text within approved illustrative artwork are excluded.
+**Implications:** Eyebrows, buttons, diagram labels, labels, captions, links,
+metadata and supporting interface text normally share the tertiary size.
+Diagram headings reuse secondary or tertiary. Wordmarks, logos and text within
+approved illustrative artwork are excluded. Sections that appear to require a
+fourth size must be simplified.

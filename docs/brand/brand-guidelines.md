@@ -121,22 +121,25 @@ Requirements:
 
 ### Maximum three font sizes per section
 
-Every content section may render no more than three distinct font sizes at any
-individual responsive breakpoint. Two sizes are preferred when they are enough.
-The rule applies independently at each breakpoint; responsive size changes are
-allowed.
+Every individual content section may render an absolute maximum of three
+distinct computed font sizes at any responsive breakpoint. Two sizes are
+preferred when they are enough. The rule applies independently at each
+breakpoint; responsive size changes are allowed, but no breakpoint may exceed
+three sizes. Do not weaken, bypass or reinterpret this constraint during
+implementation.
 
 The preferred hierarchy is:
 
 1. **Primary** — major section headline.
 2. **Secondary** — lead statement or important proposition.
-3. **Tertiary** — body text, eyebrows, labels, captions, links, buttons,
-   metadata and supporting interface text.
+3. **Tertiary** — body text, eyebrows, labels, diagram text, captions, links,
+   buttons, metadata and supporting interface text.
 
 Do not add a fourth size merely to create hierarchy. Use weight, colour,
 gradient, uppercase treatment, tracking, spacing, opacity and positioning
-instead. Eyebrows and buttons normally use the tertiary size. If a section
-appears to need four or more sizes, simplify it.
+instead. Eyebrows, buttons and diagram labels normally use the tertiary size.
+Diagram headings reuse the secondary or tertiary size. If a section appears to
+need four or more sizes, simplify the section.
 
 The Vascurra wordmark or logo and text incorporated into approved illustrative
 artwork are excluded from this count.
