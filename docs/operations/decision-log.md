@@ -357,7 +357,9 @@ approval.
 without automatically exposing unfinished public content.
 
 **Implications:** V2 work proceeds through feature branches, pull requests and
-Vercel Previews. Approved work may merge into `main` while the Production-only
+Vercel Previews. Production and all Preview branches render the holding page by
+default through separately scoped secret values; authorized Preview review may
+unlock the full build. Approved work may merge into `main` while the Production
 holding configuration remains active. Removing that Production release gate
 requires explicit V2 launch approval.
 

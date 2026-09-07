@@ -52,10 +52,12 @@ the Production holding page. A completed feature, passing CI, merged pull
 request, successful Vercel Preview, successful Production build, agent
 recommendation or completed V2 homepage does not constitute launch approval.
 
-V2 code may be built and merged into `main` while the Production release gate
-remains active. The existing marketing holding-page architecture and its
-Production-only configuration are the release control; it is not authentication
-and must not protect personal or health information.
+V2 code may be built and merged into `main` while the release gate remains
+active. The existing marketing holding-page architecture is enabled for
+Production and all Preview branches through separately scoped secret values.
+Preview reviewers may unlock the gated build with the approved Preview
+credential. The gate is release control; it is not authentication and must not
+protect personal or health information.
 
 Throughout V2 development, the Production holding experience is the established
 minimal composition already implemented in `app/page.tsx`: the mark-only header,
