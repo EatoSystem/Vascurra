@@ -8,6 +8,9 @@ export {
  * Shared preview gate for the public site. This is not an account system and
  * does not protect health data — it only holds the full marketing pages until
  * the agreed preview password is entered.
+ *
+ * IMPORTANT: the gate fails closed. If HOLDING_PAGE_PASSWORD is unavailable,
+ * the unfinished homepage stays hidden rather than becoming public.
  */
 
 const TOKEN_VERSION = "v1";
@@ -78,7 +81,7 @@ export async function isHoldingUnlocked(
   now = Date.now(),
 ): Promise<boolean> {
   const password = configuredPassword();
-  if (!password) return true;
+  if (!password) return false;
   if (!cookieValue) return false;
   const [version, expiresAt, signature] = cookieValue.split(".");
   const expiry = Number(expiresAt);
