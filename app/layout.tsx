@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Source_Serif_4 } from "next/font/google";
 import { site, SITE_URL } from "@/content/site";
 import "./globals.css";
+import "./brand-v2.css";
 
 const inter = Inter({
   subsets: ["latin"],
