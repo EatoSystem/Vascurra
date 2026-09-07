@@ -15,11 +15,11 @@ export function Origin() {
 
           <h2
             id="origin-heading"
-            className="mt-7 text-[clamp(3rem,5.7vw,5.4rem)] leading-[0.98] font-semibold tracking-[-0.045em] text-[#062b4b]"
+            className="mt-7 text-[clamp(3rem,5.7vw,5.4rem)] leading-[1.05] font-semibold tracking-[-0.045em] text-[#062b4b]"
           >
             <span className="block">A father.</span>
             <span className="block">A doctor.</span>
-            <span className="block bg-[linear-gradient(90deg,#0aa3bc_0%,#2ecfc4_48%,#49c768_100%)] bg-clip-text text-transparent forced-colors:text-[#062b4b]">
+            <span className="block pb-[0.08em] bg-[linear-gradient(90deg,#0aa3bc_0%,#2ecfc4_48%,#49c768_100%)] bg-clip-text text-transparent forced-colors:text-[#062b4b]">
               A reason to fight.
             </span>
           </h2>
@@ -28,8 +28,8 @@ export function Origin() {
             <Image
               src="/vascurra/v2/section-02-origin-illustration.webp"
               alt=""
-              width={760}
-              height={735}
+              width={900}
+              height={870}
               sizes="(max-width: 1023px) 94vw, 1px"
               className="mx-auto h-auto w-full max-w-[42rem] object-contain"
             />
@@ -58,8 +58,8 @@ export function Origin() {
             <Image
               src="/vascurra/v2/section-02-origin-illustration.webp"
               alt=""
-              width={760}
-              height={735}
+              width={900}
+              height={870}
               sizes="(min-width: 1024px) min(55vw, 820px), 1px"
               className="h-auto w-full max-w-[52rem] object-contain"
             />
