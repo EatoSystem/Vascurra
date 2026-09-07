@@ -1,4 +1,4 @@
-import { missionArtwork } from "./mission-artwork";
+const missionArtwork = "/vascurra/v2/section-03-mission-approved.png";
 
 const missionItems = [
   {
@@ -57,7 +57,7 @@ export function Mission() {
 
           <div
             aria-hidden="true"
-            className="relative z-10 hidden h-[clamp(11rem,18vw,15rem)] w-full bg-center bg-contain bg-no-repeat md:block"
+            className="relative z-10 hidden aspect-[2048/682] w-full bg-center bg-contain bg-no-repeat md:block"
             style={{ backgroundImage: `url("${missionArtwork}")` }}
           />
 
@@ -66,7 +66,7 @@ export function Mission() {
               <article key={item.label} className="text-center">
                 <div
                   aria-hidden="true"
-                  className="mx-auto mb-6 h-44 w-full max-w-[30rem] bg-white bg-no-repeat md:hidden"
+                  className="mx-auto mb-6 aspect-square w-full max-w-[22rem] bg-white bg-no-repeat md:hidden"
                   style={{
                     backgroundImage: `url("${missionArtwork}")`,
                     backgroundPosition: item.position,
