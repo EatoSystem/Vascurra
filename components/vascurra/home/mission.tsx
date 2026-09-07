@@ -156,11 +156,11 @@ export function Mission() {
           <MissionRibbon />
 
           <div className="relative z-10 grid gap-14 pl-24 md:grid-cols-3 md:gap-10 md:pl-0">
-            {missionItems.map((item, index) => (
+            {missionItems.map((item) => (
               <article key={item.label} className="md:text-center">
                 <div
                   aria-hidden="true"
-                  className="mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-[#b9ece8] bg-white/92 shadow-[0_12px_40px_rgba(12,170,181,0.13)] md:mx-auto md:h-16 md:w-16"
+                  className="mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-[#b9ece8] bg-white/90 shadow-[0_12px_40px_rgba(12,170,181,0.13)] md:mx-auto md:h-16 md:w-16"
                 >
                   <span className="h-3 w-3 rounded-full bg-[linear-gradient(135deg,#0aa3bc,#2ecfc4_52%,#49c768)] shadow-[0_0_0_7px_rgba(46,207,196,0.10)]" />
                 </div>
