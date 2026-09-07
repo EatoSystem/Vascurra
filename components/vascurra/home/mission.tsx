@@ -1,20 +1,17 @@
-import { missionArtwork } from "./mission-artwork";
+import Image from "next/image";
 
 const missionItems = [
   {
     label: "Help today",
     body: "Support independence, identity, confidence and daily life.",
-    position: "left center",
   },
   {
     label: "Learn every day",
     body: "Understand meaningful change across time, connecting what matters to what’s possible.",
-    position: "center center",
   },
   {
     label: "Fight for tomorrow",
     body: "Accelerate research into better treatments and the long-term search for a cure.",
-    position: "right center",
   },
 ];
 
@@ -25,7 +22,7 @@ export function Mission() {
       aria-labelledby="mission-heading"
       className="relative overflow-hidden bg-white px-5 py-[clamp(6rem,10vw,9.5rem)] sm:px-8 lg:px-12"
     >
-      <div className="mx-auto max-w-[92rem]">
+      <div className="mx-auto max-w-[96rem]">
         <div className="mx-auto max-w-[78rem] text-center">
           <p className="text-[1rem] font-semibold tracking-[0.28em] text-[#0aa3bc] uppercase md:text-[1.125rem]">
             Our mission
@@ -49,25 +46,24 @@ export function Mission() {
           </p>
         </div>
 
-        <div className="mt-[clamp(3.5rem,6vw,5.5rem)]">
+        <div className="relative mt-[clamp(3.5rem,6vw,5.5rem)]">
           <div
             aria-hidden="true"
-            className="hidden h-[clamp(10rem,17vw,14rem)] w-full bg-center bg-contain bg-no-repeat md:block"
-            style={{ backgroundImage: `url("${missionArtwork}")` }}
+            className="pointer-events-none absolute inset-x-[8%] top-[12%] h-[70%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(46,207,196,0.10)_0%,rgba(73,199,104,0.04)_42%,rgba(255,255,255,0)_72%)] blur-2xl"
           />
 
-          <div className="grid gap-14 md:mt-7 md:grid-cols-3 md:gap-10">
+          <Image
+            src="/vascurra/v2/section-03-mission-journey-hd.webp"
+            alt=""
+            width={2172}
+            height={724}
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 94vw, 1536px"
+            className="relative z-10 mx-auto h-auto w-full max-w-[96rem] object-contain"
+          />
+
+          <div className="relative z-10 mt-7 grid gap-10 md:grid-cols-3 md:gap-12">
             {missionItems.map((item) => (
               <article key={item.label} className="text-center">
-                <div
-                  aria-hidden="true"
-                  className="mx-auto mb-6 h-44 w-full max-w-[30rem] bg-white bg-no-repeat md:hidden"
-                  style={{
-                    backgroundImage: `url("${missionArtwork}")`,
-                    backgroundPosition: item.position,
-                    backgroundSize: "300% auto",
-                  }}
-                />
                 <p className="text-[1rem] leading-[1.35] font-semibold tracking-[0.12em] text-[#087486] uppercase md:text-[1.125rem]">
                   {item.label}
                 </p>
