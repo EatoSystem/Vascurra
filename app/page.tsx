@@ -2,7 +2,9 @@ import { cookies } from "next/headers";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { HomeHero } from "@/components/vascurra/home/hero";
-import { HumanContext } from "@/components/vascurra/home/human-context";
+import { Origin } from "@/components/vascurra/home/origin";
+import { Mission } from "@/components/vascurra/home/mission";
+import { PatientZero } from "@/components/vascurra/home/patient-zero";
 import { FourPerspectives } from "@/components/vascurra/home/four-perspectives";
 import { UnderstandTrackSupport } from "@/components/vascurra/home/understand-track-support";
 import { Trust } from "@/components/vascurra/home/trust";
@@ -19,7 +21,9 @@ function FullHomePage() {
       <SiteHeader />
       <main id="main">
         <HomeHero />
-        <HumanContext />
+        <Origin />
+        <Mission />
+        <PatientZero />
         <UnderstandTrackSupport />
         <Philosophy />
         <ProjectStatus />
