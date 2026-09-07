@@ -32,5 +32,5 @@ export async function unlockHolding(
     maxAge: HOLDING_COOKIE_MAX_AGE,
   });
 
-  redirect("/");
+  redirect("/preview");
 }
