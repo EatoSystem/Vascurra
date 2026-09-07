@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { HomeHero } from "@/components/vascurra/home/hero";
 import { Origin } from "@/components/vascurra/home/origin";
+import { Mission } from "@/components/vascurra/home/mission";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
 
 export default async function PreviewPage() {
@@ -19,6 +20,7 @@ export default async function PreviewPage() {
       <main id="main">
         <HomeHero />
         <Origin />
+        <Mission />
       </main>
       <SiteFooter />
     </>
