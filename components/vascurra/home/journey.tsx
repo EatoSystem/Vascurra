@@ -1,0 +1,6 @@
+import { ArtworkPlaceholder } from "./artwork-placeholder";
+import styles from "./homepage-scaffold.module.css";
+
+export function Journey() {
+  return <section id="journey" aria-labelledby="journey-heading" className={styles.section}><div className={`${styles.inner} ${styles.centered}`}><p className={styles.eyebrow}>The journey</p><h2 id="journey-heading" className={styles.heading}><span>Start with one person.</span><span className={styles.gradient}>Learn deeply. Build for many.</span></h2><p className={styles.lead}>Patient 0 is the beginning of the learning process, not the end of the ambition.</p><p className={`${styles.body} ${styles.centerCopy}`}>The long-term goal is to turn carefully governed learning from real life into tools, evidence and research that may eventually help many more people, families and clinicians.</p><ArtworkPlaceholder variant="wide" description="One continuous ribbon journey from Patient 0 outward to many people" /><p className={styles.progression}>Patient 0 <span>→</span> Families <span>→</span> Clinicians <span>→</span> Research <span>→</span> Many people</p><p className={styles.closing}>One person can begin a much bigger possibility.</p></div></section>;
+}
