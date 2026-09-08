@@ -8,7 +8,7 @@ export default function HomePage() {
       <span id="top" />
       <SiteHeader markOnly />
       <main id="main">
-        <HomeHero showCtas={false} />
+        <HomeHero showCtas={false} animateBrain />
       </main>
       <HoldingUnlockForm />
     </>

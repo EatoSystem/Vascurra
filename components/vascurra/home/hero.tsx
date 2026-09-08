@@ -1,10 +1,11 @@
 import { CtaLink } from "@/components/ui/CtaLink";
 import { BrainStage } from "@/components/motion/BrainStage";
+import { HeroBrainRemotion } from "@/components/motion/HeroBrainRemotion";
 import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { hero } from "@/content/home";
 import { earlyAccessHref, homeDiscoverHref } from "@/content/site";
 
-export function HomeHero({ showCtas = true, discoverHref = homeDiscoverHref }: { showCtas?: boolean; discoverHref?: string }) {
+export function HomeHero({ showCtas = true, discoverHref = homeDiscoverHref, animateBrain = false }: { showCtas?: boolean; discoverHref?: string; animateBrain?: boolean }) {
   return (
     <section
       aria-labelledby="hero-heading"
@@ -41,7 +42,7 @@ export function HomeHero({ showCtas = true, discoverHref = homeDiscoverHref }: {
           ) : null}
         </div>
         <div className="order-first flex justify-center py-6 lg:order-last lg:justify-end lg:py-10 lg:translate-x-8 xl:translate-x-14">
-          <BrainStage slot="hero" field="quiet" priority />
+          {animateBrain ? <HeroBrainRemotion /> : <BrainStage slot="hero" field="quiet" priority />}
         </div>
       </div>
     </section>
