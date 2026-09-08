@@ -33,3 +33,13 @@ Audience prompt: Four stylised human profile medallions matching the supplied re
 Lint, typecheck and production build passed. The test suite reports 28 passed and one pre-existing failure in `lib/holding-gate.test.ts`: it expects an unconfigured gate to allow access, while the source implementation fails closed. Neither gate nor test was changed.
 
 Local browser checks cover 320, 390, 768, 1280 and 1536 pixels, computed type sizes, text clipping, console errors, reduced motion, keyboard traversal, JavaScript-disabled rendering, locked preview redirection and the holding page. Local screenshots and machine-readable results are under ignored `.tmp/section04-*` paths. Vercel Preview, push and production deployment were not performed.
+
+## 2026-09-07 — Editorial Patient 0 redesign
+
+The newly supplied founder mockup supersedes the interface/orbit/audience composition above. The current section uses a left-aligned story and quote, a large right-side illustrative portrait, four connected ideas (Life, Context, Support, Learning), and a closing statement. Historical notes and assets above remain for provenance.
+
+The brand palette matches Origin and Mission: deep navy #062b4b, body ink #244a64, accessible label teal #087486, with cyan #0aa3bc, aqua #2ecfc4 and green #49c768 decorative accents. Three computed type sizes remain the maximum. All copy and diagram labels remain HTML. The interface and audience mockups have been removed; no functional clinical scope is introduced. The closing ambition is qualified as a hope to help more people, and the development/illustration note remains.
+
+New asset: `public/vascurra/v2/section-04-patient-zero-portrait-v2.webp`, generated with built-in imagegen from the newly supplied mockup, then encoded as WebP quality 92 (approximately 140 KB). Prompt: isolate the large right-hand older-man portrait looking left/up; retain sculptural white/aqua hair, dignified expression, flowing vascular ribbons and round nodes; pure white background; entirely visible head, shoulders and ribbon silhouette; square canvas; Vascurra cyan/aqua/green/navy palette; no text, interface, icons, logo or photographic likeness. The source mockup is visual guidance, not a verified portrait or evidence of clinical outcomes.
+
+Redesign validation completed 2026-09-08: lint, typecheck and production build passed; 28 tests passed with the unchanged pre-existing gate test failure. Browser review at 320, 390, 768, 1280 and 1536 pixels confirmed no horizontal overflow, three computed font sizes, no console/page errors, no animation and available text with JavaScript disabled. Screenshots: ignored .tmp/patient-redesign-*.png. No deployment performed for this revision.
