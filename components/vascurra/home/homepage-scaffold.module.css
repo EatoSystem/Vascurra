@@ -42,6 +42,8 @@
 .closing { margin-top: clamp(3rem, 5vw, 5rem) !important; color: #062b4b; font-size: var(--secondary); font-weight: 600; line-height: 1.4; }
 .frameworkClosing span { display: block; }
 .frameworkClosing span:last-child { color: #087486; }
+.frameworkArtwork { margin: clamp(1.5rem, 2vw, 2.5rem) 0 0; }
+.frameworkArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
 
 .split { display: grid; align-items: center; gap: clamp(3.5rem, 8vw, 8rem); }
 .split > * { min-width: 0; }
