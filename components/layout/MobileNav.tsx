@@ -5,7 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import { navLinks, earlyAccessHref } from "@/content/site";
 import { hero } from "@/content/home";
 
-export function MobileNav() {
+type NavigationLink = { readonly label: string; readonly href: string };
+
+export function MobileNav({ links = navLinks }: { links?: readonly NavigationLink[] }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -47,7 +49,7 @@ export function MobileNav() {
       >
         <nav aria-label="Site" className="px-5 py-4 sm:px-8">
           <ul className="flex flex-col">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <li key={link.href} className="border-b border-hairline last:border-0">
                 <a
                   href={link.href}

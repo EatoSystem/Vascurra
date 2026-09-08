@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LineIcon } from "@/components/vascurra/ui/line-icon";
+import { homepageV2 } from "@/content/homepage-v2";
 import styles from "./patient-zero.module.css";
 
 const ideas = [
@@ -18,8 +19,8 @@ export function PatientZero() {
             <p className={styles.eyebrow}>Patient 0</p>
             <h2 id="patient-zero-heading">One person.<span>A global possibility.</span></h2>
             <div className={styles.intro}>
-              <p>Vascurra is being developed with and for my father — Patient 0 — a retired GP living with early stages of vascular dementia.</p>
-              <p>His lived experience, with Veya, is helping to shape a solution for millions.</p>
+              <p>{homepageV2.patientZero.intro}</p>
+              {homepageV2.patientZero.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
             <figure className={styles.quote}>
               <blockquote>“I want to stay independent for as long as possible, keep doing the things I enjoy, and help others along the way.”</blockquote>
@@ -59,8 +60,7 @@ export function PatientZero() {
         </div>
 
         <footer className={styles.closing}>
-          <p className={styles.statement}>Every day brings new <span>insight.</span></p>
-          <p>One person can make a difference. Together, we hope to help many more.</p>
+          <p className={styles.statement}>{homepageV2.patientZero.qualifier}</p>
           <p className={styles.note}>Vascurra and Veya are in development. This is our direction, not live medical functionality. Portrait is illustrative.</p>
         </footer>
       </div>

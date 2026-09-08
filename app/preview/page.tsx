@@ -16,6 +16,7 @@ import { Responsible } from "@/components/vascurra/home/responsible";
 import { Journey } from "@/components/vascurra/home/journey";
 import { FinalMission } from "@/components/vascurra/home/final-mission";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
+import { v2NavLinks } from "@/content/homepage-v2";
 
 export default async function PreviewPage() {
   const jar = await cookies();
@@ -26,9 +27,9 @@ export default async function PreviewPage() {
   return (
     <>
       <span id="top" />
-      <SiteHeader />
+      <SiteHeader links={v2NavLinks} />
       <main id="main">
-        <HomeHero />
+        <HomeHero discoverHref="#origin" />
         <Origin />
         <Mission />
         <PatientZero />
@@ -37,12 +38,12 @@ export default async function PreviewPage() {
         <Veya />
         <Intelligence />
         <Lab />
-        <SupportVascurra />
         <Responsible />
+        <SupportVascurra />
         <Journey />
         <FinalMission />
       </main>
-      <SiteFooter />
+      <SiteFooter links={v2NavLinks} />
     </>
   );
 }

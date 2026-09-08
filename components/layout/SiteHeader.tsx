@@ -7,7 +7,9 @@ import { MobileNav } from "./MobileNav";
 import { navLinks, earlyAccessHref, site } from "@/content/site";
 import { hero } from "@/content/home";
 
-export function SiteHeader({ markOnly = false }: { markOnly?: boolean }) {
+type NavigationLink = { readonly label: string; readonly href: string };
+
+export function SiteHeader({ markOnly = false, links = navLinks }: { markOnly?: boolean; links?: readonly NavigationLink[] }) {
   const lockup = (
     <>
       <BrainGlyph size={42} />
@@ -44,7 +46,7 @@ export function SiteHeader({ markOnly = false }: { markOnly?: boolean }) {
             <div className="flex items-center gap-2 sm:gap-3">
               <nav aria-label="Site" className="hidden lg:block">
                 <ul className="flex items-center">
-                  {navLinks.map((link) => (
+                  {links.map((link) => (
                     <li key={link.href}>
                       <a
                         href={link.href}
@@ -63,7 +65,7 @@ export function SiteHeader({ markOnly = false }: { markOnly?: boolean }) {
                 </CtaLink>
               </div>
 
-              <MobileNav />
+              <MobileNav links={links} />
             </div>
           )}
         </div>

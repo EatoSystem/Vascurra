@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { homepageV2 } from "@/content/homepage-v2";
 import { VascurraGradientText } from "./gradient-text";
 import styles from "./homepage-scaffold.module.css";
 
@@ -15,6 +16,7 @@ export function Framework() {
       <p className={styles.eyebrow}>The framework</p>
       <h2 id="framework-heading" className={styles.heading}><span>Observe. Understand.</span><VascurraGradientText>Support. Learn.</VascurraGradientText></h2>
       <p className={styles.lead}>A continuous learning loop built around real life.</p>
+      <p className={styles.qualifier}>{homepageV2.framework.qualifier}</p>
       <figure className={styles.frameworkArtwork} aria-hidden="true">
         <Image
           src="/vascurra/v2/section-05-framework-loop.png"
@@ -25,7 +27,7 @@ export function Framework() {
           className={styles.frameworkArtworkImage}
         />
       </figure>
-      <ol className={styles.fourAnchors}>{stages.map(([name, title, body]) => <li key={name}><h3><span>{name}</span> — {title}</h3><p>{body}</p></li>)}</ol>
+      <ol className={`${styles.fourAnchors} ${styles.frameworkStages}`}>{stages.map(([name, title, body]) => <li key={name}><h3><span>{name}</span> — {title}</h3><p>{body}</p></li>)}</ol>
       <p className={`${styles.closing} ${styles.frameworkClosing}`}><span>Not a score. Not a snapshot.</span><span>A living picture over time.</span></p>
     </div>
   </section>;

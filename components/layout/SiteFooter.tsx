@@ -5,7 +5,9 @@ import { site } from "@/content/site";
 import { footer } from "@/content/home";
 import { earlyAccessHref, privacyHref, navLinks } from "@/content/site";
 
-export function SiteFooter() {
+type NavigationLink = { readonly label: string; readonly href: string };
+
+export function SiteFooter({ links = navLinks }: { links?: readonly NavigationLink[] }) {
   return (
     <footer className="border-t border-hairline bg-white">
       <Container className="py-16 sm:py-20">
@@ -21,7 +23,7 @@ export function SiteFooter() {
             </a>
           </div>
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-12 gap-y-3 text-navy sm:grid-cols-3">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <a key={link.href} href={link.href} className="hover:text-ink-teal">
                 {link.label}
               </a>

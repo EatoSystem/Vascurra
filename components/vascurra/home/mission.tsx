@@ -1,22 +1,12 @@
+import { homepageV2 } from "@/content/homepage-v2";
+
 const missionArtwork = "/vascurra/v2/section-03-mission-approved.png";
 
-const missionItems = [
-  {
-    label: "Help today",
-    body: "Support independence, identity, confidence and daily life.",
-    position: "left center",
-  },
-  {
-    label: "Learn every day",
-    body: "Understand meaningful change across time, connecting what matters to what’s possible.",
-    position: "center center",
-  },
-  {
-    label: "Fight for tomorrow",
-    body: "Accelerate research into better treatments and the long-term search for a cure.",
-    position: "right center",
-  },
-];
+const missionItems = homepageV2.mission.pillars.map(([label, body], index) => ({
+  label,
+  body,
+  position: ["left center", "center center", "right center"][index],
+}));
 
 export function Mission() {
   return (
@@ -45,7 +35,7 @@ export function Mission() {
           </h2>
 
           <p className="mx-auto mt-9 max-w-[66rem] text-[clamp(1.18rem,1.6vw,1.5rem)] leading-[1.55] font-medium text-[#244a64]">
-            To help people live as well as possible with vascular cognitive change today, while using lived experience, clinical knowledge and advanced AI to accelerate understanding, better treatments and the long-term search for a cure.
+            {homepageV2.mission.body}
           </p>
         </div>
 
