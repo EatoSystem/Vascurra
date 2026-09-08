@@ -6,18 +6,20 @@ export type ArtworkPlaceholderVariant = "portrait" | "landscape" | "wide" | "imm
 export function ArtworkPlaceholder({
   description,
   variant,
+  tone = "light",
   className = "",
   children,
 }: {
   description: string;
   variant: ArtworkPlaceholderVariant;
+  tone?: "light" | "deep";
   className?: string;
   children?: ReactNode;
 }) {
   return (
     <div
       aria-hidden="true"
-      className={`${styles.artwork} ${styles[variant]} ${className}`}
+      className={`${styles.artwork} ${styles[variant]} ${styles[`${tone}Artwork`]} ${className}`}
       data-artwork-placeholder={variant}
     >
       <span className={styles.artworkRule} />

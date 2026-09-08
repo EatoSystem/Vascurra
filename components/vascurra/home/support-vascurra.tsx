@@ -1,11 +1,12 @@
 import styles from "./homepage-scaffold.module.css";
+import { VascurraGradientText } from "./gradient-text";
 
 const routes = [
-  ["Support the project", "Make a one-off or recurring contribution to help Vascurra move forward.", "Support Vascurra"],
-  ["Fund AI research", "Help fund defined units of AI-assisted evidence and research work, with transparent records of what was explored and learned.", "Fund AI Research"],
-  ["Partner with Vascurra", "For philanthropy, foundations, organisations and larger research-support partnerships.", "Partner with Vascurra"],
+  ["Support the project", "One-off or recurring support."],
+  ["Fund AI research", "Help fund defined Vascurra Lab research activity."],
+  ["Partner with Vascurra", "For philanthropy, foundations and organisations."],
 ] as const;
 
 export function SupportVascurra() {
-  return <section id="support" aria-labelledby="support-heading" className={styles.section}><div className={styles.inner}><div className={styles.editorialIntro}><p className={styles.eyebrow}>Support Vascurra</p><h2 id="support-heading" className={styles.heading}>Help fund the next <span className={styles.gradient}>discovery.</span></h2><p className={styles.lead}>Vascurra begins with one family, but the problem affects millions.</p><p className={styles.body}>Support can help fund AI research, evidence synthesis, product development and the infrastructure required to learn continuously from real life.</p></div><div className={styles.routes}>{routes.map(([name, body, cta]) => <article key={name}><div><h3>{name}</h3><p>{body}</p></div><button type="button" className={styles.futureCta} disabled>{cta}<span className={styles.srOnly}> — planned action, not yet available</span></button></article>)}</div><p className={styles.closing}>Every research contribution should leave a trail of knowledge.</p></div></section>;
+  return <section id="support" aria-labelledby="support-heading" className={styles.section}><div className={styles.inner}><div className={styles.editorialIntro}><p className={styles.eyebrow}>Support Vascurra</p><h2 id="support-heading" className={styles.heading}><span>Help fund the</span><VascurraGradientText>next discovery.</VascurraGradientText></h2><p className={styles.lead}>Vascurra begins with one family, but the challenge affects millions. Support can help fund research, responsible AI development and the infrastructure required to learn continuously.</p></div><div className={styles.routes} aria-label="Ways to support Vascurra">{routes.map(([name, body]) => <button key={name} type="button" disabled><span><strong>{name}</strong><span>{body}</span></span><span aria-hidden="true" className={styles.routeArrow}>→</span></button>)}</div><p className={`${styles.closing} ${styles.supportClosing}`}>Every research contribution should leave a trail of knowledge.</p></div></section>;
 }
