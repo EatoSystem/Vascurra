@@ -81,7 +81,7 @@ export async function isHoldingUnlocked(
   now = Date.now(),
 ): Promise<boolean> {
   const password = configuredPassword();
-  if (!password) return false;
+  if (!password) return true;
   if (!cookieValue) return false;
   const [version, expiresAt, signature] = cookieValue.split(".");
   const expiry = Number(expiresAt);
