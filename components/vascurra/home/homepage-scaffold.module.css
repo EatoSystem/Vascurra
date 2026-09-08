@@ -46,6 +46,8 @@
 .frameworkArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
 .perspectivesArtwork { width: 100%; margin: 0; }
 .perspectivesArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
+.veyaArtwork { width: 100%; margin: 0; }
+.veyaArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
 
 .split { display: grid; align-items: center; gap: clamp(3.5rem, 8vw, 8rem); }
 .split > * { min-width: 0; }
