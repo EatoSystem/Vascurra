@@ -9,7 +9,7 @@ import { hero } from "@/content/home";
 
 type NavigationLink = { readonly label: string; readonly href: string };
 
-export function SiteHeader({ markOnly = false, links = navLinks }: { markOnly?: boolean; links?: readonly NavigationLink[] }) {
+export function SiteHeader({ markOnly = false, links = navLinks, homeHref = "/", ctaHref = earlyAccessHref, ctaLabel = hero.primaryCta }: { markOnly?: boolean; links?: readonly NavigationLink[]; homeHref?: string; ctaHref?: string; ctaLabel?: string }) {
   const lockup = (
     <>
       <BrainGlyph size={42} />
@@ -34,7 +34,7 @@ export function SiteHeader({ markOnly = false, links = navLinks }: { markOnly?: 
             <div className="flex min-w-0 items-center gap-2.5">{lockup}</div>
           ) : (
             <Link
-              href="/"
+              href={homeHref}
               className="flex min-w-0 items-center gap-2.5 rounded-md"
               aria-label={`${site.name} — home`}
             >
@@ -60,12 +60,12 @@ export function SiteHeader({ markOnly = false, links = navLinks }: { markOnly?: 
               </nav>
 
               <div className="hidden md:block">
-                <CtaLink href={earlyAccessHref} className="min-h-11 px-6 py-2.5 text-sm">
-                  {hero.primaryCta}
+                <CtaLink href={ctaHref} className="min-h-11 px-6 py-2.5 text-sm">
+                  {ctaLabel}
                 </CtaLink>
               </div>
 
-              <MobileNav links={links} />
+              <MobileNav links={links} ctaHref={ctaHref} ctaLabel={ctaLabel} />
             </div>
           )}
         </div>

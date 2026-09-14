@@ -36,6 +36,6 @@ export const navLinks = [
   { label: "Research", href: `/#${sectionIds.research}` },
 ] as const;
 
-export const earlyAccessHref = "/early-access";
+export const earlyAccessHref = "/access";
 export const privacyHref = "/privacy";
 export const homeDiscoverHref = `/#${sectionIds.why}`;

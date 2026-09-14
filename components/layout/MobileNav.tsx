@@ -7,7 +7,7 @@ import { hero } from "@/content/home";
 
 type NavigationLink = { readonly label: string; readonly href: string };
 
-export function MobileNav({ links = navLinks }: { links?: readonly NavigationLink[] }) {
+export function MobileNav({ links = navLinks, ctaHref = earlyAccessHref, ctaLabel = hero.primaryCta }: { links?: readonly NavigationLink[]; ctaHref?: string; ctaLabel?: string }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -63,11 +63,11 @@ export function MobileNav({ links = navLinks }: { links?: readonly NavigationLin
           </ul>
 
           <Link
-            href={earlyAccessHref}
+            href={ctaHref}
             onClick={() => setOpen(false)}
             className="mt-4 mb-2 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[var(--vascurra-deep-teal)] px-6 text-base font-semibold text-white"
           >
-            {hero.primaryCta}
+            {ctaLabel}
           </Link>
         </nav>
       </div>

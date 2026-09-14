@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SiteFooter } from "@/components/layout/SiteFooter";
+import { VascurraFooter } from "@/components/vascurra/public/VascurraFooter";
 import { HomeHero } from "@/components/vascurra/home/hero";
 import { Origin } from "@/components/vascurra/home/origin";
 import { Mission } from "@/components/vascurra/home/mission";
@@ -17,7 +17,7 @@ import { Responsible } from "@/components/vascurra/home/responsible";
 import { Journey } from "@/components/vascurra/home/journey";
 import { FinalMission } from "@/components/vascurra/home/final-mission";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
-import { v2NavLinks } from "@/content/homepage-v2";
+import { primaryNav } from "@/content/vascurra/public-site";
 
 export const metadata: Metadata = {
   robots: {
@@ -39,7 +39,7 @@ export default async function PreviewPage() {
   return (
     <>
       <span id="top" />
-      <SiteHeader links={v2NavLinks} />
+      <SiteHeader links={primaryNav} homeHref="/preview" ctaHref="/access" ctaLabel="Request Access" />
       <main id="main">
         <HomeHero discoverHref="#origin" />
         <Origin />
@@ -55,7 +55,7 @@ export default async function PreviewPage() {
         <Journey />
         <FinalMission />
       </main>
-      <SiteFooter links={v2NavLinks} />
+      <VascurraFooter />
     </>
   );
 }

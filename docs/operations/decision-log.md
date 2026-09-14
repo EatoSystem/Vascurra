@@ -22,6 +22,27 @@ Record material product decisions here so coding agents do not repeatedly reopen
 
 ## Initial decisions
 
+### 2026-09-14 — Wave 1 public website remains behind the V2 review gate
+
+**Decision:** Build the Wave 1 multi-route public-site architecture on
+`codex/public-website-wave-1`, while keeping `/` on the production holding
+experience and exposing unfinished pages only through the existing signed
+review session. Every unfinished V2 route is `noindex, nofollow` and excluded
+from crawler access; `/privacy` remains publicly available.
+
+**Why:** The route and content foundation needs review as one coherent system,
+but successful implementation, CI, preview or deployment is not founder launch
+approval.
+
+**Implications:** The Wave 1 routes describe proposed functionality only, use
+structured artwork placeholders, collect no health details, and must not be
+moved to the public root until explicit founder approval. Interim terms and
+accessibility wording require founder/legal review before launch.
+
+**Owner:** Founder / Product Architecture
+
+---
+
 ### 2026-08-31 — Phase 1 is a public foundation website
 
 **Decision:** Do not implement real patient health workflows in Phase 1.
