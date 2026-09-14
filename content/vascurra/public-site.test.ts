@@ -26,7 +26,7 @@ describe("Wave 1 public-site content", () => {
   it("uses only real internal routes in shared navigation", () => {
     const hrefs: string[] = primaryNav.map((link) => link.href);
     for (const group of footerGroups) hrefs.push(...group.links.map((link) => link.href));
-    const valid = new Set(["/privacy", ...requiredRoutes.map((route) => `/${route}`)]);
+    const valid = new Set(["/privacy", "/personal", ...requiredRoutes.map((route) => `/${route}`)]);
     for (const href of hrefs) expect(valid.has(href), href).toBe(true);
   });
 

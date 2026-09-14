@@ -221,14 +221,14 @@ export const primaryNav = [
   { label: "Why Vascurra", href: "/why-vascurra" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Veya", href: "/veya" },
-  { label: "For You", href: "/people" },
+  { label: "For You", href: "/personal" },
   { label: "Research", href: "/lab" },
   { label: "Support", href: "/support" },
 ] as const;
 
 export const footerGroups = [
   { title: "Project", links: [{ label: "Why Vascurra", href: "/why-vascurra" }, { label: "Patient 0", href: "/patient-0" }, { label: "How It Works", href: "/how-it-works" }, { label: "Veya", href: "/veya" }, { label: "Vascurra Intelligence", href: "/intelligence" }, { label: "Vascurra Lab", href: "/lab" }] },
-  { title: "For You", links: [{ label: "People", href: "/people" }, { label: "Families", href: "/families" }, { label: "Clinicians", href: "/clinicians" }, { label: "Research", href: "/research" }] },
+  { title: "For You", links: [{ label: "People", href: "/personal" }, { label: "Families", href: "/families" }, { label: "Clinicians", href: "/clinicians" }, { label: "Research", href: "/research" }] },
   { title: "Take Part", links: [{ label: "About", href: "/about" }, { label: "Support", href: "/support" }, { label: "Contact", href: "/contact" }, { label: "Request Access", href: "/access" }] },
   { title: "Trust", links: [{ label: "Responsible by Design", href: "/responsible" }, { label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }, { label: "Accessibility", href: "/accessibility" }, { label: "Disclaimer", href: "/disclaimer" }] },
 ] as const;

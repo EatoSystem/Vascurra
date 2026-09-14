@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: ["/", "/privacy"],
       disallow: [
         "/preview", "/early-access", "/why-vascurra", "/patient-0",
-        "/how-it-works", "/veya", "/intelligence", "/lab", "/people",
+        "/how-it-works", "/veya", "/intelligence", "/lab", "/people", "/personal",
         "/families", "/clinicians", "/research", "/responsible", "/support",
         "/about", "/access", "/contact", "/terms", "/accessibility", "/disclaimer",
       ],
