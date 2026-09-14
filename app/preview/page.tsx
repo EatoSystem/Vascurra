@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -17,6 +18,17 @@ import { Journey } from "@/components/vascurra/home/journey";
 import { FinalMission } from "@/components/vascurra/home/final-mission";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
 import { v2NavLinks } from "@/content/homepage-v2";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
 
 export default async function PreviewPage() {
   const jar = await cookies();
