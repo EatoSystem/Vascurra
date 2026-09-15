@@ -1,0 +1,1 @@
+The invalid ZIP at `docs/artwork/Vascurra_Homepage_Artwork_Approved_8_WEBP.zip` must not be used. It will be superseded by actual individual artwork assets.
