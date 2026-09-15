@@ -5,7 +5,7 @@ import { useActionState, type ReactNode } from "react";
 import { submitParticipation, type ParticipationState } from "@/app/(v2)/actions";
 import { contactTopics, participationRoles } from "@/lib/participation";
 
-const labels: Record<string, string> = { person: "Person", family: "Family member", clinician: "Clinician", researcher: "Researcher", partner: "Partner", supporter: "Supporter", other: "Other", general: "General", clinical: "Clinical collaboration", research: "Research", partnerships: "Partnerships", funding: "Funding / philanthropy", media: "Media" };
+const labels: Record<string, string> = { person: "Personal", family: "Family member", clinician: "Clinician", researcher: "Researcher", partner: "Partner", supporter: "Supporter", other: "Other", general: "General", clinical: "Clinical collaboration", research: "Research", partnerships: "Partnerships", funding: "Funding / philanthropy", media: "Media" };
 
 export function ParticipationForm({ kind }: { kind: "access" | "contact" }) {
   const [state, action, pending] = useActionState<ParticipationState, FormData>(submitParticipation, null);

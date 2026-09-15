@@ -182,7 +182,7 @@ export const publicPages = {
     closing: "Start with interest. Continue with informed choice.", ctas: [{ label: "Privacy", href: "/privacy" }, { label: "Responsible by Design", href: "/responsible" }],
   },
   contact: {
-    slug: "contact", eyebrow: "Contact", title: ["A simple way", "to begin a conversation."], accent: "to begin a conversation.",
+    slug: "contact", eyebrow: "Contact", title: ["Start a", "conversation."], accent: "conversation.",
     lead: "Contact Vascurra about the project, clinical or research collaboration, partnerships, funding or media.", qualifier: "Please do not send private medical information or ask for medical advice through this form.",
     sections: [{ eyebrow: "Enquiries", title: "Choose the context that fits.", body: ["General · Clinical collaboration · Research · Partnerships · Funding and philanthropy · Media"] }],
     closing: "Clear questions make better beginnings.", ctas: [{ label: "About Vascurra", href: "/about" }, { label: "Responsible by Design", href: "/responsible" }],
@@ -217,14 +217,20 @@ export const publicPages = {
 
 export type PublicPageSlug = keyof typeof publicPages;
 
+export type NavigationItem = {
+  readonly label: string;
+  readonly href?: string;
+  readonly children?: readonly { readonly label: string; readonly href: string }[];
+};
+
 export const primaryNav = [
   { label: "Why Vascurra", href: "/why-vascurra" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Veya", href: "/veya" },
-  { label: "For You", href: "/personal" },
-  { label: "Research", href: "/lab" },
+  { label: "For You", children: [{ label: "Personal", href: "/personal" }, { label: "Family", href: "/families" }, { label: "Clinicians", href: "/clinicians" }] },
+  { label: "Research", children: [{ label: "Vascurra Intelligence", href: "/intelligence" }, { label: "Research", href: "/research" }, { label: "Vascurra Lab", href: "/lab" }, { label: "Responsible by Design", href: "/responsible" }] },
   { label: "Support", href: "/support" },
-] as const;
+] as const satisfies readonly NavigationItem[];
 
 export const footerGroups = [
   { title: "Explore", links: [{ label: "Why Vascurra", href: "/why-vascurra" }, { label: "Patient 0", href: "/patient-0" }, { label: "How It Works", href: "/how-it-works" }, { label: "Veya", href: "/veya" }, { label: "Vascurra Intelligence", href: "/intelligence" }, { label: "Vascurra Lab", href: "/lab" }] },
