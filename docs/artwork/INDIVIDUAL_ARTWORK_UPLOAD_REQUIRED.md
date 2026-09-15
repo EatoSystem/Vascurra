@@ -1,0 +1,1 @@
+The prior ZIP blob was invalid. The correct repair is to commit the eight WebP artwork files individually under `public/vascurra/homepage/candidates/`. Do not use or extract the invalid ZIP.

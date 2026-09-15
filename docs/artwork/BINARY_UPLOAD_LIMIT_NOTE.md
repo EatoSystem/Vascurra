@@ -1,0 +1,1 @@
+The GitHub connector previously produced a truncated binary ZIP. To avoid further corruption, the repair will use individually reconstructed assets rather than relying on the invalid archive.

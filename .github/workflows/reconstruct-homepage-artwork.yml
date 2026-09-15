@@ -1,0 +1,89 @@
+name: Reconstruct approved homepage artwork
+
+on:
+  push:
+    branches:
+      - codex/artwork-pipeline-docs
+    paths:
+      - docs/artwork/recovery/READY
+
+permissions:
+  contents: write
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: codex/artwork-pipeline-docs
+          fetch-depth: 0
+
+      - name: Reconstruct and verify artwork
+        shell: python
+        run: |
+          import base64, hashlib, json, pathlib, shutil, zipfile
+
+          root = pathlib.Path('.')
+          recovery = root / 'docs/artwork/recovery'
+          manifest = json.loads((recovery / 'manifest.json').read_text())
+          parts = sorted(recovery.glob('part-*.b64'))
+          if len(parts) != manifest['parts']:
+              raise SystemExit(f"Expected {manifest['parts']} parts, found {len(parts)}")
+
+          encoded = ''.join(p.read_text().strip() for p in parts)
+          payload = base64.b64decode(encoded, validate=True)
+          digest = hashlib.sha256(payload).hexdigest()
+          if digest != manifest['sha256']:
+              raise SystemExit(f"SHA256 mismatch: {digest}")
+          if len(payload) != manifest['zip_bytes']:
+              raise SystemExit(f"ZIP size mismatch: {len(payload)}")
+          if payload[:4] != b'PK\x03\x04':
+              raise SystemExit('Reconstructed payload is not a ZIP')
+
+          zip_path = recovery / 'approved-homepage-artwork.zip'
+          zip_path.write_bytes(payload)
+          with zipfile.ZipFile(zip_path) as zf:
+              bad = zf.testzip()
+              if bad:
+                  raise SystemExit(f"ZIP test failed at {bad}")
+              names = sorted(zf.namelist())
+              if names != sorted(manifest['files']):
+                  raise SystemExit(f"Unexpected ZIP contents: {names}")
+              target = root / 'public/vascurra/homepage/candidates'
+              target.mkdir(parents=True, exist_ok=True)
+              for name in names:
+                  data = zf.read(name)
+                  if len(data) < 20000:
+                      raise SystemExit(f"Artwork suspiciously small: {name} ({len(data)} bytes)")
+                  if data[:4] != b'RIFF' or data[8:12] != b'WEBP':
+                      raise SystemExit(f"Not a valid WebP container: {name}")
+                  (target / name).write_bytes(data)
+
+          # Remove transport/recovery artefacts and the known-bad archive.
+          shutil.rmtree(recovery)
+          for p in [
+              root / 'docs/artwork/Vascurra_Homepage_Artwork_Approved_8_WEBP.zip',
+              root / 'docs/artwork/UPLOAD_TEST_NOTE.txt',
+              root / 'docs/artwork/INDIVIDUAL_ARTWORK_UPLOAD_REQUIRED.md',
+              root / 'docs/artwork/BINARY_UPLOAD_STATUS.md',
+              root / 'docs/artwork/BINARY_UPLOAD_LIMIT_NOTE.md',
+              root / 'docs/artwork/README_BINARY_REPAIR.txt',
+              root / 'docs/artwork/STOP_USING_INVALID_ZIP.md',
+              root / 'docs/artwork/.binary-repair-marker',
+              root / 'docs/artwork/REPAIR_IN_PROGRESS',
+          ]:
+              if p.exists():
+                  p.unlink()
+
+          pack_doc = root / 'docs/artwork/HOMEPAGE_ARTWORK_PACK.md'
+          pack_doc.write_text('''# Vascurra Homepage Artwork Pack\n\nThe eight approved homepage artwork assets are committed individually at:\n\n`public/vascurra/homepage/candidates/`\n\nFiles:\n\n- `futuristic_glass_biotech_journey.webp`\n- `glowing_healthcare_intelligence_network.webp`\n- `ethereal_aqua_guardian_in_flowing_ribbons.webp`\n- `convergence_of_life_and_science.webp`\n- `glassy_ai_knowledge_core_in_flow.webp`\n- `luminous_teal_orbital_core.webp`\n- `luminous_network_of_human_potential.webp`\n- `emerald_ribbons_towards_dawn.webp`\n\nThe rejected first concept is not included.\n\nCodex should now execute `docs/artwork/CODEX_HOMEPAGE_ARTWORK_PASS.md`. Mission and Framework remain mandatory visual replacements, with at least four additional homepage sections visibly updated.\n\nDo not merge or launch V2. Preserve the production holding page and preview/noindex rules.\n''')
+
+      - name: Commit reconstructed artwork
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "assets: install approved Vascurra homepage artwork [skip ci]"
+          git push origin HEAD:codex/artwork-pipeline-docs
