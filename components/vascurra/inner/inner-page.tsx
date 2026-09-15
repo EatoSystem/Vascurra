@@ -22,8 +22,8 @@ export function CTA({ href, children, secondary = false }: { href: string; child
   return <Link className={`${styles.cta} ${secondary ? styles.secondaryCta : ""}`} href={href}>{children}</Link>;
 }
 
-export function SafetyBoundary({ children }: { children: ReactNode }) {
-  return <p className={styles.safety}>{children}</p>;
+export function SafetyBoundary({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return <p className={`${styles.safety} ${className}`}>{children}</p>;
 }
 
 export function NextChapter({ eyebrow, headline, body, href, cta }: { eyebrow: string; headline: readonly string[]; body: string; href: string; cta: string }) {

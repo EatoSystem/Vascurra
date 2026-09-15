@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PublicPage } from "@/components/vascurra/public/PublicPage";
-import { ParticipationForm } from "@/components/vascurra/forms/participation-form";
+import { InnerStoryPage } from "@/components/vascurra/inner/InnerStoryPage";
+import { ParticipationPage } from "@/components/vascurra/inner/ParticipationPage";
+import { innerSitePages, type InnerStorySlug } from "@/content/inner-site";
 import { publicPages, type PublicPageSlug } from "@/content/vascurra/public-site";
 import { site } from "@/content/site";
 
@@ -16,19 +18,25 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const page = getPage((await params).slug);
+  const slug = (await params).slug;
+  const story = slug in innerSitePages ? innerSitePages[slug as InnerStorySlug] : null;
+  const page = getPage(slug);
   if (!page) return {};
   return {
-    title: `${page.eyebrow} — ${site.name}`,
-    description: page.lead,
+    title: `${story?.eyebrow ?? page.eyebrow} — ${site.name}`,
+    description: story?.lead ?? page.lead,
     alternates: { canonical: `/${page.slug}` },
     openGraph: { title: `${page.eyebrow} — ${site.name}`, description: page.lead, url: `/${page.slug}`, type: "website" },
   };
 }
 
 export default async function V2PublicPage({ params }: Props) {
-  const page = getPage((await params).slug);
+  const slug = (await params).slug;
+  const story = slug in innerSitePages ? innerSitePages[slug as InnerStorySlug] : null;
+  const page = getPage(slug);
   if (!page) notFound();
+  if (story) return <InnerStoryPage page={story} />;
   const formKind = page.slug === "access" ? "access" : page.slug === "contact" ? "contact" : null;
-  return <PublicPage page={page}>{formKind ? <ParticipationForm kind={formKind} /> : null}</PublicPage>;
+  if (formKind) return <ParticipationPage page={page} kind={formKind} />;
+  return <PublicPage page={page} />;
 }
