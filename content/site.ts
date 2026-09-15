@@ -29,11 +29,13 @@ export const sectionIds = {
 } as const;
 
 export const navLinks = [
-  { label: "Why Vascurra", href: `/#${sectionIds.why}` },
-  { label: "For People", href: `/#${sectionIds.people}` },
-  { label: "For Families", href: `/#${sectionIds.families}` },
-  { label: "For Clinicians", href: `/#${sectionIds.clinicians}` },
-  { label: "Research", href: `/#${sectionIds.research}` },
+  { label: "Platform", href: "/" },
+  { label: "Personal", href: "/personal" },
+  { label: "Family", href: "/family" },
+  { label: "Clinical", href: "/clinical" },
+  { label: "Research", href: "/research" },
+  { label: "Science", href: "/science" },
+  { label: "About", href: "/about" },
 ] as const;
 
 export const earlyAccessHref = "/early-access";

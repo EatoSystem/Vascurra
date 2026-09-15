@@ -1,0 +1,1 @@
+Repair underway: the invalid ZIP is being superseded by individually committed WebP assets in `public/vascurra/homepage/candidates/`.
