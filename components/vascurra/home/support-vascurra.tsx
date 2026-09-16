@@ -3,9 +3,9 @@ import { VascurraGradientText } from "./gradient-text";
 import styles from "./homepage-scaffold.module.css";
 
 const supportAreas = [
-  ["AI + Compute", "Advanced AI access, model evaluation, experimentation, compute capacity and responsible research infrastructure."],
-  ["Research", "Evidence review, stronger research questions, literature exploration and expert collaboration."],
-  ["Systems Development", "Veya, longitudinal context, permission-aware experiences, privacy and research infrastructure."],
+  ["AI + Compute", "Advanced AI systems, model access, compute capacity, evaluation and AI research infrastructure."],
+  ["Research", "Evidence review, literature exploration, research questions, expert collaboration and responsible investigation."],
+  ["Systems Development", "Veya, longitudinal context, family and clinician experiences, data architecture, permissions and research infrastructure."],
   ["Patient 0 / Co-design", "The daily programme with Dad: build, use, observe, discuss, learn and improve."],
 ] as const;
 
@@ -15,7 +15,7 @@ export function SupportVascurra() {
       <div className={styles.inner}>
         <div className={styles.supportIntro}>
           <div><p className={styles.eyebrow}>Support Vascurra</p><h2 id="support-heading" className={styles.heading}><span>Help fund</span><VascurraGradientText>the next question.</VascurraGradientText></h2></div>
-          <div><p className={styles.lead}>Support can accelerate the careful work behind better tools, better questions and responsible learning.</p><p>It does not buy a clinical result or imply investment returns. It helps create the time, systems and research capacity needed to develop Vascurra well.</p></div>
+          <div><p className={styles.lead}>Support can accelerate the careful work behind better tools, better questions and responsible learning.</p><p>It helps create the systems, research capacity and time needed to develop Vascurra well. No clinical result or investment return is implied.</p></div>
         </div>
         <div className={styles.supportFlow} aria-label="What support enables">
           <p>Support</p>

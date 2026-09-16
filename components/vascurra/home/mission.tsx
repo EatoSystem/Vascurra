@@ -7,15 +7,17 @@ export function Mission() {
   return (
     <section id="mission" aria-labelledby="mission-heading" className={`${styles.section} ${styles.missionChapter}`}>
       <div className={styles.inner}>
-        <div className={styles.chapterIntro}>
-          <p className={styles.eyebrow}>Our mission</p>
-          <h2 id="mission-heading" className={styles.heading}>
-            <span>Help today. Learn every day.</span>
-            <VascurraGradientText>Insights for tomorrow.</VascurraGradientText>
-          </h2>
-          <p className={styles.lead}>{homepageV2.mission.body}</p>
+        <div className={styles.missionComposition}>
+          <div className={styles.chapterIntro}>
+            <p className={styles.eyebrow}>Our mission</p>
+            <h2 id="mission-heading" className={styles.heading}>
+              <span>Help today. Learn every day.</span>
+              <VascurraGradientText>Insights for tomorrow.</VascurraGradientText>
+            </h2>
+            <p className={styles.lead}>Begin with daily life. Learn carefully from lived experience. Turn what we learn into better tools and better questions for tomorrow.</p>
+          </div>
+          <ArtworkReservation assetKey="homepage-mission-human" chapter="Mission" variant="mission" brief="A dignified, human-centred composition showing today moving through careful learning toward tomorrow. An older adult or couple in a realistic sculptural treatment, with restrained cyan–teal–green flow and generous negative space; no fantasy landscape, bubbles, leaves or glossy ribbons." />
         </div>
-        <ArtworkReservation assetKey="homepage-mission-human-today-tomorrow" chapter="Mission" variant="mission" brief="A dignified older adult or couple in a realistic sculptural treatment, grounded in everyday life, with a restrained cyan–teal–green flow moving from today through learning toward tomorrow. Large negative space; no fantasy landscape, bubbles, leaves or glossy tubes." />
         <div className={styles.missionGrid}>
           <ol className={styles.missionPillars}>
             {homepageV2.mission.pillars.map(([label, body], index) => (

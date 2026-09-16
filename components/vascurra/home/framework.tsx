@@ -3,7 +3,12 @@ import { ArtworkReservation } from "./artwork-reservation";
 import { VascurraGradientText } from "./gradient-text";
 import styles from "./homepage-scaffold.module.css";
 
-const stages = [["Observe", "Notice what matters."], ["Understand", "Connect context without hiding uncertainty."], ["Support", "Make understanding useful to people."], ["Learn", "Let what happens next refine the picture."]] as const;
+const stages = [
+  ["Observe", "Capture meaningful questions, observations and context."],
+  ["Understand", "Connect information with source, time, context and uncertainty."],
+  ["Support", "Turn understanding into useful preparation, explanation and next questions."],
+  ["Learn", "Use what happens next to improve the system and identify better questions."],
+] as const;
 const perspectives = [
   ["Personal", "Daily life, questions, routines, priorities, preparation, context and independence."],
   ["Family", "Shared understanding, practical support and preparation—with permitted access, never automatic access."],
@@ -19,9 +24,11 @@ export function Framework() {
           <div><p className={styles.eyebrow}>The Vascurra system</p><h2 id="framework-heading" className={styles.heading}><span>Observe. Understand.</span><VascurraGradientText>Support. Learn.</VascurraGradientText></h2></div>
           <div className={styles.systemProposition}><p>One system.</p><p>Multiple perspectives.</p><small>{homepageV2.framework.qualifier}</small></div>
         </div>
-        <ArtworkReservation assetKey="homepage-system-continuous-perspectives" chapter="System" variant="system" brief="One precise continuous Vascurra flow linking Observe, Understand, Support and Learn, with Personal, Family, Clinician and Research woven into the same system as subtle perspective points. Fine linework, controlled translucency and generous white space; no cards, bubbles or corporate flowchart." />
-        <ol className={styles.systemStages}>{stages.map(([name, body]) => <li key={name}><h3>{name}</h3><p>{body}</p></li>)}</ol>
-        <ul className={styles.perspectiveLine} aria-label="Vascurra perspectives">{perspectives.map(([name, body]) => <li key={name}><strong>{name}</strong><span>{body}</span></li>)}</ul>
+        <div className={styles.systemCanvas}>
+          <ArtworkReservation assetKey="homepage-vascurra-system" chapter="Vascurra System" variant="system" brief="A premium architectural evolution of One system. Multiple perspectives: the person or Vascurra core at centre; Observe, Understand, Support and Learn as a connected inner cycle; Personal, Family, Clinician and Research as an outer system. Fine cyan–aqua–green linework, crisp hierarchy and strong white space; no glossy bubbles, cartoon icons or thick ribbons." />
+          <ol className={styles.systemStages}>{stages.map(([name, body], index) => <li key={name}><span aria-hidden="true">0{index + 1}</span><h3>{name}</h3><p>{body}</p></li>)}</ol>
+          <ul className={styles.perspectiveLine} aria-label="Vascurra perspectives">{perspectives.map(([name, body]) => <li key={name}><strong>{name}</strong><span>{body}</span></li>)}</ul>
+        </div>
         <div className={styles.systemClosing}><p>The same underlying context can support different people in different ways.</p><small>Each view must remain appropriate to role, permission, purpose, consent and control. Family and research access are never automatic.</small></div>
       </div>
     </section>

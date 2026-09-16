@@ -3,9 +3,9 @@ export const homepageV2 = {
   mission: {
     body: "To help people live as well as possible with vascular cognitive change today, while using lived experience, clinical knowledge, evidence and responsible AI-assisted research to deepen understanding and contribute better questions and evidence to longer-term research into care and treatments.",
     pillars: [
-      ["Help today", "Support independence, identity, confidence and daily life."],
-      ["Learn every day", "Understand meaningful change over time and connect what matters to emerging evidence."],
-      ["Insights for tomorrow", "Turn lived experience and evidence into better questions for research and care."],
+      ["Help today", "Support daily understanding, questions, preparation and context."],
+      ["Learn every day", "Learn from lived experience, discussion, observation, evidence and responsible AI-assisted exploration."],
+      ["Insights for tomorrow", "Turn daily questions and learning into better tools, better research questions and future avenues worth investigating."],
     ],
   },
   patientZero: {
