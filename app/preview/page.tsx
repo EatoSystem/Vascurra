@@ -8,8 +8,8 @@ import { Origin } from "@/components/vascurra/home/origin";
 import { Mission } from "@/components/vascurra/home/mission";
 import { Framework } from "@/components/vascurra/home/framework";
 import { Veya } from "@/components/vascurra/home/veya";
+import { SupportVascurra } from "@/components/vascurra/home/support-vascurra";
 import { Lab } from "@/components/vascurra/home/lab";
-import { FinalMission } from "@/components/vascurra/home/final-mission";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
 import { primaryNav } from "@/content/vascurra/public-site";
 
@@ -40,8 +40,8 @@ export default async function PreviewPage() {
         <Mission />
         <Framework />
         <Veya />
+        <SupportVascurra />
         <Lab />
-        <FinalMission />
       </main>
       <VascurraFooter />
     </>
