@@ -178,14 +178,23 @@
 .missionComposition { display: grid; gap: clamp(3rem, 7vw, 7rem); align-items: start; }
 .missionGrid { display: grid; margin-top: clamp(3.5rem, 6vw, 6rem); }
 .missionPillars { display: grid; gap: 2.25rem; padding: 0; margin: 0; list-style: none; }
-.missionPillars li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .35rem 1rem; border-top: 1px solid #cde6e6; padding-top: 1.25rem; }
-.missionPillars li > span { grid-row: 1 / span 2; color: #087486; font-weight: 650; }
+.missionPillars li { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: .35rem 1.25rem; border-top: 1px solid #cde6e6; padding-top: 1.25rem; }
+.missionPillars li > span { grid-row: 1 / span 2; }
 .missionPillars h3 { color: #062b4b; font-size: var(--tertiary); font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
 .missionPillars p { max-width: 34rem; }
 .missionStatement { display: grid; grid-template-columns: repeat(3, auto); gap: .6rem 1.5rem; border-top: 1px solid #70d2c5; padding-top: 1.5rem; color: #062b4b; font-size: var(--secondary); font-weight: 650; line-height: 1.45; }
 .missionStatement p:not(:last-of-type)::after { margin-left: 1.5rem; color: #70bcb7; content: "→"; }
 .missionStatement small { display: block; margin-top: 1.5rem; color: #547789; font-size: var(--tertiary); font-weight: 500; line-height: 1.65; }
 .missionStatement small { grid-column: 1 / -1; }
+.sectionIcon { display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border: 1px solid rgba(10,163,188,.18); border-radius: 50%; background: linear-gradient(145deg, rgba(67,214,255,.08), rgba(88,211,154,.09)); color: #087d9a; }
+.sectionIcon svg { width: 1.75rem; height: 1.75rem; }
+.missionHorizon { position: relative; height: clamp(6rem, 10vw, 10rem); margin-top: 1rem; overflow: hidden; border-bottom: 1px solid rgba(10,163,188,.16); }
+.missionHorizon::before, .missionHorizon::after { position: absolute; right: -5%; bottom: -5rem; left: 38%; height: 9rem; border: 1px solid rgba(10,163,188,.18); border-radius: 50% 60% 0 0; content: ""; transform: rotate(-3deg); }
+.missionHorizon::after { right: 8%; bottom: -6rem; left: 48%; border-color: rgba(73,199,104,.25); transform: rotate(4deg); }
+.missionHorizon span { position: absolute; bottom: 1.35rem; width: .4rem; height: .4rem; border-radius: 50%; background: #24b4be; }
+.missionHorizon span:nth-child(1) { left: 52%; }
+.missionHorizon span:nth-child(2) { left: 68%; background: #58d39a; }
+.missionHorizon span:nth-child(3) { left: 84%; }
 
 .artworkReservation { position: relative; display: grid; place-items: center; margin: clamp(3rem, 6vw, 6rem) 0 0; overflow: hidden; background: #fff; color: #547789; isolation: isolate; }
 .artworkReservationmission { aspect-ratio: 4 / 5; width: min(100%, 36rem); justify-self: end; }
@@ -214,21 +223,22 @@
 .systemProposition { border-left: 1px solid #70d2c5; padding-left: 1.5rem; color: #062b4b; font-size: var(--secondary); font-weight: 650; line-height: 1.4; }
 .systemProposition small { display: block; margin-top: 1rem; color: #547789; font-size: var(--tertiary); font-weight: 500; }
 .systemArchitecture { margin-top: clamp(3rem, 6vw, 5.5rem); border-block: 1px solid #cde6e6; padding-block: clamp(2.5rem, 5vw, 5rem); }
-.systemMap { position: relative; display: grid; place-items: center; min-height: 31rem; }
+.systemMap { position: relative; display: grid; place-items: center; min-height: 38rem; }
 .systemMap::before, .systemMap::after { position: absolute; inset: 14% 24%; border: 1px solid rgba(10,163,188,.22); border-radius: 50%; content: ""; }
 .systemMap::after { inset: 25% 34%; border-color: rgba(73,199,104,.3); }
 .systemCore { position: relative; z-index: 2; display: grid; place-items: center; width: 13rem; aspect-ratio: 1; border: 1px solid #70d2c5; border-radius: 50%; background: #fff; box-shadow: 0 0 4rem rgba(46,207,196,.1); text-align: center; }
-.systemCore span, .systemCore strong, .systemCore small { display: block; }
-.systemCore span { color: #087486; font-size: var(--tertiary); letter-spacing: .12em; text-transform: uppercase; }
+.systemCore > span, .systemCore strong, .systemCore small { display: block; }
+.systemCore .sectionIcon { width: 3rem; height: 3rem; }
 .systemCore strong { color: #062b4b; font-size: 1.35rem; }
 .systemCore small { max-width: 9rem; color: #547789; }
 .systemMap ul { position: absolute; inset: 0; display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); padding: 0; margin: 0; list-style: none; }
-.systemMap li { position: relative; z-index: 1; display: grid; align-content: center; gap: .35rem; max-width: 18rem; padding: 1.25rem; background: rgba(255,255,255,.92); }
+.systemMap li { position: relative; z-index: 1; display: grid; grid-template-columns: 3.5rem minmax(0,1fr); align-content: center; gap: .35rem 1rem; max-width: 20rem; padding: 1.25rem; background: rgba(255,255,255,.92); }
+.systemMap li .sectionIcon { grid-row: 1 / span 2; }
 .systemMap li strong { color: #087486; letter-spacing: .1em; text-transform: uppercase; }
-.systemMap li:nth-child(1) { grid-area: 1 / 2; justify-self: center; text-align: center; }
+.systemMap li:nth-child(1) { grid-area: 1 / 2; justify-self: center; }
 .systemMap li:nth-child(2) { grid-area: 2 / 1; align-self: center; }
-.systemMap li:nth-child(3) { grid-area: 2 / 3; align-self: center; justify-self: end; text-align: right; }
-.systemMap li:nth-child(4) { grid-area: 3 / 2; align-self: end; justify-self: center; text-align: center; }
+.systemMap li:nth-child(3) { grid-area: 2 / 3; align-self: center; justify-self: end; }
+.systemMap li:nth-child(4) { grid-area: 3 / 2; align-self: end; justify-self: center; }
 .systemCycle { display: grid; gap: 1px; padding: 1px 0 0; margin: 2rem 0 0; background: #cde6e6; list-style: none; }
 .systemCycle li { position: relative; padding: 1.5rem; background: #fff; }
 .systemCycle li > span { color: #6ba5a8; font-weight: 650; }
@@ -239,13 +249,20 @@
 
 .layersChapter { padding-block: clamp(7rem, 10vw, 10rem); }
 .layersIntro { max-width: 72rem; }
-.veyaJourney { margin-top: clamp(3.5rem, 6vw, 6rem); }
-.veyaJourney ol { display: grid; gap: 1px; padding: 0; margin: 0; background: linear-gradient(90deg, #cde6e6, #70d2c5, #b8dfc5); list-style: none; }
-.veyaJourney li { position: relative; padding: clamp(1.5rem, 3vw, 2.5rem); background: #fff; }
-.veyaJourney li > span { color: #6ba5a8; font-weight: 650; }
+.layersIntro .heading { --primary: clamp(3rem, 4vw, 4rem); }
+.veyaComposition { display: grid; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
+.veyaJourney { min-width: 0; }
+.veyaJourney ol { display: grid; gap: 1px; padding: 0; margin: clamp(3rem, 5vw, 4rem) 0 0; background: linear-gradient(90deg, #cde6e6, #70d2c5, #b8dfc5); list-style: none; }
+.veyaJourney li { position: relative; display: grid; grid-template-columns: 3.5rem minmax(0,1fr); gap: .35rem 1rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: #fff; }
+.veyaJourney li > span { grid-row: 1 / span 2; }
 .veyaJourney h3 { margin-top: .45rem !important; color: #087486; font-size: var(--tertiary); letter-spacing: .1em; text-transform: uppercase; }
 .veyaJourney p { margin-top: .6rem !important; }
-.veyaJourney + .safety { max-width: 52rem; margin-top: 1.5rem !important; }
+.veyaComposition + .safety { max-width: 52rem; margin-top: 1.5rem !important; }
+.veyaSignal { position: relative; display: grid; gap: 1.15rem; min-height: 23rem; padding: 2rem 0; }
+.veyaSignal::before { position: absolute; top: 50%; right: 5%; left: 5%; height: 1px; content: ""; background: linear-gradient(90deg, #0aa3bc, #2ecfc4, #49c768); }
+.veyaSignal::after { position: absolute; top: calc(50% - 4rem); right: 10%; left: 10%; height: 8rem; border: 1px solid rgba(46,207,196,.22); border-radius: 50%; content: ""; transform: rotate(-6deg); }
+.veyaSignal span { position: relative; z-index: 1; align-self: center; padding: 1rem; border: 1px solid rgba(10,163,188,.18); border-radius: .75rem; background: rgba(255,255,255,.9); color: #087486; font-weight: 650; text-align: center; }
+.veyaSignal span:nth-child(even) { transform: translateX(1rem); }
 .veyaFoundation { display: grid; gap: 1rem 2.5rem; border-block: 1px solid #cde6e6; padding-block: 1.75rem; margin-top: clamp(3rem, 5vw, 5rem); }
 .veyaFoundation ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; padding: 0; margin: 0; list-style: none; color: #062b4b; font-weight: 650; }
 .veyaFoundation li:not(:last-child)::after { margin-left: 1.25rem; color: #70bcb7; content: "→"; }
@@ -263,8 +280,10 @@
 .supportIntro > p:not(.eyebrow) { max-width: 40rem; }
 .supportIntro > p:last-of-type { margin-top: 1.25rem !important; }
 .supportAreas { display: grid; padding: 0; margin: 0; border-top: 1px solid #cde6e6; list-style: none; }
-.supportAreas li { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: .35rem 1rem; padding: 1.4rem 0; border-bottom: 1px solid #cde6e6; }
-.supportAreas li > span { grid-row: 1 / span 2; color: #6ba5a8; font-weight: 650; }
+.supportAreas li { position: relative; display: grid; grid-template-columns: 3.5rem minmax(0,1fr); gap: .35rem 1rem; padding: 1.4rem 0; border-bottom: 1px solid #cde6e6; }
+.supportAreas li > span { grid-row: 1 / span 2; }
+.supportAreas li::after { position: absolute; bottom: -2.25rem; left: 1.75rem; width: 1px; height: 2.25rem; content: ""; background: linear-gradient(#0aa3bc, rgba(73,199,104,.15)); }
+.supportAreas li:last-child::after { display: none; }
 .supportAreas h3 { color: #062b4b; font-size: var(--tertiary); letter-spacing: .1em; text-transform: uppercase; }
 .supportSequence { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; align-items: center; margin-top: clamp(3rem, 6vw, 5rem); color: #087486; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
 .supportSequence span:not(:last-child)::after { margin-left: 1.4rem; color: #70bcb7; content: "→"; }
@@ -314,7 +333,8 @@
   .threeAnchors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .missionComposition { grid-template-columns: minmax(0, 1.15fr) minmax(20rem, .85fr); }
   .systemHeadingRow { grid-template-columns: minmax(0, 1.35fr) minmax(18rem, .65fr); }
-  .systemCycle, .veyaJourney ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .systemCycle { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .veyaJourney ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .systemCycle li:not(:last-child)::after, .veyaJourney li:not(:last-child)::after { position: absolute; top: 50%; right: -.45rem; z-index: 2; width: .9rem; background: #fff; color: #49a99f; content: "→"; text-align: center; transform: translateY(-50%); }
   .trustLayer { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
   .supportLayout, .researchRole, .futureClose { grid-template-columns: minmax(0, 1fr) minmax(20rem, .8fr); }
@@ -334,6 +354,14 @@
   .layerIntelligence { align-self: end; margin-bottom: 4rem; }
 }
 
+@media (min-width: 1200px) {
+  .veyaComposition { grid-template-columns: minmax(20rem, .72fr) minmax(0, 1.28fr); }
+  .veyaJourney ol { grid-template-columns: 1fr; background: #cde6e6; }
+  .veyaJourney li:not(:last-child)::after { display: none; }
+  .veyaSignal { grid-template-columns: repeat(4, minmax(0,1fr)); align-items: center; }
+  .veyaSignal span:nth-child(even) { transform: translateY(1.5rem); }
+}
+
 @media (max-width: 639px) {
   .section { padding-block: clamp(5.25rem, 18vw, 7rem); }
   .wide, .landscape { aspect-ratio: 4 / 3; }
@@ -350,12 +378,12 @@
   .progression span { min-width: 9rem; }
   .progression span:first-child { padding-left: 2rem; }
   .missionLine { flex-direction: column; gap: .1rem; }
-  .layersChapter .heading { --primary: clamp(2.5rem, 12vw, 3rem); }
+  .layersChapter .heading { --primary: clamp(2.25rem, 10vw, 3rem); }
   .artworkReservationmission, .artworkReservationsystem { aspect-ratio: 4 / 5; width: 100%; }
   .artworkReservationlayers { min-height: 27rem; }
   .artworkCaption { padding-inline: .75rem; }
   .artworkCaption p { max-height: 7.5rem; overflow: hidden; }
-  .missionPillars li { grid-template-columns: 2rem minmax(0, 1fr); }
+  .missionPillars li { grid-template-columns: 3.5rem minmax(0, 1fr); }
   .missionStatement { grid-template-columns: 1fr; }
   .missionStatement p::after { display: none; }
   .systemMap { display: block; min-height: 0; }

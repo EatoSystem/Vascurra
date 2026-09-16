@@ -1,5 +1,6 @@
 import { homepageV2 } from "@/content/homepage-v2";
 import { VascurraGradientText } from "./gradient-text";
+import { SectionIcon } from "./section-icon";
 import styles from "./homepage-scaffold.module.css";
 
 const stages = [
@@ -14,6 +15,7 @@ const perspectives = [
   ["Clinician", "Relevant longitudinal context and better-prepared conversations."],
   ["Research", "Lived questions, evidence, learning and responsible investigation."],
 ] as const;
+const perspectiveIcons = ["person", "family", "clinical", "research"] as const;
 
 export function Framework() {
   return (
@@ -25,8 +27,8 @@ export function Framework() {
         </div>
         <div className={styles.systemArchitecture}>
           <div className={styles.systemMap}>
-            <div className={styles.systemCore}><span>Person</span><strong>Vascurra system</strong><small>Role · Permission · Purpose · Control</small></div>
-            <ul aria-label="Vascurra perspectives">{perspectives.map(([name, body]) => <li key={name}><strong>{name}</strong><span>{body}</span></li>)}</ul>
+            <div className={styles.systemCore}><span className={styles.sectionIcon}><SectionIcon name="person" /></span><strong>Person / system</strong><small>Role · Permission · Purpose · Control</small></div>
+            <ul aria-label="Vascurra perspectives">{perspectives.map(([name, body], index) => <li key={name}><span className={styles.sectionIcon}><SectionIcon name={perspectiveIcons[index]!} /></span><strong>{name}</strong><span>{body}</span></li>)}</ul>
           </div>
           <ol className={styles.systemCycle} aria-label="Vascurra learning cycle">{stages.map(([name, body], index) => <li key={name}><span aria-hidden="true">0{index + 1}</span><h3>{name}</h3><p>{body}</p></li>)}</ol>
         </div>

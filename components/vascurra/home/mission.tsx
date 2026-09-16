@@ -1,5 +1,6 @@
 import { homepageV2 } from "@/content/homepage-v2";
 import { VascurraGradientText } from "./gradient-text";
+import { SectionIcon } from "./section-icon";
 import styles from "./homepage-scaffold.module.css";
 
 export function Mission() {
@@ -17,7 +18,7 @@ export function Mission() {
           </div>
           <ol className={styles.missionPillars}>
             {homepageV2.mission.pillars.map(([label, body], index) => (
-              <li key={label}><span aria-hidden="true">0{index + 1}</span><h3>{label}</h3><p>{body}</p></li>
+              <li key={label}><span className={styles.sectionIcon}><SectionIcon name={index === 0 ? "person" : index === 1 ? "book" : "insight"} /></span><h3>{label}</h3><p>{body}</p></li>
             ))}
           </ol>
         </div>
@@ -27,6 +28,7 @@ export function Mission() {
             <small>Patient 0 means co-design and lived-experience learning—not a clinical trial.</small>
           </div>
         </div>
+        <div className={styles.missionHorizon} aria-hidden="true"><span /><span /><span /></div>
       </div>
     </section>
   );
