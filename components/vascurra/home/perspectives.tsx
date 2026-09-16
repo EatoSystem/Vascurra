@@ -14,12 +14,12 @@ export function Perspectives() {
     <div className={styles.inner}>
       <div className={styles.split}>
         <div><p className={styles.eyebrow}>Multiple perspectives</p><h2 id="perspectives-heading" className={styles.heading}><span>One system.</span><VascurraGradientText>Multiple perspectives.</VascurraGradientText></h2><p className={styles.lead}>The same underlying context can support different people in different ways.</p><p className={styles.body}>Vascurra is being designed so information can be organised around the person while remaining appropriate to each role, permission and purpose. These are different permitted perspectives on one underlying system.</p></div>
-        <figure className={styles.perspectivesArtwork} aria-hidden="true">
+        <figure className={styles.perspectivesArtwork}>
           <Image
-            src="/vascurra/v2/section-06-multiple-perspectives.png"
-            alt=""
-            width={1448}
-            height={1086}
+            src="/vascurra/homepage/candidates/glowing_healthcare_intelligence_network.webp"
+            alt="Four distinct perspectives connect around one shared abstract system."
+            width={1672}
+            height={941}
             sizes="(min-width: 1536px) 820px, (min-width: 1024px) 55vw, calc(100vw - 2.5rem)"
             className={styles.perspectivesArtworkImage}
           />

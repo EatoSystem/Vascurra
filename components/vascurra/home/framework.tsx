@@ -17,10 +17,10 @@ export function Framework() {
       <h2 id="framework-heading" className={styles.heading}><span>Observe. Understand.</span><VascurraGradientText>Support. Learn.</VascurraGradientText></h2>
       <p className={styles.lead}>A continuous learning loop built around real life.</p>
       <p className={styles.qualifier}>{homepageV2.framework.qualifier}</p>
-      <figure className={styles.frameworkArtwork} aria-hidden="true">
+      <figure className={styles.frameworkArtwork}>
         <Image
-          src="/vascurra/v2/section-05-framework-loop.png"
-          alt=""
+          src="/vascurra/homepage/candidates/futuristic_glass_biotech_journey.webp"
+          alt="A continuous glass ribbon links observation, connected context, growth and learning."
           width={1672}
           height={941}
           sizes="(min-width: 1536px) 1472px, (min-width: 640px) calc(100vw - 4rem), calc(100vw - 2.5rem)"

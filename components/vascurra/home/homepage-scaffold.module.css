@@ -51,6 +51,29 @@
 .veyaArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
 .intelligenceArtwork { width: 100%; margin: clamp(2rem, 4vw, 4rem) 0 0; }
 .intelligenceArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
+.responsibleArtwork { width: 100%; margin: 0; }
+.responsibleArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
+.journeyArtwork { width: 100%; margin: clamp(2.5rem, 5vw, 5rem) 0 0; }
+.journeyArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
+.labArtworkStage {
+  position: relative;
+  width: 100vw;
+  margin: clamp(3.5rem, 7vw, 7rem) 0 0 calc(50% - 50vw);
+  overflow: hidden;
+  background: #fff;
+}
+.labArtworkStage::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: clamp(2.5rem, 7vw, 6rem);
+  content: "";
+  background: linear-gradient(180deg, #073742 0%, rgba(7, 55, 66, 0) 100%);
+  pointer-events: none;
+}
+.labArtworkImage { display: block; width: 100%; height: auto; object-fit: contain; }
 
 .split { display: grid; align-items: center; gap: clamp(3.5rem, 8vw, 8rem); }
 .split > * { min-width: 0; }
@@ -127,7 +150,7 @@
 .deep .eyebrow { color: #83dfe3; }
 .deep .heading, .deep .lead { color: #f2fbfa; }
 .deep .body, .deep .careful { color: #c6dfe2; }
-.loop { position: absolute; z-index: 2; right: 6%; bottom: 12%; left: 6%; display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem 1rem; color: #e8f7f5; font-weight: 650; }
+.loop { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem 1rem; padding: 1.15rem 1.25rem 1.35rem; background: #073742; color: #e8f7f5; font-weight: 650; }
 .loop span { color: #58d39a; }
 .careful { position: relative; max-width: 62rem; }
 
@@ -175,7 +198,9 @@
   .frameworkStages { position: relative; gap: 2.5rem; }
   .frameworkStages li:not(:last-child)::after { position: absolute; top: 2.25rem; bottom: -2.5rem; left: .25rem; width: 1px; content: ""; background: rgba(10, 163, 188, .2); }
   .deepArtwork { min-height: 20rem; }
-  .loop { position: relative; right: auto; bottom: auto; left: auto; margin-top: auto; padding: 1.5rem 1rem 2rem; gap: .35rem .65rem; }
+  .labArtworkStage { margin-top: 3rem; }
+  .loop { padding: 1.5rem 1rem 2rem; gap: .35rem .65rem; }
+  .responsibleArtworkImage { width: 132%; max-width: none; margin-left: -16%; }
   .routes button { min-height: 6.5rem; gap: 1rem; }
   .progression { flex-direction: column; align-items: center; }
   .progression span { min-width: 9rem; }
