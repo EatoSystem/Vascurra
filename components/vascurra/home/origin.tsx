@@ -20,7 +20,7 @@ export function Origin() {
             <span className="block">A father.</span>
             <span className="block">A doctor.</span>
             <span className="block pb-[0.08em] bg-[linear-gradient(90deg,#0aa3bc_0%,#2ecfc4_48%,#49c768_100%)] bg-clip-text text-transparent forced-colors:text-[#062b4b]">
-              A reason to fight.
+              A Mission.
             </span>
           </h2>
 

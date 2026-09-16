@@ -171,6 +171,80 @@
 .finalHeading { --primary: clamp(3.5rem, 7.7vw, 7.25rem); }
 .missionLine { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem 1.2rem; }
 
+/* Refined homepage chapters */
+.chapterIntro { max-width: 76rem; }
+.chapterIntro .lead { max-width: 64rem; }
+.missionChapter { padding-bottom: clamp(7rem, 12vw, 12rem); }
+.missionGrid { display: grid; gap: clamp(3rem, 7vw, 7rem); margin-top: clamp(3.5rem, 6vw, 6rem); }
+.missionPillars { display: grid; gap: 2.25rem; padding: 0; margin: 0; list-style: none; }
+.missionPillars li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .35rem 1rem; border-top: 1px solid #cde6e6; padding-top: 1.25rem; }
+.missionPillars li > span { grid-row: 1 / span 2; color: #087486; font-weight: 650; }
+.missionPillars h3 { color: #062b4b; font-size: var(--tertiary); font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+.missionPillars p { max-width: 34rem; }
+.missionStatement { align-self: end; border-left: 1px solid #70d2c5; padding-left: clamp(1.5rem, 3vw, 2.5rem); color: #062b4b; font-size: var(--secondary); font-weight: 650; line-height: 1.45; }
+.missionStatement small { display: block; margin-top: 1.5rem; color: #547789; font-size: var(--tertiary); font-weight: 500; line-height: 1.65; }
+
+.artworkReservation { position: relative; display: grid; place-items: center; margin: clamp(3rem, 6vw, 6rem) 0 0; overflow: hidden; background: #fff; color: #547789; isolation: isolate; }
+.artworkReservationmission { aspect-ratio: 16 / 7; }
+.artworkReservationsystem { aspect-ratio: 16 / 6; }
+.artworkReservationlayers { min-height: clamp(30rem, 48vw, 44rem); margin: 0; }
+.artworkReservationlab { min-height: clamp(25rem, 42vw, 40rem); background: transparent; color: #b9dadd; }
+.artworkGuide { position: absolute; inset: 0; z-index: -1; }
+.artworkGuide::before { position: absolute; top: 50%; right: 5%; left: 5%; height: 1px; content: ""; background: linear-gradient(90deg, transparent, rgba(10,163,188,.2), rgba(46,207,196,.38), rgba(73,199,104,.2), transparent); }
+.artworkGuide span { position: absolute; top: calc(50% - 3px); width: 7px; height: 7px; border-radius: 50%; background: #25aaa5; }
+.artworkGuide span:nth-child(1) { left: 19%; }
+.artworkGuide span:nth-child(2) { left: calc(50% - 3px); }
+.artworkGuide span:nth-child(3) { right: 19%; }
+.artworkCaption { max-width: 43rem; padding: 1.5rem; background: rgba(255,255,255,.93); text-align: center; }
+.artworkCaption span, .artworkCaption strong { display: block; text-transform: uppercase; }
+.artworkCaption span { color: #087486; font-weight: 650; letter-spacing: .18em; }
+.artworkCaption strong { margin-top: .45rem; color: #062b4b; font-size: var(--tertiary); letter-spacing: .08em; }
+.artworkCaption p { margin-top: .8rem !important; }
+.artworkReservationlab .artworkGuide::before { background: linear-gradient(90deg, transparent, rgba(67,214,255,.28), rgba(88,211,154,.58), rgba(67,214,255,.22), transparent); }
+.artworkReservationlab .artworkGuide span { background: #58d39a; box-shadow: 0 0 1.5rem rgba(67,214,255,.45); }
+.artworkReservationlab .artworkCaption { background: rgba(7,55,66,.9); }
+.artworkReservationlab .artworkCaption span { color: #83dfe3; }
+.artworkReservationlab .artworkCaption strong { color: #f2fbfa; }
+
+.systemChapter { padding-top: clamp(7rem, 12vw, 12rem); }
+.systemHeadingRow { display: grid; gap: 2.5rem; align-items: end; }
+.systemProposition { border-left: 1px solid #70d2c5; padding-left: 1.5rem; color: #062b4b; font-size: var(--secondary); font-weight: 650; line-height: 1.4; }
+.systemProposition small { display: block; margin-top: 1rem; color: #547789; font-size: var(--tertiary); font-weight: 500; }
+.systemStages { display: grid; gap: 0; padding: 0; margin: clamp(2.5rem, 5vw, 4.5rem) 0 0; list-style: none; counter-reset: stage; }
+.systemStages li { position: relative; border-top: 1px solid #cde6e6; padding: 1.4rem 1rem 2rem 0; counter-increment: stage; }
+.systemStages h3 { color: #087486; font-size: var(--tertiary); letter-spacing: .12em; text-transform: uppercase; }
+.systemStages p { margin-top: .6rem !important; }
+.perspectiveLine { display: grid; gap: 1.5rem; padding: clamp(2rem, 4vw, 3rem) 0 0; margin: clamp(2rem, 4vw, 3rem) 0 0; border-top: 1px solid #cde6e6; list-style: none; }
+.perspectiveLine li { display: grid; gap: .3rem; }
+.perspectiveLine strong { color: #062b4b; }
+.systemClosing { margin-top: 3rem !important; color: #062b4b; font-size: var(--secondary); font-weight: 650; text-align: center; }
+
+.layersChapter { padding-block: clamp(7rem, 12vw, 12rem); }
+.layersIntro { max-width: 72rem; }
+.layersComposition { display: grid; gap: 2.5rem; margin-top: clamp(3.5rem, 7vw, 7rem); }
+.layerVeya, .layerIntelligence { position: relative; z-index: 1; max-width: 36rem; }
+.layerVeya h3, .layerIntelligence h3 { margin-top: 1rem !important; color: #062b4b; font-size: var(--secondary); line-height: 1.35; }
+.layerVeya > p:last-child, .layerIntelligence > p { margin-top: 1.25rem !important; }
+.layerLabel { color: #087486; font-weight: 650; letter-spacing: .18em; text-transform: uppercase; }
+.layerIntelligence { justify-self: end; }
+.layerIntelligence ul { display: flex; flex-wrap: wrap; gap: .55rem 1.25rem; padding: 1.5rem 0 0; margin: 1.5rem 0 0; border-top: 1px solid #cde6e6; list-style: none; color: #087486; font-weight: 650; }
+
+.labChapter { padding-block: clamp(7rem, 11vw, 11rem); }
+.labIntro { max-width: 68rem; }
+.trustLayer { display: grid; gap: 3rem; border-top: 1px solid rgba(131,223,227,.35); padding-top: clamp(3.5rem, 7vw, 6rem); margin-top: clamp(2rem, 4vw, 4rem); }
+.trustLayer h3 { margin-top: 1.35rem !important; color: #f2fbfa; font-size: var(--primary); font-weight: 600; line-height: 1.04; letter-spacing: -.045em; }
+.trustLayer > div:last-child > p { max-width: 44rem; }
+.trustStatement { margin-top: 1.5rem !important; color: #83dfe3; font-size: var(--secondary); font-weight: 650; }
+.trustLayer ul { display: flex; flex-wrap: wrap; gap: .65rem 1.75rem; padding: 1.5rem 0 0; margin: 1.5rem 0 0; border-top: 1px solid rgba(131,223,227,.22); list-style: none; color: #e8f7f5; font-weight: 650; }
+
+.finalComposition { display: grid; gap: clamp(3rem, 7vw, 7rem); align-items: end; }
+.finalSupporting { max-width: 42rem; }
+.finalSupporting > p:not(.lead):not(.finalPhilosophy) { margin-top: 1.5rem !important; }
+.finalPhilosophy { margin-top: 2rem !important; color: #087486; font-size: var(--secondary); font-weight: 650; line-height: 1.45; }
+.finalComposition .ctas { align-items: flex-start; justify-content: flex-start; }
+.finalHorizon { width: min(calc(100% - 2.5rem), 92rem); height: clamp(6rem, 12vw, 11rem); margin: clamp(4rem, 8vw, 8rem) auto 0; background: radial-gradient(ellipse at center, rgba(46,207,196,.12), transparent 60%), linear-gradient(90deg, transparent 3%, rgba(10,163,188,.18) 30%, rgba(73,199,104,.22) 52%, rgba(46,207,196,.16) 74%, transparent 97%) center / 100% 1px no-repeat; }
+.finalSection > .bridge { width: min(calc(100% - 2.5rem), 92rem); margin-inline: auto; text-align: center; }
+
 @media (min-width: 640px) {
   .section { --tertiary: 1.125rem; padding-inline: 2rem; }
   .ctas { flex-direction: row; justify-content: center; }
@@ -180,6 +254,13 @@
 @media (min-width: 768px) {
   .fourAnchors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .threeAnchors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .missionGrid { grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .75fr); }
+  .systemHeadingRow { grid-template-columns: minmax(0, 1.35fr) minmax(18rem, .65fr); }
+  .systemStages, .perspectiveLine { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .systemStages li:not(:first-child) { padding-left: 1.5rem; border-left: 1px solid #cde6e6; }
+  .perspectiveLine li:not(:first-child) { padding-left: 1.5rem; border-left: 1px solid #cde6e6; }
+  .trustLayer { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .finalComposition { grid-template-columns: minmax(0, 1.2fr) minmax(22rem, .8fr); }
 }
 
 @media (min-width: 1024px) {
@@ -188,6 +269,9 @@
   .split .artwork { margin-top: 0; }
   .fourAnchors { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .twoColumnList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .layersComposition { grid-template-columns: minmax(16rem, .72fr) minmax(25rem, 1.35fr) minmax(16rem, .72fr); align-items: center; }
+  .layerVeya { align-self: start; margin-top: 4rem; }
+  .layerIntelligence { align-self: end; margin-bottom: 4rem; }
 }
 
 @media (max-width: 639px) {
@@ -206,6 +290,16 @@
   .progression span { min-width: 9rem; }
   .progression span:first-child { padding-left: 2rem; }
   .missionLine { flex-direction: column; gap: .1rem; }
+  .artworkReservationmission, .artworkReservationsystem { aspect-ratio: 4 / 5; }
+  .artworkReservationlayers { min-height: 27rem; }
+  .artworkCaption { padding-inline: .75rem; }
+  .artworkCaption p { max-height: 7.5rem; overflow: hidden; }
+  .missionPillars li { grid-template-columns: 2rem minmax(0, 1fr); }
+  .systemStages, .perspectiveLine { gap: 1.5rem; }
+  .layersComposition { gap: 3.5rem; }
+  .layerIntelligence { justify-self: start; }
+  .trustLayer h3 { font-size: clamp(2.65rem, 13vw, 3.5rem); }
+  .finalComposition .ctas { align-items: stretch; }
 }
 
 @media (prefers-reduced-motion: reduce) {

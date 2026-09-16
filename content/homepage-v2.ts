@@ -5,7 +5,7 @@ export const homepageV2 = {
     pillars: [
       ["Help today", "Support independence, identity, confidence and daily life."],
       ["Learn every day", "Understand meaningful change over time and connect what matters to emerging evidence."],
-      ["Fight for tomorrow", "Turn better questions and better evidence into progress in research and care."],
+      ["Insights for tomorrow", "Turn lived experience and evidence into better questions for research and care."],
     ],
   },
   patientZero: {
