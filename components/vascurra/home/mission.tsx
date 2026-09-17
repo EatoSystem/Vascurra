@@ -1,7 +1,7 @@
 import { homepageV2 } from "@/content/homepage-v2";
 import { VascurraGradientText } from "./gradient-text";
 import { SectionIcon } from "./section-icon";
-import { MissionFlowGraphic } from "./v3-graphics";
+import { V4ArtworkSlot } from "./v4-artwork-slot";
 import styles from "./homepage-scaffold.module.css";
 
 const icons = ["person", "book", "insight"] as const;
@@ -19,7 +19,7 @@ export function Mission() {
         </div>
         <div className={styles.missionV3Visual}>
           <ol className={styles.missionV3Principles}>{homepageV2.mission.pillars.map(([label, body], index) => <li key={label}><span className={styles.v3Icon}><SectionIcon name={icons[index]!} /></span><h3>{label}</h3><p>{body}</p></li>)}</ol>
-          <div className={styles.missionV3Flow}><MissionFlowGraphic /><div><span>Today</span><span>Learning</span><span>Tomorrow</span></div></div>
+          <div className={styles.missionV4Artwork}><V4ArtworkSlot description="Today. Learning. Tomorrow." label="Our Mission flow" slot="mission-flow" /></div>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { homepageV2 } from "@/content/homepage-v2";
 import { VascurraGradientText } from "./gradient-text";
 import { SectionIcon } from "./section-icon";
-import { SystemOrbitGraphic } from "./v3-graphics";
+import { V4ArtworkSlot } from "./v4-artwork-slot";
 import styles from "./homepage-scaffold.module.css";
 
 const perspectives = [
@@ -26,7 +26,7 @@ export function Framework() {
         <div className={styles.systemV3Top}><div><p className={styles.eyebrow}>The Vascurra system</p><h2 id="framework-heading" className={styles.systemV3Heading}><span>Observe. Understand.</span><VascurraGradientText>Support. Learn.</VascurraGradientText></h2></div><div className={styles.systemV3Proposition}><h3>One system.<br /><VascurraGradientText>Multiple perspectives.</VascurraGradientText></h3><p>{homepageV2.framework.qualifier}</p></div></div>
         <div className={styles.systemV3Body}>
           <div className={styles.systemV3Side}>{leftPerspectives.map(([name, , body, icon]) => <article key={name}><span className={styles.v3Icon}><SectionIcon name={icon} /></span><div><h3>{name}</h3><p>{body}</p></div></article>)}</div>
-          <div className={styles.systemV3Orbit}><SystemOrbitGraphic /><div className={styles.systemV3Core}><span>Person</span><strong>Vascurra</strong><small>Role · Permission<br />Purpose · Control</small></div>{perspectives.map(([name, subline, , icon]) => <div key={name} className={`${styles.systemV3Node} ${styles[`systemV3Node${name}`]}`}><span className={styles.v3Icon}><SectionIcon name={icon} /></span><strong>{name}</strong><small>{subline}</small></div>)}<span className={`${styles.systemV3CycleLabel} ${styles.systemV3CycleObserve}`}>Observe</span><span className={`${styles.systemV3CycleLabel} ${styles.systemV3CycleUnderstand}`}>Understand</span><span className={`${styles.systemV3CycleLabel} ${styles.systemV3CycleSupport}`}>Support</span><span className={`${styles.systemV3CycleLabel} ${styles.systemV3CycleLearn}`}>Learn</span></div>
+          <div className={styles.systemV4Artwork}><V4ArtworkSlot description="A person-centred Vascurra system connecting Personal, Family, Clinician and Research perspectives through Observe, Understand, Support and Learn, with role, permission, purpose and control." label="The Vascurra System" ratio="square" slot="vascurra-system" /></div>
           <div className={styles.systemV3Side}>{rightPerspectives.map(([name, , body, icon]) => <article key={name}><span className={styles.v3Icon}><SectionIcon name={icon} /></span><div><h3>{name}</h3><p>{body}</p></div></article>)}</div>
         </div>
         <ol className={styles.systemV3Strip}>{stages.map(([name, body], index) => <li key={name}><span>{index + 1}</span><div><h3>{name}</h3><p>{body}</p></div></li>)}</ol>
