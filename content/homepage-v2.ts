@@ -66,5 +66,5 @@ export const v2NavLinks = [
   { label: "How It Works", href: "#framework" },
   { label: "Veya", href: "#veya" },
   { label: "Research", href: "#lab" },
-  { label: "Support", href: "#support" },
+  { label: "Support", href: "#support-vascurra" },
 ] as const;

@@ -5,7 +5,19 @@ import { VascularFlow } from "@/components/vascurra/ui/vascular-flow";
 import { hero } from "@/content/home";
 import { earlyAccessHref, homeDiscoverHref } from "@/content/site";
 
-export function HomeHero({ showCtas = true, discoverHref = homeDiscoverHref, animateBrain = false }: { showCtas?: boolean; discoverHref?: string; animateBrain?: boolean }) {
+export function HomeHero({
+  showCtas = true,
+  discoverHref = homeDiscoverHref,
+  animateBrain = false,
+  primaryCtaHref = earlyAccessHref,
+  primaryCtaLabel = hero.primaryCta,
+}: {
+  showCtas?: boolean;
+  discoverHref?: string;
+  animateBrain?: boolean;
+  primaryCtaHref?: string;
+  primaryCtaLabel?: string;
+}) {
   return (
     <section
       aria-labelledby="hero-heading"
@@ -34,7 +46,7 @@ export function HomeHero({ showCtas = true, discoverHref = homeDiscoverHref, ani
           </p>
           {showCtas ? (
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <CtaLink href={earlyAccessHref}>{hero.primaryCta}</CtaLink>
+              <CtaLink href={primaryCtaHref}>{primaryCtaLabel}</CtaLink>
               <CtaLink href={discoverHref} variant="secondary">
                 {hero.secondaryCta}
               </CtaLink>

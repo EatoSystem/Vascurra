@@ -33,9 +33,9 @@ export default async function PreviewPage() {
   return (
     <>
       <span id="top" />
-      <SiteHeader links={primaryNav} homeHref="/preview" ctaHref="/access" ctaLabel="Request Access" />
+      <SiteHeader links={primaryNav} homeHref="/preview" ctaHref="/support" ctaLabel="Support" />
       <main id="main">
-        <HomeHero discoverHref="#origin" />
+        <HomeHero discoverHref="#origin" primaryCtaHref="/support" primaryCtaLabel="Support" />
         <Origin />
         <Mission />
         <Framework />
@@ -43,7 +43,7 @@ export default async function PreviewPage() {
         <SupportVascurra />
         <Lab />
       </main>
-      <VascurraFooter />
+      <VascurraFooter hideAccessLink />
     </>
   );
 }

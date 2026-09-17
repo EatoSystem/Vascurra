@@ -315,6 +315,9 @@
 .futureClose h3 { margin-top: 1.5rem !important; color: #f2fbfa; font-size: var(--primary); font-weight: 600; line-height: 1.04; letter-spacing: -.045em; }
 .futureClose > div:last-child { max-width: 38rem; color: #e8f7f5; font-size: var(--secondary); font-weight: 650; }
 .futureActions a:last-child { border-color: rgba(232,247,245,.55); color: #f2fbfa; }
+.finalSupportCta { border: 1px solid #fff !important; background: #fff !important; color: #062b4b !important; }
+.finalSupportCta:hover { border-color: #e7fbfc !important; background: #e7fbfc !important; color: #062b4b !important; }
+.finalSupportCta:focus-visible { outline: 3px solid #83dfe3; outline-offset: 4px; }
 
 .finalComposition { display: grid; gap: clamp(3rem, 7vw, 7rem); align-items: end; }
 .finalSupporting { max-width: 42rem; }
@@ -329,7 +332,7 @@
 .v3Icon svg { width: 2rem; height: 2rem; }
 .missionV3, .veyaV3, .supportV3 { padding-block: clamp(6rem, 8vw, 8rem); }
 .systemV3 { padding-block: clamp(5rem, 6vw, 6.5rem); }
-.missionV3Grid { display: grid; gap: clamp(1.5rem, 2.5vw, 3rem); align-items: center; }
+.missionV3Grid { display: grid; gap: clamp(1.5rem, 2.5vw, 3rem); align-items: start; }
 .missionV3Heading, .systemV3Heading, .veyaV3Heading, .supportV3Heading { margin-top: 1.75rem !important; color: #062b4b; font-size: clamp(3.35rem, 6vw, 5.75rem); font-weight: 600; line-height: .98; letter-spacing: -.055em; }
 .missionV3Heading { font-size: clamp(3.35rem, 5.35vw, 5.25rem); }
 .missionV3Heading > span, .systemV3Heading > span, .veyaV3Heading > span, .supportV3Heading > span { display: block; }
@@ -337,15 +340,15 @@
 .missionV3Copy, .veyaV3Copy, .supportV3Copy { position: relative; z-index: 1; }
 .missionV3Philosophy { max-width: 38rem; border-top: 1px solid #75cfd3; padding-top: 1.65rem; margin-top: 2.5rem !important; color: #062b4b; font-size: clamp(1.15rem, 1.45vw, 1.4rem); font-weight: 650; }
 .missionV3Copy > small { display: block; margin-top: 1rem; color: #547789; line-height: 1.5; }
-.missionV3Visual { min-width: 0; }
-.missionV3Principles { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; padding: 0; margin: 0; list-style: none; text-align: center; }
+.missionV3Visual { min-width: 0; padding-top: 1.125rem; }
+.missionV3Principles { position: relative; z-index: 1; display: grid; width: 80%; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; padding: 0; margin: 0 auto; list-style: none; text-align: center; }
 .missionV3Principles li { display: grid; justify-items: center; align-content: start; padding-inline: .5rem; }
 .missionV3Principles li::after { width: 1px; height: 1.75rem; margin-top: 1rem; background: linear-gradient(#29b9cb, transparent); content: ""; }
 .missionV3Principles h3 { margin-top: 1rem !important; color: #087486; font-size: clamp(.9rem, 1vw, 1.05rem); letter-spacing: .12em; text-transform: uppercase; }
 .missionV3Principles p { max-width: 14rem; margin-top: .7rem !important; font-size: 1rem; line-height: 1.5; }
-.missionV4Artwork { width: 120%; min-width: 0; margin-top: -3.25rem; margin-left: -20%; }
+.missionV4Artwork { width: 120%; min-width: 0; margin-top: -3.25rem; margin-inline: -10%; }
 
-.systemV3Top { display: grid; gap: 3rem; align-items: center; }
+.systemV3Top { display: grid; gap: 3rem; align-items: start; }
 .systemV3Heading { font-size: clamp(3.35rem, 5vw, 4.75rem); }
 .systemV3Proposition { border-left: 1px solid #75cfd3; padding-left: 2rem; }
 .systemV3Proposition h3 { color: #062b4b; font-size: clamp(1.9rem, 2.8vw, 2.7rem); line-height: 1.08; }
@@ -365,13 +368,15 @@
 .systemV3Boundary span { display: block; margin-block: .65rem; color: #087486; font-size: .78rem; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; }
 
 .veyaV3Grid, .supportV3Grid { display: grid; gap: clamp(1.5rem, 2.5vw, 3rem); align-items: center; }
+.supportV3 { scroll-margin-top: 6rem; }
+.supportV3Grid { align-items: start; }
 .veyaV3Heading { font-size: clamp(3.25rem, 5.2vw, 5rem); }
 .veyaV3Lead { margin-top: 2rem !important; color: #173e59; font-size: clamp(1.35rem, 1.8vw, 1.75rem); }
 .veyaV3Capabilities { display: grid; padding: 0; margin: 3rem 0 0; list-style: none; }
 .veyaV3Capabilities li { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid #cde6e6; }
 .veyaV3Capabilities h3 { color: #087486; font-size: 1rem; letter-spacing: .12em; text-transform: uppercase; }
 .veyaV3Capabilities p { margin-top: .5rem !important; font-size: 1.05rem; line-height: 1.55; }
-.veyaV4Artwork { width: 120%; min-width: 0; margin-top: -1.5rem; margin-left: -20%; }
+.veyaV4Artwork { width: 120%; min-width: 0; margin-inline: -10%; align-self: center; }
 .veyaV3Footer { border-top: 1px solid #cde6e6; padding-top: 1.75rem; margin-top: 2rem; text-align: center; }
 .veyaV3Footer strong { color: #087486; letter-spacing: .1em; text-transform: uppercase; }.veyaV3Footer small { display: block; margin-top: 1rem; color: #547789; }
 
@@ -380,7 +385,7 @@
 .supportV3Actions .cta { padding-inline: 1.55rem; font-size: .93rem !important; }
 .supportV3Equation { max-width: 40rem; border-top: 1px solid #75cfd3; padding-top: 1.5rem; margin-top: 2.5rem !important; color: #087486; font-size: .78rem; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
 .supportV3Visual { min-width: 0; }
-.supportV4Artwork { width: 120%; min-width: 0; margin-top: -2.5rem; margin-left: -20%; }
+.supportV4Artwork { width: 120%; min-width: 0; margin-top: -2.5rem; margin-inline: -10%; }
 .supportV3Areas { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .9rem; padding: 0; margin: 0; list-style: none; }
 .supportV3Areas li { display: grid; justify-items: center; align-content: start; border-top: 1px solid #d9ecec; padding: .9rem .35rem 0; text-align: center; }
 .supportV3Areas h3 { color: #062b4b; font-size: .82rem; line-height: 1.4; letter-spacing: .11em; text-transform: uppercase; }
@@ -408,7 +413,11 @@
   .veyaFoundation { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
   .learningModel ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .finalComposition { grid-template-columns: minmax(0, 1.2fr) minmax(22rem, .8fr); }
-  .systemV3Top { grid-template-columns: minmax(0,1.25fr) minmax(20rem,.75fr); }
+  .systemV3Top { grid-template-columns: minmax(0,1.25fr) minmax(20rem,.75fr); grid-template-rows: auto auto; column-gap: 3rem; row-gap: 1.75rem; }
+  .systemV3Top > div:first-child { display: contents; }
+  .systemV3Top > div:first-child > .eyebrow { grid-column: 1; grid-row: 1; }
+  .systemV3Heading { grid-column: 1; grid-row: 2; margin-top: 0 !important; }
+  .systemV3Proposition { grid-column: 2; grid-row: 2; }
   .systemV3Perspectives { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .systemV3Strip { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .systemV3Strip li:nth-child(even) { border-left: 1px solid #cde6e6; }
@@ -432,6 +441,8 @@
   .veyaSignal { grid-template-columns: repeat(4, minmax(0,1fr)); align-items: center; }
   .veyaSignal span:nth-child(even) { transform: translateY(1.5rem); }
   .missionV3Grid { grid-template-columns: minmax(0, .41fr) minmax(0, .59fr); }
+  .missionV3Visual, .supportV3Visual { padding-top: 2.7rem; }
+  .systemV3Perspectives { grid-template-columns: repeat(4,minmax(0,1fr)); }
   .systemV3Strip { grid-template-columns: repeat(4,minmax(0,1fr)); }
   .systemV3Strip li + li { border-left: 1px solid #cde6e6; }
   .veyaV3Grid { grid-template-columns: minmax(0,.41fr) minmax(0,.59fr); }
@@ -476,11 +487,13 @@
   .missionV3Heading, .systemV3Heading, .supportV3Heading { font-size: clamp(3rem, 15vw, 4rem); }
   .veyaV3Heading { font-size: clamp(2.35rem, 11vw, 3.25rem); }
   .missionV3Visual { display: flex; flex-direction: column; }
-  .missionV3Principles { order: 2; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; text-align: left; }
+  .missionV3Visual { padding-top: 2rem; }
+  .missionV3Principles { order: 1; width: 100%; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 0; text-align: left; }
   .missionV3Principles li { justify-items: start; padding: 0 0 1rem; border-bottom: 1px solid #d9ecec; text-align: left; }
   .missionV3Principles li::after { display: none; }
   .missionV3Principles h3 { margin-top: 0 !important; }.missionV3Principles p { max-width: none; }
   .missionV4Artwork, .systemV4Artwork, .veyaV4Artwork, .supportV4Artwork { order: 1; width: calc(100% + 2rem); margin-top: 0; margin-left: -1rem; }
+  .missionV4Artwork { order: 2; margin-top: 1.5rem; }
   .labHero { gap: 2.5rem; }
   .labV4Artwork { width: calc(100% + 2rem); margin-left: -1rem; }
   .systemV3Perspectives, .supportV3Areas { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -491,6 +504,7 @@
 
 @media (min-width: 640px) and (max-width: 1199px) {
   .missionV3Grid, .veyaV3Grid, .supportV3Grid, .labHero { grid-template-columns: 1fr; }
+  .missionV3Principles { width: 100%; }
   .missionV4Artwork, .veyaV4Artwork, .supportV4Artwork { width: min(100%, 64rem); margin: 0 auto; }
   .systemV4Artwork { width: min(82%, 52rem); }
   .labV4Artwork { width: min(100%, 64rem); margin: 0 auto; }
