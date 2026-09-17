@@ -21,7 +21,7 @@ export function Framework() {
     <section id="framework" aria-labelledby="framework-heading" className={`${styles.section} ${styles.systemV3}`}>
       <div className={styles.inner}>
         <div className={styles.systemV3Top}><div><p className={styles.eyebrow}>The Vascurra system</p><h2 id="framework-heading" className={styles.systemV3Heading}><span>Observe. Understand.</span><VascurraGradientText>Support. Learn.</VascurraGradientText></h2></div><div className={styles.systemV3Proposition}><h3>One system.<br /><VascurraGradientText>Multiple perspectives.</VascurraGradientText></h3><p>{homepageV2.framework.qualifier}</p></div></div>
-        <div className={styles.systemV4Artwork}><V4ArtworkSlot sizes="(max-width: 639px) 108vw, (max-width: 1199px) 92vw, 78vw" slot="vascurra-system" source={v4Artwork.system} /></div>
+        <div className={styles.systemV4Artwork}><V4ArtworkSlot sizes="(max-width: 639px) 108vw, (max-width: 1199px) 96vw, 94vw" slot="vascurra-system" source={v4Artwork.system} /></div>
         <div className={styles.systemV3Perspectives}>{perspectives.map(([name, , body, icon]) => <article key={name}><span className={styles.v3Icon}><SectionIcon name={icon} /></span><div><h3>{name}</h3><p>{body}</p></div></article>)}</div>
         <ol className={styles.systemV3Strip}>{stages.map(([name, body], index) => <li key={name}><span>{index + 1}</span><div><h3>{name}</h3><p>{body}</p></div></li>)}</ol>
         <p className={styles.systemV3Boundary}>The same underlying context can support different people in different ways. <span>Role · Permission · Purpose · Control</span> Family and research access are never automatic, and clinician context does not mean autonomous clinical decision-making.</p>

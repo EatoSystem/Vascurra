@@ -324,48 +324,51 @@
 /* Homepage V3 reference-faithful sections */
 .v3Icon { display: grid; place-items: center; width: 4.25rem; height: 4.25rem; border: 1px solid rgba(19,158,190,.18); border-radius: 50%; background: radial-gradient(circle, rgba(70,210,226,.12), rgba(80,211,146,.04)); color: #087d9a; }
 .v3Icon svg { width: 2rem; height: 2rem; }
-.missionV3, .veyaV3, .supportV3 { padding-block: clamp(7rem, 10vw, 10rem); }
-.systemV3 { padding-block: clamp(5rem, 7vw, 7rem); }
-.missionV3Grid { display: grid; gap: clamp(4rem, 7vw, 8rem); align-items: center; }
+.missionV3, .veyaV3, .supportV3 { padding-block: clamp(6rem, 8vw, 8rem); }
+.systemV3 { padding-block: clamp(5rem, 6vw, 6.5rem); }
+.missionV3Grid { display: grid; gap: clamp(1.5rem, 2.5vw, 3rem); align-items: center; }
 .missionV3Heading, .systemV3Heading, .veyaV3Heading, .supportV3Heading { margin-top: 1.75rem !important; color: #062b4b; font-size: clamp(3.35rem, 6vw, 5.75rem); font-weight: 600; line-height: .98; letter-spacing: -.055em; }
 .missionV3Heading { font-size: clamp(3.35rem, 5.35vw, 5.25rem); }
 .missionV3Heading > span, .systemV3Heading > span, .veyaV3Heading > span, .supportV3Heading > span { display: block; }
 .missionV3Lead, .supportV3Lead { max-width: 40rem; margin-top: 2.25rem !important; color: #173e59; font-size: clamp(1.25rem, 1.55vw, 1.55rem); line-height: 1.55; }
+.missionV3Copy, .veyaV3Copy, .supportV3Copy { position: relative; z-index: 1; }
 .missionV3Philosophy { max-width: 38rem; border-top: 1px solid #75cfd3; padding-top: 1.65rem; margin-top: 2.5rem !important; color: #062b4b; font-size: clamp(1.15rem, 1.45vw, 1.4rem); font-weight: 650; }
 .missionV3Copy > small { display: block; margin-top: 1rem; color: #547789; line-height: 1.5; }
-.missionV3Principles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; padding: 0; margin: clamp(3rem, 5vw, 5rem) 0 0; list-style: none; text-align: center; }
-.missionV3Principles li { display: grid; justify-items: center; align-content: start; }
-.missionV3Principles li::after { width: 1px; height: 2.5rem; margin-top: 1.25rem; background: linear-gradient(#29b9cb, transparent); content: ""; }
-.missionV3Principles h3 { margin-top: 1rem !important; color: #087486; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
-.missionV3Principles p { max-width: 13rem; margin-top: .8rem !important; }
-.missionV4Artwork { min-width: 0; }
+.missionV3Visual { min-width: 0; }
+.missionV3Principles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; padding: 0; margin: 0; list-style: none; text-align: center; }
+.missionV3Principles li { display: grid; justify-items: center; align-content: start; padding-inline: .5rem; }
+.missionV3Principles li::after { width: 1px; height: 1.75rem; margin-top: 1rem; background: linear-gradient(#29b9cb, transparent); content: ""; }
+.missionV3Principles h3 { margin-top: 1rem !important; color: #087486; font-size: clamp(.9rem, 1vw, 1.05rem); letter-spacing: .12em; text-transform: uppercase; }
+.missionV3Principles p { max-width: 14rem; margin-top: .7rem !important; font-size: 1rem; line-height: 1.5; }
+.missionV4Artwork { width: 124%; min-width: 0; margin-top: -2.5rem; margin-left: -24%; }
 
 .systemV3Top { display: grid; gap: 3rem; align-items: center; }
 .systemV3Heading { font-size: clamp(3.35rem, 5vw, 4.75rem); }
 .systemV3Proposition { border-left: 1px solid #75cfd3; padding-left: 2rem; }
 .systemV3Proposition h3 { color: #062b4b; font-size: clamp(1.9rem, 2.8vw, 2.7rem); line-height: 1.08; }
 .systemV3Proposition p { max-width: 26rem; margin-top: 1.25rem !important; font-size: 1.1rem; }
-.systemV4Artwork { width: min(100%, 74rem); min-width: 0; margin: clamp(2.5rem, 4vw, 4rem) auto 0; }
+.systemV4Artwork { width: min(100%, 90rem); min-width: 0; margin: clamp(1.5rem, 2.5vw, 2.75rem) auto 0; }
 .systemV3Perspectives { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem; margin-top: clamp(2rem, 4vw, 4rem); }
-.systemV3Perspectives article { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; align-items: start; border-top: 1px solid #cde6e6; padding-top: 1.5rem; }
-.systemV3Perspectives h3 { color: #087486; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
-.systemV3Perspectives p { margin-top: .75rem !important; }
+.systemV3Perspectives article { display: grid; grid-template-columns: 3.5rem minmax(0,1fr); gap: .9rem; align-items: start; border-top: 1px solid #cde6e6; padding-top: 1.25rem; }
+.systemV3Perspectives .v3Icon { width: 3.5rem; height: 3.5rem; }
+.systemV3Perspectives h3 { color: #087486; font-size: .92rem; letter-spacing: .12em; text-transform: uppercase; }
+.systemV3Perspectives p { margin-top: .55rem !important; font-size: .98rem; line-height: 1.5; }
 .systemV3Strip { display: grid; padding: 0; margin: 2.5rem 0 0; border-block: 1px solid #cde6e6; list-style: none; }
-.systemV3Strip li { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: 1rem; padding: 1.5rem; }
+.systemV3Strip li { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: .9rem; padding: 1.25rem; }
 .systemV3Strip li > span { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: #eef9fa; color: #087486; font-weight: 700; }
-.systemV3Strip h3 { color: #087486; font-size: .95rem; text-transform: uppercase; }
-.systemV3Strip p { margin-top: .45rem !important; }
+.systemV3Strip h3 { color: #087486; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; }
+.systemV3Strip p { margin-top: .35rem !important; font-size: .95rem; line-height: 1.45; }
 .systemV3Boundary { max-width: 70rem; margin: 2rem auto 0 !important; color: #547789; text-align: center; }
 .systemV3Boundary span { display: block; margin-block: .65rem; color: #087486; font-size: .78rem; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; }
 
-.veyaV3Grid, .supportV3Grid { display: grid; gap: clamp(4rem, 7vw, 8rem); align-items: center; }
+.veyaV3Grid, .supportV3Grid { display: grid; gap: clamp(1.5rem, 2.5vw, 3rem); align-items: center; }
 .veyaV3Heading { font-size: clamp(3.25rem, 5.2vw, 5rem); }
 .veyaV3Lead { margin-top: 2rem !important; color: #173e59; font-size: clamp(1.35rem, 1.8vw, 1.75rem); }
 .veyaV3Capabilities { display: grid; padding: 0; margin: 3rem 0 0; list-style: none; }
 .veyaV3Capabilities li { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid #cde6e6; }
-.veyaV3Capabilities h3 { color: #087486; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
-.veyaV3Capabilities p { margin-top: .5rem !important; }
-.veyaV4Artwork { min-width: 0; }
+.veyaV3Capabilities h3 { color: #087486; font-size: 1rem; letter-spacing: .12em; text-transform: uppercase; }
+.veyaV3Capabilities p { margin-top: .5rem !important; font-size: 1.05rem; line-height: 1.55; }
+.veyaV4Artwork { width: 122%; min-width: 0; margin-left: -22%; }
 .veyaV3Footer { border-top: 1px solid #cde6e6; padding-top: 1.75rem; margin-top: 2rem; text-align: center; }
 .veyaV3Footer strong { color: #087486; letter-spacing: .1em; text-transform: uppercase; }.veyaV3Footer small { display: block; margin-top: 1rem; color: #547789; }
 
@@ -373,11 +376,12 @@
 .supportV3Actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.25rem; }
 .supportV3Actions .cta { padding-inline: 1.55rem; font-size: .93rem !important; }
 .supportV3Equation { max-width: 40rem; border-top: 1px solid #75cfd3; padding-top: 1.5rem; margin-top: 2.5rem !important; color: #087486; font-size: .78rem; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
-.supportV4Artwork { min-width: 0; }
-.supportV3Areas { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem; padding: 0; margin: clamp(3rem, 5vw, 5rem) 0 0; list-style: none; }
-.supportV3Areas li { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; align-items: start; border-top: 1px solid #d9ecec; padding-top: 1.5rem; }
-.supportV3Areas h3 { color: #062b4b; font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; }
-.supportV3Areas p { margin-top: .85rem !important; font-size: .92rem; }
+.supportV3Visual { min-width: 0; }
+.supportV4Artwork { width: 122%; min-width: 0; margin-top: -1.75rem; margin-left: -22%; }
+.supportV3Areas { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .9rem; padding: 0; margin: 0; list-style: none; }
+.supportV3Areas li { display: grid; justify-items: center; align-content: start; border-top: 1px solid #d9ecec; padding: .9rem .35rem 0; text-align: center; }
+.supportV3Areas h3 { color: #062b4b; font-size: .82rem; line-height: 1.4; letter-spacing: .11em; text-transform: uppercase; }
+.supportV3Areas p { margin-top: .65rem !important; font-size: .88rem; line-height: 1.45; }
 .supportV3Outcome { margin-top: 1rem !important; color: #087486; font-size: .75rem; font-weight: 650; letter-spacing: .18em; text-align: center; text-transform: uppercase; }
 
 @media (min-width: 640px) {
@@ -423,11 +427,11 @@
   .veyaJourney li:not(:last-child)::after { display: none; }
   .veyaSignal { grid-template-columns: repeat(4, minmax(0,1fr)); align-items: center; }
   .veyaSignal span:nth-child(even) { transform: translateY(1.5rem); }
-  .missionV3Grid { grid-template-columns: minmax(0, .46fr) minmax(0, .54fr); }
+  .missionV3Grid { grid-template-columns: minmax(0, .39fr) minmax(0, .61fr); }
   .systemV3Strip { grid-template-columns: repeat(4,minmax(0,1fr)); }
   .systemV3Strip li + li { border-left: 1px solid #cde6e6; }
-  .veyaV3Grid { grid-template-columns: minmax(0,.42fr) minmax(0,.58fr); }
-  .supportV3Grid { grid-template-columns: minmax(0,.43fr) minmax(0,.57fr); }
+  .veyaV3Grid { grid-template-columns: minmax(0,.39fr) minmax(0,.61fr); }
+  .supportV3Grid { grid-template-columns: minmax(0,.39fr) minmax(0,.61fr); }
 }
 
 @media (max-width: 639px) {
@@ -467,19 +471,21 @@
   .finalComposition .ctas { align-items: stretch; }
   .missionV3Heading, .systemV3Heading, .supportV3Heading { font-size: clamp(3rem, 15vw, 4rem); }
   .veyaV3Heading { font-size: clamp(2.35rem, 11vw, 3.25rem); }
-  .missionV3Principles { grid-template-columns: 1fr; gap: 2rem; text-align: left; }
-  .missionV3Principles li { grid-template-columns: 4.25rem minmax(0,1fr); gap: .3rem 1rem; justify-items: start; text-align: left; }
-  .missionV3Principles li .v3Icon { grid-row: 1 / span 2; }.missionV3Principles li::after { display: none; }
+  .missionV3Visual { display: flex; flex-direction: column; }
+  .missionV3Principles { order: 2; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; text-align: left; }
+  .missionV3Principles li { justify-items: start; padding: 0 0 1rem; border-bottom: 1px solid #d9ecec; text-align: left; }
+  .missionV3Principles li::after { display: none; }
   .missionV3Principles h3 { margin-top: 0 !important; }.missionV3Principles p { max-width: none; }
-  .missionV4Artwork, .systemV4Artwork, .veyaV4Artwork, .supportV4Artwork { width: calc(100% + 2rem); margin-left: -1rem; }
+  .missionV4Artwork, .systemV4Artwork, .veyaV4Artwork, .supportV4Artwork { order: 1; width: calc(100% + 2rem); margin-top: 0; margin-left: -1rem; }
   .systemV3Perspectives, .supportV3Areas { grid-template-columns: 1fr; gap: 1.5rem; }
-  .systemV3Perspectives article, .supportV3Areas li { grid-template-columns: 4.25rem minmax(0,1fr); }
+  .systemV3Perspectives article { grid-template-columns: 4.25rem minmax(0,1fr); }
+  .supportV3Areas li { justify-items: start; padding: 1rem 0 0; text-align: left; }
   .systemV3Strip { gap: 0; }.systemV3Strip li + li { border-top: 1px solid #cde6e6; }
 }
 
 @media (min-width: 640px) and (max-width: 1199px) {
   .missionV3Grid, .veyaV3Grid, .supportV3Grid { grid-template-columns: 1fr; }
-  .missionV4Artwork, .veyaV4Artwork, .supportV4Artwork { width: min(100%, 58rem); margin-inline: auto; }
+  .missionV4Artwork, .veyaV4Artwork, .supportV4Artwork { width: min(100%, 64rem); margin: 0 auto; }
   .supportV3Areas { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 
