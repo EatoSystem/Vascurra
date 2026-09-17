@@ -11,7 +11,7 @@ export type V4ArtworkSource = {
 
 type V4ArtworkSlotProps = {
   sizes: string;
-  slot: "mission-flow" | "vascurra-system" | "veya-flow" | "support-flow";
+  slot: "mission-flow" | "vascurra-system" | "veya-flow" | "support-flow" | "lab-trust-lived-evidence";
   source: V4ArtworkSource;
 };
 
@@ -65,6 +65,13 @@ export const v4Artwork = {
     height: 941,
     kind: "raster",
     src: "/vascurra/homepage/v4/support-flow.png",
+    width: 1672,
+  },
+  labTrust: {
+    alt: "Lived experience and research evidence flowing toward a shared learning point while their distinct sources remain visible.",
+    height: 941,
+    kind: "raster",
+    src: "/vascurra/homepage/v4/lab-trust-lived-evidence.png",
     width: 1672,
   },
 } satisfies Record<string, V4ArtworkSource>;
