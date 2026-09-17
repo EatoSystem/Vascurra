@@ -333,31 +333,30 @@
 .missionV3Lead, .supportV3Lead { max-width: 40rem; margin-top: 2.25rem !important; color: #173e59; font-size: clamp(1.25rem, 1.55vw, 1.55rem); line-height: 1.55; }
 .missionV3Philosophy { max-width: 38rem; border-top: 1px solid #75cfd3; padding-top: 1.65rem; margin-top: 2.5rem !important; color: #062b4b; font-size: clamp(1.15rem, 1.45vw, 1.4rem); font-weight: 650; }
 .missionV3Copy > small { display: block; margin-top: 1rem; color: #547789; line-height: 1.5; }
-.missionV3Visual { min-width: 0; }
-.missionV3Principles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; padding: 0; margin: 0; list-style: none; text-align: center; }
+.missionV3Principles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; padding: 0; margin: clamp(3rem, 5vw, 5rem) 0 0; list-style: none; text-align: center; }
 .missionV3Principles li { display: grid; justify-items: center; align-content: start; }
 .missionV3Principles li::after { width: 1px; height: 2.5rem; margin-top: 1.25rem; background: linear-gradient(#29b9cb, transparent); content: ""; }
 .missionV3Principles h3 { margin-top: 1rem !important; color: #087486; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
 .missionV3Principles p { max-width: 13rem; margin-top: .8rem !important; }
-.missionV4Artwork { margin-top: 2rem; }
+.missionV4Artwork { min-width: 0; }
 
 .systemV3Top { display: grid; gap: 3rem; align-items: center; }
 .systemV3Heading { font-size: clamp(3.35rem, 5vw, 4.75rem); }
 .systemV3Proposition { border-left: 1px solid #75cfd3; padding-left: 2rem; }
 .systemV3Proposition h3 { color: #062b4b; font-size: clamp(1.9rem, 2.8vw, 2.7rem); line-height: 1.08; }
 .systemV3Proposition p { max-width: 26rem; margin-top: 1.25rem !important; font-size: 1.1rem; }
-.systemV3Body { display: grid; gap: 2rem; align-items: center; margin-top: clamp(2.5rem, 4vw, 4rem); }
-.systemV3Side { display: grid; gap: 3rem; }
-.systemV3Side article { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; align-items: start; border-bottom: 1px solid #cde6e6; padding-bottom: 1.5rem; }
-.systemV3Side h3 { color: #087486; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
-.systemV3Side p { margin-top: .75rem !important; }
-.systemV4Artwork { min-width: 0; }
+.systemV4Artwork { width: min(100%, 74rem); min-width: 0; margin: clamp(2.5rem, 4vw, 4rem) auto 0; }
+.systemV3Perspectives { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem; margin-top: clamp(2rem, 4vw, 4rem); }
+.systemV3Perspectives article { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; align-items: start; border-top: 1px solid #cde6e6; padding-top: 1.5rem; }
+.systemV3Perspectives h3 { color: #087486; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
+.systemV3Perspectives p { margin-top: .75rem !important; }
 .systemV3Strip { display: grid; padding: 0; margin: 2.5rem 0 0; border-block: 1px solid #cde6e6; list-style: none; }
 .systemV3Strip li { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: 1rem; padding: 1.5rem; }
 .systemV3Strip li > span { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: #eef9fa; color: #087486; font-weight: 700; }
 .systemV3Strip h3 { color: #087486; font-size: .95rem; text-transform: uppercase; }
 .systemV3Strip p { margin-top: .45rem !important; }
 .systemV3Boundary { max-width: 70rem; margin: 2rem auto 0 !important; color: #547789; text-align: center; }
+.systemV3Boundary span { display: block; margin-block: .65rem; color: #087486; font-size: .78rem; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; }
 
 .veyaV3Grid, .supportV3Grid { display: grid; gap: clamp(4rem, 7vw, 8rem); align-items: center; }
 .veyaV3Heading { font-size: clamp(3.25rem, 5.2vw, 5rem); }
@@ -374,12 +373,11 @@
 .supportV3Actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.25rem; }
 .supportV3Actions .cta { padding-inline: 1.55rem; font-size: .93rem !important; }
 .supportV3Equation { max-width: 40rem; border-top: 1px solid #75cfd3; padding-top: 1.5rem; margin-top: 2.5rem !important; color: #087486; font-size: .78rem; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
-.supportV3Visual { min-width: 0; }
-.supportV3Visual > ol { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0; padding: 0; margin: 0; list-style: none; }
-.supportV3Visual > ol li { display: grid; justify-items: center; align-content: start; min-height: 16rem; padding: 0 1rem; border-left: 1px solid #d9ecec; text-align: center; }.supportV3Visual > ol li:first-child { border-left: 0; }
-.supportV3Visual h3 { margin-top: 1rem !important; color: #062b4b; font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; }
-.supportV3Visual li p { margin-top: .85rem !important; font-size: .92rem; }
-.supportV4Artwork { margin-top: 2rem; }
+.supportV4Artwork { min-width: 0; }
+.supportV3Areas { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem; padding: 0; margin: clamp(3rem, 5vw, 5rem) 0 0; list-style: none; }
+.supportV3Areas li { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; align-items: start; border-top: 1px solid #d9ecec; padding-top: 1.5rem; }
+.supportV3Areas h3 { color: #062b4b; font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; }
+.supportV3Areas p { margin-top: .85rem !important; font-size: .92rem; }
 .supportV3Outcome { margin-top: 1rem !important; color: #087486; font-size: .75rem; font-weight: 650; letter-spacing: .18em; text-align: center; text-transform: uppercase; }
 
 @media (min-width: 640px) {
@@ -403,6 +401,7 @@
   .learningModel ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .finalComposition { grid-template-columns: minmax(0, 1.2fr) minmax(22rem, .8fr); }
   .systemV3Top { grid-template-columns: minmax(0,1.25fr) minmax(20rem,.75fr); }
+  .systemV3Perspectives { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .systemV3Strip { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .systemV3Strip li:nth-child(even) { border-left: 1px solid #cde6e6; }
 }
@@ -425,7 +424,6 @@
   .veyaSignal { grid-template-columns: repeat(4, minmax(0,1fr)); align-items: center; }
   .veyaSignal span:nth-child(even) { transform: translateY(1.5rem); }
   .missionV3Grid { grid-template-columns: minmax(0, .46fr) minmax(0, .54fr); }
-  .systemV3Body { grid-template-columns: minmax(13rem,.22fr) minmax(34rem,.56fr) minmax(13rem,.22fr); }
   .systemV3Strip { grid-template-columns: repeat(4,minmax(0,1fr)); }
   .systemV3Strip li + li { border-left: 1px solid #cde6e6; }
   .veyaV3Grid { grid-template-columns: minmax(0,.42fr) minmax(0,.58fr); }
@@ -473,16 +471,16 @@
   .missionV3Principles li { grid-template-columns: 4.25rem minmax(0,1fr); gap: .3rem 1rem; justify-items: start; text-align: left; }
   .missionV3Principles li .v3Icon { grid-row: 1 / span 2; }.missionV3Principles li::after { display: none; }
   .missionV3Principles h3 { margin-top: 0 !important; }.missionV3Principles p { max-width: none; }
-  .systemV3Side { gap: 1.5rem; }.systemV4Artwork { margin-block: 1rem; }
+  .missionV4Artwork, .systemV4Artwork, .veyaV4Artwork, .supportV4Artwork { width: calc(100% + 2rem); margin-left: -1rem; }
+  .systemV3Perspectives, .supportV3Areas { grid-template-columns: 1fr; gap: 1.5rem; }
+  .systemV3Perspectives article, .supportV3Areas li { grid-template-columns: 4.25rem minmax(0,1fr); }
   .systemV3Strip { gap: 0; }.systemV3Strip li + li { border-top: 1px solid #cde6e6; }
-  .supportV3Visual > ol { grid-template-columns: 1fr; gap: 1.5rem; }.supportV3Visual > ol li { grid-template-columns: 4.25rem minmax(0,1fr); justify-items: start; min-height: 0; border: 0; border-bottom: 1px solid #d9ecec; padding: 0 0 1.5rem; text-align: left; }.supportV3Visual > ol li .v3Icon { grid-row: 1 / span 2; }.supportV3Visual h3 { margin-top: 0 !important; }
 }
 
 @media (min-width: 640px) and (max-width: 1199px) {
   .missionV3Grid, .veyaV3Grid, .supportV3Grid { grid-template-columns: 1fr; }
-  .systemV3Body { grid-template-columns: minmax(13rem,.3fr) minmax(28rem,.7fr); }
-  .systemV3Side:last-child { grid-column: 1; }.systemV4Artwork { grid-column: 2; grid-row: 1 / span 2; }
-  .supportV3Visual > ol { grid-template-columns: repeat(2,minmax(0,1fr)); }.supportV3Visual > ol li { min-height: 14rem; border-bottom: 1px solid #d9ecec; }
+  .missionV4Artwork, .veyaV4Artwork, .supportV4Artwork { width: min(100%, 58rem); margin-inline: auto; }
+  .supportV3Areas { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

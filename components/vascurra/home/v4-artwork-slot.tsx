@@ -10,46 +10,61 @@ export type V4ArtworkSource = {
 };
 
 type V4ArtworkSlotProps = {
-  description: string;
-  label: string;
-  ratio?: "landscape" | "square";
+  sizes: string;
   slot: "mission-flow" | "vascurra-system" | "veya-flow" | "support-flow";
-  source?: V4ArtworkSource;
+  source: V4ArtworkSource;
 };
 
 export function V4ArtworkSlot({
-  description,
-  label,
-  ratio = "landscape",
+  sizes,
   slot,
   source,
 }: V4ArtworkSlotProps) {
-  const assetPath = `/public/vascurra/homepage/v4/${slot}`;
-
   return (
     <figure
-      className={`${styles.slot} ${styles[ratio]} ${source ? styles.ready : styles.pending}`}
+      className={styles.slot}
       data-artwork-slot={slot}
     >
-      {source ? (
-        <Image
-          alt={source.alt}
-          className={styles.image}
-          height={source.height}
-          priority={false}
-          sizes="(max-width: 639px) 100vw, (max-width: 1199px) 88vw, 52vw"
-          src={source.src}
-          unoptimized={source.kind === "svg"}
-          width={source.width}
-        />
-      ) : (
-        <div className={styles.pendingMessage}>
-          <span>Final artwork reserved</span>
-          <strong>{label}</strong>
-          <small>{assetPath}</small>
-        </div>
-      )}
-      <figcaption className={styles.visuallyHidden}>{description}</figcaption>
+      <Image
+        alt={source.alt}
+        className={styles.image}
+        height={source.height}
+        sizes={sizes}
+        src={source.src}
+        unoptimized={source.kind === "svg"}
+        width={source.width}
+      />
     </figure>
   );
 }
+
+export const v4Artwork = {
+  mission: {
+    alt: "Three flowing Vascurra streams converging toward a future pathway, representing help today, continuous learning and insights for tomorrow.",
+    height: 941,
+    kind: "raster",
+    src: "/vascurra/homepage/v4/mission-flow.png",
+    width: 1672,
+  },
+  system: {
+    alt: "Vascurra system visual connecting personal, family, clinician and research perspectives through a continuous learning model.",
+    height: 941,
+    kind: "raster",
+    src: "/vascurra/homepage/v4/vascurra-system.png",
+    width: 1672,
+  },
+  veya: {
+    alt: "Questions flowing through Veya into clearer context, relevant evidence, practical options and greater understanding.",
+    height: 941,
+    kind: "raster",
+    src: "/vascurra/homepage/v4/veya-flow.png",
+    width: 1672,
+  },
+  support: {
+    alt: "AI and compute, research, systems development and co-design converging to support accelerated learning.",
+    height: 941,
+    kind: "raster",
+    src: "/vascurra/homepage/v4/support-flow.png",
+    width: 1672,
+  },
+} satisfies Record<string, V4ArtworkSource>;
