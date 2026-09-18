@@ -17,7 +17,7 @@ export const hero = {
   headingMid: "vascular cognitive",
   headingAccent: "health.",
   statementLead: "Support independence.",
-  statementTrail: "Preserve identity.",
+  statementTrail: "Preserve identity. Pursue breakthroughs.",
   audience: "For people, families, clinicians, and research.",
   body: "A human-centred project exploring how intelligence can help people live well with vascular cognitive change — supporting independence, preserving identity, and organising meaningful context over time.",
   primaryCta: "Request Access",

@@ -22,6 +22,24 @@ Record material product decisions here so coding agents do not repeatedly reopen
 
 ## Initial decisions
 
+### 2026-09-18 — Homepage hero extends the core support line
+
+**Decision:** Use `Support independence. Preserve identity. Pursue breakthroughs.`
+in the Wave 1 homepage Hero while retaining `Support independence. Preserve
+identity.` as the shorter core brand line elsewhere.
+
+**Why:** The founder-approved Hero wording connects day-to-day support with the
+project's research ambition without claiming that Vascurra has achieved, or
+will achieve, a clinical outcome.
+
+**Implications:** The extension is homepage-specific, remains aspirational, and
+does not alter the prohibition on diagnostic, predictive, preventive,
+treatment, efficacy or validated-outcome claims.
+
+**Owner:** Founder / Product Architecture
+
+---
+
 ### 2026-09-14 — Wave 1 public website remains behind the V2 review gate
 
 **Decision:** Build the Wave 1 multi-route public-site architecture on

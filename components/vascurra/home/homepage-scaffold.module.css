@@ -353,7 +353,7 @@
 .systemV3Proposition { border-left: 1px solid #75cfd3; padding-left: 2rem; }
 .systemV3Proposition h3 { color: #062b4b; font-size: clamp(1.9rem, 2.8vw, 2.7rem); line-height: 1.08; }
 .systemV3Proposition p { max-width: 26rem; margin-top: 1.25rem !important; font-size: 1.1rem; }
-.systemV4Artwork { width: min(60%, 58rem); min-width: 0; margin: clamp(1.5rem, 2.5vw, 2.75rem) auto 0; }
+.systemV4Artwork { width: min(72%, 68rem); min-width: 0; margin: clamp(1.25rem, 2vw, 2.25rem) auto 0; }
 .systemV3Perspectives { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem; margin-top: clamp(2rem, 4vw, 4rem); }
 .systemV3Perspectives article { display: grid; grid-template-columns: 3.5rem minmax(0,1fr); gap: .9rem; align-items: start; border-top: 1px solid #cde6e6; padding-top: 1.25rem; }
 .systemV3Perspectives .v3Icon { width: 3.5rem; height: 3.5rem; }
@@ -376,7 +376,7 @@
 .veyaV3Capabilities li { display: grid; grid-template-columns: 4.25rem minmax(0,1fr); gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid #cde6e6; }
 .veyaV3Capabilities h3 { color: #087486; font-size: 1rem; letter-spacing: .12em; text-transform: uppercase; }
 .veyaV3Capabilities p { margin-top: .5rem !important; font-size: 1.05rem; line-height: 1.55; }
-.veyaV4Artwork { width: 120%; min-width: 0; margin-inline: -10%; align-self: center; }
+.veyaV4Artwork { width: 140%; min-width: 0; align-self: center; justify-self: center; }
 .veyaV3Footer { border-top: 1px solid #cde6e6; padding-top: 1.75rem; margin-top: 2rem; text-align: center; }
 .veyaV3Footer strong { color: #087486; letter-spacing: .1em; text-transform: uppercase; }.veyaV3Footer small { display: block; margin-top: 1rem; color: #547789; }
 
@@ -435,6 +435,7 @@
 }
 
 @media (min-width: 1200px) {
+  .veyaV4Artwork { width: 138%; transform: translateX(-3.5rem); }
   .veyaComposition { grid-template-columns: minmax(20rem, .72fr) minmax(0, 1.28fr); }
   .veyaJourney ol { grid-template-columns: 1fr; background: #cde6e6; }
   .veyaJourney li:not(:last-child)::after { display: none; }
@@ -447,6 +448,8 @@
   .systemV3Strip li + li { border-left: 1px solid #cde6e6; }
   .veyaV3Grid { grid-template-columns: minmax(0,.41fr) minmax(0,.59fr); }
   .supportV3Grid { grid-template-columns: minmax(0,.4fr) minmax(0,.6fr); }
+  .labHero { align-items: start; }
+  .labV4Artwork { padding-top: clamp(2rem, 3.5vw, 3.5rem); }
 }
 
 @media (max-width: 639px) {
@@ -493,6 +496,8 @@
   .missionV3Principles li::after { display: none; }
   .missionV3Principles h3 { margin-top: 0 !important; }.missionV3Principles p { max-width: none; }
   .missionV4Artwork, .systemV4Artwork, .veyaV4Artwork, .supportV4Artwork { order: 1; width: calc(100% + 2rem); margin-top: 0; margin-left: -1rem; }
+  .systemV4Artwork, .veyaV4Artwork { width: calc(100% + 6rem); margin-left: -3rem; }
+  .veyaV4Artwork { margin-left: 0; }
   .missionV4Artwork { order: 2; margin-top: 1.5rem; }
   .labHero { gap: 2.5rem; }
   .labV4Artwork { width: calc(100% + 2rem); margin-left: -1rem; }
@@ -505,8 +510,9 @@
 @media (min-width: 640px) and (max-width: 1199px) {
   .missionV3Grid, .veyaV3Grid, .supportV3Grid, .labHero { grid-template-columns: 1fr; }
   .missionV3Principles { width: 100%; }
-  .missionV4Artwork, .veyaV4Artwork, .supportV4Artwork { width: min(100%, 64rem); margin: 0 auto; }
-  .systemV4Artwork { width: min(82%, 52rem); }
+  .missionV4Artwork, .supportV4Artwork { width: min(100%, 64rem); margin: 0 auto; }
+  .systemV4Artwork { width: min(96%, 66rem); }
+  .veyaV4Artwork { width: min(118%, 80rem); justify-self: center; margin: 0; }
   .labV4Artwork { width: min(100%, 64rem); margin: 0 auto; }
   .supportV3Areas { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }

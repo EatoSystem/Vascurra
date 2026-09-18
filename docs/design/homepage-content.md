@@ -3,7 +3,7 @@
 ## Hero
 **Intelligence for vascular cognitive health.**
 
-Support independence. Preserve identity.
+Support independence. Preserve identity. Pursue breakthroughs.
 
 Vascurra is being developed to help people, families, clinicians and research better understand change over time — combining context, careful technology and human judgement.
 

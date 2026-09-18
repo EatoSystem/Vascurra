@@ -25,7 +25,7 @@ Sections:
 
 - animated Vascurra brain hero;
 - `AI for vascular cognitive health`;
-- `Support independence. Preserve identity.`;
+- `Support independence. Preserve identity. Pursue breakthroughs.`;
 - problem overview;
 - Personal / Family / Clinical / Research overview;
 - founding philosophy;

@@ -22,6 +22,7 @@ Examples:
 
 - `AI for vascular cognitive health.`
 - `Support independence. Preserve identity.`
+- `Support independence. Preserve identity. Pursue breakthroughs.`
 - `A proposed human-centered support platform.`
 - `Designed to help people, families and clinicians organise meaningful context over time.`
 - `Built with privacy, consent and human judgement in mind.`
