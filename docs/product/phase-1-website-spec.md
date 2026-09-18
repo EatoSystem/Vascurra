@@ -93,6 +93,15 @@ Conceptual future experience:
 - consent, capacity and control principles;
 - public-site privacy notice once analytics/forms are configured.
 
+### `/veya`
+
+- position Veya as the proposed everyday conversational relationship layer of Vascurra;
+- show optional interactions across a day without implying constant monitoring;
+- explain person-controlled memory, provenance and continuity over time;
+- distinguish permission-led Family, human-reviewed Clinician and separately governed Research perspectives;
+- describe reminders only as user-chosen support around an agreed medication schedule;
+- state clearly that the experience is conceptual and does not diagnose, predict, prescribe, change medication, provide emergency care or replace clinical judgement.
+
 ### `/early-access`
 
 Interest form with role selection:

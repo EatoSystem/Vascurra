@@ -79,15 +79,15 @@ export const publicPages = {
     ], closing: "Experience → Context → Interpretation → Support → Learning", ctas: [{ label: "Meet Veya", href: "/veya" }, { label: "Explore Vascurra Intelligence", href: "/intelligence" }],
   },
   veya: {
-    slug: "veya", eyebrow: "Veya", title: ["Your way", "through Vascurra."], accent: "through Vascurra.",
-    lead: "A calm conversational layer designed to help make complexity more understandable. Veya echoes ‘via’ and ‘way’—a route through complexity.", qualifier: "Veya is proposed. It is not a doctor, diagnostic system, emergency service, medication adviser or replacement for clinicians.",
-    artwork: artwork("Veya", "Veya signature", "Introduce Veya as a calm conversational presence.", "Portrait / 4:5", "Portrait / 4:5", "A simple luminous form emerging from the Vascurra ribbon; no chatbot, robot, face or brain.", "veya-signature"),
+    slug: "veya", eyebrow: "Veya", title: ["Your everyday", "intelligence companion."], accent: "intelligence companion.",
+    lead: "There when you need it. Learning with you over time. Veya is the proposed daily relationship layer of Vascurra, designed around flexible interaction and human control.", qualifier: "Veya is conceptual and under development. It is not a doctor, diagnostic system, emergency service, medication adviser or replacement for clinicians.",
+    artwork: artwork("Veya", "A day with Veya", "Show optional support across a person's day without implying surveillance.", "Wide / 16:7", "Portrait / 4:5", "A light temporal ribbon connecting a chosen check-in, reminder, question, preparation and reflection. No chatbot, robot, face, brain or phone mockup.", "veya-daily-rhythm"),
     sections: [
-      { eyebrow: "Proposed capabilities", title: "Complexity made more usable.", body: ["Veya could explain information in plain language, capture context a person chooses to share, prepare questions, organise what matters and surface meaningful changes for review."], items: [
-        { title: "Conversation", body: "A calm route into the wider Vascurra experience." }, { title: "Preparation", body: "Help organise questions and relevant context before conversations." }, { title: "Control", body: "The person chooses what to share and what support is useful." },
+      { eyebrow: "A flexible relationship", title: "Available when useful. Quiet when it is not.", body: ["Veya could support a quick question, a chosen reminder, a note or a longer conversation without requiring constant reporting."], items: [
+        { title: "Conversation", body: "Ask in everyday language and keep source and uncertainty visible." }, { title: "Continuity", body: "Keep chosen context connected across days and conversations." }, { title: "Control", body: "The person chooses what is remembered, shared, paused or deleted." },
       ] },
-      { eyebrow: "A clear distinction", title: "Understanding and usefulness.", body: ["Vascurra Intelligence helps make sense of the system. Veya helps make that understanding useful to people. Vascurra Lab connects future research and learning."] },
-    ], closing: "Conversation → Context and governed reasoning → Research and learning", ctas: [{ label: "Explore Vascurra Intelligence", href: "/intelligence" }],
+      { eyebrow: "A clear distinction", title: "Everyday relationship, governed interpretation and research learning.", body: ["Veya is the human-facing relationship layer. Vascurra Intelligence is the proposed governed interpretation layer. Vascurra Lab is the future research-learning environment."] },
+    ], closing: "There when you need it. Learning with you over time.", ctas: [{ label: "See a day with Veya", href: "/veya#day-with-veya" }],
   },
   intelligence: {
     slug: "intelligence", eyebrow: "Vascurra Intelligence", title: ["From information", "to understanding."], accent: "to understanding.",

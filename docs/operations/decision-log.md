@@ -380,3 +380,13 @@ architecture and principles sections.
 **Why:** Internal attribution is useful project context but is not consent or approval for public publication.
 
 **Implications:** Any future public attribution requires an explicit content decision and privacy review.
+
+### 2026-09-18 — Veya becomes the optional daily relationship layer
+
+**Decision:** Position Veya on the public website as “Your everyday intelligence companion”: a proposed, optional conversational relationship that can keep chosen context connected over time. Replace the narrow generic inner-page story with a dedicated editorial `/veya` composition and five coded artwork handoffs.
+
+**Why:** The earlier copy described a route through Vascurra but did not make Veya's everyday role, flexible rhythm, continuity, provenance, permissions or relationship to Vascurra Lab sufficiently clear.
+
+**Safety boundary:** Public copy may describe optional check-ins, questions, notes, preparation and reminders around an agreed medication schedule. It must not imply autonomous monitoring, diagnosis, prediction, medication prescribing or changes, emergency management, automatic sharing or research participation. Important patterns lead to human review.
+
+**Implications:** `/veya` remains conceptual and `noindex, nofollow` with the unfinished V2 routes. No product workflow, health-data collection, production AI, database, environment variable or release-gate behaviour is introduced by this decision.

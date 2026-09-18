@@ -3,7 +3,7 @@ import { artworkManifest } from "./artwork-manifest";
 import { innerSitePages, type InnerStoryPage } from "./inner-site";
 import { publicPages } from "./vascurra/public-site";
 
-const expected = ["why-vascurra", "patient-0", "how-it-works", "families", "clinicians", "veya", "intelligence", "research", "lab", "responsible", "support", "about"];
+const expected = ["why-vascurra", "patient-0", "how-it-works", "families", "clinicians", "intelligence", "research", "lab", "responsible", "support", "about"];
 const prohibitedPositiveClaims = [/vascurra (?:slows|prevents|predicts|diagnoses|cures|improves)/i, /clinically validated/i, /proven efficacy/i, /has produced discoveries/i];
 
 describe("Phase 2 inner-site stories", () => {

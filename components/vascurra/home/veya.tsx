@@ -1,22 +1,59 @@
-import { VascurraGradientText } from "./gradient-text";
-import { SectionIcon } from "./section-icon";
-import { V4ArtworkSlot, v4Artwork } from "./v4-artwork-slot";
-import styles from "./homepage-scaffold.module.css";
+import Link from "next/link";
+import { VeyaDailyRhythm } from "@/components/vascurra/veya/VeyaVisuals";
+import { veyaHomepage, veyaMoments } from "@/content/veya";
+import styles from "./veya-home.module.css";
 
-const capabilities = [
-  ["Ask / capture", "Bring questions, observations and useful context together.", "conversation"],
-  ["Understand", "Organise context and make complex information easier to understand.", "context"],
-  ["Prepare", "Turn understanding into useful preparation and better conversations.", "prepare"],
-  ["Learn", "Carry context forward and identify questions worth exploring.", "book"],
-] as const;
 export function Veya() {
   return (
-    <section id="veya" aria-labelledby="veya-heading" className={`${styles.section} ${styles.veyaV3}`}>
-      <div className={`${styles.inner} ${styles.veyaV3Grid}`}>
-        <div className={styles.veyaV3Copy}><p className={styles.eyebrow}>Veya</p><h2 id="veya-heading" className={styles.veyaV3Heading}><span>Complexity,</span><VascurraGradientText>made more understandable.</VascurraGradientText></h2><p className={styles.veyaV3Lead}>Your way through Vascurra.</p><ol className={styles.veyaV3Capabilities}>{capabilities.map(([name, body, icon]) => <li key={name}><span className={styles.v3Icon}><SectionIcon name={icon} /></span><div><h3>{name}</h3><p>{body}</p></div></li>)}</ol></div>
-        <div className={styles.veyaV4Artwork}><V4ArtworkSlot sizes="(max-width: 639px) 116vw, (max-width: 1199px) 118vw, 78vw" slot="veya-flow" source={v4Artwork.veya} /></div>
+    <section id="veya" aria-labelledby="veya-heading" className={styles.section}>
+      <div className={styles.shell}>
+        <div className={styles.intro}>
+          <div>
+            <p className={styles.eyebrow}>{veyaHomepage.eyebrow}</p>
+            <h2 id="veya-heading" className={styles.heading}>
+              <span>{veyaHomepage.headline[0]}</span>
+              <span className={styles.gradient}>{veyaHomepage.headline[1]}</span>
+            </h2>
+          </div>
+          <div className={styles.introCopy}>
+            <p className={styles.supporting}>{veyaHomepage.supporting.map((line) => <span key={line}>{line}</span>)}</p>
+            <p className={styles.secondary}>{veyaHomepage.secondary}</p>
+            <p>{veyaHomepage.introduction}</p>
+          </div>
+        </div>
+
+        <div className={styles.rhythmHeading}>
+          <p className={styles.eyebrow}>{veyaHomepage.rhythmLabel}</p>
+          <p>{veyaHomepage.rhythmNote}</p>
+        </div>
+        <VeyaDailyRhythm moments={veyaMoments} />
+
+        <div className={styles.frequency}>
+          <p>{veyaHomepage.frequency.map((line) => <span key={line}>{line}</span>)}</p>
+          <small>{veyaHomepage.frequencyBody}</small>
+        </div>
+
+        <div className={styles.context}>
+          <div>
+            <p className={styles.eyebrow}>Context over time</p>
+            <ul>{veyaHomepage.contextInputs.map((item) => <li key={item}>{item}</li>)}</ul>
+          </div>
+          <div className={styles.contextOutcome} aria-label={`${veyaHomepage.contextOutcome[0]} leads to ${veyaHomepage.contextOutcome[1]}`}>
+            <span>{veyaHomepage.contextOutcome[0]}</span>
+            <span aria-hidden="true">↓</span>
+            <strong>{veyaHomepage.contextOutcome[1]}</strong>
+          </div>
+        </div>
+
+        <div className={styles.outputs} aria-label="Potential Veya perspectives">
+          {veyaHomepage.outputs.map((output) => <article key={output.label}><h3>{output.label}</h3><p>{output.body}</p></article>)}
+        </div>
+
+        <div className={styles.close}>
+          <p>{veyaHomepage.boundary}</p>
+          <Link href={veyaHomepage.cta.href}>{veyaHomepage.cta.label}<span aria-hidden="true"> →</span></Link>
+        </div>
       </div>
-      <div className={`${styles.inner} ${styles.veyaV3Footer}`}><p><strong>Behind Veya, Vascurra can</strong> organise context, preserve provenance, surface uncertainty, connect relevant evidence and support human review.</p><small>Veya is not a doctor, diagnosis, emergency service or autonomous medical decision-maker.</small></div>
     </section>
   );
 }

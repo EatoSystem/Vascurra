@@ -21,10 +21,10 @@ export const homepageV2 = {
     qualifier: "A conceptual framework for organising context over time.",
   },
   veya: {
-    lead: "Your way through Vascurra.",
-    body: "Veya is the planned conversational layer of Vascurra. It is designed to explain information in plain language, capture context a person chooses to record, prepare questions and surface changes that may deserve review.",
-    relationship: "Vascurra Intelligence helps make sense of the system. Veya helps make that understanding useful to people.",
-    points: ["Explain information clearly.", "Capture chosen context.", "Prepare useful questions.", "Surface changes for review."],
+    lead: "Your everyday intelligence companion.",
+    body: "Veya is the proposed daily relationship layer of Vascurra: available when useful, able to keep chosen context connected over time and designed to adapt without demanding constant interaction.",
+    relationship: "Vascurra Intelligence provides the governed interpretation layer. Veya makes appropriate context useful in everyday life, while the person remains in control.",
+    points: ["Ask in everyday language.", "Keep chosen context connected.", "Prepare useful questions.", "Bring patterns forward for review."],
   },
   intelligence: {
     principles: [
