@@ -225,7 +225,7 @@ export type NavigationItem = {
 
 export const primaryNav = [
   { label: "Why Vascurra", href: "/why-vascurra" },
-  { label: "How It Works", href: "/how-it-works" },
+  { label: "The System", href: "/system" },
   { label: "Veya", href: "/veya" },
   { label: "For You", children: [{ label: "Personal", href: "/personal" }, { label: "Family", href: "/families" }, { label: "Clinicians", href: "/clinicians" }] },
   { label: "Research", children: [{ label: "Vascurra Lab", href: "/lab" }, { label: "Research", href: "/research" }, { label: "Responsible", href: "/responsible" }] },

@@ -1,27 +1,28 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { StrategicChapter, StrategicPage as StrategicPageContent } from "@/content/strategic-pages";
+import { FundAllocationVisual, FundFlywheel, FundHeroVisual, FundHorizons, FundTransparencyVisual, RoadmapGlobalVisual, RoadmapJourney, SystemHeroVisual, SystemPerspectivesVisual, SystemResearchLoop, SystemTimeline } from "./StrategicVisuals";
 import styles from "./strategic-page.module.css";
 
-function Flow({ steps }: { steps: readonly string[] }) {
-  return <ol className={styles.flow} aria-label="Process sequence">{steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span><strong>{step}</strong>{index < steps.length - 1 ? <i aria-hidden="true">↓</i> : null}</li>)}</ol>;
+function Hero({ page, visual }: { page: StrategicPageContent; visual: ReactNode }) {
+  return <header className={`${styles.hero} ${styles[`${page.slug}Hero`]}`}><div className={styles.shell}><div className={styles.heroGrid}><div className={styles.heroCopy}><p className={styles.eyebrow}>{page.eyebrow}</p><h1>{page.title.map(line=><span className={line===page.accent?styles.accent:undefined} key={line}>{line}</span>)}</h1><p className={styles.lead}>{page.lead}</p><p className={styles.qualifier}>{page.qualifier}</p><nav className={styles.heroLinks} aria-label="Page introduction">{page.slug==="system"?<><Link href="/how-it-works">How it works</Link><Link href="/veya">Discover Veya</Link></>:page.slug==="fund"?<><Link href="/support">Ways to support</Link><Link href="/roadmap">Explore the roadmap</Link></>:<><Link href="#roadmap-journey-title">View the journey</Link><Link href="/system">Explore the system</Link></>}</nav></div>{visual}</div></div></header>;
 }
 
-function Chapter({ chapter, index }: { chapter: StrategicChapter; index: number }) {
-  const headingId = `chapter-${index + 2}`;
-  return <section className={`${styles.chapter} ${chapter.tone === "deep" ? styles.deep : chapter.tone === "quiet" ? styles.quiet : ""}`} aria-labelledby={headingId}>
-    <div className={styles.shell}>
-      <div className={styles.chapterIntro}><p className={styles.eyebrow}>{chapter.eyebrow}</p><h2 id={headingId}>{chapter.title.map((line) => <span key={line}>{line}</span>)}</h2>{chapter.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-      {chapter.flow ? <Flow steps={chapter.flow} /> : null}
-      {chapter.items ? <ul className={styles.items}>{chapter.items.map((item, itemIndex) => <li key={item.title}><span className={styles.itemNumber}>{String(itemIndex + 1).padStart(2, "0")}</span><div>{item.status ? <span className={styles.status}>{item.status}</span> : null}<h3>{item.title}</h3>{item.body ? <p>{item.body}</p> : null}</div></li>)}</ul> : null}
-      {chapter.note ? <p className={styles.note}>{chapter.note}</p> : null}
-    </div>
-  </section>;
+function EditorialChapter({ chapter, index, children, className="" }: { chapter: StrategicChapter; index: number; children?: ReactNode; className?: string }) {
+  const headingId=`chapter-${index+2}`;
+  return <section className={`${styles.chapter} ${chapter.tone==="deep"?styles.deep:chapter.tone==="quiet"?styles.quiet:""} ${className}`} aria-labelledby={headingId}><div className={styles.shell}><div className={styles.chapterIntro}><p className={styles.eyebrow}>{chapter.eyebrow}</p><h2 id={headingId}>{chapter.title.map(line=><span key={line}>{line}</span>)}</h2><div>{chapter.body.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div></div>{children}{chapter.note?<p className={styles.note}>{chapter.note}</p>:null}</div></section>;
 }
 
-export function StrategicPage({ page }: { page: StrategicPageContent }) {
-  return <main id="main" className={styles.page}>
-    <header className={styles.hero}><div className={styles.shell}><p className={styles.eyebrow}>{page.eyebrow}</p><h1>{page.title.map((line) => <span className={line === page.accent ? styles.accent : undefined} key={line}>{line}</span>)}</h1><p className={styles.lead}>{page.lead}</p><p className={styles.qualifier}>{page.qualifier}</p><nav className={styles.heroLinks} aria-label="Page introduction">{page.slug === "system" ? <><Link href="/how-it-works">How it works</Link><Link href="/veya">Discover Veya</Link></> : page.slug === "fund" ? <><Link href="/support">Ways to support</Link><Link href="/roadmap">Explore the roadmap</Link></> : <><Link href="#chapter-2">View current phase</Link><Link href="/system">Explore the system</Link></>}</nav></div></header>
-    {page.chapters.map((chapter, index) => <Chapter chapter={chapter} index={index} key={chapter.eyebrow} />)}
-    <section className={styles.closing} aria-labelledby="strategic-close"><div className={styles.shell}><h2 id="strategic-close">{page.closing.title.map((line) => <span key={line}>{line}</span>)}</h2><p>{page.closing.body}</p><nav aria-label="Continue exploring">{page.closing.ctas.map((cta) => <Link href={cta.href} key={cta.href}>{cta.label}</Link>)}</nav></div></section>
-  </main>;
+function SimpleItems({ items }: { items: NonNullable<StrategicChapter["items"]> }) {
+  return <ul className={styles.editorialItems}>{items.map((item,index)=><li key={item.title}><span>{String(index+1).padStart(2,"0")}</span><div><h3>{item.title}</h3>{item.body?<p>{item.body}</p>:null}</div></li>)}</ul>;
 }
+
+function SystemPage({page}:{page:StrategicPageContent}){const c=page.chapters;return <><Hero page={page} visual={<SystemHeroVisual/>}/><EditorialChapter chapter={c[0]!} index={0} className={styles.personChapter}><SimpleItems items={c[0]!.items!}/></EditorialChapter><EditorialChapter chapter={c[1]!} index={1}><div className={styles.veyaBridge}><span>Person</span><i aria-hidden="true"/><strong>Veya</strong><i aria-hidden="true"/><span>Information system</span></div><SimpleItems items={c[1]!.items!}/></EditorialChapter><EditorialChapter chapter={c[2]!} index={2}><SystemTimeline steps={c[2]!.flow!} markers={c[2]!.items!}/></EditorialChapter><EditorialChapter chapter={c[3]!} index={3}><SystemPerspectivesVisual items={c[3]!.items!}/></EditorialChapter><EditorialChapter chapter={c[4]!} index={4}><div className={styles.supportLoop}>{c[4]!.flow!.map((item,index)=><span key={item}><small>{String(index+1).padStart(2,"0")}</small>{item}</span>)}</div></EditorialChapter><EditorialChapter chapter={c[5]!} index={5}><SystemResearchLoop steps={c[5]!.flow!}/></EditorialChapter><EditorialChapter chapter={c[6]!} index={6}><div className={styles.coDesignLoop}>{c[6]!.flow!.map(item=><span key={item}>{item}</span>)}</div></EditorialChapter><EditorialChapter chapter={c[7]!} index={7}><SimpleItems items={c[7]!.items!}/></EditorialChapter></>}
+
+function FundPage({page}:{page:StrategicPageContent}){const c=page.chapters;return <><Hero page={page} visual={<FundHeroVisual/>}/><EditorialChapter chapter={c[0]!} index={0}><div className={styles.capacityWords}>{["Models","Compute","People","Governance","Infrastructure"].map(item=><span key={item}>{item}</span>)}</div></EditorialChapter><EditorialChapter chapter={c[1]!} index={1}><FundAllocationVisual items={c[1]!.items!}/></EditorialChapter><EditorialChapter chapter={c[2]!} index={2}><FundHorizons steps={c[2]!.flow!}/></EditorialChapter><EditorialChapter chapter={c[3]!} index={3}><FundFlywheel steps={c[3]!.flow!}/></EditorialChapter><EditorialChapter chapter={c[4]!} index={4}><div className={styles.supportStreams}>{["Individuals","Philanthropy","Foundations","Grants","Compute","Collaborators","Revenue","Licences","In-kind support"].map(item=><span key={item}>{item}</span>)}</div></EditorialChapter><EditorialChapter chapter={c[5]!} index={5}><FundTransparencyVisual/></EditorialChapter><EditorialChapter chapter={c[6]!} index={6}><div className={styles.nextQuestion}><span aria-hidden="true">?</span><strong>Support → capacity → a better question</strong></div></EditorialChapter></>}
+
+function RoadmapPage({page}:{page:StrategicPageContent}){const c=page.chapters;return <><Hero page={page} visual={<RoadmapGlobalVisual/>}/><RoadmapJourney chapters={c.slice(0,3)}/><EditorialChapter chapter={c[3]!} index={8} className={styles.globalChapter}><RoadmapGlobalVisual/></EditorialChapter></>}
+
+function Closing({page}:{page:StrategicPageContent}){return <section className={styles.closing} aria-labelledby="strategic-close"><div className={styles.shell}><h2 id="strategic-close">{page.closing.title.map(line=><span key={line}>{line}</span>)}</h2><p>{page.closing.body}</p><nav aria-label="Continue exploring">{page.closing.ctas.map((cta,index)=><Link className={index>0?styles.secondaryCta:undefined} href={cta.href} key={cta.href}>{cta.label}</Link>)}</nav></div></section>}
+
+export function StrategicPage({page}:{page:StrategicPageContent}){return <main id="main" className={styles.page}>{page.slug==="system"?<SystemPage page={page}/>:page.slug==="fund"?<FundPage page={page}/>:<RoadmapPage page={page}/>}<Closing page={page}/></main>}
