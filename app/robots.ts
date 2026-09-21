@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         "/preview", "/early-access", "/why-vascurra", "/patient-0",
         "/how-it-works", "/veya", "/intelligence", "/lab", "/people", "/personal",
         "/families", "/clinicians", "/research", "/responsible", "/support",
-        "/about", "/access", "/contact", "/terms", "/accessibility", "/disclaimer",
+        "/about", "/system", "/fund", "/roadmap", "/access", "/contact", "/terms", "/accessibility", "/disclaimer",
       ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,

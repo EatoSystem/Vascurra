@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { artworkManifest } from "./artwork-manifest";
 import { innerSitePages, type InnerStoryPage } from "./inner-site";
 import { publicPages } from "./vascurra/public-site";
+import { strategicPages } from "./strategic-pages";
 
 const expected = ["why-vascurra", "patient-0", "how-it-works", "families", "clinicians", "intelligence", "research", "lab", "responsible", "support", "about"];
 const prohibitedPositiveClaims = [/vascurra (?:slows|prevents|predicts|diagnoses|cures|improves)/i, /clinically validated/i, /proven efficacy/i, /has produced discoveries/i];
@@ -21,7 +22,7 @@ describe("Phase 2 inner-site stories", () => {
   });
 
   it("keeps next chapters on real internal routes", () => {
-    const valid = new Set(["/personal", "/privacy", ...Object.keys(publicPages).map((slug) => `/${slug}`)]);
+    const valid = new Set(["/personal", "/privacy", ...Object.keys(publicPages).map((slug) => `/${slug}`), ...Object.keys(strategicPages).map((slug) => `/${slug}`)]);
     for (const page of Object.values(innerSitePages) as readonly InnerStoryPage[]) {
       expect(valid.has(page.next.href), `${page.slug} → ${page.next.href}`).toBe(true);
       for (const cta of page.closing.ctas) expect(valid.has(cta.href), `${page.slug} → ${cta.href}`).toBe(true);
