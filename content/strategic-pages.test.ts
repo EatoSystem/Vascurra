@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { primaryNav } from "./vascurra/public-site";
+import { strategicArtworkManifest } from "./strategic-artwork";
 import { strategicPages, type StrategicChapter } from "./strategic-pages";
 
 const prohibitedClaims = [
@@ -45,7 +46,19 @@ describe("Wave 2A strategic pages", () => {
   });
 
   it("exposes Roadmap while keeping Fund discoverable through Support", () => {
+    expect(primaryNav.some((item) => item.label === "The System" && "href" in item && item.href === "/system")).toBe(true);
     expect(primaryNav.some((item) => item.label === "Roadmap" && "href" in item && item.href === "/roadmap")).toBe(true);
     expect(JSON.stringify(strategicPages.fund.closing.ctas)).toContain("/support");
+  });
+
+  it("defines replaceable artwork handoffs for every flagship page", () => {
+    expect(strategicArtworkManifest).toHaveLength(7);
+    expect(new Set(strategicArtworkManifest.map((item) => item.assetKey)).size).toBe(strategicArtworkManifest.length);
+    expect(new Set(strategicArtworkManifest.map((item) => item.route))).toEqual(new Set(["/system", "/fund", "/roadmap"]));
+    for (const item of strategicArtworkManifest) {
+      expect(item.alt.length).toBeGreaterThan(40);
+      expect(item.brief.length).toBeGreaterThan(80);
+      expect(item.status).toBe("coded visual active; external artwork optional");
+    }
   });
 });

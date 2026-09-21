@@ -1,0 +1,21 @@
+export type StrategicArtworkBrief = {
+  readonly assetKey: string;
+  readonly route: "/system" | "/fund" | "/roadmap";
+  readonly section: string;
+  readonly desktop: string;
+  readonly mobile: string;
+  readonly background: "white / transparent" | "deep navy / transparent";
+  readonly alt: string;
+  readonly brief: string;
+  readonly status: "coded visual active; external artwork optional";
+};
+
+export const strategicArtworkManifest = [
+  { assetKey: "system-human-network", route: "/system", section: "hero", desktop: "1800 × 1350 px (4:3)", mobile: "1200 × 1500 px (4:5)", background: "white / transparent", alt: "The person connects through Veya and the information system to permission-specific perspectives and a human-reviewed learning loop.", brief: "One dominant human origin; fine cyan-teal-green ribbons through Veya and the information system; selectively open Personal, Family, Clinician and Research paths; Lab and learning return toward the person. No boxes, brain or diagnostic symbolism.", status: "coded visual active; external artwork optional" },
+  { assetKey: "system-perspectives", route: "/system", section: "human perspectives", desktop: "1800 × 900 px (2:1)", mobile: "1200 × 1500 px (4:5)", background: "white / transparent", alt: "Four distinct perspectives connect selectively to a person at the centre.", brief: "Person-centred radial permission map. Personal has the most direct path; Family is visibly conditional; Clinician is prepared for review; Research is separated by a governed gap. No lock icons.", status: "coded visual active; external artwork optional" },
+  { assetKey: "system-research-loop", route: "/system", section: "research connection", desktop: "1800 × 900 px (2:1)", mobile: "1200 × 1500 px (4:5)", background: "deep navy / transparent", alt: "Real-life questions pass through evidence, AI, compute, experts and explicit human review before learning returns to the system.", brief: "Open research ribbon with Human Review visually dominant. Preserve source distinctions and show the return path to system improvement without suggesting autonomous discovery.", status: "coded visual active; external artwork optional" },
+  { assetKey: "fund-capacity-engine", route: "/fund", section: "hero", desktop: "1800 × 1350 px (4:3)", mobile: "1200 × 1500 px (4:5)", background: "white / transparent", alt: "Six resource streams converge into Vascurra and flow outward into learning, systems, research and products.", brief: "Energetic but restrained converging flows for AI and Compute, Research, Systems Development, Experts, Co-design and Open Knowledge. No currency, investment or crypto motifs.", status: "coded visual active; external artwork optional" },
+  { assetKey: "fund-flywheel", route: "/fund", section: "flywheel", desktop: "1800 × 1100 px (18:11)", mobile: "1200 × 1500 px (4:5)", background: "white / transparent", alt: "An open continuous funding and learning loop links support, capability, knowledge, products, value and renewed research capacity.", brief: "One open asymmetric ribbon rather than a corporate wheel. Keep the aspiration disclaimer immediately attached and render no monetary amounts or charts.", status: "coded visual active; external artwork optional" },
+  { assetKey: "roadmap-human-to-global", route: "/roadmap", section: "journey", desktop: "2200 × 1200 px (11:6)", mobile: "1200 × 2400 px (1:2)", background: "white / transparent", alt: "A ten-stage path grows from Patient 0 through Veya, systems, research, products and open knowledge toward responsible global scale.", brief: "Sweeping route that grows in breadth and complexity. Explicit Current, Next and Future text markers; one-person origin; no timeline chart or repeated cards.", status: "coded visual active; external artwork optional" },
+  { assetKey: "roadmap-global-network", route: "/roadmap", section: "global close", desktop: "1800 × 900 px (2:1)", mobile: "1200 × 1500 px (4:5)", background: "deep navy / transparent", alt: "Knowledge paths spread responsibly from one human starting point into a wider international network.", brief: "Subtle expanding knowledge field with open paths and governed nodes. Avoid a literal globe, flags or random corporate connection lines.", status: "coded visual active; external artwork optional" },
+] as const satisfies readonly StrategicArtworkBrief[];
