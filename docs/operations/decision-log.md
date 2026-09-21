@@ -22,6 +22,40 @@ Record material product decisions here so coding agents do not repeatedly reopen
 
 ## Initial decisions
 
+### 2026-09-21 — Limited public attribution for Dad and Patient 0
+
+**Decision:** Vascurra may publicly state that it is being designed with Dad,
+a former GP living with early vascular dementia. Materially equivalent wording
+may describe Dad as the human starting point, Patient 0 and a co-designer, and
+may explain that Vascurra is being developed first with and for him before its
+learning is developed responsibly into systems for more people.
+
+**Supersedes:** Only the public-attribution restriction in the 2026-09-05
+decision “Public attribution remains separate from internal documentation.”
+That historical decision remains below as context.
+
+**Privacy boundary:** The approved public health description is limited to
+“former GP living with early vascular dementia.” Public copy must not include
+his name, age, diagnosis date, detailed medical history, medication,
+measurements, records, test results, clinicians, hospitals, private
+conversations, personal health data or any other medical detail without a new
+explicit approval.
+
+**Patient 0 meaning:** Patient 0 means the first person Vascurra is being
+designed with and for. It does not imply a clinical trial, medical experiment,
+research-subject status, proof of efficacy or clinical validation.
+
+**Implications:** The canonical strategic direction may describe Vascurra as a
+continuously learning Vascular Dementia Information System being designed with
+Dad. This is project direction, not evidence of clinical effectiveness. All
+other privacy, consent, claims, health-data, safety and release restrictions
+remain in force. Production remains on the holding page and unfinished V2
+routes remain gated and `noindex, nofollow`.
+
+**Owner:** Founder / Product Architecture
+
+---
+
 ### 2026-09-18 — Homepage hero extends the core support line
 
 **Decision:** Use `Support independence. Preserve identity. Pursue breakthroughs.`

@@ -1,5 +1,35 @@
 # Product Architecture
 
+> The canonical strategic definition and limited Dad/Patient 0 attribution are
+> recorded in the 2026-09-21 decision in
+> `docs/operations/decision-log.md`.
+
+## The seven-layer strategic system
+
+1. **Person** — the individual, their life, priorities, agency and choices stay
+   at the centre.
+2. **Veya** — the proposed everyday conversational relationship: optional
+   conversation, questions, check-ins, reminders, preparation and reflection.
+3. **Vascurra Information System** — a future structured layer that preserves
+   what information means by retaining source, time, type, uncertainty,
+   purpose, provenance and permissions.
+4. **Human perspectives** — Personal, Family, Clinician and Research views are
+   different and permission-appropriate. Family or Research access is never
+   automatic.
+5. **Vascurra Lab** — the proposed research-learning layer where lived
+   questions may meet evidence, literature, advanced AI, compute, expert input
+   and structured human review.
+6. **Vascurra Fund** — the project’s proposed financing programme for AI and
+   compute, research, systems development, experts, co-design and open
+   knowledge. This does not claim that a legal charitable fund or proven
+   business model exists.
+7. **Global products and research infrastructure** — the long-term direction,
+   subject to evidence, validation, governance and responsible development.
+
+These layers describe public website and project architecture. They do not
+authorise live health workflows, data collection, production AI, research use
+or regulated functionality.
+
 ## One platform, four perspectives
 
 Vascurra is conceived as four connected experiences sharing a consented information foundation.
