@@ -1,4 +1,5 @@
 import { homepageV2 } from "@/content/homepage-v2";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { VascurraGradientText } from "./gradient-text";
 import { SectionIcon } from "./section-icon";
 import { V4ArtworkSlot, v4Artwork } from "./v4-artwork-slot";
@@ -25,6 +26,7 @@ export function Framework() {
         <div className={styles.systemV3Perspectives}>{perspectives.map(([name, , body, icon]) => <article key={name}><span className={styles.v3Icon}><SectionIcon name={icon} /></span><div><h3>{name}</h3><p>{body}</p></div></article>)}</div>
         <ol className={styles.systemV3Strip}>{stages.map(([name, body], index) => <li key={name}><span>{index + 1}</span><div><h3>{name}</h3><p>{body}</p></div></li>)}</ol>
         <p className={styles.systemV3Boundary}>The same underlying context can support different people in different ways. <span>Role · Permission · Purpose · Control</span> Family and research access are never automatic, and clinician context does not mean autonomous clinical decision-making.</p>
+        <CtaLink href="/system" variant="secondary" className={styles.cta}>Explore the Vascurra System</CtaLink>
       </div>
     </section>
   );

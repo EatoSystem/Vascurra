@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function V2Layout({ children }: Readonly<{ children: ReactNode }>) {
-  return <><SiteHeader links={primaryNav} homeHref="/preview" ctaHref="/access" ctaLabel="Request Access" />{children}<VascurraFooter /></>;
+  return <><SiteHeader links={primaryNav} homeHref="/preview" ctaHref="/support" ctaLabel="Support" />{children}<VascurraFooter /></>;
 }

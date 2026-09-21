@@ -228,14 +228,15 @@ export const primaryNav = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Veya", href: "/veya" },
   { label: "For You", children: [{ label: "Personal", href: "/personal" }, { label: "Family", href: "/families" }, { label: "Clinicians", href: "/clinicians" }] },
-  { label: "Research", children: [{ label: "Vascurra Intelligence", href: "/intelligence" }, { label: "Research", href: "/research" }, { label: "Vascurra Lab", href: "/lab" }, { label: "Responsible by Design", href: "/responsible" }] },
+  { label: "Research", children: [{ label: "Vascurra Lab", href: "/lab" }, { label: "Research", href: "/research" }, { label: "Responsible", href: "/responsible" }] },
+  { label: "Roadmap", href: "/roadmap" },
   { label: "Support", href: "/support" },
 ] as const satisfies readonly NavigationItem[];
 
 export const footerGroups = [
-  { title: "Explore", links: [{ label: "Why Vascurra", href: "/why-vascurra" }, { label: "Patient 0", href: "/patient-0" }, { label: "How It Works", href: "/how-it-works" }, { label: "Veya", href: "/veya" }, { label: "Vascurra Intelligence", href: "/intelligence" }, { label: "Vascurra Lab", href: "/lab" }] },
+  { title: "Explore", links: [{ label: "Why Vascurra", href: "/why-vascurra" }, { label: "Patient 0", href: "/patient-0" }, { label: "The System", href: "/system" }, { label: "Veya", href: "/veya" }, { label: "Vascurra Lab", href: "/lab" }, { label: "Roadmap", href: "/roadmap" }] },
   { title: "For You", links: [{ label: "Personal", href: "/personal" }, { label: "Families", href: "/families" }, { label: "Clinicians", href: "/clinicians" }, { label: "Research", href: "/research" }] },
-  { title: "Project", links: [{ label: "About", href: "/about" }, { label: "Support", href: "/support" }, { label: "Request Access", href: "/access" }, { label: "Contact", href: "/contact" }] },
+  { title: "Project", links: [{ label: "About", href: "/about" }, { label: "Vascurra Fund", href: "/fund" }, { label: "Support", href: "/support" }, { label: "Request Access", href: "/access" }, { label: "Contact", href: "/contact" }] },
   { title: "Trust", links: [{ label: "Responsible by Design", href: "/responsible" }, { label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }, { label: "Accessibility", href: "/accessibility" }, { label: "Disclaimer", href: "/disclaimer" }] },
 ] as const;
 
