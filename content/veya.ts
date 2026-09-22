@@ -60,7 +60,9 @@ export const veyaHomepage = {
   rhythmLabel: "A day with Veya",
   rhythmNote: "Illustrative moments, not a required schedule.",
   frequency: ["Once.", "Several times.", "Or not at all."],
-  frequencyBody: "Veya is intended to adapt to the person. People could choose the routines, reminders and check-ins that work for them.",
+  frequencyBody: "Veya adapts to the person — not the other way around.",
+  contextLead: "A conversation today should not disappear tomorrow.",
+  contextBody: "Chosen questions, routines, observations and source-aware context could become more useful when understood over time.",
   contextInputs: ["Daily questions", "Conversations", "Routines", "Agreed medication information", "Observations", "Appointments"],
   contextOutcome: ["Better context", "Better questions"],
   outputs: [
@@ -69,6 +71,8 @@ export const veyaHomepage = {
     { label: "For clinicians", body: "Concise longitudinal context and better-prepared conversations for human review." },
     { label: "For research — separately governed", body: "Lived questions may help inform responsible research directions. Personal information does not automatically become research data." },
   ],
+  outputsSummary: "Different useful perspectives. Always governed by purpose and permission.",
+  outputsBoundaries: ["Family access is never automatic.", "Research use remains separately governed."],
   boundary: "Veya is a proposed companion, not a doctor, diagnosis, emergency service or autonomous medical decision-maker.",
   cta: { label: "Discover Veya", href: "/veya" },
 } as const;

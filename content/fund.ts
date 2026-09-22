@@ -25,8 +25,8 @@ export type FundFlywheelStage = {
 export const fundPage = {
   hero: {
     eyebrow: "Vascurra Fund",
-    title: ["Fund the", "next question."],
-    lead: "Vascurra is not being designed around one funding round or one research grant. The ambition is to build sustained financial, technical and research capacity for Veya, the information system, AI, compute, Vascurra Lab, expert collaboration and continuous development.",
+    title: ["Build", "permanent capacity", "to fight vascular dementia."],
+    lead: "Vascurra is not being designed around one funding round or one research grant. The ambition is to mobilise sustained financial, technical and research capacity for Veya, the information system, AI, compute, Vascurra Lab, expert collaboration and continuous development.",
     statement: ["Not one round.", "Not one grant.", "A capital flywheel."],
     qualifier: "Vascurra Fund describes the project's proposed capital mobilisation and financing model. It is not represented as a registered charity, tax-deductible fund, investment product or proven business model, and this website accepts no payments.",
   },

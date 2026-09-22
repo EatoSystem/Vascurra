@@ -4,6 +4,13 @@ import { fundPage } from "./fund";
 const copy = JSON.stringify(fundPage);
 
 describe("Vascurra Fund capital mobilisation model", () => {
+  it("uses the flagship capacity hero while retaining the campaign line", () => {
+    expect(fundPage.hero.title.join(" ")).toBe("Build permanent capacity to fight vascular dementia.");
+    expect(fundPage.hero.title.join(" ")).not.toBe("Fund the next question.");
+    expect(fundPage.hero.lead).toContain("mobilise sustained financial, technical and research capacity");
+    expect(fundPage.closing.eyebrow).toBe("Fund the next question");
+  });
+
   it("defines all four qualified mission-capacity horizons", () => {
     expect(fundPage.horizons.map((horizon) => horizon.amount)).toEqual(["€1–5M", "€10–25M", "€50–100M+", "€1B+"]);
     expect(fundPage.horizons.map((horizon) => horizon.title)).toEqual(["Build the foundation", "Build the research engine", "Build the international network", "Permanent global capacity"]);

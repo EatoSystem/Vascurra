@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
-import { VeyaDailyRhythm } from "@/components/vascurra/veya/VeyaVisuals";
-import { veyaHomepage, veyaMoments } from "@/content/veya";
+import { veyaHomepage } from "@/content/veya";
+import { v5Artwork, v5ArtworkSrc } from "@/content/v5-artwork";
 import styles from "./veya-home.module.css";
 
 export function Veya() {
@@ -22,11 +23,15 @@ export function Veya() {
           </div>
         </div>
 
-        <div className={styles.rhythmHeading}>
-          <p className={styles.eyebrow}>{veyaHomepage.rhythmLabel}</p>
-          <p>{veyaHomepage.rhythmNote}</p>
+        <div className={styles.dayChapter}>
+          <header className={styles.chapterHeading}>
+            <div><p className={styles.eyebrow}>Everyday rhythm</p><h3>{veyaHomepage.rhythmLabel}.</h3></div>
+            <p>Morning. During the day. Preparation. Evening. Over time.<br/><span>{veyaHomepage.rhythmNote}</span></p>
+          </header>
+          <figure className={styles.artwork} data-v5-artwork={v5Artwork.veyaDay.filename}>
+            <Image src={v5ArtworkSrc(v5Artwork.veyaDay)} alt={v5Artwork.veyaDay.alt} width={v5Artwork.veyaDay.width} height={v5Artwork.veyaDay.height} sizes="(max-width: 768px) 100vw, 92vw" quality={90}/>
+          </figure>
         </div>
-        <VeyaDailyRhythm moments={veyaMoments} />
 
         <div className={styles.frequency}>
           <p>{veyaHomepage.frequency.map((line) => <span key={line}>{line}</span>)}</p>
@@ -34,19 +39,20 @@ export function Veya() {
         </div>
 
         <div className={styles.context}>
-          <div>
+          <header className={styles.contextCopy}>
             <p className={styles.eyebrow}>Context over time</p>
+            <h3>{veyaHomepage.contextLead}</h3>
+            <p>{veyaHomepage.contextBody}</p>
             <ul>{veyaHomepage.contextInputs.map((item) => <li key={item}>{item}</li>)}</ul>
-          </div>
-          <div className={styles.contextOutcome} aria-label={`${veyaHomepage.contextOutcome[0]} leads to ${veyaHomepage.contextOutcome[1]}`}>
-            <span>{veyaHomepage.contextOutcome[0]}</span>
-            <span aria-hidden="true">↓</span>
-            <strong>{veyaHomepage.contextOutcome[1]}</strong>
-          </div>
+          </header>
+          <figure className={styles.contextArtwork} data-v5-artwork={v5Artwork.veyaContext.filename}>
+            <Image src={v5ArtworkSrc(v5Artwork.veyaContext)} alt={v5Artwork.veyaContext.alt} width={v5Artwork.veyaContext.width} height={v5Artwork.veyaContext.height} sizes="(max-width: 768px) 100vw, 76vw" quality={90}/>
+          </figure>
         </div>
 
         <div className={styles.outputs} aria-label="Potential Veya perspectives">
-          {veyaHomepage.outputs.map((output) => <article key={output.label}><h3>{output.label}</h3><p>{output.body}</p></article>)}
+          <p>{veyaHomepage.outputs.map((output, index) => <span key={output.label}>{output.label.replace(/^For /i, "")}{index < veyaHomepage.outputs.length - 1 ? <i aria-hidden="true">·</i> : null}</span>)}</p>
+          <div><strong>{veyaHomepage.outputsSummary}</strong>{veyaHomepage.outputsBoundaries.map((boundary) => <span key={boundary}>{boundary}</span>)}</div>
         </div>
 
         <div className={styles.close}>

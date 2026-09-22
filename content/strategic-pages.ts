@@ -37,7 +37,7 @@ export const strategicPages = {
     closing: { title: ["Start with one person.", "Build for many."], body: "Learn carefully from one human starting point, then earn every responsible next step.", ctas: [{ label: "Explore Patient 0", href: "/patient-0" }, { label: "Explore the Roadmap", href: "/roadmap" }] },
   },
   fund: {
-    slug: "fund", eyebrow: fundPage.hero.eyebrow, title: fundPage.hero.title, accent: "next question.",
+    slug: "fund", eyebrow: fundPage.hero.eyebrow, title: fundPage.hero.title, accent: "permanent capacity",
     lead: fundPage.hero.lead,
     qualifier: fundPage.hero.qualifier,
     chapters: [

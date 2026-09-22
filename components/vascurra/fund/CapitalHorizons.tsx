@@ -1,6 +1,7 @@
+import Image from "next/image";
 import type { CapitalHorizon } from "@/content/fund";
-import { FundHorizons } from "@/components/vascurra/strategic/StrategicVisuals";
 import { CapitalAmount } from "@/components/vascurra/capital/CapitalAmount";
+import { v5Artwork, v5ArtworkSrc } from "@/content/v5-artwork";
 import styles from "./fund-page.module.css";
 
 function Horizon({ horizon }: { horizon: CapitalHorizon }) {
@@ -33,10 +34,10 @@ export function CapitalHorizons({ horizons, qualifier }: { horizons: readonly Ca
           <h2 id="capital-horizons-title">Build capability.<span>Widen the mission.</span></h2>
           <p className={styles.qualifier}>{qualifier}</p>
         </header>
-        <div className={styles.horizonOverview}><FundHorizons horizons={horizons}/></div>
+        <div className={styles.horizonOverview}><Image className={styles.sectionArtwork} src={v5ArtworkSrc(v5Artwork.capitalHorizons)} alt={v5Artwork.capitalHorizons.alt} width={v5Artwork.capitalHorizons.width} height={v5Artwork.capitalHorizons.height} sizes="(max-width: 767px) 124vw, 92vw" quality={90} data-v5-artwork={v5Artwork.capitalHorizons.number}/><ol className={styles.horizonMarkers}>{horizons.map((horizon) => <li key={horizon.id}><span>{horizon.id}</span><CapitalAmount amount={horizon.amount}/><small>{horizon.title}</small></li>)}</ol></div>
         <div className={styles.planningHorizons}>{planning.map((horizon) => <Horizon horizon={horizon} key={horizon.id}/>)}</div>
       </div>
-      {mission ? <div className={styles.missionHorizon} id="global-capacity" data-artwork-key="fund-global-capacity"><div className={styles.shell}>{mission.headline ? <h2 className={styles.missionHeadline}>{mission.headline}</h2> : null}<div className={styles.globalField} aria-hidden="true"><svg viewBox="0 0 1200 540"><defs><linearGradient id="global-capacity-flow" x1="0" x2="1"><stop stopColor="#43d6ff"/><stop offset=".52" stopColor="#2ecfc4"/><stop offset="1" stopColor="#58d39a"/></linearGradient></defs><path d="M40 300 C220 80 345 455 520 260 S865 40 1160 270"/><path d="M90 390 C280 245 440 430 630 305 S950 180 1140 360"/>{[[180,210],[420,335],[575,245],[760,170],[910,245],[1080,285]].map(([cx,cy])=><circle cx={cx} cy={cy} r="7" key={`${cx}-${cy}`}/>)}</svg><span>Research</span><span>Compute</span><span>Institutions</span><span>Products</span><span>Open knowledge</span></div><Horizon horizon={mission}/><p className={styles.missionBoundary}>€1B+ means cumulative long-term mission capacity—not a current raise, valuation, equity round, current budget, single transaction or funding guarantee.</p></div></div> : null}
+      {mission ? <div className={styles.missionHorizon} id="global-capacity" data-artwork-key="fund-global-capacity"><div className={styles.shell}>{mission.headline ? <h2 className={styles.missionHeadline}>{mission.headline}</h2> : null}<Image className={styles.missionArtwork} src={v5ArtworkSrc(v5Artwork.permanentCapacity)} alt={v5Artwork.permanentCapacity.alt} width={v5Artwork.permanentCapacity.width} height={v5Artwork.permanentCapacity.height} sizes="100vw" quality={90} data-v5-artwork={v5Artwork.permanentCapacity.number}/><Horizon horizon={mission}/><p className={styles.missionBoundary}>€1B+ means cumulative long-term mission capacity—not a current raise, valuation, equity round, current budget, single transaction or funding guarantee.</p></div></div> : null}
     </section>
   );
 }

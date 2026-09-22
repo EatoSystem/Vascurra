@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { capitalFlywheel } from "@/content/home";
 import { CapitalAmount } from "@/components/vascurra/capital/CapitalAmount";
+import { v5Artwork, v5ArtworkSrc } from "@/content/v5-artwork";
 import { VascurraGradientText } from "./gradient-text";
 import styles from "./capital-flywheel.module.css";
 
@@ -21,14 +23,7 @@ export function HomeCapitalFlywheel() {
 
         <figure className={styles.progression} data-artwork-key="home-capital-flywheel">
           <figcaption><strong>{capitalFlywheel.status}</strong><span>{capitalFlywheel.qualifier}</span></figcaption>
-          <svg viewBox="0 0 1400 470" aria-hidden="true" className={styles.journeyRibbon}>
-            <defs><linearGradient id="home-capital-gradient" x1="0" x2="1"><stop stopColor="#087486"/><stop offset=".34" stopColor="#0aa3bc"/><stop offset=".64" stopColor="#2ecfc4"/><stop offset="1" stopColor="#49c768"/></linearGradient></defs>
-            <path className={styles.primaryPath} d="M35 250 C180 250 205 225 330 225 S500 185 620 226 790 302 915 246 1110 100 1370 190"/>
-            <path className={styles.branchPath} d="M330 230 C520 275 590 330 760 278 S1060 120 1370 145"/>
-            <path className={styles.branchPath} d="M640 250 C820 365 1030 340 1370 275"/>
-            <path className={styles.fieldPath} d="M930 245 C1080 370 1260 385 1380 330"/>
-            {[330,620,915,1180,1325].map((cx, index) => <circle cx={cx} cy={[225,226,246,168,232][index]} r={index < 3 ? 5 : 8} key={cx}/>)}
-          </svg>
+          <div className={styles.journeyArtwork} data-v5-artwork={v5Artwork.capitalNetwork.filename}><Image src={v5ArtworkSrc(v5Artwork.capitalNetwork)} alt={v5Artwork.capitalNetwork.alt} width={v5Artwork.capitalNetwork.width} height={v5Artwork.capitalNetwork.height} sizes="(max-width: 768px) 100vw, 94vw" quality={90}/></div>
           <ol>{capitalFlywheel.horizons.map((horizon, index) => <li className={index === 3 ? styles.globalStage : undefined} key={horizon.stage}><div className={styles.stageNumber}>{String(index + 1).padStart(2, "0")}</div><div className={styles.stageCopy}><span>{horizon.stage}</span><CapitalAmount amount={horizon.amount}/><h3>{horizon.title}</h3><p>{horizon.summary}</p>{index === 3 ? <small>Cumulative long-term mission capacity.</small> : null}</div></li>)}</ol>
         </figure>
 

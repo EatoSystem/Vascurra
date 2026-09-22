@@ -371,7 +371,7 @@ export const capitalFlywheel = {
     { stage: "Capital horizon 01", amount: "€1–5M", title: "Foundation", summary: "Patient 0 · Veya · Core System", detail: ["Patient 0", "Veya", "Core Information System", "Research foundations"] },
     { stage: "Capital horizon 02", amount: "€10–25M", title: "Research engine", summary: "Lab · AI · Compute · Cohorts", detail: ["Vascurra Lab", "AI", "Compute", "Cohorts", "Family", "Clinician"] },
     { stage: "Capital horizon 03", amount: "€50–100M+", title: "International network", summary: "Research · Clinical · Infrastructure", detail: ["International Research", "Clinical Collaboration", "Infrastructure", "Multi-country Development"] },
-    { stage: "Long-term mission", amount: "€1B+", title: "Permanent global capacity", summary: "Permanent research + product ecosystem", detail: ["Global Research", "Products", "AI + Compute", "Knowledge Infrastructure"] },
+    { stage: "Long-term mission", amount: "€1B+", title: "Permanent global capacity", summary: "Research · Products · Knowledge", detail: ["Global Research", "Products", "AI + Compute", "Knowledge Infrastructure"] },
   ],
   story: ["One person", "One system", "Research engine", "International network", "Permanent global capacity"],
   ctas: [{ label: "Explore Vascurra Fund", href: "/fund" }, { label: "Support Vascurra", href: "/support" }],
