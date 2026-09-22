@@ -11,6 +11,8 @@ describe("Veya experience content", () => {
   it("uses the approved everyday companion positioning", () => {
     expect(veyaHomepage.headline.join(" ")).toBe("Your everyday intelligence companion.");
     expect(veyaHomepage.supporting).toEqual(["There when you need it.", "Learning with you over time."]);
+    expect(veyaHomepage.introduction).toContain("once, several times, or not at all");
+    expect(veyaHomepage.introduction).toContain("learning with them over time");
     expect(veyaPage.hero.supporting).toEqual(veyaHomepage.supporting);
   });
 

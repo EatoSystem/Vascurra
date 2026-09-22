@@ -56,7 +56,7 @@ export const veyaHomepage = {
   accent: "intelligence companion.",
   supporting: ["There when you need it.", "Learning with you over time."],
   secondary: "Making complexity more understandable.",
-  introduction: "A morning check-in. A medication reminder. A question over lunch. A longer conversation in the evening. Veya can support the moments that matter while helping build a clearer picture over time.",
+  introduction: "Veya can be there once, several times, or not at all — adapting to the person, meeting them in the moments that matter, and learning with them over time.",
   rhythmLabel: "A day with Veya",
   rhythmNote: "Illustrative moments, not a required schedule.",
   frequency: ["Once.", "Several times.", "Or not at all."],

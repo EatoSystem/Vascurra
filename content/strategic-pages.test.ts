@@ -58,7 +58,7 @@ describe("Wave 2A strategic pages", () => {
     for (const item of strategicArtworkManifest) {
       expect(item.alt.length).toBeGreaterThan(40);
       expect(item.brief.length).toBeGreaterThan(80);
-      expect(item.status).toBe("coded visual active; external artwork optional");
+      expect(item.status).toBe("coded visual active; awaiting founder-supplied artwork");
     }
   });
 });

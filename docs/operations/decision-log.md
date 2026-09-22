@@ -22,6 +22,48 @@ Record material product decisions here so coding agents do not repeatedly reopen
 
 ## Initial decisions
 
+### 2026-09-22 — Founder-supplied artwork only
+
+**Decision:** Coding agents must not create Vascurra visual artwork. Significant
+images, illustrations, hero artwork, section artwork, artwork-style diagrams,
+infographics, decorative SVG illustrations, vector artwork, icon illustrations,
+abstract visual compositions and AI-generated imagery must be supplied by the
+founder/design process as approved committed assets.
+
+**Operational boundary:** Agents may discover, verify and integrate approved
+assets, preserve aspect ratio, provide accessibility treatment, build
+responsive layouts around supplied artwork and reserve neutral space for
+missing artwork. If an approved asset is missing or unsuitable, agents must
+document the asset key, dimensions, aspect ratio, background treatment and
+creative purpose instead of inventing a replacement.
+
+**Existing coded artwork:** Existing coded artwork may remain only as a
+temporary approved or explicitly authorised structural fallback. It must not be
+expanded or evolved unless explicitly instructed, and should be removed from
+rendered experiences when founder-supplied artwork replaces it.
+
+**Asset editing:** Founder-supplied visual assets must not be materially edited
+without explicit instruction. Recolouring, meaningful cropping, adding text,
+removing image elements, redrawing, artistic filtering, creating derivative
+artwork or converting an asset into a new visual design are not authorised.
+Technical optimisation that changes the committed source asset requires
+explicit approval.
+
+**Why:** Vascurra's visual identity depends on founder-approved artwork and
+should not drift through agent-created approximations or final-looking
+placeholders.
+
+**Implications:** Future website and product-page work must design around
+supplied assets. Missing artwork is handled through reserved layout space and
+documented requirements, not homemade SVG/CSS/AI substitutes. Ordinary UI
+primitives such as borders, dividers, simple arrows, progress lines, buttons,
+form controls, focus states, navigation chevrons and approved design-system
+icons remain allowed when they do not function as substitute artwork.
+
+**Owner:** Founder / Product Architecture
+
+---
+
 ### 2026-09-22 — Capital mobilisation horizons and permanent mission capacity
 
 **Decision:** Vascurra's public financing direction is a diversified capital

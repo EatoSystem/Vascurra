@@ -364,7 +364,7 @@ export const capitalFlywheel = {
   heading: ["A mission this large", "needs continuous capital."],
   accent: "needs continuous capital.",
   body: "Vascurra is not being built around one funding round or one research grant. The ambition is to mobilise sustained capital, compute, research funding and expertise — starting with Dad and growing toward permanent global vascular-dementia research and product infrastructure.",
-  statement: ["Not one round.", "Not one grant.", "A capital flywheel."],
+  statement: ["One stream", "becomes a network."],
   status: "Planning horizons",
   qualifier: "Illustrative capital mobilisation horizons for the long-term mission — not announced equity rounds, valuations or funding commitments.",
   horizons: [

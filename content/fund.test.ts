@@ -6,8 +6,9 @@ const copy = JSON.stringify(fundPage);
 describe("Vascurra Fund capital mobilisation model", () => {
   it("uses the flagship capacity hero while retaining the campaign line", () => {
     expect(fundPage.hero.title.join(" ")).toBe("Build permanent capacity to fight vascular dementia.");
+    expect(fundPage.hero.title).toEqual(["Build permanent capacity", "to fight vascular dementia."]);
     expect(fundPage.hero.title.join(" ")).not.toBe("Fund the next question.");
-    expect(fundPage.hero.lead).toContain("mobilise sustained financial, technical and research capacity");
+    expect(fundPage.hero.lead).toContain("mobilise sustained capital, compute, research capacity and expertise");
     expect(fundPage.closing.eyebrow).toBe("Fund the next question");
   });
 
@@ -18,16 +19,20 @@ describe("Vascurra Fund capital mobilisation model", () => {
     expect(fundPage.horizons[3]).toMatchObject({ status: "Long-term mission", featured: true });
     expect(fundPage.horizonsQualifier).toContain("not current funding");
     expect(fundPage.horizonsQualifier).toContain("not current funding, announced equity rounds, valuations, fundraising commitments or guarantees");
+    expect(fundPage.horizons[0]!.themes?.map((theme) => theme.label)).toEqual(["Build", "Protect", "Prepare"]);
+    expect(fundPage.horizons[1]!.themes?.map((theme) => theme.label)).toEqual(["Research", "Expand", "Strengthen"]);
+    expect(fundPage.horizons[2]!.themes?.map((theme) => theme.label)).toEqual(["Connect", "Infrastructure", "Expand"]);
   });
 
   it("defines the more-than-cash model, diversified sources and accountability", () => {
     expect(fundPage.mobilisation.title.join(" ")).toBe("Capacity is bigger than cash alone.");
-    expect(fundPage.mobilisation.explanation).toContain("does not necessarily mean €100M of cash");
+    expect(fundPage.mobilisation.explanation).toContain("does not necessarily mean €100M in cash");
     expect(fundPage.mobilisation.resources.map((resource) => resource.name)).toEqual(expect.arrayContaining(["Cash capital", "AI + compute", "Research funding", "Expertise", "Infrastructure", "Commercial revenue", "In-kind contributions"]));
     expect(fundPage.sources.items).toContain("Founder capital");
     expect(fundPage.sources.items).toContain("Permanent / endowment-style capital — longer term");
-    expect(fundPage.transparency.items).toContain("Capital and resources mobilised");
-    expect(fundPage.transparency.items).toContain("Open outputs");
+    expect(fundPage.transparency.eyebrow).toBe("Vascurra Research Ledger");
+    expect(fundPage.transparency.items).toContain("What resources were mobilised?");
+    expect(fundPage.transparency.items).toContain("What was opened to others?");
   });
 
   it("frames €1B+ only as cumulative long-term mission capacity", () => {
@@ -50,6 +55,7 @@ describe("Vascurra Fund capital mobilisation model", () => {
   });
 
   it("keeps reinvestment aspirational rather than binding", () => {
+    expect(fundPage.reinvestment.flow).toEqual(["Products", "Revenue", "Research + development", "Better systems", "Better products"]);
     expect(fundPage.reinvestment.body).toContain("strategic ambition");
     expect(fundPage.reinvestment.note).toContain("not a binding allocation");
     expect(copy).not.toMatch(/mandatory percentage|will allocate \d|guaranteed revenue/i);
