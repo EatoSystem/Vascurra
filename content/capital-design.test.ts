@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { capitalFlywheel } from "./home";
+import { capitalFlywheel, previewSectionOrder } from "./home";
 import { fundPage } from "./fund";
 
 describe("capital visual system", () => {
@@ -21,5 +21,11 @@ describe("capital visual system", () => {
     expect(capitalFlywheel.qualifier).toContain("not announced equity rounds");
     expect(fundPage.horizonsQualifier).toContain("not current funding");
     expect(fundPage.horizons[3]!.body).toContain("cumulative mission capacity over time");
+  });
+
+  it("keeps Support, the Capital Flywheel and Lab in the approved homepage sequence", () => {
+    const supportIndex = previewSectionOrder.indexOf("support");
+    expect(previewSectionOrder[supportIndex + 1]).toBe("capital-flywheel");
+    expect(previewSectionOrder[supportIndex + 2]).toBe("lab");
   });
 });
