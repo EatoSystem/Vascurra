@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -9,9 +10,11 @@ import { Mission } from "@/components/vascurra/home/mission";
 import { Framework } from "@/components/vascurra/home/framework";
 import { Veya } from "@/components/vascurra/home/veya";
 import { SupportVascurra } from "@/components/vascurra/home/support-vascurra";
+import { HomeCapitalFlywheel } from "@/components/vascurra/home/capital-flywheel";
 import { Lab } from "@/components/vascurra/home/lab";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
 import { primaryNav } from "@/content/vascurra/public-site";
+import { previewSectionOrder } from "@/content/home";
 
 export const metadata: Metadata = {
   robots: {
@@ -30,18 +33,23 @@ export default async function PreviewPage() {
     redirect("/");
   }
 
+  const sections = {
+    origin: <Origin key="origin" />,
+    mission: <Mission key="mission" />,
+    framework: <Framework key="framework" />,
+    veya: <Veya key="veya" />,
+    support: <SupportVascurra key="support" />,
+    "capital-flywheel": <HomeCapitalFlywheel key="capital-flywheel" />,
+    lab: <Lab key="lab" />,
+  } satisfies Record<(typeof previewSectionOrder)[number], ReactNode>;
+
   return (
     <>
       <span id="top" />
       <SiteHeader links={primaryNav} homeHref="/preview" ctaHref="/support" ctaLabel="Support" />
       <main id="main">
         <HomeHero discoverHref="#origin" primaryCtaHref="/support" primaryCtaLabel="Support" />
-        <Origin />
-        <Mission />
-        <Framework />
-        <Veya />
-        <SupportVascurra />
-        <Lab />
+        {previewSectionOrder.map((section) => sections[section])}
       </main>
       <VascurraFooter hideAccessLink />
     </>
