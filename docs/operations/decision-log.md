@@ -22,6 +22,47 @@ Record material product decisions here so coding agents do not repeatedly reopen
 
 ## Initial decisions
 
+### 2026-09-22 — Capital mobilisation horizons and permanent mission capacity
+
+**Decision:** Vascurra's public financing direction is a diversified capital
+mobilisation model rather than an assumption of one grant, one round or equity
+fundraising as the default. Public planning may use four mission-capacity
+horizons: €1–5M Foundation, €10–25M Research Engine, €50–100M+ International
+Network and a €1B+ long-term mission for permanent global capacity.
+
+**Meaning of capacity:** These figures are illustrative strategic planning
+horizons. Mission capacity can be cumulative and may combine cash capital,
+compute, funded research, infrastructure, expertise, in-kind resources and
+commercial revenues reinvested into future development and research. €1B+
+means cumulative long-term mission capacity over time, not a current raise,
+valuation, budget, announced funding target or single transaction.
+
+**Financing flexibility:** Equity financing is neither prohibited nor assumed.
+Future structures remain subject to founder, legal and strategic review and
+should be selected according to what best protects the mission and preserves
+long-term flexibility.
+
+**Public boundaries:** The horizons are not announced equity rounds,
+valuations, fundraising commitments, secured capital, an investment offer or
+guarantees. Vascurra Fund is not represented as a registered charity,
+tax-deductible fund, investment product or proven business model, and the
+website accepts no payments. Potential capital sources must not imply current
+commitments, partners, eligibility or legal structures.
+
+**Claims boundary:** Mobilising resources does not guarantee scientific,
+clinical or commercial outcomes. The existing medical, privacy, health-data,
+research-governance and release restrictions remain in force.
+
+**Implications:** The gated public homepage and `/fund` may explain the capital
+flywheel, planning horizons, diversified sources, aspirational reinvestment and
+future transparency architecture. This decision adds no payment, donation,
+investment, database or production infrastructure and does not authorise
+launch or deployment.
+
+**Owner:** Founder / Product Architecture
+
+---
+
 ### 2026-09-21 — Limited public attribution for Dad and Patient 0
 
 **Decision:** Vascurra may publicly state that it is being designed with Dad,

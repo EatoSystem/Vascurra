@@ -19,9 +19,13 @@
 5. **Vascurra Lab** — the proposed research-learning layer where lived
    questions may meet evidence, literature, advanced AI, compute, expert input
    and structured human review.
-6. **Vascurra Fund** — the project’s proposed financing programme for AI and
-   compute, research, systems development, experts, co-design and open
-   knowledge. This does not claim that a legal charitable fund or proven
+6. **Vascurra Fund** — the project’s proposed diversified capital-mobilisation
+   model for AI and compute, research, systems development, experts, co-design
+   and open knowledge. Mission capacity may combine cash, funded research,
+   infrastructure, expertise, in-kind support and reinvested commercial
+   revenue. Public capital horizons are illustrative planning scenarios, not
+   announced rounds, valuations or commitments; equity is neither assumed nor
+   prohibited. This does not claim that a legal charitable fund or proven
    business model exists.
 7. **Global products and research infrastructure** — the long-term direction,
    subject to evidence, validation, governance and responsible development.
