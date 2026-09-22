@@ -22,6 +22,162 @@ Record material product decisions here so coding agents do not repeatedly reopen
 
 ## Initial decisions
 
+### 2026-09-22 — Founder-supplied artwork only
+
+**Decision:** Coding agents must not create Vascurra visual artwork. Significant
+images, illustrations, hero artwork, section artwork, artwork-style diagrams,
+infographics, decorative SVG illustrations, vector artwork, icon illustrations,
+abstract visual compositions and AI-generated imagery must be supplied by the
+founder/design process as approved committed assets.
+
+**Operational boundary:** Agents may discover, verify and integrate approved
+assets, preserve aspect ratio, provide accessibility treatment, build
+responsive layouts around supplied artwork and reserve neutral space for
+missing artwork. If an approved asset is missing or unsuitable, agents must
+document the asset key, dimensions, aspect ratio, background treatment and
+creative purpose instead of inventing a replacement.
+
+**Existing coded artwork:** Existing coded artwork may remain only as a
+temporary approved or explicitly authorised structural fallback. It must not be
+expanded or evolved unless explicitly instructed, and should be removed from
+rendered experiences when founder-supplied artwork replaces it.
+
+**Asset editing:** Founder-supplied visual assets must not be materially edited
+without explicit instruction. Recolouring, meaningful cropping, adding text,
+removing image elements, redrawing, artistic filtering, creating derivative
+artwork or converting an asset into a new visual design are not authorised.
+Technical optimisation that changes the committed source asset requires
+explicit approval.
+
+**Why:** Vascurra's visual identity depends on founder-approved artwork and
+should not drift through agent-created approximations or final-looking
+placeholders.
+
+**Implications:** Future website and product-page work must design around
+supplied assets. Missing artwork is handled through reserved layout space and
+documented requirements, not homemade SVG/CSS/AI substitutes. Ordinary UI
+primitives such as borders, dividers, simple arrows, progress lines, buttons,
+form controls, focus states, navigation chevrons and approved design-system
+icons remain allowed when they do not function as substitute artwork.
+
+**Owner:** Founder / Product Architecture
+
+---
+
+### 2026-09-22 — Capital mobilisation horizons and permanent mission capacity
+
+**Decision:** Vascurra's public financing direction is a diversified capital
+mobilisation model rather than an assumption of one grant, one round or equity
+fundraising as the default. Public planning may use four mission-capacity
+horizons: €1–5M Foundation, €10–25M Research Engine, €50–100M+ International
+Network and a €1B+ long-term mission for permanent global capacity.
+
+**Meaning of capacity:** These figures are illustrative strategic planning
+horizons. Mission capacity can be cumulative and may combine cash capital,
+compute, funded research, infrastructure, expertise, in-kind resources and
+commercial revenues reinvested into future development and research. €1B+
+means cumulative long-term mission capacity over time, not a current raise,
+valuation, budget, announced funding target or single transaction.
+
+**Financing flexibility:** Equity financing is neither prohibited nor assumed.
+Future structures remain subject to founder, legal and strategic review and
+should be selected according to what best protects the mission and preserves
+long-term flexibility.
+
+**Public boundaries:** The horizons are not announced equity rounds,
+valuations, fundraising commitments, secured capital, an investment offer or
+guarantees. Vascurra Fund is not represented as a registered charity,
+tax-deductible fund, investment product or proven business model, and the
+website accepts no payments. Potential capital sources must not imply current
+commitments, partners, eligibility or legal structures.
+
+**Claims boundary:** Mobilising resources does not guarantee scientific,
+clinical or commercial outcomes. The existing medical, privacy, health-data,
+research-governance and release restrictions remain in force.
+
+**Implications:** The gated public homepage and `/fund` may explain the capital
+flywheel, planning horizons, diversified sources, aspirational reinvestment and
+future transparency architecture. This decision adds no payment, donation,
+investment, database or production infrastructure and does not authorise
+launch or deployment.
+
+**Owner:** Founder / Product Architecture
+
+---
+
+### 2026-09-21 — Limited public attribution for Dad and Patient 0
+
+**Decision:** Vascurra may publicly state that it is being designed with Dad,
+a former GP living with early vascular dementia. Materially equivalent wording
+may describe Dad as the human starting point, Patient 0 and a co-designer, and
+may explain that Vascurra is being developed first with and for him before its
+learning is developed responsibly into systems for more people.
+
+**Supersedes:** Only the public-attribution restriction in the 2026-09-05
+decision “Public attribution remains separate from internal documentation.”
+That historical decision remains below as context.
+
+**Privacy boundary:** The approved public health description is limited to
+“former GP living with early vascular dementia.” Public copy must not include
+his name, age, diagnosis date, detailed medical history, medication,
+measurements, records, test results, clinicians, hospitals, private
+conversations, personal health data or any other medical detail without a new
+explicit approval.
+
+**Patient 0 meaning:** Patient 0 means the first person Vascurra is being
+designed with and for. It does not imply a clinical trial, medical experiment,
+research-subject status, proof of efficacy or clinical validation.
+
+**Implications:** The canonical strategic direction may describe Vascurra as a
+continuously learning Vascular Dementia Information System being designed with
+Dad. This is project direction, not evidence of clinical effectiveness. All
+other privacy, consent, claims, health-data, safety and release restrictions
+remain in force. Production remains on the holding page and unfinished V2
+routes remain gated and `noindex, nofollow`.
+
+**Owner:** Founder / Product Architecture
+
+---
+
+### 2026-09-18 — Homepage hero extends the core support line
+
+**Decision:** Use `Support independence. Preserve identity. Pursue breakthroughs.`
+in the Wave 1 homepage Hero while retaining `Support independence. Preserve
+identity.` as the shorter core brand line elsewhere.
+
+**Why:** The founder-approved Hero wording connects day-to-day support with the
+project's research ambition without claiming that Vascurra has achieved, or
+will achieve, a clinical outcome.
+
+**Implications:** The extension is homepage-specific, remains aspirational, and
+does not alter the prohibition on diagnostic, predictive, preventive,
+treatment, efficacy or validated-outcome claims.
+
+**Owner:** Founder / Product Architecture
+
+---
+
+### 2026-09-14 — Wave 1 public website remains behind the V2 review gate
+
+**Decision:** Build the Wave 1 multi-route public-site architecture on
+`codex/public-website-wave-1`, while keeping `/` on the production holding
+experience and exposing unfinished pages only through the existing signed
+review session. Every unfinished V2 route is `noindex, nofollow` and excluded
+from crawler access; `/privacy` remains publicly available.
+
+**Why:** The route and content foundation needs review as one coherent system,
+but successful implementation, CI, preview or deployment is not founder launch
+approval.
+
+**Implications:** The Wave 1 routes describe proposed functionality only, use
+structured artwork placeholders, collect no health details, and must not be
+moved to the public root until explicit founder approval. Interim terms and
+accessibility wording require founder/legal review before launch.
+
+**Owner:** Founder / Product Architecture
+
+---
+
 ### 2026-08-31 — Phase 1 is a public foundation website
 
 **Decision:** Do not implement real patient health workflows in Phase 1.
@@ -341,3 +497,13 @@ architecture and principles sections.
 **Why:** Internal attribution is useful project context but is not consent or approval for public publication.
 
 **Implications:** Any future public attribution requires an explicit content decision and privacy review.
+
+### 2026-09-18 — Veya becomes the optional daily relationship layer
+
+**Decision:** Position Veya on the public website as “Your everyday intelligence companion”: a proposed, optional conversational relationship that can keep chosen context connected over time. Replace the narrow generic inner-page story with a dedicated editorial `/veya` composition and five coded artwork handoffs.
+
+**Why:** The earlier copy described a route through Vascurra but did not make Veya's everyday role, flexible rhythm, continuity, provenance, permissions or relationship to Vascurra Lab sufficiently clear.
+
+**Safety boundary:** Public copy may describe optional check-ins, questions, notes, preparation and reminders around an agreed medication schedule. It must not imply autonomous monitoring, diagnosis, prediction, medication prescribing or changes, emergency management, automatic sharing or research participation. Important patterns lead to human review.
+
+**Implications:** `/veya` remains conceptual and `noindex, nofollow` with the unfinished V2 routes. No product workflow, health-data collection, production AI, database, environment variable or release-gate behaviour is introduced by this decision.

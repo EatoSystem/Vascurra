@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { navLinks, earlyAccessHref } from "@/content/site";
 import { hero } from "@/content/home";
+import type { NavigationItem } from "@/content/vascurra/public-site";
 
-export function MobileNav() {
+export function MobileNav({ links = navLinks, ctaHref = earlyAccessHref, ctaLabel = hero.primaryCta }: { links?: readonly NavigationItem[]; ctaHref?: string; ctaLabel?: string }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -47,25 +48,22 @@ export function MobileNav() {
       >
         <nav aria-label="Site" className="px-5 py-4 sm:px-8">
           <ul className="flex flex-col">
-            {navLinks.map((link) => (
-              <li key={link.href} className="border-b border-hairline last:border-0">
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="flex min-h-14 items-center text-lg font-medium text-navy"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {links.map((link) => <li key={link.label} className="border-b border-hairline last:border-0">
+              {link.children ? <div className="py-3">
+                <p className="text-sm font-bold tracking-[.12em] text-ink-teal uppercase">{link.label}</p>
+                <ul className="mt-1 grid grid-cols-2 gap-x-4">
+                  {link.children.map((child) => <li key={child.href}><Link href={child.href} onClick={() => setOpen(false)} className="flex min-h-12 items-center text-base font-medium text-navy">{child.label}</Link></li>)}
+                </ul>
+              </div> : <Link href={link.href ?? "/"} onClick={() => setOpen(false)} className="flex min-h-14 items-center text-lg font-medium text-navy">{link.label}</Link>}
+            </li>)}
           </ul>
 
           <Link
-            href={earlyAccessHref}
+            href={ctaHref}
             onClick={() => setOpen(false)}
             className="mt-4 mb-2 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[var(--vascurra-deep-teal)] px-6 text-base font-semibold text-white"
           >
-            {hero.primaryCta}
+            {ctaLabel}
           </Link>
         </nav>
       </div>

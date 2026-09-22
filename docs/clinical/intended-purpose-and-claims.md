@@ -14,6 +14,10 @@ It does not deliver medical functionality.
 
 Vascurra may eventually help individuals and their support network capture, organise and review information over time and prepare for informed conversations with clinicians.
 
+Veya is the working concept for the human-facing daily relationship layer. It may eventually support optional questions, chosen check-ins, source-aware notes, preparation and reminders around a schedule already agreed with an appropriately qualified professional. The person should control what is retained, removed, paused and shared.
+
+This working hypothesis does not authorise live medication workflows, autonomous monitoring, diagnosis, prediction, treatment, dose changes, emergency decision-making or automatic family, clinician or research access. Research participation and use of personal information require a separate explicit and governed process.
+
 The exact intended medical purpose must be reviewed before regulated functionality is designed.
 
 ## Claims permitted in Phase 1
@@ -22,6 +26,7 @@ Examples:
 
 - `AI for vascular cognitive health.`
 - `Support independence. Preserve identity.`
+- `Support independence. Preserve identity. Pursue breakthroughs.`
 - `A proposed human-centered support platform.`
 - `Designed to help people, families and clinicians organise meaningful context over time.`
 - `Built with privacy, consent and human judgement in mind.`

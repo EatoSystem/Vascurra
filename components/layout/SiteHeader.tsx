@@ -6,8 +6,9 @@ import { CtaLink } from "@/components/ui/CtaLink";
 import { MobileNav } from "./MobileNav";
 import { navLinks, earlyAccessHref, site } from "@/content/site";
 import { hero } from "@/content/home";
+import type { NavigationItem } from "@/content/vascurra/public-site";
 
-export function SiteHeader({ markOnly = false }: { markOnly?: boolean }) {
+export function SiteHeader({ markOnly = false, links = navLinks, homeHref = "/", ctaHref = earlyAccessHref, ctaLabel = hero.primaryCta }: { markOnly?: boolean; links?: readonly NavigationItem[]; homeHref?: string; ctaHref?: string; ctaLabel?: string }) {
   const lockup = (
     <>
       <BrainGlyph size={42} />
@@ -32,7 +33,7 @@ export function SiteHeader({ markOnly = false }: { markOnly?: boolean }) {
             <div className="flex min-w-0 items-center gap-2.5">{lockup}</div>
           ) : (
             <Link
-              href="/"
+              href={homeHref}
               className="flex min-w-0 items-center gap-2.5 rounded-md"
               aria-label={`${site.name} — home`}
             >
@@ -44,26 +45,26 @@ export function SiteHeader({ markOnly = false }: { markOnly?: boolean }) {
             <div className="flex items-center gap-2 sm:gap-3">
               <nav aria-label="Site" className="hidden lg:block">
                 <ul className="flex items-center">
-                  {navLinks.map((link) => (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        className="inline-flex min-h-11 items-center px-2.5 text-[0.9rem] font-medium text-ink-body transition-[color] duration-200 hover:text-ink-teal xl:px-3"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
+                  {links.map((link) => <li key={link.label} className="relative">
+                    {link.children ? <details className="group">
+                      <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1 px-2.5 text-[0.9rem] font-medium text-ink-body transition-[color] duration-200 hover:text-ink-teal focus-visible:text-ink-teal [&::-webkit-details-marker]:hidden xl:px-3">
+                        {link.label}<span aria-hidden="true" className="text-xs transition-transform group-open:rotate-180">⌄</span>
+                      </summary>
+                      <ul className="absolute left-1/2 top-full min-w-60 -translate-x-1/2 rounded-2xl border border-hairline bg-white p-2 shadow-[0_20px_45px_-22px_rgba(8,61,74,0.4)]">
+                        {link.children.map((child) => <li key={child.href}><Link href={child.href} className="flex min-h-11 items-center rounded-xl px-4 text-sm font-medium text-navy hover:bg-surface hover:text-ink-teal focus-visible:bg-surface">{child.label}</Link></li>)}
+                      </ul>
+                    </details> : <Link href={link.href ?? "/"} className="inline-flex min-h-11 items-center px-2.5 text-[0.9rem] font-medium text-ink-body transition-[color] duration-200 hover:text-ink-teal xl:px-3">{link.label}</Link>}
+                  </li>)}
                 </ul>
               </nav>
 
               <div className="hidden md:block">
-                <CtaLink href={earlyAccessHref} className="min-h-11 px-6 py-2.5 text-sm">
-                  {hero.primaryCta}
+                <CtaLink href={ctaHref} className="min-h-11 px-6 py-2.5 text-sm">
+                  {ctaLabel}
                 </CtaLink>
               </div>
 
-              <MobileNav />
+              <MobileNav links={links} ctaHref={ctaHref} ctaLabel={ctaLabel} />
             </div>
           )}
         </div>

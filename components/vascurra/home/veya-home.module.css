@@ -1,0 +1,360 @@
+.section {
+  --ink: #062b4b;
+  --copy: #244a64;
+  --muted: #547789;
+  --line: #cde6e6;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(6rem, 9vw, 9rem) 1.25rem;
+  background: #fff;
+  color: var(--copy);
+}
+
+.section::before {
+  position: absolute;
+  top: 4%;
+  right: -18%;
+  width: 62rem;
+  height: 42rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(46, 207, 196, 0.1), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.shell {
+  position: relative;
+  width: min(100%, 94rem);
+  margin-inline: auto;
+}
+
+.section p,
+.section figure {
+  margin: 0;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(25rem, 0.42fr) minmax(0, 0.58fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  min-height: clamp(42rem, 72vw, 58rem);
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: #087486;
+  font-size: clamp(0.9rem, 1.1vw, 1.02rem);
+  font-weight: 730;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 1.5rem 0 0;
+  color: var(--ink);
+  font-size: clamp(3.7rem, 6.35vw, 7rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.heading span {
+  display: block;
+}
+
+.gradient {
+  color: #087486;
+}
+
+@supports (background-clip: text) {
+  .gradient {
+    padding-bottom: 0.08em;
+    background: var(--vascurra-display-gradient);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.heroCopy > p {
+  max-width: 34rem;
+  margin-top: 1.8rem;
+  font-size: clamp(1.1rem, 1.45vw, 1.32rem);
+  line-height: 1.65;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  margin-top: 2.6rem;
+}
+
+.heroActions a:first-child,
+.close a {
+  display: inline-flex;
+  min-height: 3.35rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 99rem;
+  padding: 0.8rem 1.6rem;
+  background: #083d4a;
+  color: #fff;
+  font-weight: 720;
+  text-decoration: none;
+  box-shadow: 0 18px 30px rgba(6, 43, 75, 0.13);
+}
+
+.heroActions a:last-child {
+  color: var(--ink);
+  font-weight: 720;
+  text-decoration: none;
+  border-bottom: 1px solid #75cfd3;
+  padding-bottom: 0.35rem;
+}
+
+.heroActions a:focus-visible,
+.close a:focus-visible {
+  outline: 3px solid #43d6ff;
+  outline-offset: 4px;
+}
+
+.artwork {
+  width: min(78rem, 118%);
+  margin: 0 -12% 0 -4% !important;
+}
+
+.artwork img,
+.contextArtwork img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.frequency {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.58fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: end;
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.frequency > p {
+  color: var(--ink);
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.92;
+}
+
+.frequency > p span {
+  display: block;
+}
+
+.frequency small {
+  max-width: 34rem;
+  border-top: 1px solid #75cfd3;
+  padding-top: 1.4rem;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 2.3vw, 2.25rem);
+  font-weight: 630;
+  line-height: 1.32;
+  letter-spacing: -0.025em;
+}
+
+.context {
+  display: grid;
+  grid-template-columns: minmax(22rem, 0.34fr) minmax(0, 0.66fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: clamp(5rem, 9vw, 8rem);
+  scroll-margin-top: 6rem;
+}
+
+.contextCopy h3 {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: var(--ink);
+  font-size: clamp(2.9rem, 5.3vw, 5.9rem);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.contextArtwork {
+  width: min(76rem, 112%);
+  margin: 0 -8% 0 0 !important;
+}
+
+.contextLine {
+  grid-column: 1 / -1;
+  max-width: 48rem;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 620;
+  line-height: 1.45;
+}
+
+.outputs {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  margin-top: clamp(5rem, 9vw, 8rem);
+}
+
+.outputs > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.2rem;
+  color: var(--ink);
+  font-size: clamp(1.2rem, 2.1vw, 1.75rem);
+  font-weight: 720;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.outputs i {
+  margin-left: 1.2rem;
+  color: #49c768;
+  font-style: normal;
+}
+
+.outputs > div {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.outputs strong {
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.outputs > div span {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.close {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.close p {
+  max-width: 48rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.close a:hover {
+  background: #0b5663;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .intro,
+  .frequency,
+  .context,
+  .outputs {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .artwork,
+  .contextArtwork {
+    width: 116%;
+    margin-inline: -8% !important;
+  }
+
+  .contextLine {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: clamp(5.25rem, 18vw, 7rem) 1rem;
+  }
+
+  .heading {
+    font-size: clamp(2.85rem, 13vw, 4rem);
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .heroActions a:first-child,
+  .close a {
+    width: 100%;
+  }
+
+  .artwork,
+  .contextArtwork {
+    width: 128%;
+    margin-inline: -14% !important;
+  }
+
+  .frequency {
+    padding-block: 6rem;
+  }
+
+  .frequency > p {
+    font-size: clamp(3.2rem, 17vw, 5rem);
+  }
+
+  .contextCopy h3 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .outputs > p {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .outputs i {
+    display: none;
+  }
+
+  .close {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .close a {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .gradient {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: CanvasText;
+  }
+
+  .close a,
+  .heroActions a:first-child {
+    border: 1px solid CanvasText;
+  }
+}

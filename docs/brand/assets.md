@@ -47,3 +47,17 @@ The application currently generates its Open Graph image in `app/opengraph-image
 ## Asset quality
 
 The committed files are web-optimised derivatives used by the Public Platform. A verified original 3000–4096px master is not committed. Do not describe a derivative as the original master, and replace derivatives only with approved exports when required.
+
+## Founder-supplied artwork rule
+
+All significant Vascurra visual artwork must come from the founder/design process as approved committed assets. Coding agents design the page around supplied artwork; they do not create the artwork itself.
+
+Coding agents must not create, generate, draw, synthesise, trace, redesign, approximate or replace images, illustrations, hero artwork, section artwork, artwork-style diagrams, infographics, decorative SVG illustrations, vector artwork, icon illustrations, abstract visual compositions, AI-generated imagery, final-looking placeholders or CSS-drawn substitutes for missing founder-approved graphics.
+
+When approved artwork exists, agents may integrate it with `next/image` or the appropriate implementation, preserve aspect ratio, verify dimensions/formats/paths, provide accessibility treatment and build responsive layout around it.
+
+When approved artwork is missing or unsuitable, agents must reserve neutral layout space, identify the missing asset key, document required dimensions, aspect ratio, background treatment and creative purpose, and report the requirement. They must not fill the gap with homemade artwork.
+
+Existing coded artwork may remain only as previously approved temporary or structural fallback. It must not be expanded or evolved unless explicitly authorised, and should be removed from rendered experiences when founder-supplied artwork replaces it.
+
+Founder-supplied assets must not be materially edited unless explicitly instructed. Do not recolour, crop away meaningful content, add text to images, remove image elements, redraw, apply artistic filters, create derivative artwork or convert an asset into a new visual design. Technical optimisation that changes the committed source asset requires explicit approval.

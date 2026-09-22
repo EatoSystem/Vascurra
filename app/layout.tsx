@@ -54,7 +54,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IE" className={`${inter.variable} ${sourceSerif.variable}`}>
+    <html lang="en-IE" data-scroll-behavior="smooth" className={`${inter.variable} ${sourceSerif.variable}`}>
       <body>
         <a
           href="#main"

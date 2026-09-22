@@ -1,0 +1,18 @@
+.amount {
+  display: inline-block;
+  max-width: 100%;
+  color: inherit;
+  font-variant-numeric: tabular-nums lining-nums;
+  white-space: nowrap;
+}
+
+.lockup { display: inline-flex; align-items: baseline; white-space: nowrap; }
+.currency { margin-right: .05em; font-size: .52em; font-weight: 650; letter-spacing: -.02em; transform: translateY(-.05em); }
+.value { font-size: 1em; font-weight: inherit; letter-spacing: inherit; }
+.range { margin-inline: .13em; font-size: .46em; font-weight: 430; letter-spacing: 0; transform: translateY(-.12em); }
+.suffix { margin-left: .07em; font-size: .54em; font-weight: 670; letter-spacing: -.01em; }
+.plus { margin-left: .03em; font-size: .46em; font-weight: 650; transform: translateY(-.18em); }
+
+@media (forced-colors: active) {
+  .amount { color: CanvasText; }
+}

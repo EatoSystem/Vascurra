@@ -77,6 +77,18 @@ Preserve the Vascurra design language: white or soft-white canvas, deep navy tex
 
 Use the approved brain mark and documented derivatives. Do not redraw, reinterpret, randomly recolour, distort or tightly crop it. Reuse existing components and tokens before introducing new patterns. Do not publish whole webpage sections as flattened screenshots. Keep meaningful content in accessible HTML where practical.
 
+### Visual asset rule - founder-supplied artwork only
+
+Coding agents must not create, generate, draw, synthesise, trace, redesign, approximate or replace Vascurra visual artwork. This includes images, illustrations, section artwork, hero artwork, artwork-style diagrams, infographics, decorative SVG illustrations, vector artwork, icon illustrations, abstract visual compositions, AI-generated imagery, final-looking placeholders and CSS-drawn substitutes for missing founder-approved graphics.
+
+All significant Vascurra visual artwork must be supplied separately by the founder/design process and committed to the repository as approved assets. Coding agents may discover supplied assets, verify file paths/dimensions/formats, integrate approved assets with `next/image` or the appropriate implementation, preserve aspect ratio, build responsive layouts around them, provide accessibility treatment, reserve space for missing artwork, document missing asset requirements and report unsuitable or missing assets.
+
+If artwork is missing, do not invent a substitute. Preserve or create neutral reserved layout space, identify the missing asset key, document required dimensions, aspect ratio, background treatment and creative purpose, then continue building the surrounding layout without homemade artwork.
+
+Existing coded artwork may be retained temporarily if already approved, used as a structural fallback where explicitly authorised or removed when founder-supplied artwork replaces it. Do not expand or evolve existing coded illustrations unless explicitly instructed. Ordinary UI primitives such as borders, dividers, simple arrows, progress lines, basic geometric layout elements, buttons, form controls, focus states, simple navigation chevrons and approved design-system icons remain allowed when they are subordinate interface elements rather than substitute artwork.
+
+Do not materially edit founder-supplied visual assets unless explicitly instructed. Do not recolour, crop away meaningful content, add text to images, remove image elements, redraw, apply artistic filters, create derivative artwork or convert an asset into a new visual design. Technical optimisation that changes the committed source asset requires explicit approval.
+
 Target WCAG 2.2 AA where practical: semantic structure, logical headings, keyboard access, visible focus, comfortable targets, text reflow, readable contrast, accessible forms, descriptive alternatives, forced colours and reduced motion. Do not encode meaning by colour alone or rely on hover or animation for required information. Content must remain available if JavaScript, hydration or animation fails. Inspect affected interfaces at narrow mobile, standard mobile, tablet and desktop sizes.
 
 ## 8. Engineering and AI architecture

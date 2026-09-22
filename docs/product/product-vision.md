@@ -1,8 +1,20 @@
 # Product Vision
 
+> Public attribution and its narrow privacy boundary are governed by the
+> 2026-09-21 decision in `docs/operations/decision-log.md`.
+
 ## Vision
 
-Vascurra aims to become a trusted intelligence layer for vascular cognitive health: helping people remain independent and informed, helping families understand meaningful change, helping clinicians see useful longitudinal context, and helping research learn responsibly from consented real-world experience.
+Vascurra is a continuously learning Vascular Dementia Information System being
+designed with Dad, a former GP living with early vascular dementia. It is being
+built first to support him in everyday life and is intended to evolve into
+systems and products for people, families, clinicians and researchers,
+supported by continuous development and research using AI, compute, scientific
+evidence and human expertise.
+
+This is the canonical strategic direction. It is not evidence of clinical
+effectiveness and does not imply that the future system capabilities already
+exist.
 
 ## Core proposition
 
@@ -44,6 +56,19 @@ An evidence and learning layer that begins with research education and trial awa
 ## Long-term opportunity
 
 The first focus is vascular cognitive health. Future expansion into adjacent cognitive-health use cases should happen only after the core model is validated and the regulatory implications are understood.
+
+## Strategic learning loop
+
+The person remains at the centre. Veya provides the proposed everyday
+relationship with the system. The information system preserves structured,
+source-aware context over time for permission-appropriate human perspectives.
+Questions can then inform Vascurra Lab, where AI, compute, evidence and experts
+support bounded exploration under human review. Learning may improve the
+system and generate better questions. The proposed Vascurra Fund financing
+model exists to build sustained capacity for that work.
+
+The ambition is continuous improvement, not autonomous medicine or autonomous
+science.
 
 ## Phase 1 interpretation
 

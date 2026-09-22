@@ -1,0 +1,12 @@
+.slot {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  place-items: center;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

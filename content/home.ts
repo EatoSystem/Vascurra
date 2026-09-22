@@ -17,7 +17,7 @@ export const hero = {
   headingMid: "vascular cognitive",
   headingAccent: "health.",
   statementLead: "Support independence.",
-  statementTrail: "Preserve identity.",
+  statementTrail: "Preserve identity. Pursue breakthroughs.",
   audience: "For people, families, clinicians, and research.",
   body: "A human-centred project exploring how intelligence can help people live well with vascular cognitive change — supporting independence, preserving identity, and organising meaningful context over time.",
   primaryCta: "Request Access",
@@ -358,6 +358,26 @@ export const comingSoon = {
   statement: "A new approach to vascular cognitive health is taking shape.",
   body: "We are building the first foundations and exploring how intelligence can responsibly support people living with vascular cognitive change — together with families, clinicians and research.",
 } as const;
+
+export const capitalFlywheel = {
+  eyebrow: "The capital flywheel",
+  heading: ["A mission this large", "needs continuous capital."],
+  accent: "needs continuous capital.",
+  body: "Vascurra is not being built around one funding round or one research grant. The ambition is to mobilise sustained capital, compute, research funding and expertise — starting with Dad and growing toward permanent global vascular-dementia research and product infrastructure.",
+  statement: ["One stream", "becomes a network."],
+  status: "Planning horizons",
+  qualifier: "Illustrative capital mobilisation horizons for the long-term mission — not announced equity rounds, valuations or funding commitments.",
+  horizons: [
+    { stage: "Capital horizon 01", amount: "€1–5M", title: "Foundation", summary: "Patient 0 · Veya · Core System", detail: ["Patient 0", "Veya", "Core Information System", "Research foundations"] },
+    { stage: "Capital horizon 02", amount: "€10–25M", title: "Research engine", summary: "Lab · AI · Compute · Cohorts", detail: ["Vascurra Lab", "AI", "Compute", "Cohorts", "Family", "Clinician"] },
+    { stage: "Capital horizon 03", amount: "€50–100M+", title: "International network", summary: "Research · Clinical · Infrastructure", detail: ["International Research", "Clinical Collaboration", "Infrastructure", "Multi-country Development"] },
+    { stage: "Long-term mission", amount: "€1B+", title: "Permanent global capacity", summary: "Research · Products · Knowledge", detail: ["Global Research", "Products", "AI + Compute", "Knowledge Infrastructure"] },
+  ],
+  story: ["One person", "One system", "Research engine", "International network", "Permanent global capacity"],
+  ctas: [{ label: "Explore Vascurra Fund", href: "/fund" }, { label: "Support Vascurra", href: "/support" }],
+} as const;
+
+export const previewSectionOrder = ["origin", "mission", "framework", "veya", "support", "capital-flywheel", "lab"] as const;
 
 export const mockups = {
   concept: "Conceptual preview",

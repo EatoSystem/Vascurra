@@ -30,7 +30,7 @@ describe("holding preview gate", () => {
     expect(isHoldingGateEnabled()).toBe(false);
     await expect(passwordsMatch("legacy-fallback-not-configured")).resolves.toBe(false);
     await expect(createHoldingToken()).resolves.toBeNull();
-    await expect(isHoldingUnlocked(undefined)).resolves.toBe(true);
+    await expect(isHoldingUnlocked(undefined)).resolves.toBe(false);
   });
 
   it("accepts a signed token and rejects tampering or expiry", async () => {

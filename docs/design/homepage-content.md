@@ -3,7 +3,7 @@
 ## Hero
 **Intelligence for vascular cognitive health.**
 
-Support independence. Preserve identity.
+Support independence. Preserve identity. Pursue breakthroughs.
 
 Vascurra is being developed to help people, families, clinicians and research better understand change over time — combining context, careful technology and human judgement.
 
@@ -60,6 +60,18 @@ Recall → Hint → Guide → Answer
 Human judgement remains central.
 Privacy designed from the beginning.
 Evidence before clinical claims.
+
+## Veya
+
+**Your everyday intelligence companion.**
+
+There when you need it. Learning with you over time.
+
+Veya is the proposed daily relationship layer of Vascurra. The homepage should show an illustrative day through optional moments such as a check-in, an agreed-schedule reminder, a question, preparation and reflection. It must also state that interaction may happen once, several times or not at all.
+
+Chosen context can support better questions for the person, permission-led family support, human-reviewed clinician conversations and separately governed research directions. Veya is conceptual: it is not a doctor, diagnosis, emergency service or autonomous medical decision-maker.
+
+CTA: **Discover Veya**
 
 ## Final CTA
 **Vascurra is just beginning.**
