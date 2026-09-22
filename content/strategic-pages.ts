@@ -37,9 +37,9 @@ export const strategicPages = {
     closing: { title: ["Start with one person.", "Build for many."], body: "Learn carefully from one human starting point, then earn every responsible next step.", ctas: [{ label: "Explore Patient 0", href: "/patient-0" }, { label: "Explore the Roadmap", href: "/roadmap" }] },
   },
   fund: {
-    slug: "fund", eyebrow: "Vascurra Fund", title: ["Fund the", "next question."], accent: "next question.",
-    lead: "Vascurra needs sustained resources to develop the information system, fund advanced AI and compute, investigate research questions, work with experts and continually improve what is being built.",
-    qualifier: "Vascurra Fund describes the project's proposed funding programme and financing model. It is not represented as a registered charity, tax-deductible fund or proven business model, and this website accepts no payments.",
+    slug: "fund", eyebrow: fundPage.hero.eyebrow, title: fundPage.hero.title, accent: "next question.",
+    lead: fundPage.hero.lead,
+    qualifier: fundPage.hero.qualifier,
     chapters: [
       { eyebrow: "02 — Why continuous finance", title: ["Continuous learning", "needs continuous capacity."], body: ["Careful development may require AI model access, compute, research staff, engineers, clinicians, researchers, data and science expertise, legal and ethical work, governance and infrastructure."], note: "This capacity does not imply continuous clinical monitoring." },
       { eyebrow: "03 — What funding enables", title: ["Resource the work", "behind every next question."], body: ["The financing model is intended to build capability across six connected areas."], items: [{ title: "AI + Compute", body: "Model access, evaluation and bounded research runs." }, { title: "Research", body: "Evidence work, research questions and governed programmes." }, { title: "Systems Development", body: "Auditable product and information-system engineering." }, { title: "Experts", body: "Clinical, scientific, technical, legal and ethical review." }, { title: "Patient 0 / Co-design", body: "Daily learning with Dad while protecting his privacy." }, { title: "Open Knowledge", body: "Responsible methods and outputs that others can scrutinise." }], tone: "quiet" },
@@ -66,3 +66,4 @@ export const strategicPages = {
 } as const satisfies Record<string, StrategicPage>;
 
 export type StrategicPageSlug = keyof typeof strategicPages;
+import { fundPage } from "./fund";

@@ -8,3 +8,4 @@
 @media(forced-colors:active){.accent{background:none;color:CanvasText;-webkit-text-fill-color:CanvasText}.ribbon{display:none}.deep,.globalChapter{border-block:1px solid CanvasText}.heroLinks a,.closing a,.perspectivePerson,.capacityCore,.globalOrigin{border:1px solid ButtonText}}
 @media(prefers-reduced-motion:reduce){.heroLinks a,.closing a{transition:none}}
 .personNode span,.systemNode span,.capacityCore span,.journeyStep .status{font-size:.8rem}
+.horizonVisual strong{font-size:clamp(2.4rem,5vw,5rem);line-height:.92;letter-spacing:-.05em}.horizonVisual small{display:block;margin-top:.75rem;color:#d8ecee;font-size:.82rem;font-weight:750;line-height:1.35;text-transform:uppercase}.flywheelVisual li small{display:block;margin-top:.45rem;color:var(--muted);font-size:.8rem;line-height:1.45}
