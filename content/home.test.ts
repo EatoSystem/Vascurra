@@ -99,3 +99,28 @@ describe("public copy claims guardrail", () => {
     }
   });
 });
+
+describe("homepage capital flywheel", () => {
+  it("sits between Support and Vascurra Lab in the preview composition", () => {
+    expect(home.previewSectionOrder).toEqual(["origin", "mission", "framework", "veya", "support", "capital-flywheel", "lab"]);
+  });
+
+  it("defines four explicitly qualified capital-mobilisation horizons", () => {
+    expect(home.capitalFlywheel.horizons.map((horizon) => horizon.amount)).toEqual([
+      "€1–5M",
+      "€10–25M",
+      "€50–100M+",
+      "€1B+",
+    ]);
+    expect(home.capitalFlywheel.status).toBe("Planning horizons");
+    expect(home.capitalFlywheel.qualifier).toContain("not announced equity rounds, valuations or funding commitments");
+  });
+
+  it("links to Fund and Support without soliciting investment or payment", () => {
+    expect(home.capitalFlywheel.ctas).toEqual([
+      { label: "Explore Vascurra Fund", href: "/fund" },
+      { label: "Support Vascurra", href: "/support" },
+    ]);
+    expect(JSON.stringify(home.capitalFlywheel)).not.toMatch(/invest now|donate now|buy|guaranteed return|\bROI\b/i);
+  });
+});

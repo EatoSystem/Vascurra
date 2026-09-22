@@ -52,9 +52,9 @@ describe("Wave 2A strategic pages", () => {
   });
 
   it("defines replaceable artwork handoffs for every flagship page", () => {
-    expect(strategicArtworkManifest).toHaveLength(7);
+    expect(strategicArtworkManifest).toHaveLength(9);
     expect(new Set(strategicArtworkManifest.map((item) => item.assetKey)).size).toBe(strategicArtworkManifest.length);
-    expect(new Set(strategicArtworkManifest.map((item) => item.route))).toEqual(new Set(["/system", "/fund", "/roadmap"]));
+    expect(new Set(strategicArtworkManifest.map((item) => item.route))).toEqual(new Set(["/", "/system", "/fund", "/roadmap"]));
     for (const item of strategicArtworkManifest) {
       expect(item.alt.length).toBeGreaterThan(40);
       expect(item.brief.length).toBeGreaterThan(80);
