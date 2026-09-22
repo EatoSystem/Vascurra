@@ -6,4 +6,11 @@
   --vascurra-grad-hero-cyan: #0aa3bc;
   --vascurra-grad-hero-aqua: #2ecfc4;
   --vascurra-grad-hero-green: #49c768;
+  --vascurra-display-gradient: linear-gradient(
+    92deg,
+    var(--vascurra-grad-deep) 0%,
+    var(--vascurra-grad-hero-cyan) 34%,
+    var(--vascurra-grad-hero-aqua) 63%,
+    var(--vascurra-grad-hero-green) 100%
+  );
 }

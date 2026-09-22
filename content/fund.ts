@@ -6,7 +6,7 @@ export type FundResource = {
 export type CapitalHorizon = {
   readonly id: "01" | "02" | "03" | "04";
   readonly eyebrow: string;
-  readonly amount: string;
+  readonly amount: "€1–5M" | "€10–25M" | "€50–100M+" | "€1B+";
   readonly title: string;
   readonly subline: string;
   readonly headline?: string;

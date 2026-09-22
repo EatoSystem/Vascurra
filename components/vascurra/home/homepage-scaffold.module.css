@@ -21,7 +21,7 @@
 @supports (background-clip: text) {
   .gradient {
     padding-bottom: .09em;
-    background: var(--vascurra-text-gradient-hero);
+    background: var(--vascurra-display-gradient);
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
