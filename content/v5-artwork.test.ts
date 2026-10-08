@@ -10,8 +10,8 @@ const assetRoot = resolve(publicRoot, V5_ARTWORK_BASE.replace(/^\//, ""));
 describe("V5 artwork integration", () => {
   it("manifests all nine approved, unchanged PNG filenames", () => {
     expect(artworks.map((artwork) => artwork.filename)).toEqual([
-      "01_veya_a_day_with_veya.png",
-      "02_veya_context_over_time.png",
+      "wellness_journey_infographic_wave.png",
+      "veya_connected_health_data_ecosystem.png",
       "03_capital_one_stream_becomes_a_network.png",
       "04_capital_four_horizons.png",
       "05_fund_hero_capital_compute_research_expertise_to_capacity.png",
