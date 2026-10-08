@@ -9,7 +9,7 @@
 .heading { margin:1.45rem 0 0; color:var(--ink); font-size:clamp(3.1rem,6.3vw,6.5rem); font-weight:600; line-height:.99; letter-spacing:-.057em; text-wrap:balance; }
 .heading span { display:block; }
 .gradient { color:#087486; }
-@supports (background-clip:text) { .gradient { padding-bottom:.07em; background:var(--gradient); background-clip:text; color:transparent; -webkit-text-fill-color:transparent; } }
+@supports (background-clip:text) { .gradient { padding-bottom:.07em; background:var(--vascurra-brand-gradient); background-clip:text; color:transparent; -webkit-text-fill-color:transparent; } }
 .heroSupporting { margin:2rem 0 0; color:var(--ink); font-size:clamp(1.45rem,2.3vw,2.15rem); font-weight:650; line-height:1.35; }
 .heroSupporting span { display:block; }
 .lead { margin:1.5rem 0 0; color:#173f59; font-size:clamp(1.16rem,1.65vw,1.45rem); line-height:1.65; }
@@ -68,7 +68,8 @@
 .deep .shell { position:relative; }
 .deep .eyebrow { color:#83dfe3; }
 .deep .heading { color:#fff; }
-.deep .gradient { background:linear-gradient(90deg,#43d6ff,#2ecfc4,#58d39a); background-clip:text; -webkit-text-fill-color:transparent; }
+.deep .gradient { color:var(--color-on-deep); }
+@supports (background-clip:text) { .deep .gradient { background:var(--vascurra-brand-gradient); background-clip:text; color:transparent; -webkit-text-fill-color:transparent; } }
 .boundaryColumns { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem; }
 .boundaryColumns h3 { margin:0; color:#83dfe3; font-size:.85rem; letter-spacing:.14em; text-transform:uppercase; }
 .boundaryColumns ul { padding:0; margin:1.25rem 0 0; list-style:none; }
@@ -103,7 +104,7 @@
   .heroVisual li::before { position:absolute; left:0; margin:.2rem 0 0; }
   .ctas { align-items:stretch; flex-direction:column; }
   .patternsGrid ul,.medicationLists,.boundaryColumns,.permissionsGrid ol { grid-template-columns:1fr; }
-  .deep .gradient { background:none; color:#83dfe3; -webkit-text-fill-color:#83dfe3; }
+
 }
 @media (prefers-reduced-motion:reduce) { .ctas a { transition:none; } }
-@media (forced-colors:active) { .gradient { background:none; color:CanvasText; -webkit-text-fill-color:CanvasText; } .heroThread { background:CanvasText; box-shadow:none; } .heroVisual li::before { border:1px solid CanvasText; background:Canvas; box-shadow:none; } }
+@media (forced-colors:active) { .gradient,.deep .gradient { background:none; color:CanvasText; -webkit-text-fill-color:CanvasText; } .heroThread { background:CanvasText; box-shadow:none; } .heroVisual li::before { border:1px solid CanvasText; background:Canvas; box-shadow:none; } }

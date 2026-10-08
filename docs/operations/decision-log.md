@@ -22,6 +22,34 @@ Record material product decisions here so coding agents do not repeatedly reopen
 
 ## Initial decisions
 
+### 2026-10-05 — Public holding page gains a concise project overview
+
+**Decision:** At the founder's request, reuse the full homepage hero on `/` and
+add a short overview of Vascurra's mission, proposed Veya/Intelligence/Lab
+layers, intended audiences and development principles so the project can be
+understood before the full site launches.
+
+**Scope:** This expands the single Public Platform P0 holding experience. It
+does not release the multi-route P1 website or Product Platform functionality.
+Keep all unfinished routes gated and noindex, retain the public privacy route
+and the private-preview footer, and use public local anchors for navigation.
+
+**Content boundary:** Reuse approved hero copy and the limited Dad attribution
+permitted on 21 September 2026. Describe future experiences as proposed, retain
+the development and medical-functionality boundaries, and add no health-data
+collection, research enrolment, payment, launch date or outcome claim.
+
+**Supersedes:** Earlier implementation details that restricted the public root
+to the hero alone. The full-site release restrictions remain in force.
+
+**Implications:** Use existing supplied artwork and components. Implementation
+and review do not by themselves authorise production deployment. See
+`docs/design/holding-page-overview.md` for the composition and validation scope.
+
+**Owner:** Founder / Product Architecture
+
+---
+
 ### 2026-09-22 — Founder-supplied artwork only
 
 **Decision:** Coding agents must not create Vascurra visual artwork. Significant
@@ -507,3 +535,261 @@ architecture and principles sections.
 **Safety boundary:** Public copy may describe optional check-ins, questions, notes, preparation and reminders around an agreed medication schedule. It must not imply autonomous monitoring, diagnosis, prediction, medication prescribing or changes, emergency management, automatic sharing or research participation. Important patterns lead to human review.
 
 **Implications:** `/veya` remains conceptual and `noindex, nofollow` with the unfinished V2 routes. No product workflow, health-data collection, production AI, database, environment variable or release-gate behaviour is introduced by this decision.
+
+### 2026-10-04 — 100 Billion Brain Cells participation mission (preview)
+
+**Decision:** Add the founder-approved symbolic participation mission to the
+preview homepage and `/100-Billion`. One Brain Cell represents €0.10 of symbolic
+mission value; 100 billion represents the €10 billion long-term ambition.
+Keep the four existing capital horizons; the ultimate destination is separate.
+
+**Boundaries:** This is proposed participation infrastructure, not a biological
+ownership claim, investment, charity designation, current capital raised or
+checkout. No payments, dedication records, live reporting or health-data
+collection are introduced. Existing release gate, noindex and sitemap remain.
+The commercial research/reinvestment model remains proposed. `/fund` retains
+its capital-philosophy role. See `docs/design/100-billion-brain-cells.md` for
+scientific provenance, asset requirements and deferred transaction decisions.
+
+### 2026-10-05 — Dedicated mission page visual hierarchy
+
+**Decision:** Apply the founder's final visual refinement to `/100-Billion`,
+preserving its chapter order, approved figures, supplied artwork and public
+information boundaries. Create distinct display moments around 100, ≈86,
+symbolic scale, the ultimate destination, dedication and final mission.
+
+**Supersedes:** The campaign-only Brain Cells-first capital hierarchy recorded
+in the 4 October design pass. Financial amounts now lead the four campaign
+horizons, with symbolic equivalents secondary. The 100B / €10B destination
+continues to sit beyond those four horizons, never as Horizon 05.
+
+**Boundaries:** Homepage and Fund presentation remain independent. No new
+artwork, medical claim, transaction, data collection, backend, indexing or
+production-release change is authorised. Exact implementation and validation
+are recorded in `docs/design/100-billion-brain-cells.md`.
+
+### 2026-10-05 — Holding-page refinement stays distinct from the full homepage
+
+**Decision:** Apply the founder's focused visual and copy brief to the public
+holding page at `/`. Retain its hero, mission, three proposed layers,
+perspectives, development chapter and restrained footer. Introduce a
+holding-only hero variant with the approved brain, concise development
+description and existing accessible ink gradient on white.
+
+**Supersedes:** The earlier holding-page requirement to reproduce the full
+`/preview` hero exactly. Shared homepage defaults and its approved narrative
+remain unchanged. The original design record is retained in
+`docs/design/holding-page-overview.md`.
+
+**Boundaries:** No new artwork, medical claim, live product functionality,
+contact collection, backend or release-gate change. Consent, human judgement,
+evidence boundaries and the separate development disclaimer remain. Contact
+is deferred until an appropriate approved public route or address exists.
+Local implementation and verification do not authorise a production release.
+
+### 2026-10-05 — Holding-page origin, science and canonical gradient
+
+**Decision:** Apply the founder's subsequent public holding-page brief: retain
+the core hero and mission, add restrained human origin, a sourced scientific
+challenge and a short proposed research direction. Distinguish documented
+design work today from proposed studies, collaboration and evaluation.
+
+**Public attribution:** The founder explicitly supplied the systems-developer
+profession for this page. The retired-doctor/early-vascular-dementia wording
+for Dad falls within the limited 21 September attribution decision. This
+extends neither identity disclosure nor permission to publish medical records,
+private conversations, results or any further personal detail.
+
+**Supersedes:** The preceding holding refinement's 104-degree mint-to-blue
+text gradient. Restore the 7 September canonical cyan/aqua/green family:
+90 degrees, #0aa3bc at 0%, #2ecfc4 at 42%, #49c768 at 100%. On white,
+use the existing accessible ink counterpart (#006f86, #08766f, #23783d,
+same stops); the original bright values do not meet text contrast on white.
+Shared text consumers use the contextual canonical tokens. Artwork colours
+and supplied asset files are unchanged.
+
+**Scientific boundary:** The NHS supports the general reduced-blood-flow
+statement; it establishes no Vascurra capability. Research interests remain
+proposed. The suggested "earlier" wording is omitted because it could imply
+early detection. Everyday observations remain distinct from clinical findings.
+No current cohort, partnership, completed study or validation is claimed.
+
+**Scope:** Public information, typography and layout only. No new artwork,
+health-data collection, production AI, database, permission implementation,
+release-gate or production change. This brief does not authorise deployment.
+See `docs/design/holding-page-overview.md` for provenance and verification.
+
+### 2026-10-05 — Screenshot correction restores actual bright display colours
+
+**Decision:** The founder rejected the darker ink treatment because it still
+did not match the supplied original homepage screenshot. Restore the original
+bright display colours in the shared component, legacy aliases and text-only
+consumers affected by the preceding consolidation. Restore the hero's distinct
+green continuation for “health.” rather than restarting its cyan sweep.
+
+**Supersedes:** The preceding entry's instruction to use the darker ink
+counterpart for light-background display text. That counterpart shares a hue
+family, but changes the requested visual design. The earlier verification
+record remains historical evidence for that earlier revision only.
+
+**Exact source:** Commit `53ecf86` adds the canonical bright colour tokens;
+`47fa0d5` imports the colour-lock stylesheet. Original `globals.css` uses
+90 degrees with #0aa3bc at 0%, #2ecfc4 at 42%, #49c768 at 100%. Its hero end
+uses aqua 35% mixed with green at 0%, then green at 100%. Both definitions now
+live centrally in `app/brand-canonical.css`.
+
+**Accessibility limitation:** The exact bright colours on white do not meet
+AA text contrast throughout. This known display-text limitation is recorded
+without silently changing the colours again. Solid body copy, unsupported-
+gradient fallbacks and forced-colours treatment remain. No full AA compliance
+is claimed for this revision.
+
+**Boundaries:** Colour-only correction; preserve copy, layout, artwork,
+clinical/privacy boundaries, release gates and production state. No new asset,
+health claim, live functionality or deployment is authorised.
+
+### 2026-10-06 — Proposed Research Engine and homepage capability layer
+
+**Decision:** Add a gated `/research-engine` strategic page explaining what
+scientific, human, technical and institutional capability mission resources
+could build. Extend the existing homepage Capital Flywheel with compact
+future-labelled capability lines and a Research Engine link. Keep Fund and
+100 Billion Brain Cells as separate, existing pages.
+
+**Shared figures:** Reuse the four Brain Cells horizon IDs and their derived
+equivalents. Derive the full mission capital from the symbolic unit value and
+full target. The 100B / €10B ambition remains separate from the four horizons.
+
+**Research boundary:** Every programme is proposed. Candidate measures,
+multimodal relationships, optional digital research and therapeutic hypotheses
+require validation, qualified expertise and separate study/consent/governance
+approval. Cure Programme is an aspirational therapeutics research name, never
+a cure promise. Patient 0 remains co-design, not a clinical trial or efficacy
+evidence. No programme metrics, participants, researchers or partnerships are
+invented.
+
+**Implementation boundary:** Static server-rendered strategic communication
+within the existing gated/noindex V2 architecture. No model execution,
+literature ingestion, health-data collection, cohort platform, clinical tool,
+payment, production setting or release-gate change. Use existing supplied
+artwork unchanged; no new visual artwork is authorised.
+
+**Sources and review:** See `docs/design/research-engine.md` and
+`docs/clinical/research-engine-source-map.md`. The scientific-domain source
+review supports public framing only, not approval of a study or clinical claim.
+The new brief does not authorise deployment.
+
+### 2026-10-06 — VeyAI proposed internal agent architecture
+
+**Decision:** Add the founder-requested `/VeyAI` page. Distinguish Veya, the
+person-facing companion, from VeyAI, proposed internal mission assistance.
+Retain Vascurra Intelligence as the separate governed interpretation concept.
+Group specialist roles by the existing four capital horizons and the Mission
+and Organisation families; preserve the separate full-mission target.
+
+**Boundaries:** Every role is proposed, future or long-term. Governance applies
+from the foundation. An AI Governance role does not enforce permissions;
+deterministic services and human owners do. Scientific judgement, clinical
+decisions, capital approval and external commitments remain human
+responsibilities. No live agent, health-data collection, model API, outreach,
+payment or clinical workflow is authorised or implemented.
+
+**Design:** Reuse the existing typography, colours, gradient and components.
+Use a typographic hero without new artwork. Native disclosures retain visible
+status and prohibitions. Add Veya/VeyAI beneath the existing The System item.
+See `docs/design/veyai.md` for structure and review requirements.
+
+**Release:** The founder explicitly asks to deploy when complete. Validate and
+deploy to the established protected Vercel Preview; retain the marketing gate
+and noindex. This does not authorise production promotion, merge or push.
+
+### 2026-10-07 — Approve bounded VeyAI implementation; defer service setup
+
+**Decision:** The founder approved Research → Evidence → Human Decision, with
+identity, MFA, roles and RLS before meaningful private records; mandatory
+provenance; versioned contracts/instructions/models/sources/outputs/decisions;
+and hard per-run/per-user spending controls before live execution. Core remains
+a thin deterministic controller. Operations and Capital remain non-executable
+shells until this first workflow is proven.
+
+**Authority:** “OpenAI is the reasoning runtime. Vascurra is the system of
+record.” Models propose; authenticated humans decide. Programme-planning
+approval records intent against specific Research and Evidence versions and
+starts no programme, external communication, spending or publication. Revised
+Research or Evidence makes earlier approval stale. Veya, Patient 0 and personal
+health information remain entirely outside this slice.
+
+**Implementation adjustment:** The founder subsequently said Supabase and
+OpenAI API setup can happen later. Build the local fixture foundation with
+actual staff Auth/MFA required when enabled, no development bypass, local RLS
+migrations, structured source/output/audit persistence, private workstation and
+restricted fixture worker. Do not connect an unselected remote project or
+enable live provider execution to work around deferred setup.
+
+**Limits:** Local migrations are not remotely applied infrastructure. PGlite
+tests use synthetic Auth sessions and do not prove real hosted Auth or browser
+integration. Deterministic source-injection fixtures are not scientific or
+live-model safety validation. Workflow mutation events are not comprehensive
+read auditing. A cost calculation helper is not a live transactional spending
+reservation ledger; that ledger must precede live calls.
+
+**Relationship to earlier decisions:** This approval extends the 6 October
+public-only VeyAI scope for this institutional fixture slice. It preserves
+earlier public-page history and all clinical/privacy boundaries. Production
+release, external actions, new health-data scope and Operations/Capital
+execution remain outside this approval. See
+`docs/technical/veyai-v0.1-implementation.md` for setup and activation gates.
+
+### 2026-10-07 — Develop the product with fixtures; connect infrastructure later
+
+**Authority:** The founder explicitly approves provider contracts and synthetic
+product journeys without Supabase, OpenAI or Stripe credentials. The seven ordered
+slices are provider architecture, workstation, Atlas, mock participation, Veya,
+public story and non-executable Operations/Capital proposals. Validate each slice.
+
+**Supersession:** The preceding no-development-login restriction is superseded
+only for clearly labelled local fixture development. Production and connected
+mode still require actual invited staff identity, MFA and RLS, without fallback.
+Veya remains separate from VeyAI. No real personal/health data belongs in fixtures.
+
+**Limits:** No service activation, remote migrations, real payments, credentials,
+external communications, deployment, autonomous execution or agent write authority.
+Brain Cells remain symbolic participation at €0.10 per unit, with legal/commercial/
+tax/accounting/refund treatment deferred. No tax invoices or Foundation system.
+The operating model remains: agents propose, humans decide.
+
+**Implementation record:** `docs/technical/external-provider-architecture.md`.
+
+### 2026-10-08 — Prepare hosted Stripe Checkout without activation
+
+**Decision:** Install the curated Stripe development plugin and add the minimum
+server-side hosted Checkout foundation described by the founder-supplied Checkout
+Studio brief. The endpoint uses one-time payment mode and the approved fixed
+Checkout parameters. Configuration remains placeholder-only.
+
+**Boundaries:** This does not supersede the legal, commercial, tax, accounting,
+privacy, refund, receipt, webhook, reconciliation or live-mode gates. The support
+page exposes the hosted-checkout form only when the explicit enable flag and all
+required Stripe settings are present; it is absent by default. The existing
+`StripePaymentProvider` remains disabled and no production key or real payment is
+authorised. `STRIPE_INTEGRATION_TODO.md` records the remaining decisions and
+activation work.
+
+### 2026-10-07 — Simplify the public model and redesign the holding-page challenge
+
+**Decision:** Retire “Vascurra Intelligence” as a public product name. The
+public model is Veya for the person, VeyAI for the mission and Vascurra Lab for
+research and learning. The earlier 6 October decision to retain a separate
+publicly named interpretation layer is superseded. Lowercase descriptive use of
+the internal Vascurra intelligence gateway may remain for context, provenance,
+permissions and structured services; it is not a public brand or a database.
+
+**Holding page:** Reframe the Challenge as a systems and fragmentation problem,
+remove its NHS citation and connect the founder story to the three public layers.
+Keep the page concise and the research boundary explicit: everyday observations
+are not clinical findings. The long-term prevention, treatment and cure language
+expresses mission ambition, not a claim that Vascurra delivers those outcomes.
+
+**Routes:** `/VeyAI` remains canonical. The legacy `/intelligence` route
+permanently redirects to it. No provider, database, payment, clinical or
+production activation changes are authorised by this decision.

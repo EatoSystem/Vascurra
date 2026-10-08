@@ -4,10 +4,10 @@ import { V4ArtworkSlot, v4Artwork } from "./v4-artwork-slot";
 import styles from "./homepage-scaffold.module.css";
 
 const areas = [
-  ["AI + Compute", "Support advanced AI systems, model access, compute capacity, evaluation and AI research infrastructure."],
-  ["Research", "Support evidence review, literature exploration, research questions, collaboration and responsible investigation."],
-  ["Systems Development", "Support Veya, context systems, family and clinician experiences, data architecture, permissions and research infrastructure."],
-  ["Patient 0 / Co-design", "Support the daily development programme with Dad: Build. Use. Observe. Discuss. Learn. Improve."],
+  ["AI + Compute", "Model access, compute and evaluation."],
+  ["Research", "Evidence review and responsible investigation."],
+  ["Systems Development", "Veya, context systems and permissions."],
+  ["Patient 0 / Co-design", "Daily development and learning with Dad."],
 ] as const;
 
 export function SupportVascurra() {

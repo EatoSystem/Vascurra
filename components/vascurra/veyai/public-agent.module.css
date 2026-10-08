@@ -1,0 +1,14 @@
+.page { padding: clamp(4rem,8vw,8rem) 0; color: #183e56; }
+.page h1 { font-size: clamp(2.75rem,7vw,5rem); font-weight: 650; letter-spacing: -.05em; line-height: 1.05; margin: 1rem 0; }
+.page h2 { font-size: 1.65rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -.025em; }
+.page p, .page li { line-height: 1.8; max-width: 65ch; margin-bottom: 1rem; }
+.page section { padding: 2.5rem 0; border-top: 1px solid #c9dddf; }
+.page ul { padding-left: 1.2rem; list-style: disc; }
+.page nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.page a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .2em; }
+.page a:focus-visible { outline: 3px solid #007b8b; outline-offset: 4px; }
+.eyebrow { color: #22636c; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 650; }
+.question { font-size: clamp(1.5rem,3vw,2rem); line-height: 1.4; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3rem; margin-top: 3rem; }
+.page .cta { border-radius: 2rem; padding: .7rem 1.4rem; background: #104b56; color: white; text-decoration: none; }
+@media (max-width: 45rem) { .grid { grid-template-columns: 1fr; gap: 0; } }

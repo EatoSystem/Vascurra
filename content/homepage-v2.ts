@@ -23,7 +23,7 @@ export const homepageV2 = {
   veya: {
     lead: "Your everyday intelligence companion.",
     body: "Veya is the proposed daily relationship layer of Vascurra: available when useful, able to keep chosen context connected over time and designed to adapt without demanding constant interaction.",
-    relationship: "Vascurra Intelligence provides the governed interpretation layer. Veya makes appropriate context useful in everyday life, while the person remains in control.",
+    relationship: "Veya makes appropriate context useful in everyday life, while the person remains in control. VeyAI supports the wider mission through bounded research, evidence and knowledge work with human decisions.",
     points: ["Ask in everyday language.", "Keep chosen context connected.", "Prepare useful questions.", "Bring patterns forward for review."],
   },
   intelligence: {

@@ -1,9 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
+import { horizonBrainCellsById } from "@/content/brain-cells";
+import { BrainCellDestination } from "@/components/vascurra/brain-cells/BrainCellMission";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { capitalFlywheel } from "@/content/home";
+import { researchMission } from "@/content/research-engine";
 import { CapitalAmount } from "@/components/vascurra/capital/CapitalAmount";
 import { v5Artwork, v5ArtworkSrc } from "@/content/v5-artwork";
-import { VascurraGradientText } from "./gradient-text";
 import styles from "./capital-flywheel.module.css";
 
 export function HomeCapitalFlywheel() {
@@ -13,22 +15,42 @@ export function HomeCapitalFlywheel() {
         <header className={styles.intro}>
           <div>
             <p className={styles.eyebrow}>{capitalFlywheel.eyebrow}</p>
-            <h2 id="home-capital-flywheel-title"><span>{capitalFlywheel.heading[0]}</span><VascurraGradientText>{capitalFlywheel.heading[1]}</VascurraGradientText></h2>
+            <h2 id="home-capital-flywheel-title"><span>{capitalFlywheel.heading[0]}</span><span className="text-gradient">{capitalFlywheel.heading[1]}</span></h2>
           </div>
           <div className={styles.copy}>
-            <p>{capitalFlywheel.body}</p>
-            <p className={styles.statement}>{capitalFlywheel.statement.map((line) => <span key={line}>{line}</span>)}</p>
+            <p className={styles.statement}><span>Not one round. Not one grant.</span><span>A capital flywheel.</span></p>
           </div>
         </header>
 
         <figure className={styles.progression} data-artwork-key="home-capital-flywheel">
           <figcaption><strong>{capitalFlywheel.status}</strong><span>{capitalFlywheel.qualifier}</span></figcaption>
-          <div className={styles.journeyArtwork} data-v5-artwork={v5Artwork.capitalNetwork.filename}><Image src={v5ArtworkSrc(v5Artwork.capitalNetwork)} alt={v5Artwork.capitalNetwork.alt} width={v5Artwork.capitalNetwork.width} height={v5Artwork.capitalNetwork.height} sizes="(max-width: 768px) 100vw, 94vw" quality={90}/></div>
-          <ol>{capitalFlywheel.horizons.map((horizon, index) => <li className={index === 3 ? styles.globalStage : undefined} key={horizon.stage}><div className={styles.stageNumber}>{String(index + 1).padStart(2, "0")}</div><div className={styles.stageCopy}><span>{horizon.stage}</span><h3>{horizon.title}</h3><p>{horizon.summary}</p><CapitalAmount amount={horizon.amount}/>{index === 3 ? <small>Cumulative long-term mission capacity.</small> : null}</div></li>)}</ol>
+          <div className={styles.journeyArtwork} data-v5-artwork={v5Artwork.capitalFlywheel.filename}>
+            <Image src={v5ArtworkSrc(v5Artwork.capitalFlywheel)} alt={v5Artwork.capitalFlywheel.alt}
+              width={v5Artwork.capitalFlywheel.width} height={v5Artwork.capitalFlywheel.height}
+              sizes="(min-width: 1568px) 1504px, (min-width: 1423px) calc(100vw - 64px), (min-width: 768px) 95.5vw, 100vw"
+              quality={90} loading="lazy" />
+          </div>
+          <ol>
+            {capitalFlywheel.horizons.map((horizon, index) => <li key={horizon.stage}>
+              <div className={styles.stageNumber}>{String(index + 1).padStart(2, "0")}</div>
+              <div className={styles.stageCopy}>
+                <span className={styles.stageLabel}>{index === 0 ? "Near-term planning horizon" : "Future planning horizon"}</span>
+                <h3>{horizon.title}</h3>
+                <CapitalAmount amount={horizon.amount} />
+                <p className={styles.brainCells}>{horizonBrainCellsById(horizon.id)}</p>
+                <p className={styles.stageSummary}>{index === 0 ? "Patient 0 · Veya · Core System · Research Infrastructure" : horizon.summary}</p>
+                <p className={styles.capability}><span>Proposed capability</span>{horizon.capabilityLine}</p>
+                <p className={styles.capabilityDescriptor}>{horizon.descriptor}</p>
+                {index === 3 ? <small>Cumulative long-term mission capacity.</small> : null}
+              </div>
+            </li>)}
+          </ol>
         </figure>
 
-        <div className={styles.story} aria-label={capitalFlywheel.story.join(" to ")}>{capitalFlywheel.story.map((step, index) => <span key={step}>{step}{index < capitalFlywheel.story.length - 1 ? <i aria-hidden="true">→</i> : null}</span>)}</div>
-        <nav className={styles.actions} aria-label="Explore the capital flywheel">{capitalFlywheel.ctas.map((cta, index) => <Link className={index === 1 ? styles.secondary : undefined} href={cta.href} key={cta.href}>{cta.label}</Link>)}</nav>
+        <BrainCellDestination homepage label={researchMission.label} />
+        <p className={styles.missionCapability}>{capitalFlywheel.missionCapabilityLine}</p>
+        <p className={styles.missionBoundary}>{capitalFlywheel.missionBoundary}</p>
+        <nav className={styles.actions} aria-label="Explore the capital flywheel"><CtaLink href="/research-engine" className={styles.researchLink}>Explore the Research Engine <span aria-hidden="true">→</span></CtaLink><CtaLink href="/fund" variant="secondary" className={styles.researchLink}>Explore the Vascurra Fund</CtaLink></nav>
       </div>
     </section>
   );

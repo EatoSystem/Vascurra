@@ -7,7 +7,7 @@
 .title { margin: 1.75rem 0 0; color: #062b4b; font-size: var(--primary); font-weight: 600; line-height: 1.02; letter-spacing: -.05em; }
 .title span { display: block; }
 .accent { color: #087486; }
-@supports (background-clip:text) { .accent { padding-bottom: .08em; background: var(--vascurra-text-gradient-hero); background-clip: text; color: transparent; -webkit-text-fill-color: transparent; } }
+@supports (background-clip:text) { .accent { padding-bottom: .08em; background: var(--vascurra-brand-gradient); background-clip: text; color: transparent; -webkit-text-fill-color: transparent; } }
 .lead { max-width: 54rem; margin: 2.25rem 0 0; color: #173e59; font-size: var(--secondary); font-weight: 550; line-height: 1.5; }
 .qualifier { max-width: 58rem; margin: 1.5rem 0 0; border-left: 2px solid #2ecfc4; padding-left: 1.1rem; color: #466a7d; font-size: var(--tertiary); line-height: 1.7; }
 .artwork { position: relative; display: grid; min-height: 23rem; place-items: center; margin-top: clamp(3.5rem, 7vw, 7rem); overflow: hidden; border-block: 1px solid #d4e8ea; background: linear-gradient(110deg,#fff 0%,#f4fcfc 48%,#fff 100%); }

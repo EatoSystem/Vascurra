@@ -47,7 +47,7 @@ export const personal = {
     accent: "through Vascurra.",
     lead: "A calm conversational layer designed to help make complexity more understandable.",
     body: "Veya may help someone understand information in plain language, capture context they choose to share, prepare questions, find important information again, organise what matters and surface meaningful changes for review.",
-    distinction: "Vascurra Intelligence helps make sense of the system. Veya helps make that understanding useful to people.",
+    distinction: "Veya supports the person in everyday life. VeyAI supports Vascurra’s wider research and mission work, with people making the decisions.",
     safety: "Veya is not a doctor, is not a diagnostic system, is not an emergency service and is not a replacement for clinical judgement.",
     artwork: artwork("personal-veya", "Veya", "A calm way through complexity.", "1 / 1", "1 / 1", "A simple luminous Veya form emerging from the Vascurra ribbon. No robot, avatar, chat interface, repeated brain mark or science-fiction face."),
   },

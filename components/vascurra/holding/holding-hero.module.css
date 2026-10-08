@@ -1,0 +1,152 @@
+.header { box-shadow: 0 10px 32px -30px rgba(8, 61, 74, .65); }
+.header > div > div { min-height: 5rem; flex-wrap: wrap; }
+.header a[aria-label="Vascurra — home"] { max-width: 100%; min-height: 2.75rem; }
+.header a[aria-label="Vascurra — home"] > span { overflow-wrap: anywhere; }
+.header nav[aria-label="Site"] > ul { gap: .15rem; }
+.header nav[aria-label="Site"] > ul > li > a { border-radius: 999px; }
+.header nav[aria-label="Site"] > ul > li > a:hover,
+.header nav[aria-label="Site"] > ul > li > a:focus-visible { background: var(--vascurra-mist); }
+
+.hero {
+  padding: clamp(3rem, 6vw, 5.5rem) 1.25rem clamp(4rem, 6vw, 5.5rem);
+  background: var(--color-white);
+  color: var(--color-navy);
+}
+
+.layout {
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+  width: min(100%, var(--vascurra-section));
+  margin-inline: auto;
+}
+
+.copy,
+.artwork {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 1.5rem;
+  color: var(--color-ink-teal);
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(2.4rem, 10.8vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  overflow-wrap: anywhere;
+}
+
+.heading span,
+.statement span {
+  display: block;
+}
+.heading > span { width: fit-content; max-width: 100%; }
+
+.statement {
+  margin: 2rem 0 0;
+  max-width: 30rem;
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.description {
+  margin: 1.75rem 0 0;
+  max-width: 29rem;
+  color: var(--color-ink-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.actions a {
+  min-width: 0;
+  max-width: 100%;
+  padding-inline: clamp(0.75rem, 8vw, 2.25rem);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.artwork {
+  display: flex;
+  justify-content: center;
+}
+
+/* Scale the supplied raster only; shared brain sizing and coded fields stay unchanged. */
+.brain {
+  width: min(100%, 28rem) !important;
+  max-width: none !important;
+  min-width: 0 !important;
+}
+
+.footerContent { display: grid; gap: 3rem; }
+.footerIdentity { min-width: 0; }
+.footerLockup { display: inline-flex; align-items: center; gap: .75rem; min-height: 2.75rem; border-radius: .5rem; }
+.footerName { color: var(--color-navy); font-size: 1.6rem; line-height: 1; }
+.footerTagline { max-width: 28rem; margin: 1rem 0 0; color: var(--color-ink-teal); font-size: .75rem; font-weight: 700; line-height: 1.5; letter-spacing: .13em; text-transform: uppercase; }
+.footerStatement { max-width: 31rem; margin: 2rem 0 0; color: var(--vascurra-ink); font-size: clamp(1.35rem, 2vw, 1.7rem); font-weight: 600; line-height: 1.4; letter-spacing: -.02em; }
+.footerStatus { display: inline-flex; width: fit-content; margin: 1.5rem 0 0; border: 1px solid var(--vascurra-border); border-radius: 999px; padding: .45rem .8rem; color: var(--color-ink-teal); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .09em; text-transform: uppercase; }
+.footerNavigation { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.footerNavigation h2 { margin: 0; color: var(--color-ink-teal); font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.footerNavigation ul { display: grid; gap: .15rem; padding: 0; margin: 1rem 0 0; list-style: none; }
+.footerNavigation a { display: inline-flex; align-items: center; min-height: 2.65rem; color: var(--color-navy); font-size: .95rem; font-weight: 540; line-height: 1.4; }
+.footerNavigation a:hover { color: var(--color-ink-teal); text-decoration: underline; text-underline-offset: .25em; }
+
+@media (min-width: 640px) {
+  .hero { padding-inline: 2rem; }
+  .actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 1rem; }
+}
+
+@media (min-width: 768px) {
+  .layout { grid-template-columns: minmax(0, 0.54fr) minmax(0, 0.46fr); gap: 1.5rem; }
+  .heading { font-size: clamp(2.75rem, 5.8vw, 5.1rem); }
+  .artwork { justify-content: flex-end; }
+  .brain { flex-shrink: 0; width: min(50vw, 45rem) !important; }
+  .footerContent { grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr); align-items: start; gap: 4rem; }
+}
+
+@media (min-width: 1024px) {
+  .hero { padding-inline: 3rem; }
+  .layout { gap: 2rem; }
+  .description { margin-top: 2rem; font-size: 1.2rem; }
+  .actions { margin-top: 2.5rem; }
+}
+
+@media (max-width: 240px) {
+  .header > div { padding-inline: 0.5rem; }
+  .header > div > div { gap: 0.5rem; }
+  .header a[aria-label="Vascurra — home"] { flex-shrink: 0; min-width: 2.75rem; min-height: 2.75rem; }
+  .header a[aria-label="Vascurra — home"] > span { display: none; }
+  .header button[aria-controls="mobile-menu"] { padding-inline: 0.5rem; }
+  .footerNavigation { grid-template-columns: 1fr; }
+}
+
+@media (forced-colors: active) {
+  .hero { background: Canvas; color: CanvasText; }
+  .eyebrow,
+  .description,
+  .footerName,
+  .footerStatus,
+  .footerTagline,
+  .footerStatement,
+  .footerNavigation h2 { color: CanvasText; }
+  .footerNavigation a { color: LinkText; }
+}

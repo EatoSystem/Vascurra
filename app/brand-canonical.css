@@ -6,11 +6,26 @@
   --vascurra-grad-hero-cyan: #0aa3bc;
   --vascurra-grad-hero-aqua: #2ecfc4;
   --vascurra-grad-hero-green: #49c768;
-  --vascurra-display-gradient: linear-gradient(
-    92deg,
-    var(--vascurra-grad-deep) 0%,
-    var(--vascurra-grad-hero-cyan) 34%,
-    var(--vascurra-grad-hero-aqua) 63%,
+  /* Original hero family, with fixed stops unaffected by legacy aliases. */
+  --vascurra-brand-gradient: linear-gradient(
+    90deg,
+    var(--vascurra-grad-hero-cyan) 0%,
+    var(--vascurra-grad-hero-aqua) 42%,
     var(--vascurra-grad-hero-green) 100%
   );
+  /* Original hero's green continuation for the separate “health.” row. */
+  --vascurra-brand-gradient-end: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--vascurra-grad-hero-aqua) 35%, var(--vascurra-grad-hero-green)) 0%,
+    var(--vascurra-grad-hero-green) 100%
+  );
+  /* Existing accessible cyan → aqua → green inks for light-surface text. */
+  --vascurra-brand-gradient-ink: linear-gradient(
+    90deg,
+    #006f86 0%,
+    #08766f 42%,
+    #23783d 100%
+  );
+  /* Compatibility for existing decorative interface rules. */
+  --vascurra-display-gradient: var(--vascurra-brand-gradient);
 }

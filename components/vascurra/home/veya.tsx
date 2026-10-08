@@ -9,20 +9,26 @@ export function Veya() {
     <section id="veya" aria-labelledby="veya-heading" className={styles.section}>
       <div className={styles.shell}>
         <div className={styles.intro}>
-          <div className={styles.heroCopy}>
+          <div>
             <p className={styles.eyebrow}>{veyaHomepage.eyebrow}</p>
             <h2 id="veya-heading" className={styles.heading}>
               <span>{veyaHomepage.headline[0]}</span>
               <span className={styles.gradient}>{veyaHomepage.headline[1]}</span>
             </h2>
-            <p>{veyaHomepage.introduction}</p>
-            <div className={styles.heroActions}>
-              <Link href={veyaHomepage.cta.href}>{veyaHomepage.cta.label}<span aria-hidden="true"> →</span></Link>
-              <a href="#veya-context">See how it works</a>
-            </div>
           </div>
+          <div className={styles.introCopy}>
+            <p className={styles.supporting}>{veyaHomepage.supporting.map((line) => <span key={line}>{line}</span>)}</p>
+          </div>
+        </div>
+
+        <div className={styles.dayChapter}>
+          <header className={styles.chapterHeading}>
+            <div><p className={styles.eyebrow}>Everyday rhythm</p><h3>{veyaHomepage.rhythmLabel}.</h3></div>
+            <p>Morning. During the day. Preparation. Evening. Over time.<br/><span>{veyaHomepage.rhythmNote}</span></p>
+          </header>
           <figure className={styles.artwork} data-v5-artwork={v5Artwork.veyaDay.filename}>
-            <Image src={v5ArtworkSrc(v5Artwork.veyaDay)} alt={v5Artwork.veyaDay.alt} width={v5Artwork.veyaDay.width} height={v5Artwork.veyaDay.height} sizes="(max-width: 768px) 100vw, 92vw" quality={90}/>
+            <Image src={v5ArtworkSrc(v5Artwork.veyaDay)} alt={v5Artwork.veyaDay.alt} width={v5Artwork.veyaDay.width} height={v5Artwork.veyaDay.height} sizes="(min-width: 1672px) 1672px, 100vw" unoptimized/>
+            <figcaption className={styles.artworkCaption}><span>A day with Veya · proposed experience</span><a href={v5ArtworkSrc(v5Artwork.veyaDay)} target="_blank" rel="noreferrer">View full resolution <span aria-hidden="true">↗</span></a></figcaption>
           </figure>
         </div>
 
@@ -34,22 +40,24 @@ export function Veya() {
         <div className={styles.context} id="veya-context">
           <header className={styles.contextCopy}>
             <p className={styles.eyebrow}>Context over time</p>
-            <h3>{veyaHomepage.contextLead}</h3>
+            <h3>A conversation today<br/>should not disappear<br/><span className={styles.gradient}>tomorrow.</span></h3>
+            <p>{veyaHomepage.contextBody}</p>
           </header>
           <figure className={styles.contextArtwork} data-v5-artwork={v5Artwork.veyaContext.filename}>
-            <Image src={v5ArtworkSrc(v5Artwork.veyaContext)} alt={v5Artwork.veyaContext.alt} width={v5Artwork.veyaContext.width} height={v5Artwork.veyaContext.height} sizes="(max-width: 768px) 100vw, 76vw" quality={90}/>
+            <Image src={v5ArtworkSrc(v5Artwork.veyaContext)} alt={v5Artwork.veyaContext.alt} width={v5Artwork.veyaContext.width} height={v5Artwork.veyaContext.height} sizes="(min-width: 1672px) 1672px, 100vw" unoptimized/>
+            <figcaption className={styles.contextCaption}><span>Context over time · proposed experience</span><a href={v5ArtworkSrc(v5Artwork.veyaContext)} target="_blank" rel="noreferrer">View full resolution <span aria-hidden="true">↗</span></a></figcaption>
           </figure>
-          <p className={styles.contextLine}>{veyaHomepage.contextBody}</p>
+          <p className={styles.mobileContextSummary}>Chosen context could support clearer understanding for the person, selected family support, clinician review and separately governed research.</p>
         </div>
 
         <div className={styles.outputs} aria-label="Potential Veya perspectives">
-          <p>{veyaHomepage.outputs.map((output, index) => <span key={output.label}>{output.label.replace(/^For /i, "")}{index < veyaHomepage.outputs.length - 1 ? <i aria-hidden="true">·</i> : null}</span>)}</p>
+          <p>{veyaHomepage.outputs.map((output, index) => <span key={output.label}>{output.label.replace(/^For /i, "").split(" — ")[0]}{index < veyaHomepage.outputs.length - 1 ? <i aria-hidden="true">·</i> : null}</span>)}</p>
           <div><strong>{veyaHomepage.outputsSummary}</strong>{veyaHomepage.outputsBoundaries.map((boundary) => <span key={boundary}>{boundary}</span>)}</div>
         </div>
 
         <div className={styles.close}>
           <p>{veyaHomepage.boundary}</p>
-          <Link href="/support">Support Vascurra<span aria-hidden="true"> →</span></Link>
+          <Link href={veyaHomepage.cta.href}>{veyaHomepage.cta.label}<span aria-hidden="true"> →</span></Link>
         </div>
       </div>
     </section>
