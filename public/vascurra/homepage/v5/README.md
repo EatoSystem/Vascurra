@@ -4,8 +4,8 @@ The original founder-approved PNG files are stored unchanged in `Vascurra_Visual
 
 | No. | Filename | Conceptual role | Route | Section | Background | Accessibility treatment | Image text |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 01 | `01_veya_a_day_with_veya.png` | Optional daily rhythm from morning through evening | `/preview` | Veya — A day with Veya | Transparent | Concise alt plus adjacent HTML rhythm description | Decorative only |
-| 02 | `02_veya_context_over_time.png` | Chosen context becoming more useful over time | `/preview` | Veya — Context over time | Transparent | Concise alt plus adjacent conceptual and permission-led HTML | Decorative only |
+| 01 | `wellness_journey_infographic_wave.png` | Optional daily rhythm from morning through evening | `/preview` | Veya — A day with Veya | White | Concise alt plus adjacent HTML rhythm description | Decorative only |
+| 02 | `veya_connected_health_data_ecosystem.png` | Chosen context becoming more useful over time | `/preview` | Veya — Context over time | White | Concise alt plus adjacent conceptual and permission-led HTML | Decorative only |
 | 03 | `03_capital_one_stream_becomes_a_network.png` | One focused beginning widening into connected capacity | `/preview` | Capital Flywheel | Transparent | Concise alt plus four real-text capital milestones | Decorative only |
 | 04 | `04_capital_four_horizons.png` | Four increasing mission-capacity horizons | `/fund` | Capital horizons overview | Transparent | Concise alt plus real amounts, statuses and horizon labels | Decorative only |
 | 05 | `05_fund_hero_capital_compute_research_expertise_to_capacity.png` | Resources converging into mission capacity | `/fund` | Hero | Transparent | Concise alt plus adjacent real-text inputs, purpose and qualifier | Decorative only |

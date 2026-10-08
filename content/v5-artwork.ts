@@ -2,13 +2,13 @@ export const V5_ARTWORK_BASE = "/vascurra/homepage/v5/Vascurra_Visual_Concepts_S
 
 export const v5Artwork = {
   veyaDay: {
-    number: "01", filename: "01_veya_a_day_with_veya.png", route: "/preview", section: "Veya — A day with Veya",
-    width: 1672, height: 941, bytes: 1166643, background: "transparent",
+    number: "01", filename: "wellness_journey_infographic_wave.png", route: "/preview", section: "Veya — A day with Veya",
+    width: 1672, height: 941, bytes: 1403864, background: "white",
     alt: "A flowing daily rhythm moves from morning through questions, preparation and evening reflection.",
   },
   veyaContext: {
-    number: "02", filename: "02_veya_context_over_time.png", route: "/preview", section: "Veya — Context over time",
-    width: 1672, height: 941, bytes: 1487444, background: "transparent",
+    number: "02", filename: "veya_connected_health_data_ecosystem.png", route: "/preview", section: "Veya — Context over time",
+    width: 1672, height: 941, bytes: 1668931, background: "white",
     alt: "Chosen conversations and source-aware context flow through Veya toward clearer understanding over time.",
   },
   capitalNetwork: {
