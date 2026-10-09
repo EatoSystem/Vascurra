@@ -1,9 +1,11 @@
+import { getCapitalHorizon } from "./brain-cells";
+import { homepageResearchCapabilities, researchMission } from "./research-engine";
 /**
- * Every public sentence on the Vascurra homepage lives in this file.
+ * Homepage copy lives in typed content; shared research labels are imported above.
  *
  * This is deliberate: the claims guardrail in `AGENTS.md` §3 and
  * `docs/clinical/intended-purpose-and-claims.md` can then be reviewed by
- * reading one file, and enforced automatically by `content/home.test.ts`.
+ * reading this file and its imported content, and enforced by `content/home.test.ts`.
  *
  * Rules for editing:
  *   - no diagnostic, predictive, preventive or outcome claims;
@@ -23,6 +25,9 @@ export const hero = {
   primaryCta: "Request Access",
   secondaryCta: "Discover Vascurra",
 } as const;
+
+// Separate from the production holding hero.
+export const homepageIntroduction = "Vascurra is a vascular cognitive health project in development. Veya is being designed to support the person; Vascurra Research turns questions into evidence and learning; VeyAI helps Vascurra research and operate; Brain Cells help build mission capability.";
 
 export const humanContext = {
   heading: "Living better with vascular cognitive change.",
@@ -367,12 +372,15 @@ export const capitalFlywheel = {
   statement: ["One stream", "becomes a network."],
   status: "Planning horizons",
   qualifier: "Illustrative capital mobilisation horizons for the long-term mission — not announced equity rounds, valuations or funding commitments.",
+  capabilityStatus: "Proposed research capability",
   horizons: [
-    { stage: "Capital horizon 01", amount: "€1–5M", title: "Foundation", summary: "Patient 0 · Veya · Core System", detail: ["Patient 0", "Veya", "Core Information System", "Research foundations"] },
-    { stage: "Capital horizon 02", amount: "€10–25M", title: "Research engine", summary: "Lab · AI · Compute · Cohorts", detail: ["Vascurra Lab", "AI", "Compute", "Cohorts", "Family", "Clinician"] },
-    { stage: "Capital horizon 03", amount: "€50–100M+", title: "International network", summary: "Research · Clinical · Infrastructure", detail: ["International Research", "Clinical Collaboration", "Infrastructure", "Multi-country Development"] },
-    { stage: "Long-term mission", amount: "€1B+", title: "Permanent global capacity", summary: "Research · Products · Knowledge", detail: ["Global Research", "Products", "AI + Compute", "Knowledge Infrastructure"] },
+    { id: "01", stage: "Capital horizon 01", amount: getCapitalHorizon("01").amount, title: "Foundation", summary: "Patient 0 · Veya · Core System", detail: ["Patient 0", "Veya", "Core Information System", "Research foundations"], ...homepageResearchCapabilities["01"] },
+    { id: "02", stage: "Capital horizon 02", amount: getCapitalHorizon("02").amount, title: "Research engine", summary: "Lab · AI · Compute · Cohorts", detail: ["Vascurra Lab", "AI", "Compute", "Cohorts", "Family", "Clinician"], ...homepageResearchCapabilities["02"] },
+    { id: "03", stage: "Capital horizon 03", amount: getCapitalHorizon("03").amount, title: "International network", summary: "Research · Clinical · Infrastructure", detail: ["International Research", "Clinical Collaboration", "Infrastructure", "Multi-country Development"], ...homepageResearchCapabilities["03"] },
+    { id: "04", stage: "Long-term mission", amount: getCapitalHorizon("04").amount, title: "Permanent global capacity", summary: "Research · Products · Knowledge", detail: ["Global Research", "Products", "AI + Compute", "Knowledge Infrastructure"], ...homepageResearchCapabilities["04"] },
   ],
+  missionCapabilityLine: researchMission.homepageCapabilityLine,
+  missionBoundary: researchMission.boundary,
   story: ["One person", "One system", "Research engine", "International network", "Permanent global capacity"],
   ctas: [{ label: "Explore Vascurra Fund", href: "/fund" }, { label: "Support Vascurra", href: "/support" }],
 } as const;

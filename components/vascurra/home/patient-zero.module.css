@@ -17,7 +17,10 @@
 .copy { position: relative; z-index: 1; min-width: 0; }
 .eyebrow, .quote figcaption { font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: .26em; }
 .copy h2 { margin-top: 1.4rem; font-size: var(--display); line-height: 1.1; letter-spacing: -.045em; font-weight: 600; }
-.copy h2 span { display: block; padding-bottom: .08em; background: linear-gradient(90deg, #0aa3bc, #2ecfc4 48%, #49c768); background-clip: text; color: transparent; }
+.copy h2 span { display: block; padding-bottom: .08em; color: var(--color-ink-teal); }
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .copy h2 span { background: var(--vascurra-brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+}
 .intro { margin-top: 2rem; color: var(--muted); max-width: 32rem; }
 .intro p + p { margin-top: 1.2rem; }
 .quote { margin-top: 2rem !important; border-left: 2px solid #0aa3bc; padding: 0 0 0 1.4rem; max-width: 33rem; }
@@ -62,7 +65,7 @@
   .ribbon { height: 7rem; }
 }
 @media (forced-colors: active) {
-  .copy h2 span { background: none; color: CanvasText; }
+  .copy h2 span { background: none; color: CanvasText; -webkit-text-fill-color: CanvasText; }
   .node, .quote { border-color: CanvasText; }
   .ribbon { display: none; }
 }

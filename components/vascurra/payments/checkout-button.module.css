@@ -1,0 +1,10 @@
+.panel { max-width: 36rem; border: 1px solid #cde4e4; border-radius: 1.5rem; padding: clamp(1.5rem, 4vw, 2.25rem); background: #f6fbfa; }
+.eyebrow { color: #087486; font-size: .75rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+.heading { margin-top: .7rem; color: #062b4b; font-size: clamp(1.65rem, 3vw, 2.35rem); font-weight: 650; letter-spacing: -.035em; line-height: 1.08; }
+.description { margin-top: 1rem; color: #466a7d; font-size: 1rem; line-height: 1.65; }
+.button { display: inline-flex; min-height: 3.25rem; align-items: center; justify-content: center; margin-top: 1.5rem; border: 0; border-radius: 999px; padding: .8rem 1.4rem; background: #083d4a; color: #fff; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 16px 32px -22px rgba(8,61,74,.8); transition: background-color .2s ease, transform .2s ease; }
+.button:hover { background: #0b5661; transform: translateY(-1px); }
+.button:focus-visible { outline: 3px solid #2ecfc4; outline-offset: 3px; }
+@media (max-width: 30rem) { .button { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .button { transition: none; } .button:hover { transform: none; } }
+@media (forced-colors: active) { .panel, .button { border: 1px solid CanvasText; } }

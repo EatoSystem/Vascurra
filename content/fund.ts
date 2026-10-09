@@ -1,12 +1,13 @@
+import { getCapitalHorizon, type BrainCellHorizon, type CapitalHorizonId } from "./brain-cells";
 export type FundResource = {
   readonly name: string;
   readonly body: string;
 };
 
 export type CapitalHorizon = {
-  readonly id: "01" | "02" | "03" | "04";
+  readonly id: CapitalHorizonId;
   readonly eyebrow: string;
-  readonly amount: "€1–5M" | "€10–25M" | "€50–100M+" | "€1B+";
+  readonly amount: BrainCellHorizon["amount"];
   readonly title: string;
   readonly subline: string;
   readonly headline?: string;
@@ -62,7 +63,7 @@ export const fundPage = {
   horizonsQualifier: "The amounts below are illustrative strategic capital and resource horizons for potential mission capacity. They are not current funding, announced equity rounds, valuations, fundraising commitments or guarantees.",
   horizons: [
     {
-      id: "01", eyebrow: "Capital horizon 01", amount: "€1–5M", title: "Build the foundation", subline: "Patient 0 · Veya · Core System · Research Infrastructure",
+      id: "01", eyebrow: "Capital horizon 01", amount: getCapitalHorizon("01").amount, title: "Build the foundation", subline: "Patient 0 · Veya · Core System · Research Infrastructure",
       body: "The first capital horizon would establish the foundations required to build Vascurra properly around Dad and the Patient 0 co-design programme.",
       uses: ["Veya and the everyday interaction layer", "Information-system and longitudinal-context foundations", "Provenance, permissions and uncertainty handling", "Governance and research infrastructure", "Advanced AI access and initial compute capacity", "Engineering and product design", "Privacy, security, regulatory and safety strategy", "Clinical, scientific and technical advisers", "The first multidisciplinary expert network", "Structured Patient 0 co-design"],
       themes: [
@@ -73,7 +74,7 @@ export const fundPage = {
       statement: "The goal is not scale. It is to build something useful, safe, research-capable and technically serious from the beginning.", status: "Planning horizon",
     },
     {
-      id: "02", eyebrow: "Capital horizon 02", amount: "€10–25M", title: "Build the research engine", subline: "Vascurra Lab · AI · Compute · Cohorts · Family · Clinical",
+      id: "02", eyebrow: "Capital horizon 02", amount: getCapitalHorizon("02").amount, title: "Build the research engine", subline: "Vascurra Lab · AI · Compute · Cohorts · Family · Clinical",
       body: "The second capital horizon would begin turning Vascurra Lab into a substantial AI-native research and development capability.",
       uses: ["Dedicated Vascurra Lab infrastructure", "Larger AI and compute capacity", "Multi-model research systems", "Systematic evidence review and question pipelines", "Expert review networks", "Deeper information and data architecture", "Appropriately governed co-design cohorts", "Evaluation and validation programmes", "Family and Clinician product development", "Research engineering and collaboration", "Stronger security, governance and research operations"],
       themes: [
@@ -84,7 +85,7 @@ export const fundPage = {
       statement: "Move from one deeply understood human starting point toward a governed learning system capable of investigating questions across broader populations.", status: "Planning horizon",
     },
     {
-      id: "03", eyebrow: "Capital horizon 03", amount: "€50–100M+", title: "Build the international network", subline: "International Research · Infrastructure · Clinical Collaboration · Multi-country Development",
+      id: "03", eyebrow: "Capital horizon 03", amount: getCapitalHorizon("03").amount, title: "Build the international network", subline: "International Research · Infrastructure · Clinical Collaboration · Multi-country Development",
       body: "At this level, Vascurra could begin developing as international infrastructure rather than simply a single product.",
       uses: ["International vascular-dementia research network", "Major AI and compute infrastructure", "Larger research programmes", "Multi-country development and governed evaluation", "Secure research environments", "Substantial longitudinal information infrastructure", "Lawful, consented and responsibly governed datasets", "Hospital, university and research-institute collaboration", "Clinical-system integration where appropriate", "International localisation, governance and regulatory work", "Open tools and methods"],
       themes: [
@@ -95,7 +96,7 @@ export const fundPage = {
       statement: "Connect people, information, researchers, clinicians, AI systems and evidence across countries.", status: "Planning horizon",
     },
     {
-      id: "04", eyebrow: "The long-term mission", amount: "€1B+", title: "Permanent global capacity", headline: "Build permanent infrastructure to fight vascular dementia.", subline: "A global mission — not a single funding round.",
+      id: "04", eyebrow: "The long-term mission", amount: getCapitalHorizon("04").amount, title: "Permanent global capacity", headline: "Build permanent infrastructure to fight vascular dementia.", subline: "A global mission — not a single funding round.",
       body: "The long-term ambition is to mobilise more than €1B of cumulative mission capacity over time across capital, compute, research funding, expertise, infrastructure and commercial reinvestment.",
       uses: ["Global Vascurra products", "World-class AI research infrastructure", "Major dedicated compute", "International clinical and research networks", "Long-term studies", "Appropriately governed datasets", "Open scientific infrastructure", "Independent research programmes and fellowships", "Expert, university and hospital collaboration", "Continuous product development", "International deployment", "Permanent capacity to investigate difficult vascular-dementia questions"],
       statement: "The ambition is not €1B for its own sake. It is €1B+ of cumulative capacity to fight vascular dementia.", status: "Long-term mission", featured: true,

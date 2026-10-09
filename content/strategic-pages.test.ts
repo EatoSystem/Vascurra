@@ -46,7 +46,7 @@ describe("Wave 2A strategic pages", () => {
   });
 
   it("exposes Roadmap while keeping Fund discoverable through Support", () => {
-    expect(primaryNav.some((item) => item.label === "The System" && "href" in item && item.href === "/system")).toBe(true);
+    expect(primaryNav.some((item) => item.label === "The System" && "children" in item && item.children.some((child) => child.href === "/system"))).toBe(true);
     expect(primaryNav.some((item) => item.label === "Roadmap" && "href" in item && item.href === "/roadmap")).toBe(true);
     expect(JSON.stringify(strategicPages.fund.closing.ctas)).toContain("/support");
   });

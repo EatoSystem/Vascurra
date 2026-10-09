@@ -1,10 +1,10 @@
 "use client";
 
-import { useActionState, useEffect, useId, useRef, useState } from "react";
+import { useActionState, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { unlockHolding, type HoldingUnlockState } from "@/app/holding/actions";
 import { holding } from "@/content/holding";
 
-export function HoldingUnlockForm() {
+export function HoldingUnlockForm({ children }: { children?: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [state, action, pending] = useActionState<HoldingUnlockState, FormData>(
     unlockHolding,
@@ -22,7 +22,9 @@ export function HoldingUnlockForm() {
 
   return (
     <footer className="border-t border-hairline/60 bg-white">
-      <div className="mx-auto flex max-w-[80rem] flex-col items-end gap-4 px-5 py-5 sm:px-8 lg:px-12">
+      <div className="mx-auto grid max-w-[86rem] gap-10 px-5 py-12 sm:px-8 sm:py-14 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,22rem)] lg:gap-16 lg:px-12 lg:py-16">
+        {children ? <div className="min-w-0">{children}</div> : null}
+        <div className="flex w-full flex-col gap-4 rounded-[1.5rem] border border-hairline bg-surface/70 p-5 sm:p-6">
         {showForm ? (
           <form
             action={action}
@@ -30,10 +32,11 @@ export function HoldingUnlockForm() {
             aria-labelledby={headingId}
             aria-describedby={state && !state.ok ? "holding-unlock-error" : undefined}
           >
-            <h2 id={headingId} className="sr-only">
+            <h2 id={headingId} className="text-lg font-semibold text-navy">
               {holding.title}
             </h2>
-            <label htmlFor="holding-password" className="block text-sm font-semibold text-navy">
+            <p className="mt-1 text-sm leading-6 text-ink-muted">{holding.accessDescription}</p>
+            <label htmlFor="holding-password" className="mt-5 block text-sm font-semibold text-navy">
               {holding.passwordLabel}
             </label>
             <input
@@ -62,15 +65,22 @@ export function HoldingUnlockForm() {
             </button>
           </form>
         ) : (
-          <button
-            type="button"
-            className="inline-flex min-h-11 items-center text-sm font-medium text-ink-teal underline-offset-4 hover:underline"
-            aria-expanded={false}
-            onClick={() => setOpen(true)}
-          >
-            {holding.login}
-          </button>
+          <>
+            <div>
+              <p className="text-lg font-semibold text-navy">{holding.title}</p>
+              <p className="mt-1 text-sm leading-6 text-ink-muted">{holding.accessDescription}</p>
+            </div>
+            <button
+              type="button"
+              className="inline-flex min-h-11 w-fit items-center rounded-full border border-hairline-strong bg-white px-5 text-sm font-semibold text-ink-teal transition-colors hover:border-ink-teal hover:bg-white"
+              aria-expanded={false}
+              onClick={() => setOpen(true)}
+            >
+              {holding.login}
+            </button>
+          </>
         )}
+        </div>
       </div>
     </footer>
   );

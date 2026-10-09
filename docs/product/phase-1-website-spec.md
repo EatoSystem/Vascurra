@@ -117,6 +117,7 @@ Collect the minimum information necessary. Avoid collecting health details in Ph
 ## Optional pages
 
 - `/vision` — public project overview.
+- `/research-engine` — gated proposed research capability architecture, connecting existing mission-capacity horizons to future programmes, AI assistance and human scientific responsibility. This is strategic website content, not authorisation for Product Platform research or clinical functionality.
 - `/news` or `/journal` — only if there is a sustainable editorial process.
 
 ## Navigation

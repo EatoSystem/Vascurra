@@ -10,8 +10,8 @@
 .headline { margin: 1.45rem 0 0; color: var(--ink); font-size: var(--personal-primary); font-weight: 600; letter-spacing: -.055em; line-height: 1.01; text-wrap: balance; }
 .headline span { display: block; }
 .centerHeadline { text-align: center; }
-.gradient { color: #087486; }
-@supports (background-clip:text) { .gradient { padding-bottom: .07em; background: var(--gradient); background-clip: text; color: transparent; -webkit-text-fill-color: transparent; } }
+.gradient { color: var(--vascurra-text-color-context, var(--color-ink-teal)); }
+@supports (background-clip:text) { .gradient { padding-bottom: .07em; background: var(--vascurra-text-gradient-context, var(--vascurra-brand-gradient)); background-clip: text; color: transparent; -webkit-text-fill-color: transparent; } }
 .proposition,.lead { margin: 2rem 0 0; color: #123d58; font-size: var(--personal-secondary); font-weight: 620; line-height: 1.45; }
 .body,.nextBody,.closingBody,.preparationLead { margin: 1.35rem 0 0; font-size: var(--personal-tertiary); line-height: 1.75; }
 .safety { max-width: 55rem; margin: 1.5rem 0 0; border-left: 2px solid #2ecfc4; padding-left: 1rem; color: var(--muted); font-size: var(--personal-tertiary); line-height: 1.65; }
@@ -45,7 +45,7 @@
 .supportStages small { margin-top: .5rem; color: var(--muted); font-size: var(--personal-tertiary); }
 .featureGrid { grid-template-columns: minmax(17rem,.8fr) minmax(0,1fr); }
 .distinction { margin-top: 1.75rem; border-block: 1px solid var(--line); padding-block: 1.5rem; color: var(--ink); font-size: var(--personal-tertiary); font-weight: 650; line-height: 1.65; }
-.preparation { background: #073742; color: #dceced; }
+.preparation { --vascurra-text-gradient-context: var(--vascurra-brand-gradient); --vascurra-text-color-context: var(--color-on-deep); background: #073742; color: #dceced; }
 .preparation .eyebrow { color: #82e4dc; }
 .preparation .headline { max-width: 70rem; color: #fff; }
 .preparationLead { max-width: 50rem; color: #c4dcdf; }

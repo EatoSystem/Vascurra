@@ -76,7 +76,7 @@ export const publicPages = {
       ] },
       { eyebrow: "Multiple perspectives", title: "Permission-appropriate views.", body: ["Personal, Family, Clinician and Research perspectives may eventually offer different views into appropriate underlying context. Access would depend on purpose, consent and controls."] },
       { eyebrow: "Over time", title: "A living picture—not a score.", body: ["Not a snapshot. Not a hidden conclusion. A growing body of source-aware context that can support better questions and conversations."] },
-    ], closing: "Experience → Context → Interpretation → Support → Learning", ctas: [{ label: "Meet Veya", href: "/veya" }, { label: "Explore Vascurra Intelligence", href: "/intelligence" }],
+    ], closing: "Experience → Context → Interpretation → Support → Learning", ctas: [{ label: "Meet Veya", href: "/veya" }, { label: "Explore VeyAI", href: "/VeyAI" }],
   },
   veya: {
     slug: "veya", eyebrow: "Veya", title: ["Your everyday", "intelligence companion."], accent: "intelligence companion.",
@@ -86,13 +86,13 @@ export const publicPages = {
       { eyebrow: "A flexible relationship", title: "Available when useful. Quiet when it is not.", body: ["Veya could support a quick question, a chosen reminder, a note or a longer conversation without requiring constant reporting."], items: [
         { title: "Conversation", body: "Ask in everyday language and keep source and uncertainty visible." }, { title: "Continuity", body: "Keep chosen context connected across days and conversations." }, { title: "Control", body: "The person chooses what is remembered, shared, paused or deleted." },
       ] },
-      { eyebrow: "A clear distinction", title: "Everyday relationship, governed interpretation and research learning.", body: ["Veya is the human-facing relationship layer. Vascurra Intelligence is the proposed governed interpretation layer. Vascurra Lab is the future research-learning environment."] },
+      { eyebrow: "A clear distinction", title: "For the person. For the mission. For research and learning.", body: ["Veya is the human-facing relationship layer. VeyAI supports Vascurra’s mission through research, evidence and knowledge work. Vascurra Lab is the broader research-learning environment."] },
     ], closing: "There when you need it. Learning with you over time.", ctas: [{ label: "See a day with Veya", href: "/veya#day-with-veya" }],
   },
   intelligence: {
-    slug: "intelligence", eyebrow: "Vascurra Intelligence", title: ["From information", "to understanding."], accent: "to understanding.",
-    lead: "A proposed governed reasoning and interpretation layer beneath Veya.", qualifier: "A future concept—not an autonomous clinical decision-maker or authoritative health record.",
-    artwork: artwork("Vascurra Intelligence", "Governed context", "Show information becoming understandable while retaining source and uncertainty.", "Wide / 16:7", "Landscape / 4:3", "An evolved branching context field derived from the Hero language; no brain reuse or generic neural network.", "intelligence-context-field"),
+    slug: "intelligence", eyebrow: "VeyAI", title: ["For the mission.", "Humans decide."], accent: "Humans decide.",
+    lead: "Proposed AI-supported research, evidence and system intelligence for Vascurra’s mission.", qualifier: "VeyAI is not an autonomous clinical decision-maker, database or authoritative health record.",
+    artwork: artwork("VeyAI", "Governed context", "Show information becoming understandable while retaining source and uncertainty.", "Wide / 16:7", "Landscape / 4:3", "An evolved branching context field derived from the Hero language; no brain reuse or generic neural network.", "intelligence-context-field"),
     sections: [
       { eyebrow: "Context over time", title: "Bring relevant information together.", body: ["Future work could connect observations, measurements, behaviours, events, clinical context and evidence while keeping different information types distinct."] },
       { eyebrow: "Core principles", title: "Reasoning that can be questioned.", body: [], items: [
@@ -132,7 +132,7 @@ export const publicPages = {
     artwork: artwork("For Clinicians", "Longitudinal context", "Show concise source-linked context prepared for human review.", "Wide / 16:7", "Landscape / 4:3", "A clean longitudinal context field; no generic doctor photography or diagnostic score.", "clinician-longitudinal-context"),
     sections: [{ eyebrow: "Proposed experiences", title: "Relevant history without unnecessary noise.", body: ["Potential future concepts include visit preparation, longitudinal context, source-linked information, questions for review and workflow-light summaries."], items: [
       { title: "Source-linked", body: "Keep reported, measured and verified information distinguishable." }, { title: "Prepared for review", body: "Surface useful questions rather than autonomous conclusions." }, { title: "Human judgement", body: "Clinicians remain responsible for clinical decisions." },
-    ] }], closing: "Support clinical judgement. Never replace it.", ctas: [{ label: "For research", href: "/research" }, { label: "Vascurra Intelligence", href: "/intelligence" }],
+    ] }], closing: "Support clinical judgement. Never replace it.", ctas: [{ label: "For research", href: "/research" }, { label: "VeyAI", href: "/VeyAI" }],
   },
   research: {
     slug: "research", eyebrow: "For Research", title: ["Better questions begin", "with better context."], accent: "with better context.",
@@ -158,7 +158,7 @@ export const publicPages = {
   },
   support: {
     slug: "support", eyebrow: "Support Vascurra", title: ["Help fund", "the next question."], accent: "the next question.",
-    lead: "Vascurra is looking for mission-aligned people and organisations interested in careful development, research capacity and future collaboration.", qualifier: "No payments are accepted on this website. Support is not represented as a tax-deductible donation or investment.",
+    lead: "Vascurra is looking for mission-aligned people and organisations interested in careful development, research capacity and future collaboration.", qualifier: "Support is not represented as a tax-deductible donation or investment. Availability and terms are shown before any payment is accepted.",
     artwork: artwork("Support Vascurra", "Capacity for questions", "Show support flowing into questions, research capacity and knowledge.", "Wide / 16:7", "Landscape / 4:3", "Restrained streams feeding an open field of questions; no hands-and-plant cliché.", "support-research-capacity"),
     sections: [{ eyebrow: "Ways to take part", title: "Support careful progress.", body: [], items: [
       { title: "Support the project", body: "For individuals who want to help development." }, { title: "Fund AI research", body: "Support defined research, compute and investigation capacity." }, { title: "Philanthropy", body: "Explore mission-aligned larger-scale support." }, { title: "Clinical and research partnerships", body: "Discuss future design partnerships, pilots or collaborative work." }, { title: "Grants and programmes", body: "Explore institutional and non-dilutive support." },
@@ -225,19 +225,23 @@ export type NavigationItem = {
 
 export const primaryNav = [
   { label: "Why Vascurra", href: "/why-vascurra" },
-  { label: "The System", href: "/system" },
-  { label: "Veya", href: "/veya" },
+  { label: "The System", children: [{ label: "System overview", href: "/system" }, { label: "Veya — for the person", href: "/veya" }, { label: "VeyAI — for the mission", href: "/VeyAI" }] },
   { label: "For You", children: [{ label: "Personal", href: "/personal" }, { label: "Family", href: "/families" }, { label: "Clinicians", href: "/clinicians" }] },
-  { label: "Research", children: [{ label: "Vascurra Lab", href: "/lab" }, { label: "Research", href: "/research" }, { label: "Responsible", href: "/responsible" }] },
+  { label: "Research", children: [{ label: "Research Engine", href: "/research-engine" }, { label: "Vascurra Lab", href: "/lab" }, { label: "Research", href: "/research" }, { label: "Responsible", href: "/responsible" }] },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "Support", href: "/support" },
 ] as const satisfies readonly NavigationItem[];
 
 export const footerGroups = [
-  { title: "Explore", links: [{ label: "Why Vascurra", href: "/why-vascurra" }, { label: "Patient 0", href: "/patient-0" }, { label: "The System", href: "/system" }, { label: "Veya", href: "/veya" }, { label: "Vascurra Lab", href: "/lab" }, { label: "Roadmap", href: "/roadmap" }] },
+  { title: "Explore", links: [{ label: "Why Vascurra", href: "/why-vascurra" }, { label: "The System", href: "/system" }, { label: "Veya", href: "/veya" }, { label: "VeyAI", href: "/VeyAI" }, { label: "Vascurra Lab", href: "/lab" }, { label: "Research Engine", href: "/research-engine" }] },
   { title: "For You", links: [{ label: "Personal", href: "/personal" }, { label: "Families", href: "/families" }, { label: "Clinicians", href: "/clinicians" }, { label: "Research", href: "/research" }] },
-  { title: "Project", links: [{ label: "About", href: "/about" }, { label: "Vascurra Fund", href: "/fund" }, { label: "Support", href: "/support" }, { label: "Request Access", href: "/access" }, { label: "Contact", href: "/contact" }] },
-  { title: "Trust", links: [{ label: "Responsible by Design", href: "/responsible" }, { label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }, { label: "Accessibility", href: "/accessibility" }, { label: "Disclaimer", href: "/disclaimer" }] },
+  { title: "Project", links: [{ label: "Roadmap", href: "/roadmap" }, { label: "Responsible by Design", href: "/responsible" }, { label: "About", href: "/about" }, { label: "Support", href: "/support" }, { label: "Request Access", href: "/access" }, { label: "Contact", href: "/contact" }] },
+] as const;
+
+export const footerUtilityLinks = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Accessibility", href: "/accessibility" },
+  { label: "Disclaimer", href: "/disclaimer" },
 ] as const;
 
 export const publicDisclaimer = "Vascurra is currently a project in development and does not provide medical advice, diagnosis or treatment.";

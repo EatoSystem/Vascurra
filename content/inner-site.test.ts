@@ -22,7 +22,7 @@ describe("Phase 2 inner-site stories", () => {
   });
 
   it("keeps next chapters on real internal routes", () => {
-    const valid = new Set(["/personal", "/privacy", ...Object.keys(publicPages).map((slug) => `/${slug}`), ...Object.keys(strategicPages).map((slug) => `/${slug}`)]);
+    const valid = new Set(["/personal", "/privacy", "/VeyAI", ...Object.keys(publicPages).map((slug) => `/${slug}`), ...Object.keys(strategicPages).map((slug) => `/${slug}`)]);
     for (const page of Object.values(innerSitePages) as readonly InnerStoryPage[]) {
       expect(valid.has(page.next.href), `${page.slug} → ${page.next.href}`).toBe(true);
       for (const cta of page.closing.ctas) expect(valid.has(cta.href), `${page.slug} → ${cta.href}`).toBe(true);
@@ -47,8 +47,8 @@ describe("Phase 2 inner-site stories", () => {
 
   it("keeps the three platform layers distinct", () => {
     const intelligence = JSON.stringify(innerSitePages.intelligence);
-    expect(intelligence).toContain("Veya is the conversation layer");
-    expect(intelligence).toContain("Vascurra Intelligence is the governed interpretation layer");
-    expect(intelligence).toContain("Vascurra Lab is the future research-learning layer");
+    expect(intelligence).toContain("Veya is for the person");
+    expect(intelligence).toContain("VeyAI is for the mission");
+    expect(intelligence).toContain("Vascurra Lab is the broader research-learning layer");
   });
 });

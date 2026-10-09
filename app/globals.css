@@ -7,30 +7,20 @@
      docs/brand/high-resolution-web-asset-pack-specification.md §12, §13
      docs/brand/brand-guidelines.md
 
-   THE PALETTE IS SPLIT BY ROLE.
+   Body copy and essential controls use high-contrast solid ink. Existing
+   artwork uses the energy tier without any source-asset recolouring.
 
-   Spec §12 recommends the display gradient mint -> teal -> cyan -> deep blue.
-   Measured as *text* against the soft-white canvas, two of those four stops
-   fail even the 3:1 large-text floor (cyan 1.64:1, mint 1.97:1). §12 states the
-   tokens are "production starting points and may be tuned", §17 requires
-   accessibility, and brand-guidelines.md says never sacrifice readability for
-   glow. So:
-
-     ENERGY tier  - the spec values, exactly as written. Decorative only:
-                    bloom, glow, ribbons, particles, node fills, brain halo.
-                    No contrast constraint applies to any of it.
-
-     INK tier     - hue-preserving darkenings of the same colours, every one
-                    >= 4.5:1 on the canvas where large display text needs 3:1.
-                    All text, including the display gradient.
-
-   Luminosity comes from the energy tier. Legibility comes from the ink tier.
-   Body copy is always solid navy.
+   Display text follows the founder's original screenshot treatment, restored
+   5 October 2026: exact bright cyan -> aqua -> green from brand-canonical.css,
+   including the hero's separate green continuation. This supersedes the
+   previous automatic darkening of display gradients. Bright text on white
+   has a documented contrast limitation; it is not represented as AA-safe.
+   Unsupported-gradient and forced-colours modes keep solid fallbacks.
    =========================================================================== */
 
 :root {
   /* Semantic Vascurra tokens — use these in new work.
-     Energy colours remain decorative; ink colours are for text. */
+     Ink colours serve body/UI text; display gradients use the canonical brand family. */
   --vascurra-ink: #0b2b4a;
   --vascurra-deep-teal: #083d4a;
   --vascurra-teal: #0e6e7a;
@@ -51,27 +41,13 @@
   --vascurra-grad-deep: #075f70;
   --vascurra-grad-cyan: #00758a;
   --vascurra-grad-green: #23783d;
-  --vascurra-text-gradient: linear-gradient(
-    100deg,
-    var(--vascurra-grad-deep) 0%,
-    var(--vascurra-grad-cyan) 48%,
-    var(--vascurra-grad-green) 100%
-  );
+  --vascurra-text-gradient: var(--vascurra-brand-gradient);
   /* Hero phrase: cyan → aqua → living green, left to right. */
   --vascurra-grad-hero-cyan: #006f86;
   --vascurra-grad-hero-aqua: #08766f;
   --vascurra-grad-hero-green: #23783d;
-  --vascurra-text-gradient-hero: linear-gradient(
-    90deg,
-    var(--vascurra-grad-hero-cyan) 0%,
-    var(--vascurra-grad-hero-aqua) 42%,
-    var(--vascurra-grad-hero-green) 100%
-  );
-  --vascurra-text-gradient-lum: linear-gradient(
-    100deg,
-    var(--vascurra-grad-cyan) 0%,
-    var(--vascurra-grad-green) 100%
-  );
+  --vascurra-text-gradient-hero: var(--vascurra-brand-gradient);
+  --vascurra-text-gradient-lum: var(--vascurra-brand-gradient);
   --vascurra-rule-gradient: linear-gradient(
     90deg,
     var(--vascurra-grad-green) 0%,
@@ -193,7 +169,7 @@
 }
 
 /* ===========================================================================
-   Display gradient — ink tier only
+   Canonical brand display aliases — founder-approved bright colours
    Solid navy is painted first so the text stays legible if background-clip
    fails, in forced-colors mode, or before the gradient resolves.
    =========================================================================== */
@@ -204,13 +180,7 @@
 
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .text-gradient {
-    background-image: linear-gradient(
-      104deg,
-      var(--color-ink-mint) 0%,
-      var(--color-ink-teal) 32%,
-      var(--color-ink-cyan) 60%,
-      var(--color-ink-blue) 100%
-    );
+    background-image: var(--vascurra-brand-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -218,23 +188,15 @@
   }
 }
 
-/* On the navy grounds the spec's own tokens are text-safe (cyan 9.63:1,
-   mint 8.00:1, teal 4.68:1 on #08203a), so the display gradient runs at full
-   saturation there rather than in the darkened ink tier the light sections
-   require. Soft white is painted first as the fallback. */
+/* The exact bright brand family is large-text-safe on dark teal.
+   Soft white is painted first as the fallback. */
 .text-gradient-lum {
   color: var(--color-on-deep);
 }
 
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .text-gradient-lum {
-    background-image: linear-gradient(
-      104deg,
-      var(--color-energy-mint) 0%,
-      var(--color-energy-teal) 30%,
-      var(--color-energy-cyan) 62%,
-      #8fe3ff 100%
-    );
+    background-image: var(--vascurra-brand-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -251,7 +213,7 @@
   }
 }
 
-/* Brand-mark text gradient — deep teal → cyan → living green.
+/* Canonical cyan → aqua → green text gradient.
    Accent only. Solid ink is painted first as the WCAG fallback. */
 .text-mark {
   color: var(--vascurra-grad-deep);
@@ -272,13 +234,13 @@
 
 /* Hero “vascular cognitive health.” — one LTR sweep, not cloned per line. */
 .text-mark-hero {
-  color: var(--vascurra-grad-hero-cyan);
+  color: var(--color-ink-teal);
 }
 
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .text-mark-hero {
     background-image: var(--vascurra-text-gradient-hero);
-    background-color: var(--vascurra-grad-hero-cyan);
+    background-color: var(--color-ink-teal);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -289,17 +251,13 @@
 }
 
 .text-mark-hero-end {
-  color: var(--vascurra-grad-hero-green);
+  color: var(--vascurra-ink);
 }
 
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .text-mark-hero-end {
-    background-image: linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--vascurra-grad-hero-aqua) 35%, var(--vascurra-grad-hero-green)) 0%,
-      var(--vascurra-grad-hero-green) 100%
-    );
-    background-color: var(--vascurra-grad-hero-green);
+    background-image: var(--vascurra-brand-gradient-end);
+    background-color: var(--vascurra-ink);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

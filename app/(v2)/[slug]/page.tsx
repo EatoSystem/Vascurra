@@ -4,6 +4,7 @@ import { PublicPage } from "@/components/vascurra/public/PublicPage";
 import { InnerStoryPage } from "@/components/vascurra/inner/InnerStoryPage";
 import { ParticipationPage } from "@/components/vascurra/inner/ParticipationPage";
 import { StrategicPage } from "@/components/vascurra/strategic/StrategicPage";
+import { CheckoutButton } from "@/components/vascurra/payments/CheckoutButton";
 import { innerSitePages, type InnerStorySlug } from "@/content/inner-site";
 import { publicPages, type PublicPageSlug } from "@/content/vascurra/public-site";
 import { strategicPages, type StrategicPageSlug } from "@/content/strategic-pages";
@@ -49,5 +50,12 @@ export default async function V2PublicPage({ params }: Props) {
   if (story) return <InnerStoryPage page={story} />;
   const formKind = page.slug === "access" ? "access" : page.slug === "contact" ? "contact" : null;
   if (formKind) return <ParticipationPage page={page} kind={formKind} />;
+  const checkoutConfigured = process.env.STRIPE_CHECKOUT_ENABLED === "true"
+    && Boolean(process.env.STRIPE_SECRET_KEY?.trim())
+    && Boolean(process.env.STRIPE_PRICE_ID?.trim())
+    && Boolean(process.env.STRIPE_SITE_URL?.trim());
+  if (page.slug === "support" && checkoutConfigured) {
+    return <PublicPage page={page}><CheckoutButton /></PublicPage>;
+  }
   return <PublicPage page={page} />;
 }

@@ -1,0 +1,165 @@
+.horizons { background: var(--vascurra-surface); color: var(--color-ink-body); }
+.shell { width: min(calc(100% - 2.5rem), 1320px); margin-inline: auto; }
+.sectionIntro { max-width: 70rem; padding-top: clamp(6rem, 10vw, 10rem); }
+.eyebrow, .horizonHeading > p {
+  color: var(--color-ink-teal);
+  font-size: .85rem;
+  font-weight: 650;
+  line-height: 1.5;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.sectionIntro h2 {
+  max-width: 15ch;
+  margin: 1.6rem 0 2rem;
+  color: var(--vascurra-ink);
+  font-size: clamp(3.25rem, 6.8vw, 6.5rem);
+  font-weight: 600;
+  letter-spacing: -.055em;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+.sectionIntro h2 span { display: block; }
+.qualifier { max-width: 55ch; font-size: 1rem; line-height: 1.7; }
+.horizonOverview { margin: clamp(3.5rem, 6vw, 6rem) 0 clamp(4rem, 7vw, 7rem); }
+.sectionArtwork { display: block; width: 100%; height: auto; object-fit: contain; object-position: center; }
+.planningHorizons { padding-bottom: clamp(2rem, 4vw, 4rem); }
+
+.horizon {
+  display: grid;
+  grid-template-columns: minmax(0, .45fr) minmax(0, .55fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+  border-top: 1px solid var(--vascurra-border);
+  padding-block: clamp(3.5rem, 5.5vw, 5.5rem);
+  --amount-size: clamp(3.5rem, 4.7vw, 4.75rem);
+  --cell-size: clamp(1.6rem, 2.3vw, 2rem);
+}
+.horizon01 { width: 78%; }
+.horizon02 {
+  width: 90%;
+  margin-left: auto;
+  grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
+  padding-block: clamp(4.5rem, 7vw, 7rem);
+  --amount-size: clamp(4rem, 5.8vw, 6rem);
+  --cell-size: clamp(1.8rem, 2.75vw, 2.5rem);
+}
+.horizon03 {
+  width: 100%;
+  grid-template-columns: minmax(0, .54fr) minmax(0, .46fr);
+  padding-block: clamp(5.5rem, 9vw, 9rem);
+  --amount-size: clamp(4.5rem, 7.5vw, 8rem);
+  --cell-size: clamp(2rem, 3.3vw, 3rem);
+}
+.horizonHeading, .horizonCopy { min-width: 0; }
+.horizonHeading > p { margin: 0; }
+.horizonHeading > [data-capital-amount] {
+  display: block;
+  margin: 1.5rem 0 0;
+  color: var(--vascurra-ink);
+  font-size: var(--amount-size);
+  font-weight: 610;
+  line-height: 1.05;
+  letter-spacing: -.055em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.horizonHeading > [data-capital-amount] > [aria-hidden="true"] { display: inline; white-space: normal; }
+.cellAmount {
+  display: block;
+  margin: 1.4rem 0 1.6rem;
+  color: var(--color-ink-teal);
+  font-size: var(--cell-size);
+  font-weight: 600;
+  letter-spacing: -.035em;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.cellAmount small {
+  display: block;
+  margin-top: .5rem;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.horizonHeading > span:last-child { display: block; margin-top: 1rem; font-size: .85rem; line-height: 1.5; }
+.horizonCopy h3 {
+  max-width: 17ch;
+  margin: 0 0 1.5rem;
+  color: var(--vascurra-ink);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -.045em;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+.horizon02 .horizonCopy h3 { font-size: clamp(2.1rem, 3.4vw, 3.5rem); }
+.horizon03 .horizonCopy h3 { font-size: clamp(2.25rem, 3.8vw, 4rem); }
+.horizonCopy > p { max-width: 47ch; font-size: 1rem; line-height: 1.7; }
+.horizonSubline { font-weight: 600; }
+.horizonCopy ul { columns: 2 14rem; column-gap: 2rem; list-style: none; padding: 0; margin: 2rem 0; }
+.horizonCopy li { break-inside: avoid; border-top: 1px solid var(--vascurra-border); padding: .75rem 0; font-size: .95rem; line-height: 1.55; }
+.horizonStatement { margin-top: 2rem; font-weight: 600; }
+
+/* Preserve the exact supplied globe image ground. */
+.missionHorizon { padding-block: clamp(7rem, 11vw, 11rem); background: #062b4b; color: var(--color-on-deep); }
+.missionHeadline {
+  max-width: 17ch;
+  margin: 0;
+  color: var(--color-on-deep);
+  font-size: clamp(3.5rem, 7.5vw, 7.5rem);
+  font-weight: 600;
+  line-height: .98;
+  letter-spacing: -.055em;
+  overflow-wrap: anywhere;
+}
+.missionArtwork { display: block; width: 100vw; height: auto; max-width: none; object-fit: contain; object-position: center; margin: clamp(3.5rem, 6vw, 6rem) 0 0 calc(50% - 50vw); }
+.missionHorizon .horizon {
+  grid-template-columns: minmax(0, .54fr) minmax(0, .46fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  padding-top: clamp(5rem, 8vw, 8rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+  border: 0;
+  --amount-size: clamp(8rem, 17vw, 17rem);
+  --cell-size: clamp(3rem, 5.2vw, 5rem);
+}
+.missionHorizon .horizonHeading > [data-capital-amount], .missionHorizon .horizonCopy h3 { color: var(--color-on-deep); }
+.missionHorizon .cellAmount, .missionHorizon .horizonHeading > p { color: var(--color-energy-cyan); }
+.missionHorizon .horizonCopy h3 { font-size: clamp(2.6rem, 4.2vw, 4.5rem); }
+.missionHorizon .horizonCopy > p { max-width: 43ch; }
+.missionHorizon .horizonCopy li { border-color: var(--color-deep-hairline); }
+.missionBoundary { max-width: 65ch; border-top: 1px solid var(--color-deep-hairline); padding-top: 1.6rem; margin: 0; font-size: .95rem; line-height: 1.7; }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .horizon01 { width: 88%; }
+  .horizon02 { width: 94%; }
+  .horizon03 { grid-template-columns: minmax(0, .52fr) minmax(0, .48fr); }
+  .horizonCopy ul { columns: 1; }
+  .missionHorizon .horizon { grid-template-columns: minmax(0, .46fr) minmax(0, .54fr); gap: 2rem; --amount-size: clamp(7rem, 14.5vw, 9rem); }
+}
+
+@media (max-width: 767px) {
+  .shell { width: calc(100% - 2rem); }
+  .sectionIntro { padding-top: clamp(4.5rem, 16vw, 7rem); }
+  .sectionIntro h2 { font-size: clamp(2.75rem, 12vw, 4.5rem); }
+  .horizonOverview { width: 100vw; margin: 3rem 0 3.5rem calc(50% - 50vw); }
+  .horizon, .missionHorizon .horizon { grid-template-columns: minmax(0, 1fr); gap: 2.75rem; }
+  .horizon01, .horizon02, .horizon03 { width: 100%; margin-inline: 0; }
+  .horizon01 { padding-block: 3.5rem; --amount-size: clamp(3.5rem, 15vw, 4.75rem); }
+  .horizon02 { padding-block: 4.5rem; --amount-size: clamp(4rem, 17vw, 5.5rem); }
+  .horizon03 { padding-block: 5.5rem; --amount-size: clamp(4.25rem, 18vw, 6rem); }
+  .horizonCopy h3, .horizon02 .horizonCopy h3, .horizon03 .horizonCopy h3 { max-width: 17ch; font-size: clamp(2rem, 8.5vw, 3rem); }
+  .horizonCopy ul { columns: 1; }
+  .missionHorizon { padding-block: clamp(5.5rem, 18vw, 8rem); }
+  .missionHeadline { font-size: clamp(2.75rem, 12.5vw, 4.75rem); }
+  .missionHorizon .horizon { padding-top: 3.5rem; --amount-size: clamp(6.5rem, 30vw, 10rem); --cell-size: clamp(2.5rem, 9vw, 3.75rem); }
+  .missionHorizon .horizonCopy h3 { font-size: clamp(2.5rem, 10.5vw, 4rem); }
+}
+
+@media (forced-colors: active) {
+  .missionHorizon { background: Canvas; color: CanvasText; }
+  .missionHorizon .cellAmount, .missionHeadline, .missionHorizon .horizonCopy h3, .missionHorizon .horizonHeading > p, .missionHorizon .horizonHeading > [data-capital-amount] { color: CanvasText; }
+  .horizon, .horizonCopy li, .missionBoundary { border-color: CanvasText; }
+}

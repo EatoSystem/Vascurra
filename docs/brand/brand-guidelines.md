@@ -42,7 +42,22 @@ Exact production values should be stored as design tokens once the final website
 
 Display headings may use a restrained multi-stop text gradient inspired by the icon:
 
-`mint → teal → cyan → deep blue`
+Historical direction, superseded by the founder's 5 October 2026 screenshot
+correction: `mint → teal → cyan → deep blue`.
+
+Current canonical display treatment is the original bright cyan → aqua →
+fresh-green gradient: `90deg, #0aa3bc 0%, #2ecfc4 42%, #49c768 100%`.
+The hero's separate “health.” row continues in green:
+`90deg, color-mix(in srgb, #2ecfc4 35%, #49c768) 0%, #49c768 100%`.
+Both are centralised in `app/brand-canonical.css` and shared by the full
+homepage and holding hero. Do not describe the darker ink counterpart as
+visually identical to this approved treatment.
+
+The bright accents do not meet AA text contrast throughout on white. Preserve
+the founder-requested colour appearance and record that limitation; body copy
+and essential controls keep solid high-contrast ink. Unsupported-gradient and
+forced-colours modes retain readable solid fallbacks. This decision is about
+display text, not permission to recolour supplied artwork.
 
 Rules:
 

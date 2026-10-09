@@ -8,7 +8,7 @@
 .headline { margin:1.45rem 0 0; color:var(--ink); font-size:var(--personal-primary); font-weight:600; letter-spacing:-.055em; line-height:1.01; text-wrap:balance; }
 .headline span { display:block; }
 .gradient { color:#087486; }
-@supports (background-clip:text) { .gradient { padding-bottom:.07em; background:var(--gradient); background-clip:text; color:transparent; -webkit-text-fill-color:transparent; } }
+@supports (background-clip:text) { .gradient { padding-bottom:.07em; background:var(--vascurra-brand-gradient); background-clip:text; color:transparent; -webkit-text-fill-color:transparent; } }
 .lead { margin:2rem 0 0; color:#123d58; font-size:var(--personal-secondary); font-weight:620; line-height:1.5; }
 .body { margin:1.35rem 0 0; font-size:var(--personal-tertiary); line-height:1.75; }
 .safety { margin:1.5rem 0 0; border-left:2px solid #2ecfc4; padding-left:1rem; color:var(--muted); font-size:var(--personal-tertiary); line-height:1.65; }

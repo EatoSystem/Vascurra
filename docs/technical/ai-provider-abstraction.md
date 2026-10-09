@@ -4,7 +4,7 @@
 
 Vascurra should benefit from OpenAI capabilities without making the product architecture equivalent to one model vendor.
 
-## Vascurra Intelligence Gateway
+## Vascurra AI Gateway
 
 Future AI calls should pass through a Vascurra-owned abstraction responsible for:
 

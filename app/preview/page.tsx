@@ -9,7 +9,7 @@ import { Origin } from "@/components/vascurra/home/origin";
 import { Mission } from "@/components/vascurra/home/mission";
 import { Framework } from "@/components/vascurra/home/framework";
 import { Veya } from "@/components/vascurra/home/veya";
-import { SupportVascurra } from "@/components/vascurra/home/support-vascurra";
+import { BrainCellMission } from "@/components/vascurra/brain-cells/BrainCellMission";
 import { HomeCapitalFlywheel } from "@/components/vascurra/home/capital-flywheel";
 import { Lab } from "@/components/vascurra/home/lab";
 import { HOLDING_COOKIE, isHoldingUnlocked } from "@/lib/holding-gate";
@@ -38,7 +38,7 @@ export default async function PreviewPage() {
     mission: <Mission key="mission" />,
     framework: <Framework key="framework" />,
     veya: <Veya key="veya" />,
-    support: <SupportVascurra key="support" />,
+    support: <BrainCellMission key="support" />,
     "capital-flywheel": <HomeCapitalFlywheel key="capital-flywheel" />,
     lab: <Lab key="lab" />,
   } satisfies Record<(typeof previewSectionOrder)[number], ReactNode>;
@@ -48,7 +48,7 @@ export default async function PreviewPage() {
       <span id="top" />
       <SiteHeader links={primaryNav} homeHref="/preview" ctaHref="/support" ctaLabel="Support" />
       <main id="main">
-        <HomeHero discoverHref="#origin" primaryCtaHref="/support" primaryCtaLabel="Support" />
+        <HomeHero discoverHref="#origin" discoveryFirst />
         {previewSectionOrder.map((section) => sections[section])}
       </main>
       <VascurraFooter hideAccessLink />

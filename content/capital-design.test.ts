@@ -5,14 +5,28 @@ import { capitalFlywheel, previewSectionOrder } from "./home";
 import { fundPage } from "./fund";
 
 describe("capital visual system", () => {
-  it("defines and reuses the canonical deep-teal to green display gradient", () => {
+  it("reuses the original bright cyan to aqua to green family and hero continuation", () => {
     const tokenCss = readFileSync(resolve(process.cwd(), "app/brand-canonical.css"), "utf8");
     const homeCss = readFileSync(resolve(process.cwd(), "components/vascurra/home/homepage-scaffold.module.css"), "utf8");
     const fundCss = readFileSync(resolve(process.cwd(), "components/vascurra/fund/fund-page.module.css"), "utf8");
-    expect(tokenCss).toContain("--vascurra-display-gradient");
-    expect(tokenCss).toContain("var(--vascurra-grad-hero-green) 100%");
-    expect(homeCss).toContain("var(--vascurra-display-gradient)");
-    expect(fundCss).toContain("var(--vascurra-display-gradient)");
+    const globalCss = readFileSync(resolve(process.cwd(), "app/globals.css"), "utf8");
+    const compactTokens = tokenCss.replace(/\s+/g, "");
+
+    expect(compactTokens).toContain("--vascurra-grad-hero-cyan:#0aa3bc;");
+    expect(compactTokens).toContain("--vascurra-grad-hero-aqua:#2ecfc4;");
+    expect(compactTokens).toContain("--vascurra-grad-hero-green:#49c768;");
+    expect(compactTokens).toContain("--vascurra-brand-gradient:linear-gradient(90deg,var(--vascurra-grad-hero-cyan)0%,var(--vascurra-grad-hero-aqua)42%,var(--vascurra-grad-hero-green)100%);");
+    expect(compactTokens).toContain("--vascurra-brand-gradient-end:linear-gradient(90deg,color-mix(insrgb,var(--vascurra-grad-hero-aqua)35%,var(--vascurra-grad-hero-green))0%,var(--vascurra-grad-hero-green)100%);");
+    expect(compactTokens).toContain("--vascurra-brand-gradient-ink:linear-gradient(90deg,#006f860%,#08766f42%,#23783d100%);");
+    expect(compactTokens).toContain("--vascurra-display-gradient:var(--vascurra-brand-gradient);");
+
+    expect(homeCss).toMatch(/\.gradient\s*\{[^}]*background:\s*var\(--vascurra-brand-gradient\)/);
+    expect(homeCss).toMatch(/\.gradientEnd\s*\{[^}]*background-image:\s*var\(--vascurra-brand-gradient-end\)/);
+    expect(homeCss).toMatch(/\.gradientEnd\s*\{[^}]*background-color:\s*#087486/);
+    expect(homeCss).toMatch(/\.luminousGradient\s*\{[^}]*background:\s*var\(--vascurra-brand-gradient\)/);
+    expect(fundCss).toMatch(/\.accent\s*\{[^}]*background:\s*var\(--vascurra-brand-gradient\)/);
+    expect(globalCss).toMatch(/\.text-gradient\s*\{[^}]*background-image:\s*var\(--vascurra-brand-gradient\)/);
+    expect(globalCss).toMatch(/\.text-mark-hero-end\s*\{[^}]*background-image:\s*var\(--vascurra-brand-gradient-end\)/);
   });
 
   it("retains every approved horizon and its planning boundary", () => {

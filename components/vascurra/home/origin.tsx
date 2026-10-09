@@ -5,7 +5,7 @@ export function Origin() {
     <section
       id="origin"
       aria-labelledby="origin-heading"
-      className="overflow-hidden bg-white px-5 py-[clamp(5.5rem,9vw,8.5rem)] sm:px-8 lg:px-12"
+      className="overflow-hidden bg-white px-5 py-14 sm:px-8 sm:py-[clamp(5.5rem,9vw,8.5rem)] lg:px-12"
     >
       <div className="mx-auto grid max-w-[92rem] items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-8">
         <div className="max-w-[43rem] lg:pl-4">
@@ -19,7 +19,7 @@ export function Origin() {
           >
             <span className="block">A father.</span>
             <span className="block">A doctor.</span>
-            <span className="block pb-[0.08em] bg-[linear-gradient(90deg,#0aa3bc_0%,#2ecfc4_48%,#49c768_100%)] bg-clip-text text-transparent forced-colors:text-[#062b4b]">
+            <span className="block pb-[0.08em] text-gradient">
               A Mission.
             </span>
           </h2>

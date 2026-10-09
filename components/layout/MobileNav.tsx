@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { navLinks, earlyAccessHref } from "@/content/site";
 import { hero } from "@/content/home";
 import type { NavigationItem } from "@/content/vascurra/public-site";
+import styles from "./site-header.module.css";
 
 export function MobileNav({ links = navLinks, ctaHref = earlyAccessHref, ctaLabel = hero.primaryCta }: { links?: readonly NavigationItem[]; ctaHref?: string; ctaLabel?: string }) {
   const [open, setOpen] = useState(false);
@@ -25,18 +26,18 @@ export function MobileNav({ links = navLinks, ctaHref = earlyAccessHref, ctaLabe
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div className={styles.mobileNavigation} data-mobile-navigation>
       <button
         ref={triggerRef}
         type="button"
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-full border border-hairline-strong bg-surface/80 px-4 text-base font-semibold text-navy"
+        className={styles.menuButton}
       >
-        <span aria-hidden="true" className="flex flex-col justify-center gap-[5px]">
-          <span className="block h-0.5 w-5 rounded-full bg-navy" />
-          <span className="block h-0.5 w-5 rounded-full bg-navy" />
+        <span aria-hidden="true" className={`${styles.menuIcon} ${open ? styles.menuIconOpen : ""}`}>
+          <span />
+          <span />
         </span>
         {open ? "Close" : "Menu"}
       </button>
@@ -44,17 +45,18 @@ export function MobileNav({ links = navLinks, ctaHref = earlyAccessHref, ctaLabe
       <div
         id="mobile-menu"
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-hairline bg-surface/95 shadow-[0_18px_40px_-24px_rgba(8,61,74,0.35)] backdrop-blur-md"
+        className={styles.mobilePanel}
       >
-        <nav aria-label="Site" className="px-5 py-4 sm:px-8">
+        <nav aria-label="Site" className={styles.mobilePanelInner}>
+          <p className={styles.mobileEyebrow}>Explore Vascurra</p>
           <ul className="flex flex-col">
-            {links.map((link) => <li key={link.label} className="border-b border-hairline last:border-0">
-              {link.children ? <div className="py-3">
-                <p className="text-sm font-bold tracking-[.12em] text-ink-teal uppercase">{link.label}</p>
-                <ul className="mt-1 grid grid-cols-2 gap-x-4">
-                  {link.children.map((child) => <li key={child.href}><Link href={child.href} onClick={() => setOpen(false)} className="flex min-h-12 items-center text-base font-medium text-navy">{child.label}</Link></li>)}
+            {links.map((link) => <li key={link.label} className={styles.mobileItem}>
+              {link.children ? <div className={styles.mobileGroup}>
+                <p className={styles.mobileGroupLabel}>{link.label}</p>
+                <ul className={styles.mobileSubmenu}>
+                  {link.children.map((child) => <li key={child.href}><Link href={child.href} onClick={() => setOpen(false)} className={styles.mobileSubmenuLink}>{child.label}</Link></li>)}
                 </ul>
-              </div> : <Link href={link.href ?? "/"} onClick={() => setOpen(false)} className="flex min-h-14 items-center text-lg font-medium text-navy">{link.label}</Link>}
+              </div> : <Link href={link.href ?? "/"} onClick={() => setOpen(false)} className={styles.mobileLink}>{link.label}</Link>}
             </li>)}
           </ul>
 

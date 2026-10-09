@@ -1,0 +1,153 @@
+.section {
+  padding: clamp(4.5rem, 8vw, 8rem) 1.25rem;
+  background: var(--vascurra-surface);
+  color: var(--color-ink-body);
+}
+.shell { width: min(100%, var(--vascurra-section)); margin-inline: auto; }
+.shell > *, .intro > *, .mission > *, .layerText { min-width: 0; }
+.section p, .section h2, .section h3, .section figure { margin: 0; }
+.eyebrow { color: var(--color-ink-teal); font-size: .8rem; font-weight: 650; line-height: 1.5; letter-spacing: .2em; text-transform: uppercase; }
+.heading { margin-top: 1.5rem !important; color: var(--vascurra-ink); font-size: clamp(2.5rem, 5vw, 4.75rem); font-weight: 600; letter-spacing: -.05em; line-height: 1.04; overflow-wrap: anywhere; }
+.heading > span { display: block; }
+.systemHeading { font-size: clamp(2.5rem, 4.6vw, 4.25rem); }
+.editorialHeading { font-size: clamp(2.25rem, 3.6vw, 3.25rem); line-height: 1.12; }
+
+.missionSection { padding-top: clamp(5rem, 9vw, 9rem); }
+.mission { display: grid; align-items: center; gap: 3rem; }
+.copy { max-width: 32rem; margin-top: 2.25rem; }
+.copy p { font-size: 1.0625rem; line-height: 1.7; }
+.copy p + p { margin-top: 1rem; }
+.copy .originHeading { margin-bottom: .75rem; color: var(--vascurra-ink); font-size: 1.5rem; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; }
+.statement { max-width: 25ch; margin-top: 2.5rem !important; color: var(--vascurra-ink); font-size: clamp(1.65rem, 2.5vw, 2.25rem); font-weight: 600; line-height: 1.3; letter-spacing: -.025em; }
+.statement > span { display: block; width: fit-content; max-width: 100%; }
+.portrait { width: min(100%, 36rem); justify-self: center; }
+.portrait img, .systemArtwork img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+.mist { background: var(--vascurra-mist); }
+.challengeSection { padding-block: clamp(5.5rem, 9vw, 9rem) clamp(4.5rem, 7vw, 7rem); }
+.projectSection { padding-top: 3rem; }
+.projectSection .shell { border-top: 1px solid var(--vascurra-border); padding-top: clamp(3rem, 5vw, 4.5rem); }
+.challengeLayout { display: grid; gap: clamp(3rem, 6vw, 6rem); }
+.challengeTitle { max-width: 44rem; }
+.challengeHeading { max-width: 11.5ch; font-size: clamp(3.25rem, 6.4vw, 6.5rem); line-height: .98; }
+.challengeNarrative { max-width: 39rem; }
+.challengeMain p { color: var(--vascurra-ink); font-size: clamp(1.35rem, 2vw, 1.75rem); font-weight: 560; line-height: 1.5; letter-spacing: -.02em; }
+.challengeMain p + p { border-top: 1px solid var(--vascurra-border); padding-top: 1.5rem; margin-top: 1.5rem !important; }
+.challengeFragmentation { border-top: 1px solid var(--vascurra-border); padding-top: 2rem; margin-top: 2rem; }
+.challengeFragmentation h3, .challengeResponse h3 { color: var(--vascurra-ink); font-size: clamp(1.25rem, 1.7vw, 1.5rem); font-weight: 650; line-height: 1.4; letter-spacing: -.02em; }
+.challengeFragmentation p { margin-top: .85rem !important; font-size: 1.0625rem; line-height: 1.72; }
+.challengeResponse { border-top: 2px solid var(--color-ink-teal); padding-top: 2rem; margin-top: 2.5rem; }
+.challengeResponse ol { display: grid; gap: .75rem; padding: 0; margin: 1.5rem 0 0; list-style: none; counter-reset: challenge-step; }
+.challengeResponse li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: .75rem; align-items: baseline; color: var(--vascurra-ink); font-size: clamp(1.15rem, 1.6vw, 1.4rem); font-weight: 590; line-height: 1.45; counter-increment: challenge-step; }
+.challengeResponse li::before { content: counter(challenge-step, decimal-leading-zero); color: var(--color-ink-teal); font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
+.challengeClosing { display: grid; gap: .75rem; border-top: 1px solid var(--vascurra-border); padding-top: clamp(2rem, 4vw, 3rem); }
+.challengeClosing p:first-child { max-width: 36ch; color: var(--vascurra-ink); font-size: clamp(1.55rem, 2.5vw, 2.25rem); font-weight: 620; line-height: 1.3; letter-spacing: -.025em; }
+.challengeClosing p:last-child { max-width: 48ch; color: var(--color-ink-teal); font-size: 1.05rem; font-weight: 600; line-height: 1.55; }
+.editorial { display: grid; align-items: start; gap: 2rem; }
+.editorialCopy { max-width: 34rem; padding-top: .25rem; }
+.editorialCopy p { font-size: 1.0625rem; line-height: 1.7; }
+.editorialCopy p + p { margin-top: 1rem; }
+.source { display: inline-flex; align-items: center; min-height: 2.75rem; margin-block: .25rem 1rem; color: var(--color-ink-teal); font-size: .9rem; line-height: 1.5; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.source:focus-visible { outline: 3px solid var(--color-ink-teal); outline-offset: 4px; border-radius: 2px; }
+.intro { display: grid; align-items: end; gap: 2rem; }
+.lead { max-width: 31rem; color: var(--vascurra-ink); font-size: clamp(1.2rem, 1.7vw, 1.5rem); line-height: 1.55; }
+.layers, .perspectives, .principles { display: grid; gap: 2rem; padding: 0; margin: 3rem 0 0; list-style: none; }
+.layers li, .perspectives li, .principles li { min-width: 0; padding-top: 1.5rem; }
+.perspectives li, .principles li { border-top: 1px solid var(--vascurra-border); }
+.layers li { position: relative; }
+.layers::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background-image: var(--vascurra-brand-gradient);
+}
+.layers { position: relative; }
+.layers .number { display: block; margin-bottom: 1.65rem; color: var(--color-ink-teal); font-size: clamp(3.5rem, 6vw, 5.5rem); font-weight: 500; line-height: 1; letter-spacing: -.055em; }
+.layers h3 { color: var(--vascurra-ink); font-size: clamp(1.75rem, 2.7vw, 2.6rem); font-weight: 600; line-height: 1.12; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.layers .role { margin-top: 1rem; color: var(--color-ink-teal); font-size: .85rem; font-weight: 650; line-height: 1.55; letter-spacing: .055em; text-transform: uppercase; overflow-wrap: anywhere; }
+.layerText > p:last-child { max-width: 32ch; margin-top: 1rem; font-size: 1.0625rem; line-height: 1.7; overflow-wrap: anywhere; }
+
+.perspectivesSection { padding-bottom: clamp(4.5rem, 7vw, 7rem); }
+.systemArtwork { width: min(100%, 78rem); margin: clamp(3rem, 5vw, 5rem) auto 0 !important; }
+.perspectives { margin-top: clamp(2.5rem, 4vw, 4rem); }
+.perspectives h3 { color: var(--color-ink-teal); font-size: 1.15rem; font-weight: 650; line-height: 1.4; }
+.perspectives p { max-width: 27ch; margin-top: .8rem; font-size: 1.0625rem; line-height: 1.65; }
+.boundary { max-width: 58rem; border-top: 1px solid var(--vascurra-border); padding-top: 1.5rem; margin-top: 2.75rem !important; font-size: 1rem; line-height: 1.7; }
+
+.researchSection { padding-block: clamp(3.5rem, 6vw, 5.5rem); background: var(--vascurra-mist); }
+.researchBoundary { display: grid; gap: 1rem; border-top: 1px solid var(--vascurra-border); padding-top: 1.75rem; margin-top: 2.5rem; }
+.researchBoundary p { max-width: 45rem; font-size: 1rem; line-height: 1.7; }
+.researchBoundary .distinction { color: var(--vascurra-ink); font-size: 1.3rem; font-weight: 600; line-height: 1.4; letter-spacing: -.02em; }
+
+.deep { padding-top: clamp(6rem, 9.5vw, 9.5rem); padding-bottom: clamp(5rem, 8.5vw, 8.5rem); background: var(--color-deep); color: var(--color-on-deep); }
+.deep .eyebrow { color: var(--color-energy-cyan); }
+.deep .heading, .deep .lead, .deep h3 { color: var(--color-on-deep); }
+.deep .heading { max-width: 74rem; font-size: clamp(3rem, 6vw, 5.1rem); line-height: 1.02; }
+.deep .heading > span { width: fit-content; max-width: 100%; }
+.developmentLead { max-width: 38rem; margin-top: 2.5rem !important; font-size: clamp(1.15rem, 1.6vw, 1.4rem); }
+.principles { gap: 2.5rem; margin-top: clamp(3rem, 5vw, 5rem); }
+.deep .principles li { border-color: var(--color-deep-hairline); padding-top: 1.75rem; }
+.principles h3 { max-width: 15ch; font-size: clamp(1.65rem, 2.45vw, 2.25rem); font-weight: 600; line-height: 1.2; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.deep .principles p { max-width: 28ch; margin-top: 1rem; color: var(--color-on-deep-muted); font-size: 1.0625rem; line-height: 1.7; }
+.developmentClose { display: grid; align-items: center; gap: 2.5rem; border-top: 1px solid var(--color-deep-hairline); padding-top: 3rem; margin-top: clamp(3rem, 5vw, 5rem); }
+.status { display: grid; gap: 2rem; padding: 0; margin: clamp(3rem, 5vw, 4rem) 0 0; }
+.status > div { min-width: 0; }
+.status dt { color: var(--color-on-deep); font-size: 1.4rem; font-weight: 600; line-height: 1.4; }
+.status dt span { display: block; margin-top: .5rem; color: var(--color-energy-cyan); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+.status dd { max-width: 35rem; margin: .75rem 0 0; color: var(--color-on-deep-muted); font-size: 1rem; line-height: 1.7; }
+.developmentClose > a { justify-self: start; max-width: 100%; text-align: center; }
+.disclaimer { max-width: 38rem; color: var(--color-on-deep-muted); font-size: 1rem; line-height: 1.7; }
+.deep a:focus-visible { outline-color: var(--color-energy-cyan); }
+
+@media (min-width: 640px) {
+  .section { padding-inline: 2rem; }
+  .perspectives { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .status { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+}
+@media (min-width: 768px) {
+  .mission { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(2rem, 4vw, 4rem); }
+  .layers, .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 4rem; }
+}
+@media (min-width: 1024px) {
+  .section { padding-inline: 3rem; }
+  .mission { grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); gap: 4rem; }
+  .intro { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 4rem; }
+  .editorial, .researchBoundary { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 4rem; }
+  .challengeLayout { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); align-items: start; }
+  .challengeClosing { grid-column: 1 / -1; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: end; }
+  .editorialCopy { padding-top: 2.75rem; }
+  .layers, .principles { gap: 3rem; }
+  .perspectives { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .developmentClose { grid-template-columns: minmax(0, 1fr) auto; gap: 4rem; }
+}
+@media (min-width: 1280px) {
+  .systemArtwork { position: relative; left: 50%; width: min(88rem, calc(100vw - 2rem)); transform: translateX(-50%); }
+}
+@media (max-width: 767px) {
+  .mission { gap: 2.25rem; }
+  .layers { gap: 2.75rem; }
+  .layers li + li { border-top: 1px solid var(--vascurra-border); }
+  .layers li { display: flex; flex-wrap: wrap; gap: 1.25rem; padding-top: 1.75rem; }
+  .layers .number { flex: 0 0 3.5rem; margin: 0; font-size: 3.5rem; }
+  .layers .layerText { flex: 1 1 14rem; }
+  .layers .role { margin-top: .75rem; font-size: .8rem; }
+  .deep .heading { font-size: clamp(2.75rem, 11.5vw, 4.5rem); }
+  .principles { gap: 2.5rem; }
+  .challengeHeading { font-size: clamp(3rem, 14vw, 4.75rem); }
+}
+@media (max-width: 639px) {
+  .systemArtwork { width: calc(100% + 2.5rem); margin-left: -1.25rem !important; }
+}
+@media (max-width: 360px) {
+  .layers .layerText { flex-basis: 100%; }
+}
+@media (forced-colors: active) {
+  .section { background: Canvas; color: CanvasText; }
+  .layers::before { background: CanvasText; }
+  .deep :is(.eyebrow, .heading, .lead, h3, .principles p, .disclaimer, dt, dt span, dd) { color: CanvasText; }
+  .deep a:focus-visible { outline-color: Highlight; }
+  .challengeResponse { border-color: CanvasText; }
+}

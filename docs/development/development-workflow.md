@@ -47,6 +47,12 @@ Founder / Product Architecture
 
 Do not force-push, delete branches or rewrite shared history without explicit approval.
 
+Local Vercel CLI deployments use `.vercelignore` to exclude review artifacts,
+environment files, workspace metadata, dependencies and generated output from
+source uploads. Do not rely on `.gitignore` for those deployment exclusions.
+This upload boundary does not change the application's preview gate or release
+approval requirements.
+
 ## Documentation discipline
 
 Any decision that changes product scope, claims, architecture, privacy, clinical safety, research governance, regulatory intent or production behavior must update the relevant documentation in the same pull request.

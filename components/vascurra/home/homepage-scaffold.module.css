@@ -16,19 +16,28 @@
 .eyebrow { color: #087486; font-size: var(--tertiary); font-weight: 650; letter-spacing: .26em; text-transform: uppercase; }
 .heading { margin-top: 1.65rem !important; color: #062b4b; font-size: var(--primary); font-weight: 600; line-height: 1.02; letter-spacing: -.05em; }
 .heading > span { display: block; }
-.gradient, .luminousGradient { display: block; color: #087486; }
+.gradient, .gradientEnd, .luminousGradient { display: block; color: #087486; }
+.luminousGradient { color: var(--color-on-deep); }
 
 @supports (background-clip: text) {
   .gradient {
     padding-bottom: .09em;
-    background: var(--vascurra-display-gradient);
+    background: var(--vascurra-brand-gradient);
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
   .luminousGradient {
     padding-bottom: .09em;
-    background: linear-gradient(90deg, #43d6ff 0%, #2ecfc4 48%, #58d39a 100%);
+    background: var(--vascurra-brand-gradient);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradientEnd {
+    padding-bottom: .09em;
+    background-color: #087486;
+    background-image: var(--vascurra-brand-gradient-end);
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
@@ -289,8 +298,10 @@
 .supportSequence span:not(:last-child)::after { margin-left: 1.4rem; color: #70bcb7; content: "→"; }
 .supportActions, .futureActions { display: flex; flex-direction: column; gap: .8rem; margin-top: 2.5rem; }
 
-.labChapter { padding-block: clamp(7rem, 9vw, 9rem); }
-.labHero { display: grid; gap: clamp(2rem, 3vw, 4rem); align-items: center; }
+.labChapter { padding-block: clamp(4rem, 6vw, 6rem); }
+.labHero { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(2rem, 3vw, 4rem); align-items: center; }
+.labHero > *, .trustLayer > *, .futureClose > * { min-width: 0; }
+.labChapter { overflow-wrap: anywhere; }
 .labIntro { position: relative; z-index: 1; max-width: 42rem; }
 .labV4Artwork { width: 118%; min-width: 0; margin-left: -18%; }
 .labBody { max-width: 68rem; margin: clamp(2rem, 4vw, 3.5rem) 0 clamp(3rem, 5vw, 4.5rem) !important; }
@@ -306,15 +317,15 @@
 .researchRole ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1.5rem; padding: 0; margin: 0; list-style: none; }
 .researchRole li { border-top: 1px solid rgba(131,223,227,.25); padding-top: .75rem; color: #e8f7f5; }
 .ambition { max-width: 72rem; margin: clamp(3.5rem, 7vw, 6rem) 0 0 !important; color: #f2fbfa; font-size: var(--secondary); font-weight: 650; line-height: 1.45; }
-.trustLayer { display: grid; gap: 3rem; border-top: 1px solid rgba(131,223,227,.35); padding-top: clamp(3.5rem, 7vw, 6rem); margin-top: clamp(2rem, 4vw, 4rem); }
+.trustLayer { display: grid; gap: 2rem; border-top: 1px solid rgba(131,223,227,.35); padding-top: clamp(2rem, 4vw, 4rem); margin-top: 2rem; }
 .trustLayer h3 { margin-top: 1.35rem !important; color: #f2fbfa; font-size: var(--primary); font-weight: 600; line-height: 1.04; letter-spacing: -.045em; }
 .trustLayer > div:last-child > p { max-width: 44rem; }
 .trustStatement { margin-top: 1.5rem !important; color: #83dfe3; font-size: var(--secondary); font-weight: 650; }
 .trustLayer ul { display: flex; flex-wrap: wrap; gap: .65rem 1.75rem; padding: 1.5rem 0 0; margin: 1.5rem 0 0; border-top: 1px solid rgba(131,223,227,.22); list-style: none; color: #e8f7f5; font-weight: 650; }
-.futureClose { display: grid; gap: clamp(2.5rem, 6vw, 6rem); align-items: end; border-top: 1px solid rgba(131,223,227,.35); padding-top: clamp(5rem, 10vw, 9rem); margin-top: clamp(5rem, 10vw, 9rem); }
+.futureClose { display: grid; gap: clamp(2rem, 4vw, 4rem); align-items: end; border-top: 1px solid rgba(131,223,227,.35); padding-top: clamp(2.5rem, 4vw, 4rem); margin-top: clamp(2.5rem, 4vw, 4rem); }
 .futureClose h3 { margin-top: 1.5rem !important; color: #f2fbfa; font-size: var(--primary); font-weight: 600; line-height: 1.04; letter-spacing: -.045em; }
 .futureClose > div:last-child { max-width: 38rem; color: #e8f7f5; font-size: var(--secondary); font-weight: 650; }
-.futureActions a:last-child { border-color: rgba(232,247,245,.55); color: #f2fbfa; }
+.futureActions a:last-child { border-color: rgba(232,247,245,.55); }
 .finalSupportCta { border: 1px solid #fff !important; background: #fff !important; color: #062b4b !important; }
 .finalSupportCta:hover { border-color: #e7fbfc !important; background: #e7fbfc !important; color: #062b4b !important; }
 .finalSupportCta:focus-visible { outline: 3px solid #83dfe3; outline-offset: 4px; }
@@ -332,6 +343,7 @@
 .v3Icon svg { width: 2rem; height: 2rem; }
 .missionV3, .veyaV3, .supportV3 { padding-block: clamp(6rem, 8vw, 8rem); }
 .systemV3 { padding-block: clamp(5rem, 6vw, 6.5rem); }
+.systemV3 { padding-bottom: clamp(4rem, 5vw, 5.5rem); }
 .missionV3Grid { display: grid; gap: clamp(1.5rem, 2.5vw, 3rem); align-items: start; }
 .missionV3Heading, .systemV3Heading, .veyaV3Heading, .supportV3Heading { margin-top: 1.75rem !important; color: #062b4b; font-size: clamp(3.35rem, 6vw, 5.75rem); font-weight: 600; line-height: .98; letter-spacing: -.055em; }
 .missionV3Heading { font-size: clamp(3.35rem, 5.35vw, 5.25rem); }
@@ -453,7 +465,7 @@
 }
 
 @media (max-width: 639px) {
-  .section { padding-block: clamp(5.25rem, 18vw, 7rem); }
+  .section { padding-block: clamp(3.5rem, 12vw, 5rem); }
   .wide, .landscape { aspect-ratio: 4 / 3; }
   .immersive { min-height: 25rem; }
   .artworkDescription { max-width: 20rem; }
@@ -485,7 +497,7 @@
   .veyaFoundation ul { display: grid; gap: .5rem; }
   .veyaFoundation li:not(:last-child)::after { display: none; }
   .layerIntelligence { justify-self: start; }
-  .trustLayer h3 { font-size: clamp(2.65rem, 13vw, 3.5rem); }
+  .trustLayer h3 { font-size: clamp(2.25rem, 10vw, 3rem); }
   .finalComposition .ctas { align-items: stretch; }
   .missionV3Heading, .systemV3Heading, .supportV3Heading { font-size: clamp(3rem, 15vw, 4rem); }
   .veyaV3Heading { font-size: clamp(2.35rem, 11vw, 3.25rem); }
@@ -522,7 +534,7 @@
 }
 
 @media (forced-colors: active) {
-  .gradient, .luminousGradient { background: none; color: CanvasText; -webkit-text-fill-color: CanvasText; }
+  .gradient, .gradientEnd, .luminousGradient { background: none; color: CanvasText; -webkit-text-fill-color: CanvasText; }
   .artwork::before, .fourAnchors li::before, .principles li::before { background: CanvasText; }
   .artwork::after { background: CanvasText; box-shadow: none; }
 }

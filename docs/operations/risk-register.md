@@ -6,7 +6,7 @@
 | Premature medical-device functionality | Architecture and validation burden changes materially | Early regulatory opinion before clinical build |
 | Family support becomes surveillance | Conflicts with dignity and consent | Explicit permission model; no passive monitoring by default |
 | AI hallucination | Unsafe or misleading health information | Future tool separation, provenance, validation and human oversight |
-| Provider lock-in | Limits resilience/auditability | Vascurra Intelligence Gateway abstraction |
+| Provider lock-in | Limits resilience/auditability | Vascurra AI Gateway abstraction |
 | Health data in public repo | Severe privacy/security issue | AGENTS rule; fictional data only |
 | Over-complex MVP | Slows validation | Phase 1 public site only; clinical functions excluded |
 | Accessibility failures | Directly harms target users | WCAG-conscious design + reduced motion + large readable UI |

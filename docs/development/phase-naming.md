@@ -16,7 +16,7 @@ This hierarchy is the current naming convention. Historical documents may retain
 - **Phase 4 — Veya**
 - **Phase 5 — Family**
 - **Phase 6 — Clinician**
-- **Phase 7 — Vascurra Intelligence**
+- **Phase 7 — VeyAI**
 - **Phase 8 — Vascurra Lab**
 - **Phase 9 — Research infrastructure**
 

@@ -1,20 +1,20 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { V5_ARTWORK_BASE, v5Artwork } from "./v5-artwork";
+import { V5_ARTWORK_BASE, v5Artwork, v5ArtworkSrc } from "./v5-artwork";
 
 const artworks = Object.values(v5Artwork);
 const publicRoot = resolve(process.cwd(), "public");
 const assetRoot = resolve(publicRoot, V5_ARTWORK_BASE.replace(/^\//, ""));
 
 describe("V5 artwork integration", () => {
-  it("manifests all nine approved, unchanged PNG filenames", () => {
+  it("manifests the nine approved homepage and Fund artworks", () => {
     expect(artworks.map((artwork) => artwork.filename)).toEqual([
-      "01_veya_a_day_with_veya.png",
-      "02_veya_context_over_time.png",
+      "wellness_journey_infographic_wave.png",
+      "veya_connected_health_data_ecosystem.png",
       "03_capital_one_stream_becomes_a_network.png",
       "04_capital_four_horizons.png",
-      "05_fund_hero_capital_compute_research_expertise_to_capacity.png",
+      "bd70914a-0dbe-4ae3-b936-9e7133934fed.png",
       "06_fund_mission_capacity_is_bigger_than_cash.png",
       "07_fund_1B_permanent_global_capacity.png",
       "08_fund_the_open_capital_flywheel.png",
@@ -28,10 +28,14 @@ describe("V5 artwork integration", () => {
       const path = resolve(assetRoot, artwork.filename);
       expect(existsSync(path), artwork.filename).toBe(true);
       expect(statSync(path).size).toBe(artwork.bytes);
-      expect(artwork.width).toBe(1672);
-      expect(artwork.height).toBe(941);
+      expect(artwork.width).toBeGreaterThan(0);
+      expect(artwork.height).toBeGreaterThan(0);
     }
     expect(existsSync(resolve(process.cwd(), "public/vascurra/homepage/v5/README.md"))).toBe(true);
+  });
+
+  it("encodes the founder's Context filename without renaming the source asset", () => {
+    expect(v5ArtworkSrc(v5Artwork.veyaContext)).toContain("veya_connected_health_data_ecosystem.png");
   });
 
   it("integrates 01–03 on the homepage and 04–09 on Fund", () => {
@@ -41,7 +45,8 @@ describe("V5 artwork integration", () => {
     const horizons = readFileSync(resolve(process.cwd(), "components/vascurra/fund/CapitalHorizons.tsx"), "utf8");
     expect(veya).toMatch(/v5Artwork\.veyaDay/);
     expect(veya).toMatch(/v5Artwork\.veyaContext/);
-    expect(capital).toMatch(/v5Artwork\.capitalNetwork/);
+    expect(veya).not.toContain("02_veya_context_over_time.png");
+    expect(capital).toMatch(/v5Artwork\.capitalFlywheel/);
     expect(`${fund}\n${horizons}`).toMatch(/v5Artwork\.capitalHorizons/);
     for (const key of ["fundHero", "missionCapacity", "permanentCapacity", "capitalFlywheel", "productsResearch"]) {
       expect(`${fund}\n${horizons}`).toContain(`v5Artwork.${key}`);
